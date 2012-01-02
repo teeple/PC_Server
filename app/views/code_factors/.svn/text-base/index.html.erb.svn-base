@@ -1,0 +1,22 @@
+<h1>Listing code_factors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+  </tr>
+
+<% @code_factors.each do |code_factor| %>
+  <tr>
+    <td><%=h code_factor.name %></td>
+    <td><%=h code_factor.code_id %></td>
+    <td><%= link_to 'Show', code_factor %></td>
+    <td><%= link_to 'Edit', edit_code_factor_path(code_factor) %></td>
+    <td><%= link_to 'Destroy', code_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New code_factor', new_code_factor_path %>

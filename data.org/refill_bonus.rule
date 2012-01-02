@@ -1,0 +1,12 @@
+[RULESET_REFILL_BONUS]
+in_service, string(32)
+subs_status, string(5)
+year_month_day, string(15)
+bonus_promo, double, result
+bonus_promo_data, double, result
+bonus_promo_video, double, result
+bonus_promo_sms, double, result
+
+
+[REFILL_BONUS]
+PPS_NEW_SUBS_PROMOTION : in_service = TES and subs_status = 99 and (year_month_day between 20090801,20090830) , bonus_promo=1000, bonus_promo_data=0, bonus_promo_video=0, bonus_promo_sms=0

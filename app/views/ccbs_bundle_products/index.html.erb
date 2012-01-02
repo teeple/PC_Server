@@ -1,0 +1,34 @@
+<h1>Listing ccbs_bundle_products</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Product type</th>
+    <th>Status</th>
+    <th>Crtdt</th>
+    <th>Packaged product list</th>
+  </tr>
+
+<% @ccbs_bundle_products.each do |ccbs_bundle_product| %>
+  <tr>
+    <td><%=h ccbs_bundle_product.code %></td>
+    <td><%=h ccbs_bundle_product.name %></td>
+    <td><%=h ccbs_bundle_product.start_date %></td>
+    <td><%=h ccbs_bundle_product.end_date %></td>
+    <td><%=h ccbs_bundle_product.product_type %></td>
+    <td><%=h ccbs_bundle_product.status %></td>
+    <td><%=h ccbs_bundle_product.crtdt %></td>
+    <td><%=h ccbs_bundle_product.packaged_product_list %></td>
+    <td><%= link_to 'Show', ccbs_bundle_product %></td>
+    <td><%= link_to 'Edit', edit_ccbs_bundle_product_path(ccbs_bundle_product) %></td>
+    <td><%= link_to 'Destroy', ccbs_bundle_product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ccbs_bundle_product', new_ccbs_bundle_product_path %>

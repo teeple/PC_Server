@@ -1,0 +1,15 @@
+[RULESET_INTERNATIONAL]
+prefix country , string(64)
+tariff , string(64) , result
+
+[INTERNATIONAL]
+rule_0 : prefix country starts 1 , tariff = 0.2dollarPer10Sec
+rule_1 : prefix country starts 44 , tariff = 0.2dollarPer10Sec
+rule_2 : prefix country starts 49 , tariff = 0.2dollarPer10Sec
+rule_3 : prefix country starts 65 , tariff = 0.2dollarPer10Sec
+rule_4 : prefix country starts 82 , tariff = 0.2dollarPer10Sec
+rule_5 : prefix country starts 852 , tariff = 0.2dollarPer10Sec
+rule_6 : prefix country starts 33 , tariff = 0.2dollarPer10Sec
+rule_7 : prefix country starts 43 , tariff = 0.2dollarPer10Sec
+rule_8 : prefix country starts 61 , tariff = 0.2dollarPer10Sec
+rule_9 : prefix country starts 81 , tariff = 0.2dollarPer10Sec

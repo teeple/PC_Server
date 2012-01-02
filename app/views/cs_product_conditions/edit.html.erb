@@ -1,0 +1,44 @@
+<h1>Editing cs_product_condition</h1>
+
+<% form_for(@cs_product_condition) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+	  <%= f.label :command %><br />
+	  <%= f.text_field :command %>
+  </p>
+  <p>
+	  <%= f.label :product_code %><br />
+	  <%= f.text_field :product_code %>
+  </p>
+  <p>
+	  <%= f.label :condition_type %><br />
+	  <%= f.text_field :condition_type %>
+  </p>
+  <p>
+	  <%= f.label :promotion_code %><br />
+	  <%= f.text_field :promotion_code %>
+  </p>
+  <p>
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
+  </p>
+  <p>
+	  <%= f.label :value %><br />
+	  <%= f.text_field :value %>
+  </p>
+  <p>
+	  <%= f.label :op_type %><br />
+	  <%= f.text_field :op_type %>
+  </p>
+  <p>
+	  <%= f.label :condition_group_no %><br />
+	  <%= f.text_field :condition_group_no %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @cs_product_condition %> |
+<%= link_to 'Back', cs_product_conditions_path %>

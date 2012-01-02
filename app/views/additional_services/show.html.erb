@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @additional_service.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @additional_service.description %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @additional_service.vas_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_additional_service_path(@additional_service) %> |
+<%= link_to 'Back', additional_services_path %>

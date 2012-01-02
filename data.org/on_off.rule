@@ -1,0 +1,6 @@
+[RULESET_ON_OFF]
+in_service , string(10)
+switch_service , string(10)
+
+[ON_OFF]
+OFF : (in_service = 'TCS') and ( switch_service = 'VIDEO_CALL')

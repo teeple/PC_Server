@@ -1,0 +1,14 @@
+[RULESET_REFILL_ACCUMULATE]
+in_service, string(32)
+account_name, string(32)
+dc_check, string(32)
+accu_account_name, string(32), result
+
+# 충전시 누적 충전량을 저장할 counter Rule
+[REFILL_ACCUMULATE]
+PPS : in_service = PPS, account_name = PPS_Balance, dc_check = in_dc_date, accu_account_name = PPS_DCChar
+PPS : in_service = PPS, account_name = PPS_Balance, dc_check = out_dc_date, accu_account_name = PPS_DCChar2
+MSP : in_service = MSP, account_name = MSP_Balance, dc_check = in_dc_date, accu_account_name = MSP_DCChar
+MSP : in_service = MSP, account_name = MSP_Balance, dc_check = out_dc_date, accu_account_name = MSP_DCChar2
+RTS : in_service = RTS, account_name = RTS_ChaRemains, accu_account_name = RTS_TotalCharge
+RTS : in_service = DLS, account_name = DLS_PostRefill, accu_account_name = DLS_TotalCharge

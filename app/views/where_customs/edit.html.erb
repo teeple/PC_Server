@@ -1,0 +1,32 @@
+<h1>Editing where_custom</h1>
+
+<% form_for(@where_custom) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :operation %><br />
+    <%= f.text_field :operation %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @where_custom %> |
+<%= link_to 'Back', where_customs_path %>

@@ -1,0 +1,31 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @action_deduct.subfctr_name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @action_deduct.description %>
+</p>
+
+<p>
+  <b>UptoStart:</b>
+  <%=h @action_deduct.upto_start %>
+</p>
+
+<p>
+  <b>UptoEnd:</b>
+  <%=h @action_deduct.upto_end %>
+</p>
+<p>
+  <b>Upto Type:</b>
+  <%=h @action_deduct.upto_type %>
+</p>
+
+<p>
+  <b>Tariff Id:</b>
+  <%=h @action_deduct.tariff_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_action_deduct_path(@action_deduct) %> |
+<%= link_to 'Back', action_deducts_path %>

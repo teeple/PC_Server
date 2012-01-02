@@ -1,0 +1,27 @@
+<h1>New rating_factor</h1>
+
+<% form_for(@rating_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :basic_product_id %><br />
+    <%= f.text_field :basic_product_id %>
+  </p>
+  <p>
+    <%= f.label :packaged_product_id %><br />
+    <%= f.text_field :packaged_product_id %>
+  </p>
+  <p>
+    <%= f.label :factor %><br />
+    <%= f.text_field :factor %>
+  </p>
+  <p>
+    <%= f.label :function %><br />
+    <%= f.text_field :function %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', rating_factors_path %>

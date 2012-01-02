@@ -1,0 +1,82 @@
+##################################################
+### ACTION_ALLOW
+[RULESET_ACTION_ALLOW]
+@rule_name, condition
+unit_type, enum, result
+amount, double, result
+
+[ACTION_ALLOW]
+allow_NNN: unit_type=CNT, amount=10
+allow_50: unit_type=CNT, amount=50
+allow_free_voice: unit_type=SECOND, amount=6000
+allow_free_sms: unit_type=CNT, amount=100
+
+
+##################################################
+### ACTION_DISCOUNT
+[RULESET_ACTION_DISCOUNT]
+@rule_name, condition
+unit_type, 		enum
+upto_amount, 	int 
+amount, 		int , 	result
+
+[ACTION_DISCOUNT]
+# discount 20% of rate until sum of discount amount < 2000 
+discount_20: unit_type = BYTE, upto_amount = 2000, amount = 20 
+5_percent: amount=95
+10_percent: amount=90
+15_percent: amount=85
+20_percent: amount=80
+
+##################################################
+### ACTION_DEDUCT
+[RULESET_ACTION_DEDUCT]
+@rule_name, condition
+call_time, int # seconds 
+used_packet, int # packets
+rate_name, string(20), result, rule: (value in ruleset tariff or value is null)
+
+[ACTION_DEDUCT]
+deduct_sub_1: call_time between 0, 60, rate_name = sim_pps_voice_1
+
+sim_pps_voice: call_time >= 180, rate_name = sim_pps_voice_3
+sim_pps_voice: call_time between 60, 180, rate_name = sim_pps_voice_2
+sim_pps_voice: call_time between 0, 60, rate_name = sim_pps_voice_1
+sim_pps_sms: rate_name = sim_pps_sms
+sim_pps_packet: rate_name = sim_pps_packet_1
+sim_pps_packet: used_packet >= 20481, rate_name = sim_pps_packet_3
+sim_pps_packet: used_packet between 10241, 20480, rate_name = sim_pps_packet_2
+sim_pps_packet: used_packet between 0, 10240, rate_name = sim_pps_packet_1
+
+s100_voice: rate_name = s100_voice
+s100_sms: rate_name = s100_sms
+s100_packet: rate_name = s100_packet
+
+ebook_200: rate_name = ebook_200
+
+url_group_1: rate_name = url_group_1
+url_group_2: rate_name = url_group_2
+url_group_3: rate_name = url_group_3
+
+deduct_over_20: rate_name = sim_pps_voice_1
+
+#deduct_used_time_until_0: call_time = 0, dis_factor = used_time
+#deduct_25_until_15000: upto_money = 15000 , currency = WON , rate_name = tariff_3 
+#deduct_used_time_until_0: call_time = 0, dis_factor = used_time
+#deduct_25_until_NNN:  upto_money = 100, currency = WON , rate_name =tariff_3
+
+##################################################
+### ACTION_CUSTOM
+[RULESET_ACTION_CUSTOM]
+upto_unit, string(10)
+upto_amount, int 
+unit, string(10)		 # %, won, min, byte 
+amount, int 
+name, string(20)
+
+[ACTION_CUSTOM]
+# discount 20% of rate until sum of discount amount < 2000 
+discount_20%: upto_unit = won, upto_amount = 2000, unit = percent, amount = 20 
+deduct: name= deduct
+block: name = block
+discount: name= discount

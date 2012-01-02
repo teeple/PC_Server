@@ -1,0 +1,73 @@
+TOTAL_USED_MONEY_COUNTING = {                                                                  
+	service_id = VOICE          
+	targetSubsRule = true       
+				    
+	priority = 11
+
+	counterTariff = {           
+		{
+			counterType = 8193  
+			/* 0x2001 */
+			promotionCounterType = 1                                                           
+			counterID = TotalUsedMoney 
+			ccPerSession = - selected_tariff.sumCounterChangePerSession(Remains.id)
+			ccForFirstChargeableTimeUnit = - selected_tariff.sumCounterChangeForFirstChargeableTimeUnit(Remains.id)
+			ccPerSubsequentChargeableTimeUnit = - selected_tariff.sumCounterChangePerSubsequentChargeableTimeUnit(Remains.id)
+		}                                                                                      
+	}   
+}
+
+/*
+TOTAL_FOR_PROMO_COUNTING = {
+	service_id = VOICE
+	targetSubsRule = /ubb_condition/ && is_roaming_member == false
+
+	priority = 11
+
+	counterTariff = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = 1001 
+			ccPerSession = - selected_tariff.sumCounterChangePerSession(Remains.id)
+			ccForFirstChargeableTimeUnit = - selected_tariff.sumCounterChangeForFirstChargeableTimeUnit(Remains.id)
+			ccPerSubsequentChargeableTimeUnit = - selected_tariff.sumCounterChangePerSubsequentChargeableTimeUnit(Remains.id)
+			counterExpiryDate = untilTheDay(rule.fulldayUpper)
+		}
+	}
+}
+
+AOC_COUNTING = {
+	service_id = VOICE
+	targetSubsRule = /aoc_condition/ && isFirstRequest == true
+
+	priority = 11
+
+	counterTariff = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = AttemptOfCall 
+			ccPerSession = +1
+			counterExpiryDate = untilTheDay(targetRule.fulldayUpper)
+		}
+	}
+}
+
+STAR_COUNTING = {
+	service_id = VOICE
+	targetSubsRule = /star_condition/ && isFirstRequest == true
+
+	priority = 11
+
+	counterTariff = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = 1003 
+			ccPerSession = +1
+			counterExpiryDate = untilTheDay(targetRule.fulldayUpper)
+		}
+	}
+}
+*/

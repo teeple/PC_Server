@@ -1,0 +1,39 @@
+<h1>Listing tariff_lists</h1>
+
+<table>
+  <tr>
+    <th>Prefix country</th>
+    <th>Prefix region</th>
+    <th>Unit 1</th>
+    <th>Tariff 1</th>
+    <th>Unit 2</th>
+    <th>Tariff 2</th>
+    <th>Unit 3</th>
+    <th>Tariff 3</th>
+    <th>Unit 4</th>
+    <th>Tariff 4</th>
+    <th>Tariff File List Id</th>
+  </tr>
+
+<% @tariff_lists.each do |tariff_list| %>
+  <tr>
+    <td><%=h tariff_list.prefix_country %></td>
+    <td><%=h tariff_list.prefix_region %></td>
+    <td><%=h tariff_list.unit_1 %></td>
+    <td><%=h tariff_list.tariff_1 %></td>
+    <td><%=h tariff_list.unit_2 %></td>
+    <td><%=h tariff_list.tariff_2 %></td>
+    <td><%=h tariff_list.unit_3 %></td>
+    <td><%=h tariff_list.tariff_3 %></td>
+    <td><%=h tariff_list.unit_4 %></td>
+    <td><%=h tariff_list.tariff_4 %></td>
+    <td><%= link_to 'Show', tariff_list %></td>
+    <td><%= link_to 'Edit', edit_tariff_list_path(tariff_list) %></td>
+    <td><%= link_to 'Destroy', tariff_list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tariff_list', new_tariff_list_path %>

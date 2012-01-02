@@ -1,0 +1,58 @@
+class WhenWeek < ActiveRecord::Base
+	has_many :when_factors,
+			:dependent => :nullify
+
+	@@json_mapping_table = {
+		"view_name"        => {:value => "When - Week conditions", :type => :TITLE},
+		"name"             => {:value => "name", :type => :DB_FIELD},
+		"description"      => {:value => "description", :type => :DB_FIELD},
+		"sun"             => {:value => "name", :type => :DB_FIELD},
+		"mon"             => {:value => "name", :type => :DB_FIELD},
+		"tue"             => {:value => "name", :type => :DB_FIELD},
+		"wed"             => {:value => "name", :type => :DB_FIELD},
+		"thu"             => {:value => "name", :type => :DB_FIELD},
+		"fri"             => {:value => "name", :type => :DB_FIELD},
+		"sat"             => {:value => "name", :type => :DB_FIELD},
+		"holiday"		   => {:value => "name", :type => :DB_FIELD}
+	}
+
+	def self.json_mapping_table
+		return @@json_mapping_table
+	end 
+
+	def data_to_ruleset
+
+		when_week = []
+		when_holiday = []
+
+		items = []
+		if self.sun != nil && self.sun == 1: items << "'sun'" end
+		if self.mon != nil && self.mon == 1: items << "'mon'" end
+		if self.tue != nil && self.tue == 1: items << "'tue'" end
+		if self.wed != nil && self.wed == 1: items << "'wed'" end
+		if self.thu != nil && self.thu == 1: items << "'thu'" end
+		if self.fri != nil && self.fri == 1: items << "'fri'" end
+		if self.sat != nil && self.sat == 1: items << "'sat'" end
+		if items.size > 0 
+			when_week << "week = (" +  items.join(", ") + ")"
+		end 
+
+		if self.is_holiday != nil
+
+			case is_holiday.downcase 
+				when "true":
+					when_holiday << " holiday = 'true'"
+				when "false"
+					when_holiday << " holiday = 'false'" 
+			end
+		end
+
+		returns = ""
+		if when_week.size > 0 || when_holiday.size > 0 
+			returns = self.subfctr_name + ": " 
+			returns += (when_week + when_holiday).join(",")
+		end
+
+		return returns
+	end 
+end

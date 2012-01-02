@@ -1,0 +1,60 @@
+<h1>Editing balance</h1>
+
+<% form_for(@balance) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :canbe_promotional %><br />
+    <%= f.text_field :canbe_promotional %>
+  </p>
+  <p>
+    <%= f.label :balance_type %><br />
+    <%= f.text_field :balance_type %>
+  </p>
+  <p>
+    <%= f.label :scale %><br />
+    <%= f.text_field :scale %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :suffix %><br />
+    <%= f.text_field :suffix %>
+  </p>
+  <p>
+    <%= f.label :charging_target %><br />
+    <%= f.text_field :charging_target %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :free_charged %><br />
+    <%= f.text_field :free_charged %>
+  </p>
+  <p>
+    <%= f.label :expire_date %><br />
+    <%= f.text_field :expire_date %>
+  </p>
+  <p>
+    <%= f.label :reset_cycle %><br />
+    <%= f.text_field :reset_cycle %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @balance %> |
+<%= link_to 'Back', balances_path %>

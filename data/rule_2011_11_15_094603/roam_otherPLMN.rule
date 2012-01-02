@@ -1,0 +1,11 @@
+[RULESET_ROAM_OTHERPLMN]
+country_prefix , string(64)
+country_code , string(64)
+tariff , string(64) , result
+
+[ROAM_OTHERPLMN]
+rule_0 : country_prefix starts 7 , country_code = 82 , tariff = roam_200TGper10Sec
+rule_1 : country_prefix starts 82 , country_code = 81 , tariff = roam_200TGper10Sec
+rule_2 : country_prefix starts 81 , country_code = 36 , tariff = roam_200TGper10Sec
+rule_3 : country_prefix starts 358 , country_code = 358 , tariff = roam_200TGper10Sec
+rule_4 : country_prefix starts 36 , country_code = 7 , tariff = roam_150TGper10Sec

@@ -1,0 +1,11 @@
+[RULESET_PROMOTION_TYPE_LIST]
+action , string(32)
+required_condition, string(32)
+required_result , string(32)
+
+[PROMOTION_TYPE_LIST]
+promotion_test: action = DISCOUNT, required_condition = (is_onnet) 
+option_sms100: action = GIVE, required_condition = (is_subscribed) , required_result = (option_amount) 
+option_voice50: action = GIVE, required_condition = (is_activated,is_firsttime) , required_result = (discount_rate) 
+option_data300: action = GIVE, required_condition = (is_homezone) , required_result = (amount_give) 
+

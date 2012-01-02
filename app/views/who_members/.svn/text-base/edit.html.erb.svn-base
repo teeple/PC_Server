@@ -1,0 +1,44 @@
+<h1>Editing who_member</h1>
+
+<% form_for(@who_member) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :viceversa %><br />
+    <%= f.text_field :viceversa %>
+  </p>
+  <p>
+    <%= f.label :onoffnet %><br />
+    <%= f.text_field :onoffnet %>
+  </p>
+  <p>
+    <%= f.label :memberof %><br />
+    <%= f.text_field :memberof %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :age_op_type %><br />
+    <%= f.text_field :age_op_type %>
+  </p>
+  <p>
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @who_member %> |
+<%= link_to 'Back', who_members_path %>

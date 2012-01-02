@@ -1,0 +1,28 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @when_factor.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @when_factor.description %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @when_factor.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @when_factor.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @when_factor.operation %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_factor_path(@when_factor) %> |
+<%= link_to 'Back', when_factors_path %>

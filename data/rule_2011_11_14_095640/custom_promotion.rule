@@ -1,0 +1,36 @@
+[RULESET_CUSTOM_PROMOTION]
+service_id , string(32)
+product_code , string(32)
+package_code, string(32)
+is_vpn, string(6)
+is_favorite, string(6)
+promotion_service_id , string(30) , result , mandatory
+priority , int , result , mandatory
+promotion_category , string(30) , result
+promotion_parameter , string(255) , result , mandatory
+
+[CUSTOM_PROMOTION]
+subscribe_bonus : service_id = PC_SUBSCRIBE , product_code=S2 ,  promotion_service_id = SET_COUNTER , priority = 1 , promotion_category = subscribe_bonus , promotion_parameter = 'counter_list=simple100_subscription'
+
+set_deposit : service_id = PC_DEPOSIT , product_code=PP ,  promotion_service_id = set_deposit , priority = 1 , promotion_category = set_deposit , promotion_parameter = 'threshold_ruleset=basic_postpaid_threshold'
+
+set_recharge : service_id = PC_RECHARGE , product_code=S1 ,  promotion_service_id = set_deposit , priority = 1 , promotion_category = set_recharge , promotion_parameter = 'threshold_ruleset=simple100_subscription'
+
+check_threshold :  product_code=PP ,  promotion_service_id = check_threshold , priority = 1 , promotion_category = set_deposit , promotion_parameter = 'threshold_ruleset=basic_postpaid_threshold'
+
+post_pre_accounting : product_code = PP ,  promotion_service_id = prepaid_charging , priority = 3 , promotion_category = accounting , promotion_parameter = 'account_ruleset=basic_postpaid_balance'
+
+post_post_accounting : product_code = PP ,  promotion_service_id = postpaid_charging , priority = 4 , promotion_category = accounting , promotion_parameter = 'account_ruleset=basic_postpaid_balance'
+
+S2_accounting : product_code = S2 ,  promotion_service_id = prepaid_charging , priority = 3 , promotion_category = accounting , promotion_parameter = 'account_ruleset=simple100_balance'
+
+family_share_accounting : package_code = FB, promotion_service_id = custom_who_charging, priority = 1 , promotion_category = change_familyrate , promotion_parameter = 'condition_who=family_pack1_who&account_ruleset=family_pack1_balance'
+
+non_family_account_disable : package_code = FB, promotion_service_id = disable_account, priority = 2 , promotion_category = change_familyrate , promotion_parameter = 'disable_ruleset=family_pack1_who'
+
+# package product 
+vpn_rate : package_code = VP, promotion_service_id = change_rate_custom_who , priority = 1 , promotion_category = change_vpn_rate , promotion_parameter = 'condition_who=vpn_pack1_who&custom_tariff=vpn_pack1_tariff'
+
+favorite_rate : package_code = FA, promotion_service_id = change_rate_custom_who , priority = 1 , promotion_category = change_favorite_rate , promotion_parameter = 'condition_who=favorite_who&custom_tariff=favorite_tariff'
+
+#favorite_discount : promotion_service_id = basic_discount , priority = 1 , promotion_category = favorite , promotion_parameter = 'discount_ruleset=favorite_discount''

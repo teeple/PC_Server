@@ -1,0 +1,34 @@
+<h1>Listing ccbs_packaged_products</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Product type</th>
+    <th>Status</th>
+    <th>Crtdt</th>
+    <th>Package product list</th>
+  </tr>
+
+<% @ccbs_packaged_products.each do |ccbs_packaged_product| %>
+  <tr>
+    <td><%=h ccbs_packaged_product.code %></td>
+    <td><%=h ccbs_packaged_product.name %></td>
+    <td><%=h ccbs_packaged_product.start_date %></td>
+    <td><%=h ccbs_packaged_product.end_date %></td>
+    <td><%=h ccbs_packaged_product.product_type %></td>
+    <td><%=h ccbs_packaged_product.status %></td>
+    <td><%=h ccbs_packaged_product.crtdt %></td>
+    <td><%=h ccbs_packaged_product.package_product_list %></td>
+    <td><%= link_to 'Show', ccbs_packaged_product %></td>
+    <td><%= link_to 'Edit', edit_ccbs_packaged_product_path(ccbs_packaged_product) %></td>
+    <td><%= link_to 'Destroy', ccbs_packaged_product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ccbs_packaged_product', new_ccbs_packaged_product_path %>

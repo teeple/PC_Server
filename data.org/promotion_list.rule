@@ -1,0 +1,9 @@
+[RULESET_PROMOTION_TYPE_LIST]
+action , string(32)
+required_condition, string(32)
+required_result , string(32)
+
+[PROMOTION_TYPE_LIST]
+family_bonus: action = DISCOUNT, required_condition = (only_to_family) , required_result = (amount_of_discount) 
+first_activation_bonus: action = GIVE, required_condition = (is_first,from_other_operators) , required_result = (free_amount) 
+

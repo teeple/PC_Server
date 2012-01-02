@@ -1,0 +1,2 @@
+module WhatQosHelper
+end

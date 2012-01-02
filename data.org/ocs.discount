@@ -1,0 +1,159 @@
+VOICE_DISCOUNT = {
+	service_id = VOICE
+	targetSubsRule = '
+		in_service == "TES" || in_service == "MSP"
+	'
+	promoUseRule = '
+		service_discount
+	'
+	e3 = 100 - rule.discount_rate
+	priority = 1
+	category = 2
+}
+
+SMS_DISCOUNT = {
+	service_id = MESSAGE
+	targetSubsRule = '
+		in_service == "TES" || in_service == "MSP"
+	'
+	promoUseRule = '
+		service_discount
+	'
+	priceDiscountRate = 100 - rule.discount_rate
+
+	priority = 1
+	category = 2
+}
+
+DATA_DISCOUNT = {
+	service_id = DATA
+	targetSubsRule = '
+		in_service == "TES" || in_service == "MSP"
+	'
+	promoUseRule = '
+		service_discount
+	'
+	priceDiscountRate = 100 - rule.discount_rate
+
+	priority = 1
+	category = 2
+}
+
+IMS_DISCOUNT = {
+	service_id = IMS
+	targetSubsRule = '
+		in_service == "TES" || in_service == "MSP"
+	'
+	promoUseRule = '
+		service_discount
+	'
+	e3 = 100 - rule.discount_rate
+	priority = 1
+	category = 2
+}
+
+IMS_DISCOUNT = {
+	service_id = IMS
+	targetSubsRule = '
+		in_service == "TES" || in_service == "MSP"
+	'
+	promoUseRule = '
+		service_discount
+	'
+	priceDiscountRate = 100 - rule.discount_rate
+
+	priority = 1
+	category = 2
+}
+
+PACKET_DISCOUNT = {
+	service_id = PACKET
+	targetSubsRule = '
+		in_service == "TES" || in_service == "MSP"
+	'
+	promoUseRule = '
+		service_discount
+	'
+	e3 = 100 - rule.discount_rate
+	priority = 1
+	category = 2
+}
+
+
+/*
+TARIFF_DISCOUNT_PROMO = {
+	service_id = TES
+	promoUseRule = '
+		service_discount_promo
+	'
+	e3 = 100 - rule.discount_rate
+	priority = 1
+	category = 6
+}
+*/
+
+/*
+BUNDLE_DISCOUNT = {
+    service_id = VOICE
+    promoUseRule = '
+        discount_vas > 0
+    '
+    e3 = 100 - discount_vas
+    priority = 1
+    category = 7
+}
+
+BUNDLE_DISCOUNT = {
+    service_id = IMS
+    promoUseRule = '
+        discount_vas > 0
+    '
+    e3 = 100 - discount_vas
+    priority = 1
+    category = 7
+}
+
+BUNDLE_DISCOUNT = {
+    service_id = PACKET
+    promoUseRule = '
+        discount_vas > 0
+    '
+    e3 = 100 - discount_vas
+    priority = 1
+    category = 7
+}
+
+BUNDLE_DISCOUNT = {
+    service_id = MESSAGE
+    promoUseRule = '
+        discount_vas > 0
+    '
+    priceDiscountRate = 100 - discount_vas
+
+    priority = 1
+    category = 7
+}
+
+BUNDLE_DISCOUNT = {
+    service_id = DATA
+    promoUseRule = '
+        discount_vas > 0
+    '
+    priceDiscountRate = 100 - discount_vas
+
+    priority = 1
+    category = 7
+}
+
+BUNDLE_DISCOUNT = {
+    service_id = IMS
+    promoUseRule = '
+        discount_vas > 0
+    '
+    priceDiscountRate = 100 - discount_vas
+
+    priority = 1
+    category = 7
+}
+*/
+

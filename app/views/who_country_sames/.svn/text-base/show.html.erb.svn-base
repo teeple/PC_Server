@@ -1,0 +1,23 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @who_country_same.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @who_country_same.description %>
+</p>
+
+<p>
+  <b>Is same country:</b>
+  <%=h @who_country_same.is_same_country %>
+</p>
+
+<p>
+  <b>Is same zone:</b>
+  <%=h @who_country_same.is_same_zone %>
+</p>
+
+
+<%= link_to 'Edit', edit_who_country_same_path(@who_country_same) %> |
+<%= link_to 'Back', who_country_sames_path %>

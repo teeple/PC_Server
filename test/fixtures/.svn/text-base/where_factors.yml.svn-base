@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fctr_code: MyString
+  country_name: MyString
+  zone_name: MyString
+  network_name: MyString
+  custom_name: MyString
+
+two:
+  fctr_code: MyString
+  country_name: MyString
+  zone_name: MyString
+  network_name: MyString
+  custom_name: MyString

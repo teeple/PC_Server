@@ -1,0 +1,18 @@
+<p>
+  <b>Parent:</b>
+  <%=h @relation_sub.parent_id %>
+</p>
+
+<p>
+  <b>Prd attribute:</b>
+  <%=h @relation_sub.prd_attribute_id %>
+</p>
+
+<p>
+  <b>Relation:</b>
+  <%=h @relation_sub.relation_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_relation_sub_path(@relation_sub) %> |
+<%= link_to 'Back', relation_subs_path %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Code factor:</b>
+  <%=h @where_country_factor.code_factor_id %>
+</p>
+
+<p>
+  <b>Where country:</b>
+  <%=h @where_country_factor.where_country_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_where_country_factor_path(@where_country_factor) %> |
+<%= link_to 'Back', where_country_factors_path %>

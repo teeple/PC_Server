@@ -1,0 +1,28 @@
+<p>
+  <b>Id:</b>
+  <%=h @relation.id %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @relation.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @relation.name %>
+</p>
+
+<p>
+  <b>Relation Type:</b>
+  <%=h @relation.relation_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @relation.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_relation_path(@relation) %> |
+<%= link_to 'Back', relations_path %>

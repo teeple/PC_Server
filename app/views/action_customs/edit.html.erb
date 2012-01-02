@@ -1,0 +1,24 @@
+<h1>Editing action_custom</h1>
+
+<% form_for(@action_custom) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :subfctr_code %><br />
+    <%= f.text_field :subfctr_code %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @action_custom %> |
+<%= link_to 'Back', action_customs_path %>

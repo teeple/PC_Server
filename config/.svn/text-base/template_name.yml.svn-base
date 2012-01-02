@@ -1,0 +1,120 @@
+Product:
+  rule: product_%s_%s.rule
+  rule_list: product_list.rule 
+  tmpl: products/show.rule.erb
+  tmpl_list: products/product_list.rule.erb
+  tmpl_html: products/show.html.erb
+
+PrdAttribute:
+  tmpl_list: prd_attributes/product_list.rule.erb
+  rule_list: product_list.rule
+
+PrdSubscription:
+  tmpl: products/show.rule.erb
+
+Promotion:
+  rule: promotion_%s.rule
+  rule_list: promotion_list.rule
+  value_list: promotion_list.value
+  tmpl_list: promotions/promotion_list.rule.erb
+  tmpl_value: promotions/promotion_list_value.rule.erb
+
+Code:
+  tmpl: codes/code.rule.erb
+  bill_term:
+    id: 1
+    rule: bill_term.enum
+  currency:
+    id: 2
+    rule: currency.enum
+  unit_type:
+    id: 3
+    rule: unit_type.enum
+  c_type:
+    id: 4
+    rule: c_type.enum
+  country:
+    id: 5
+    rule: country.enum
+  service_id:
+    id: 6
+    rule: service_id.enum
+  user_role:
+    id: 7
+    rule: user_role.enum
+  user_class:
+    id: 8
+    rule: user_class.enum
+  device_type:
+    id: 9
+    rule: device_type.enum
+
+Tariff:
+  rule: tariff.rule
+  tmpl: tariffs/tariff.rule.erb
+
+Action:
+  rule: actions.rule
+
+ActionDeduct:
+  tmpl: action_deducts/index.rule.erb
+ActionAllow:
+  tmpl: action_allows/index.rule.erb
+ActionDiscount:
+  tmpl: action_discounts/index.rule.erb
+ActionCustom:
+  tmpl: action_customs/index.rule.erb
+
+WhatFactor:
+  rule: condition_what.rule
+  tmpl: what_factors/index.rule.erb
+WhatQo:
+  tmpl: what_qos/condition_what_qo.rule.erb
+WhatUrlgroup:
+  tmpl: what_urlgroups/condition_what_urlgroup.rule.erb
+
+WhoFactor:
+  rule: condition_who.rule
+  tmpl: who_factors/index.rule.erb
+WhoMember:
+  tmpl: who_members/condition_who_member.rule.erb
+WhoNumber:
+  tmpl: who_numbers/condition_who_number.rule.erb
+WhoPrefix:
+  tmpl: who_prefixes/condition_who_prefix.rule.erb
+WhoCountry:
+  tmpl: who_countries/condition_who_country.rule.erb
+
+WhereFactor:
+  rule: condition_where.rule
+  tmpl: where_factors/index.rule.erb
+WhereCountry:
+  tmpl: where_countries/condition_where_country.rule.erb
+WhereZone:
+  tmpl: where_zones/condition_where_zone.rule.erb
+WhereNetwork:
+  tmpl: where_networks/condition_where_network.rule.erb
+
+WhenFactor:
+  rule: condition_when.rule
+  tmpl: when_factors/index.rule.erb
+WhenDuration:
+  tmpl: when_durations/condition_when_duration.rule.erb
+WhenWeek:
+  tmpl: when_weeks/condition_when_week.rule.erb
+WhenTimeslot:
+  tmpl: when_timeslots/condition_when_timeslot.rule.erb
+WhenDay:
+  tmpl: when_days/condition_when_day.rule.erb
+
+Balance:
+  rule: charging_account.rule
+  rule_counter: ocs.counter
+  value_list: balance_list.value
+  tmpl: products/charging_account.rule.erb
+  tmpl_list: balances/balance_list.rule.erb
+  tmpl_counter: balances/counter.rule.erb
+
+Country:
+  rule: country.enum
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parent_id: 1
+  prd_attribute_id: 1
+  relation_id: 1
+
+two:
+  parent_id: 1
+  prd_attribute_id: 1
+  relation_id: 1

@@ -1,0 +1,32 @@
+<h1>Listing prd_thresholds</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Condition</th>
+    <th>Condition type</th>
+    <th>Balance</th>
+    <th>Action</th>
+    <th>Action type</th>
+    <th>Product</th>
+  </tr>
+
+<% @prd_thresholds.each do |prd_threshold| %>
+  <tr>
+    <td><%=h prd_threshold.parent_id %></td>
+    <td><%=h prd_threshold.condition_id %></td>
+    <td><%=h prd_threshold.condition_type %></td>
+    <td><%=h prd_threshold.balance_id %></td>
+    <td><%=h prd_threshold.action_id %></td>
+    <td><%=h prd_threshold.action_type %></td>
+    <td><%=h prd_threshold.product_id %></td>
+    <td><%= link_to 'Show', prd_threshold %></td>
+    <td><%= link_to 'Edit', edit_prd_threshold_path(prd_threshold) %></td>
+    <td><%= link_to 'Destroy', prd_threshold, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_threshold', new_prd_threshold_path %>

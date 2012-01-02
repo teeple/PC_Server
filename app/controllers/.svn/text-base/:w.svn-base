@@ -1,0 +1,186 @@
+class PromotionsController < ApplicationController
+  include JsonMapper
+  # GET /promotions
+  # GET /promotions.xml
+  def index
+    @promotions = Promotion.all(:include => [:promotion_factors, :factor_conditions, :factor_results])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @promotions }
+      format.json  { 
+
+		@returns = []
+		@promotions.each do |promotion|
+			@returns << mapping_to_hash(promotion, Promotion.json_mapping_table)
+		end 
+	  	render :json => @returns
+	  }
+	  format.rule {
+		@promotion_list_output = []
+		@promotion_list_value_output = []
+
+		if @promotions != nil && @promotions.size > 0 
+			@promotions.each do |promotion|
+				temp_array_conditions = []
+				temp_array_results = []
+
+				promotion.promotion_factors.each do |factor|
+					case factor.cond_or_result 
+						when "COND" :
+							temp_array_conditions << factor.name
+
+						when "RESULT" : 
+							temp_array_results << factor.name
+					end 
+
+				end 
+
+				row = "action = " + promotion.action_type
+
+				if temp_array_conditions.size > 0 
+					row += ", required_condition = (" + temp_array_conditions.join(",") + ") " 
+				end 
+
+				if temp_array_results.size > 0 
+					row += ", required_result = (" + temp_array_results.join(",") + ") " 
+				end 
+				@promotion_list_output << promotion.name.downcase + ": " + row + "\n"
+				@promotion_list_value_output  << promotion.name.downcase + "\n"
+			end
+		end
+
+		@output_rule = render_to_string(:file => "/home/newbiz/product/product_catalog/app/views/promotions/promotion_list.rule.erb")
+		@output_value = render_to_string(:file => "/home/newbiz/product/product_catalog/app/views/promotions/promotion_list_value.rule.erb") 
+
+		file_name_rule = "/home/ocs/HOME/rating/data/promotion_list.rule"
+		File.delete(file_name_rule)
+
+		file = File.new(file_name_rule, "w")
+		file << @output_rule
+		file.close
+
+		file_name_value = "/home/ocs/HOME/rating/data/promotion_list.value"
+		File.delete(file_name_value)
+
+		file = File.new(file_name_value, "w")
+		file << @output_value
+		file.close
+
+		render :rule => [@output_rule, @output_value]
+	}
+    end
+  end
+
+  # GET /promotions/1
+  # GET /promotions/1.xml
+  def show
+    @promotion = Promotion.find(params[:id], :include => [:promotion_factors, :factor_conditions, :factor_results] )
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @promotion }
+      format.json  { 
+	  	render :json => mapping_to_hash(@promotion, Promotion.json_mapping_table)
+	  }
+    end
+  end
+
+  # GET /promotions/new
+  # GET /promotions/new.xml
+  def new
+    @promotion = Promotion.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @promotion }
+    end
+  end
+
+  # GET /promotions/1/edit
+  def edit
+    @promotion = Promotion.find(params[:id])
+  end
+
+  # POST /promotions
+  # POST /promotions.xml
+  def create
+    @promotion = Promotion.new(params[:promotion])
+
+    respond_to do |format|
+      if @promotion.save
+        format.html { redirect_to(@promotion, :notice => 'Promotion was successfully created.') }
+        format.xml  { render :xml => @promotion, :status => :created, :location => @promotion }
+        format.json  { 
+			params[:conditions].each do |condition|
+				promotion_factor = PromotionFactor.new
+				promtoion_factor.name = condition.name
+				promtoion_factor.promotion_id = @promotion.id
+				promtoion_factor.cond_or_result = "COND"
+				promtoion_factor.is_required = "YES"
+				promotion_factor.save
+			end 
+
+			params[:results].each do |result|	
+				promotion_factor = PromotionFactor.new
+				promtoion_factor.name = condition.name
+				promtoion_factor.promotion_id = @promotion.id
+				promtoion_factor.cond_or_result = "RESULT"
+				promtoion_factor.is_required = "YES"
+				promotion_factor.save
+			end 
+
+			render :json => @promotion, :status => :created, :location => @promotion }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @promotion.errors, :status => :unprocessable_entity }
+        format.json  { 
+			render :json => @promotion.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /promotions/1
+  # PUT /promotions/1.xml
+  def update
+    @promotion = Promotion.find(params[:id])
+
+	params[:conditions].each do |condition|
+		promotion_factor = PromotionFactor.new
+		promotion_factor.name = condition.name
+		promotion_factor.name = condition.name
+		promotion_factor.name = condition.name
+		promotion_factor.name = condition.name
+	end 
+
+	params[:results].each do |result|
+		promotion_factor = PromotionFactor.new
+		promtoion_factor = result. 
+	end
+
+    respond_to do |format|
+      if @promotion.update_attributes(params[:promotion])
+        format.html { redirect_to(@promotion, :notice => 'Promotion was successfully updated.') }
+        format.xml  { head :ok }
+        format.json  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @promotion.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @promotion.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /promotions/1
+  # DELETE /promotions/1.xml
+  def destroy
+    @promotion = Promotion.find(params[:id])
+    @promotion.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(promotions_url) }
+      format.xml  { head :ok }
+      format.json  { head :ok }
+    end
+  end
+end

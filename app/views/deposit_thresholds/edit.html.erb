@@ -1,0 +1,24 @@
+<h1>Editing deposit_threshold</h1>
+
+<% form_for(@deposit_threshold) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :threhold %><br />
+    <%= f.text_field :threhold %>
+  </p>
+  <p>
+    <%= f.label :action %><br />
+    <%= f.text_field :action %>
+  </p>
+  <p>
+    <%= f.label :deposit_id %><br />
+    <%= f.text_field :deposit_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @deposit_threshold %> |
+<%= link_to 'Back', deposit_thresholds_path %>

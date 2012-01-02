@@ -1,0 +1,28 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @when_custom.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @when_custom.description %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @when_custom.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @when_custom.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @when_custom.operation %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_custom_path(@when_custom) %> |
+<%= link_to 'Back', when_customs_path %>

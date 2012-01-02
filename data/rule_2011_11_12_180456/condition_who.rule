@@ -1,0 +1,88 @@
+###########################################
+### CONDITION_WHO_MEMBER
+[RULESET_CONDITION_WHO_MEMBER]
+vice_versa, string(15)
+on_off_net, string(15)
+member_of, string(15)
+gender, string(10)
+age,	int
+
+[CONDITION_WHO_MEMBER]
+age_over_20: age >=20
+age_over_20_woman: gender = 'female', age >=20
+FAMILY_MEMBER: member_of  = 'family'
+age_under_20: age <20
+WOMAN_ONLY: gender = 'female', age =10
+
+###########################################
+### CONDITION_
+[RULESET_CONDITION_WHO_NUMBER]
+number, string(20)
+
+[CONDITION_WHO_NUMBER]
+
+
+
+###########################################
+### CONDITION_TOWHOM_PREFIX
+[RULESET_CONDITION_WHO_PREFIX]
+called, string(20)
+
+[CONDITION_WHO_PREFIX]
+00777: called starts ('00777')
+InternationalCall: called starts ('002','001','00700','00365')
+toCellPhone: called starts ('010','011','016','019')
+toPSTN: called starts ('02','03','04','052')
+002: called starts ('002')
+
+
+###########################################
+### CONDITION_WHO_COUNTRY
+[RULESET_CONDITION_WHO_COUNTRY]
+country, enum
+
+[CONDITION_WHO_COUNTRY]
+
+
+
+[RULESET_CONDITION_WHO_CUSTOM]
+custom_who, string(20)
+is_vpn, string(20)
+is_favorite, string(20)
+is_cac, string(20)
+
+[CONDITION_WHO_CUSTOM]
+option_subscriber: custom_who = 'option' 
+VPN_MEMBER: is_vpn = 'true' 
+FAVORITE_MEMBER: is_favorite = 'true' 
+CAC_MEMBER: is_cac = 'true' 
+
+###########################################
+### CONDITION_
+[RULESET_CONDITION_WHO]
+c_type, enum
+c_who_member, string(50), rule : (value in ruleset condition_who_member or value is null)
+c_who_number, string(50), rule : (value in ruleset condition_who_number or value is null)
+c_who_prefix, string(50), rule : (value in ruleset condition_who_prefix or value is null)
+c_who_country, string(50), rule : (value in ruleset condition_who_country or value is null)
+c_who_custom, string(50), rule : (value in ruleset condition_who_custom or value is null)
+
+[CONDITION_WHO]
+who123: c_who_member = FAMILY_MEMBER
+who_over_20: c_who_member = age_over_20
+who_over20_woman: c_who_member = age_over_20_woman
+family: c_who_member = FAMILY_MEMBER
+PREFIX_1: c_who_prefix = 00777
+INTL_CALLTYPE_1: c_who_prefix = InternationalCall
+PREFIX_3: c_who_prefix = toCellPhone
+PREFIX_4: c_who_prefix = toPSTN
+CUSTOM_1: c_who_custom = option_subscriber
+MEMBER_5: c_who_member = age_under_20
+MEMBER_6: c_who_member = WOMAN_ONLY
+NUMBER_3: c_who_prefix = 00777
+NUMBER_4: c_who_prefix = 002
+CUSTOM_2: c_who_custom = VPN_MEMBER
+CUSTOM_3: c_who_custom = FAVORITE_MEMBER
+PREFIX_5: c_who_prefix = 002
+CUSTOM_4: c_who_custom = CAC_MEMBER
+

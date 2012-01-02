@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @when_custom_factor.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @when_custom_factor.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @when_custom_factor.operation %>
+</p>
+
+<p>
+  <b>When custom:</b>
+  <%=h @when_custom_factor.when_custom_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_custom_factor_path(@when_custom_factor) %> |
+<%= link_to 'Back', when_custom_factors_path %>

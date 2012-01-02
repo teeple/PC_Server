@@ -1,0 +1,30 @@
+<h1>Listing prd_tariffs</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Condition</th>
+    <th>Condition type</th>
+    <th>Action</th>
+    <th>Action type</th>
+    <th>Product</th>
+  </tr>
+
+<% @prd_tariffs.each do |prd_tariff| %>
+  <tr>
+    <td><%=h prd_tariff.parent_id %></td>
+    <td><%=h prd_tariff.condition_id %></td>
+    <td><%=h prd_tariff.condition_type %></td>
+    <td><%=h prd_tariff.action_id %></td>
+    <td><%=h prd_tariff.action_type %></td>
+    <td><%=h prd_tariff.product_id %></td>
+    <td><%= link_to 'Show', prd_tariff %></td>
+    <td><%= link_to 'Edit', edit_prd_tariff_path(prd_tariff) %></td>
+    <td><%= link_to 'Destroy', prd_tariff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_tariff', new_prd_tariff_path %>

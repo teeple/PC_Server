@@ -1,0 +1,16 @@
+##################################################
+### ACTION_DISCOUNT
+[RULESET_ACTION_DISCOUNT]
+@rule_name, condition
+unit_type, 		enum
+upto_amount, 	int 
+amount, 		int , 	result
+
+[ACTION_DISCOUNT]
+<%= action_discounts_output %>
+discount_20: unit_type = BYTE, upto_amount = 2000, amount = 20 
+5_percent: amount=95
+10_percent: amount=90
+15_percent: amount=85
+20_percent: amount=80
+

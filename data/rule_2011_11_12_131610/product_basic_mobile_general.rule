@@ -1,0 +1,132 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_MOBILE_GENERAL_SUBSCRIPTION]
+condition_what, string(50) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(50) , rule : (value in ruleset mobile_general_who or value is null)
+condition_when, string(50) , rule : (value in ruleset mobile_general_when or value is null)
+condition_where, string(50) , rule : (value in ruleset mobile_general_where or value is null)
+balance, string(50), result
+action_allow, string(50), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(50), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(50), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(50), result , rule : (value in ruleset action_custom or value is null)
+
+[MOBILE_GENERAL_SUBSCRIPTION]
+rule_1: condition_what=ROLLOVER
+rule_2: condition_what=RECHARGE
+
+#############################################
+### TARIFF
+[RULESET_MOBILE_GENERAL_TARIFF]
+condition_what, string(50) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(50) , rule : (value in ruleset mobile_general_who or value is null)
+condition_when, string(50) , rule : (value in ruleset mobile_general_when or value is null)
+condition_where, string(50) , rule : (value in ruleset mobile_general_where or value is null)
+action_allow, string(50), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(50), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(50), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(50), result , rule : (value in ruleset action_custom or value is null)
+
+[MOBILE_GENERAL_TARIFF]
+rule_1: condition_who=NUMBER_3, action_custom=TARIFF_TABLE_00700, condition_what=VOICE
+rule_2: condition_who=NUMBER_4, condition_what=VOICE
+rule_3: condition_what=SMS
+rule_4: condition_what=PACKET
+
+#############################################
+### BALANCE
+[RULESET_MOBILE_GENERAL_BALANCE]
+product_code, string(32)
+package_code, string(32)
+condition_what, string(20), rule : (value in ruleset condition_what or value is null)
+condition_who, string(20), rule : (value in ruleset condition_who or value is null)
+condition_when, string(50), rule : (value in ruleset condition_when  or value is null)
+condition_where, string(20), rule : (value in ruleset condition_where or value is null)
+priority, int, result, asc
+counter_name, string(30), result, rule :(value in list balance_list or value is null)
+counter_type, string(10), result
+
+[MOBILE_GENERAL_BALANCE]
+
+
+#############################################
+### THRESHOLDS
+[RULESET_MOBILE_GENERAL_THRESHOLD]
+condition_what, string(50) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(50) , rule : (value in ruleset mobile_general_who or value is null)
+condition_when, string(50) , rule : (value in ruleset mobile_general_when or value is null)
+condition_where, string(50) , rule : (value in ruleset mobile_general_where or value is null)
+balance, string(50), result
+action_allow, string(50), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(50), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(50), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(50), result , rule : (value in ruleset action_custom or value is null)
+
+[MOBILE_GENERAL_THRESHOLD]
+
+
+#
+#############################################
+### WHEN condition
+[RULESET_MOBILE_GENERAL_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+AMOUNT, string(32)
+custom_when, string(50)     # Custom value(ex, reg_date)
+
+[MOBILE_GENERAL_WHEN]
+
+
+#############################################
+### Where condition
+[RULESET_MOBILE_GENERAL_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+custom_where, string(50)
+
+[MOBILE_GENERAL_WHERE]
+
+
+#############################################
+### Whom condition
+[RULESET_MOBILE_GENERAL_WHO]
+is_family, string(6)	# YYYYMMDD format 
+is_vpn, string(6)	# 
+is_favorite, string(6)	# 
+is_cac, string(6)	# 
+age, string(10)
+gender, string(10)  #  gender 
+called, string(10) # called number
+custom_who, string(50) # prefix
+
+[MOBILE_GENERAL_WHO]
+NUMBER_3: called starts ( '00777')
+NUMBER_4: called starts ( '002')
+
+
+#############################################
+### PROMOTION
+[RULESET_MOBILE_GENERAL_PROMOTION]
+promotion_type, string(50) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(50) rule: (value in list promotion_rulesets or value is null)
+
+[MOBILE_GENERAL_PROMOTION]
+
+
+#############################################
+### VAS
+[RULESET_MOBILE_GENERAL_VAS]
+vas_name, 		string(50) 
+is_required, 	string(10), result
+vas_fee, 			string(50), result
+bill_term, 		enum, 		result
+balance, 		string(50), result : (value in list balance_list or value is null)
+
+[MOBILE_GENERAL_VAS]
+

@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @balance.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @balance.description %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @balance.type %>
+</p>
+
+<p>
+  <b>Canbe promotional:</b>
+  <%=h @balance.canbe_promotional %>
+</p>
+
+
+<%= link_to 'Edit', edit_balance_path(@balance) %> |
+<%= link_to 'Back', balances_path %>

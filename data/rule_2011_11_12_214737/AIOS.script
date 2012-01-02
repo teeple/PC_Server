@@ -1,0 +1,5 @@
+[TABLE_SERVICE_SCRIPT]
+#service_identifier 	request_type 	script_path
+VOICE					TARIFF			$(UASYS_HOME)/rating/js/AIOS_VOICE.js
+SMS						PRICE			$(UASYS_HOME)/rating/js/AIOS_SMS.js
+PACKET					TARIFF			$(UASYS_HOME)/rating/js/AIOS_PACKET.js

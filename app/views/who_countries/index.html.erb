@@ -1,0 +1,28 @@
+<h1>Listing who_countries</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Country index</th>
+    <th>Is same country</th>
+    <th>Is same zone</th>
+  </tr>
+
+<% @who_countries.each do |who_country| %>
+  <tr>
+    <td><%=h who_country.subfctr_name %></td>
+    <td><%=h who_country.description %></td>
+    <td><%=h who_country.country_index %></td>
+    <td><%=h who_country.is_same_country %></td>
+    <td><%=h who_country.is_same_zone %></td>
+    <td><%= link_to 'Show', who_country %></td>
+    <td><%= link_to 'Edit', edit_who_country_path(who_country) %></td>
+    <td><%= link_to 'Destroy', who_country, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_country', new_who_country_path %>

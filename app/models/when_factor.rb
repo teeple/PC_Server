@@ -1,0 +1,246 @@
+class WhenFactor < ActiveRecord::Base
+	has_one :prd_subscription, :as => :condition,
+			:dependent => :nullify
+	has_one :prd_tariff, :as => :condition,
+			:dependent => :nullify
+	has_one :prd_balance, :as => :condition,
+			:dependent => :nullify
+
+	belongs_to :when_duration,
+			:include => :when_duration_factors
+	belongs_to :when_week
+	belongs_to :when_timeslot,
+			:include => :when_timeslot_factors
+	belongs_to :when_day,
+			:include => :when_day_factors
+	belongs_to :when_custom,
+			:include => :when_custom_factors
+
+    belongs_to :code_factor,
+            :class_name => "CodeFactor",
+            :foreign_key => "service_type"
+
+	@@json_mapping_table = {
+		"view_name"        => {:value => "CONDITION_WHAT", :type => :TITLE},
+		"name"             => {:value => "name", :type => :DB_FIELD},
+		"code"             => {:value => "fctr_code", :type => :DB_FIELD},
+		"description"      => {:value => "description", :type => :DB_FIELD},
+		"when_durations"   => {:value => "@when_duration", :type => :HAS_CHILD},
+		"when_weeks"       => {:value => "@when_week", :type => :HAS_CHILD},
+		"when_timeslots"   => {:value => "@when_timeslot", :type => :HAS_CHILD},
+		"when_days"        => {:value => "@when_day", :type => :HAS_CHILD},
+		"when_customs"     => {:value => "@when_custom", :type => :HAS_CHILD}
+	}
+
+	@@json_mapping_table_summary = {
+		"id"               => {:value => "id", :type => :DB_FIELD},
+		"name"             => {:value => "name", :type => :DB_FIELD},
+		"code"             => {:value => "fctr_code", :type => :DB_FIELD},
+		"description"      => {:value => "description", :type => :DB_FIELD}
+	}
+
+	def self.json_mapping_table
+		return @@json_mapping_table
+	end 
+
+	def self.json_mapping_table_summary
+		return @@json_mapping_table_summary
+	end 
+
+	def subfactors
+
+		factors = Hash.new
+		if self.when_duration_id
+			nodes = self.when_duration
+
+			array_durations = []
+			if nodes != nil && nodes.size > 0 
+				nodes.when_duration_factors.each do |node|
+					duration = "#{node.start_date}"+"#{node.end_date}"
+					array_durations << ["duration", "between", duration]
+				end 
+
+				factors['durations'] = array_members
+			end
+
+		elsif self.when_week_id
+			node = self.when_week
+
+			array_weeks = [] 
+			if node.sun
+				array_weeks << ['sun', '=', 'y']
+			elsif node.mon
+				array_weeks << ['mon', '=', 'y']
+			elsif node.tue
+				array_weeks << ['tue', '=', 'y']
+			elsif node.wed
+				array_weeks << ['wed', '=', 'y']
+			elsif node.thu
+				array_weeks << ['thu', '=', 'y']
+			elsif node.fri
+				array_weeks << ['fri', '=', 'y']
+			elsif node.sat
+				array_weeks << ['sat', '=', 'y']
+			elsif node.is_holiday
+				array_weeks << ['holiday', '=', 'y']
+			end 
+
+			factors['weeks'] = array_weeks
+
+		elsif self.when_timeslot_id  
+			nodes = self.when_timeslot
+
+			array_timeslots = []
+			nodes.when_timeslot_factors.each do |node|
+				timeslot = '#{node.start_time}'+'#{node.end_time}'
+				array_timeslots << ['time', 'between', '#{timeslot}']
+			end 
+
+			factors['timeslots'] = array_timeslots
+
+		elsif self.when_custom_id
+			nodes = self.when_custom
+
+			array_customs = []
+			nodes.when_custom_factors.each do |node|
+				array_customs << ['#{node.name}', '#{node.operation}', '#{node.value}']
+			end 
+
+			factors['customs'] = array_customs
+
+		elsif self.when_day_id
+
+			nodes = self.when_day
+
+			array_days = [] 
+			nodes.when_day_factors.each do |node|
+				array_days << ['day', '=', '#{node.day}']
+			end 
+
+			factors['days'] = array_days
+		end 
+		factors 
+	end 
+
+	#############################################################
+	# RULESET _WHEN 
+	# year_month_day, string(10)  # YYYYMMDD format 
+	# week, string(5)
+	# date, string(10)
+	# time, string(5)
+	# holiday, string(5)day_of_month, string(2)
+	# custom_when, string(30)     # Custom value(ex, reg_date)
+	#############################################################
+	def data_to_prd_ruleset
+		items = []
+
+		if self.when_duration_id != nil  && self.when_duration_id > 0 
+
+			temp_array = []
+			self.when_duration.when_duration_factors.each do |subfactor|
+				temp_array << "year_month_day between '" + subfactor.start_date + "', '" + subfactor.end_date + "'"
+			end
+			items << "(" + temp_array.join(" or ") + ")"
+		end 
+
+		if self.when_week_id != nil  && self.when_week_id > 0 
+
+			temp_array = []
+			if self.when_week.sun != nil && self.when_week.sun == 1: temp_array << "'sun'" end 
+			if self.when_week.mon != nil && self.when_week.mon == 1: temp_array << "'mon'" end 
+			if self.when_week.tue != nil && self.when_week.tue == 1: temp_array << "'tue'" end 
+			if self.when_week.wed != nil && self.when_week.wed == 1: temp_array << "'wed'" end 
+			if self.when_week.thu != nil && self.when_week.thu == 1: temp_array << "'thu'" end 
+			if self.when_week.fri != nil && self.when_week.fri == 1: temp_array << "'fri'" end 
+			if self.when_week.sat != nil && self.when_week.sat == 1: temp_array << "'sat'" end 
+			if temp_array.size > 0
+				items << "week = " + temp_array.join(", ")
+			end 
+
+			if self.when_week.is_holiday != nil 
+				if when_week.is_holiday == "true": items << "holiday = 'true'" end 
+				if when_week.is_holiday == "false": items << "holiday = 'false'" end 
+			end
+		end 	
+
+		if self.when_day_id != nil  && self.when_day_id > 0 
+			
+			temp_array_day = []
+			temp_array_mday = []
+
+			self.when_day.when_day_factors.each do |subfactor|
+				if subfactor.day_type == "DAY" 
+					temp_array_day << "'" + subfactor.day + "'"
+				elsif subfactor.day_type == "MDAY"
+					temp_array_mday << "'" + subfactor.day + "'"
+				end
+			end 
+
+			if temp_array_day.size > 0: items << "date = (" + temp_array_day.join(" ,") + ")" end 
+			if temp_array_mday.size > 0: items << "day_of_month = (" + temp_array_mday.join(" ,") + ")" end 
+
+		end 
+
+		if self.when_timeslot_id != nil  && self.when_timeslot_id > 0
+
+			temp_array = []
+			self.when_timeslot.when_timeslot_factors.each do |subfactor|
+				temp_array << "time between '" + subfactor.start_time + "', '" + subfactor.end_time + "'"
+			end 
+			temp_array.join(" or ")
+			items << "(" + temp_array.join(" or ")  + ")"
+
+		end 
+
+		if self.when_custom_id != nil  && self.when_custom_id > 0
+
+			temp_array = []
+			self.when_custom.when_custom_factors.each do |subfactor|
+				temp_array << subfactor.name + subfactor.operation + "'" + subfactor.value + "'"
+			end
+			items << temp_array.join(", ")
+		end 
+
+		return self.fctr_code + ": " + items.join(", ") + "\n"
+	end 	
+
+
+	#############################################################
+	# c_term, string(50), rule : value in ruleset condition_when_term 
+	# c_week, string(50), rule : value in ruleset condition_when_week 
+	# c_date, string(50), rule : value in ruleset condition_when_date
+	# c_timeslot, string(20), rule : value in ruleset condition_when_timeslot 
+	# c_mday, string(4);
+	#############################################################
+	def data_to_ruleset
+
+		temp_array  = []
+		rule_name = self.fctr_code.blank? ? ("rule_" + self.id.to_s) : self.fctr_code + ": " 
+
+		if not self.when_duration.blank? 
+			temp_array << ("c_when_term = " + self.when_duration.subfctr_name)
+		end 
+
+		if not self.when_week.blank? 
+			temp_array << ("c_when_week = " + self.when_week.subfctr_name)
+		end	
+
+		if not self.when_day.blank? 
+			temp_array << ("c_when_day = " + self.when_day.subfctr_name)
+		end	
+
+		if not self.when_timeslot.blank? 
+			temp_array << ("c_when_timeslot = " + self.when_timeslot.subfctr_name)
+		end
+
+		if not self.when_custom.blank? 
+			temp_array << ("c_when_custom = " + self.when_custom.subfctr_name)
+		end
+
+		if temp_array.size > 0 
+			return rule_name + temp_array.join(", ")
+		else 
+			return ""
+		end
+	end 
+end

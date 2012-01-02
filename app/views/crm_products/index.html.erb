@@ -1,0 +1,18 @@
+<h1>Listing crm_products</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @crm_products.each do |crm_product| %>
+  <tr>
+    <td><%= link_to 'Show', crm_product %></td>
+    <td><%= link_to 'Edit', edit_crm_product_path(crm_product) %></td>
+    <td><%= link_to 'Destroy', crm_product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New crm_product', new_crm_product_path %>

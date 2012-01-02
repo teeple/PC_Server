@@ -1,0 +1,15 @@
+################################################################
+## CONTRY CODE
+data = File.read("#{RAILS_ROOT}/config/countries.json")
+COUNTRY_CODES = JSON.load(data)
+
+################################################################
+## Rule Related 
+RULE_PATH = "/home/ocs/HOME/rating/data/"
+RULE = YAML.load_file("#{RAILS_ROOT}/config/template_name.yml")
+
+TMPL_PATH = "#{RAILS_ROOT}/app/views/"
+#error = File.read("#{RAILS_ROOT}/config/messages.json")
+#ERROR_MESSAGES = JSON.load(error)
+
+#TEMPLATE_ROOT = "#{RAILS_ROOT}/app/views"

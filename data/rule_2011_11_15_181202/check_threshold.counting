@@ -1,0 +1,20 @@
+CHECK_THRESHOLD = {
+    service_id = check_threshold
+
+    promoUseRule = '
+        /threshold_ruleset(balance)/g && rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000) > 0 {
+            uaLog.info("hahaaha threshold = %s" , rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000));
+        }
+    '
+
+
+    counterTariff = {
+        {
+            promotionCounterType = 3
+            counterType = 1
+            counterID = rule.balance
+            counterChange = +0
+            counterThreshold = rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000, rate_db.getCounterScale(rate_db.getCounterID(rule.balance)))
+        }
+    }
+}

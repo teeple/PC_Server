@@ -1,0 +1,28 @@
+[TABLE_COUNTERNAME_TBL]
+#counter_id counter_type    counter_name    	counter_scale   counter_desc    
+0			0				Remains				100				Remains
+1			0				LastRemains			100				LastRemains
+2			0				FreeVoice			10				FreeVoice
+3			0				FreeSms				1				FreeSms
+4			0				FreePacket			1				FreePacket
+
+11			0				TotalUsedMoney      100 			TotalUsedMoney
+12			0				UsedFreeCallTime	10				UsedFreeCallTime
+13			0				UsedFreeSms			1				UsedFreeSms
+14			0				UsedFreePacket		1				UsedFreePacket
+15			0				AttemptOfCall		1				AttemptOfCall
+
+100			0				UsedVolumeWithQoS	1				UsedVolumeWithQoS
+101			0				UsedTimeWithQoS		10				UsedTimeWithQoS
+
+
+200			0				GENERAL_REMAINS		100				GENERAL_REMAINS
+201			0				FREE_VOICE			10				FREE_VOICE
+202			0				FREE_SMS			1				FREE_SMS
+203			0				FREE_PACKET			1				FREE_PACKET
+204			0				Family_Free_Voice	10				Family_Free_Voice
+205			0				Family_Free_SMS		1				Family_Free_Sms
+206			0				Sponsor_Balance		100				Sponsor_Balance
+207			0				SNS_REMAINS			100				SNS_REMAINS
+
+300			0				POST_PAID	    	100				POST_PAID

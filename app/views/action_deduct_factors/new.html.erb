@@ -1,0 +1,31 @@
+<h1>New action_deduct_factor</h1>
+
+<% form_for(@action_deduct_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :upto_start %><br />
+    <%= f.text_field :upto_start %>
+  </p>
+  <p>
+    <%= f.label :upto_end %><br />
+    <%= f.text_field :upto_end %>
+  </p>
+  <p>
+    <%= f.label :upto_type %><br />
+    <%= f.text_field :upto_type %>
+  </p>
+  <p>
+    <%= f.label :tariff_id %><br />
+    <%= f.text_field :tariff_id %>
+  </p>
+  <p>
+    <%= f.label :action_deduct_id %><br />
+    <%= f.text_field :action_deduct_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', action_deduct_factors_path %>

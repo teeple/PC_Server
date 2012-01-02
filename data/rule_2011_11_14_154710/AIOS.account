@@ -1,0 +1,103 @@
+Voice_Accounting = {
+	service_id = VOICE
+	promoUseRule = /aios_charging_account/sg
+
+	priority = 10
+	
+	/*
+	// time_charge , volume_charge , extra_charge , general_charge
+	// time_charge : if e1>0 , e2>0 then e1 -> 0, e4 -> do not change,  counterChangePerSubsequentChargeableTimeUnit -> -price
+	// volume_charge : if e5 > 0 , e6 >0 then e5 -> 0, e1,e4 -> do not change, counterchangePerVolumeUnit -> -price
+	// extra_charge : if e4 > 0 then e4 -> 0 , e1, e5 -> do not change, counterChangePerSession -> -price
+	// general_charge : if applied , e1 -> 0, e4 ->0 , e5->0
+	*/
+
+	accountingType = time_charge
+	e2 = rule.counter_type == "MIN" ? 60 : e2
+
+	//e2 = rule.counter_type=="TIME" ? 1 : e2
+	//validTime = (rule.counter_type=="TIME" && validTime == 60) ? 99900 : validTime
+	//validTimeType = set
+
+	counterTariff = {
+		{
+			/*
+			// 1 : counting counter
+			// 2 : giving counter
+			// 3 : using counter
+			*/
+			promotionCounterType = 3
+
+			/*
+			// 0x0000 : decrease counter
+			// 0x0001 : increase counter
+			// 0x0010 : not allow one unit even if not enough
+			// 0x0020 : threshold 가 걸려 있는 경우에 threshold 값에서 멈춰 
+			// 0x0100 : ???
+			// 0x1000 : temporary counter
+			// 0x2000 : no deposit counter
+			*/
+			counterType = 16
+			counterID = rule.counter_name
+			ccPerSubsequentChargeableTimeUnit = rule.counter_type=="MIN" ? -e2 : rule.counter_type == "TIME" ? -e2 : -price 
+			//ccPerSubsequentChargeableTimeUnit = rule.counter_type=="MIN" ? -e2 : rule.counter_type == "TIME" ? -e2 : rule.counter_type == "MONEY" ? -e1 * e3 / 100 : -price
+		}
+	}
+}
+
+/*
+Voice_Extra_Charging = {
+	service_id = VOICE
+	promoUseRule = /aios_charging_account/sg && rule.counter_type == "MONEY"
+
+	priority = 9
+	
+	accountingType = extra_charge
+
+	counterTariff = {
+		{
+			promotionCounterType = 3
+			counterType = 16
+			counterID = rule.counter_name
+			ccPerSession = -normalPrice 
+		}
+	}
+}
+*/
+
+SMS_Account_Charging = {
+	service_id = SMS 
+	promoUseRule = /aios_charging_account/sg && rule.counter_type != "TIME" 
+
+	priority = 10
+
+	counterPrice = {
+		{
+			promotionCounterType = 3
+			counterType = 16
+			counterID = rule.counter_name
+			counterChange = rule.counter_type == "MONEY" ? -price : -1
+		}
+	}
+}
+
+
+Packet_Accounting = {
+	service_id = PACKET
+	promoUseRule = /aios_charging_account/sg && rule.counter_type != "TIME" && rule.counter_type != "UNIT"
+
+	e6 = rule.counter_type == "BYTE" ? 1 : e6
+
+	priority = 10
+	
+	accountingType = volume_charge
+
+	counterTariff = {
+		{
+			promotionCounterType = 3
+			counterType = 16
+			counterID = rule.counter_name
+			ccPerChargeableVolumeUnit = rule.counter_type == "BYTE" ? -e6 : -price
+		}
+	}
+}

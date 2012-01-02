@@ -1,0 +1,32 @@
+<h1>Listing prd_attributes</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Prd Type</th>
+    <th>Bill Type</th>
+    <th>Product</th>
+  </tr>
+
+<% @prd_attributes.each do |prd_attribute| %>
+  <tr>
+    <td><%=h prd_attribute.code %></td>
+    <td><%=h prd_attribute.name %></td>
+    <td><%=h prd_attribute.description %></td>
+    <td><%=h prd_attribute.status %></td>
+    <td><%=h prd_attribute.prd_type %></td>
+    <td><%=h prd_attribute.bill_type %></td>
+    <td><%=h prd_attribute.product_id %></td>
+    <td><%= link_to 'Show', prd_attribute %></td>
+    <td><%= link_to 'Edit', edit_prd_attribute_path(prd_attribute) %></td>
+    <td><%= link_to 'Destroy', prd_attribute, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_attribute', new_prd_attribute_path %>

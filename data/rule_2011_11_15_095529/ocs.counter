@@ -1,0 +1,24 @@
+[TABLE_COUNTERNAME_TBL]
+50	1	INTL_USAGE	100	InternationUsageforPostPaid
+49	1	GENERAL_VOIP	1	GENERAL_VOIP
+48	1	GENERAL_USAGES	100	GENERAL_USAGES
+47	1	counter_general	1	counter_general
+46	1	FAMILY_SHARED	100	FAMILY_SHARED
+45	1	FAVOIRTE_BALANCE	100	FAVOIRTE_BALANCE
+42	1	VoD_Fee	1	PayperviewbalanceforIPTV
+41	2	freeVoD	1	BalanceCounterforIPTVproduct
+40	1	VPN_SHARED	1	VPN_SHARED
+39	4	COUNTER_VOICE	1	COUNTER_VOICE
+38	4	counter_international_voice	1	Description
+37	1	balance_prepaid_voice	1	balance_prepaid_voice
+36	1	balance_postpaid	1	balance_postpaid
+35	1	balance_prepaid	1	balance_prepaid
+34	1	SPONSOR_BALANCE	1	SPONSOR_BALANCE
+33	2	FAMILY_FREE_SMS	1	Family'ssharedbalancefor'FreeSMS'
+31	4	Family_Free_Voice	1	Family'ssharedbalancefor'FreeVoice'
+30	1	TEST_BALANCE	10	TestBalance
+29	3	FREE_PACKET	1	FREEPACKET
+6	1	VOICE_REMAINS	100	VoiceRemainsDescription
+3	2	FREE_SMS_CNT	1	FreeSMSDescription
+2	4	FREE_VOICE_SEC	1	FreeVoiceDescription
+1	1	GENERAL_REMAINS	100	GeneralRemainsDescription

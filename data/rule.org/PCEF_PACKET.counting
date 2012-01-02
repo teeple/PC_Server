@@ -1,0 +1,45 @@
+USED_VOLUME_WITH_QOS = {
+	service_id = PCEF_PACKET_VOLUME
+	//targetSubsRule = /pcef_packet_counting/ && targetRule.is_volume_counting == 1
+	targetSubsRule = true
+	priority = 11
+
+	category = packet_counting
+
+	counterTariff = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = UsedVolumeWithQoS
+			setCounterTo = 0 
+			ccPerChargeableVolumeUnit = +e6
+			counterExpiryDate = untilTheMonth(today)
+		}
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = 1000000 + rating_group
+			ccPerChargeableVolumeUnit = +e6
+			counterExpiryDate = untilTheMonth(today)
+		}
+	}
+}
+
+USED_VOLUME_WITH_QOS = {
+	service_id = PCEF_PACKET_TIME
+	targetSubsRule = /pcef_packet_counting/ && targetRule.is_time_counting == 1
+	priority = 11
+
+	category = packet_counting
+
+	counterTariff = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = UsedTimeWithQoS
+			setCounterTo = 0 
+			ccPerChargeableVolumeUnit = +e6
+			counterExpiryDate = untilTheMonth(today)
+		}
+	}
+}

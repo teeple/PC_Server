@@ -1,0 +1,127 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_<%=product_name%>_SUBSCRIPTION]
+condition_what, string(50) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(50) , rule : (value in ruleset <%=product_name.downcase%>_who or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_name.downcase%>_when or value is null)
+condition_where, string(50) , rule : (value in ruleset <%=product_name.downcase%>_where or value is null)
+balance, string(50), result
+action_allow, string(50), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(50), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(50), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(50), result , rule : (value in ruleset action_custom or value is null)
+
+[<%=product_name %>_SUBSCRIPTION]
+<%=prd_subscriptions_output%>
+
+#############################################
+### TARIFF
+[RULESET_<%=product_name%>_TARIFF]
+condition_what, string(50) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(50) , rule : (value in ruleset <%=product_name.downcase%>_who or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_name.downcase%>_when or value is null)
+condition_where, string(50) , rule : (value in ruleset <%=product_name.downcase%>_where or value is null)
+action_allow, string(50), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(50), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(50), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(50), result , rule : (value in ruleset action_custom or value is null)
+
+[<%=product_name %>_TARIFF]
+<%=prd_tariffs_output%>
+
+#############################################
+### BALANCE
+[RULESET_<%=product_name%>_BALANCE]
+product_code, string(32)
+package_code, string(32)
+condition_what, string(20), rule : (value in ruleset condition_what or value is null)
+condition_who, string(20), rule : (value in ruleset condition_who or value is null)
+condition_when, string(50), rule : (value in ruleset condition_when  or value is null)
+condition_where, string(20), rule : (value in ruleset condition_where or value is null)
+priority, int, result, asc
+counter_name, string(30), result, rule :(value in list balance_list or value is null)
+counter_type, string(10), result
+
+[<%=product_name %>_BALANCE]
+<%=prd_balances_output%>
+
+#############################################
+### THRESHOLDS
+[RULESET_<%=product_name%>_THRESHOLD]
+condition_what, string(50) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(50) , rule : (value in ruleset <%=product_name.downcase%>_who or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_name.downcase%>_when or value is null)
+condition_where, string(50) , rule : (value in ruleset <%=product_name.downcase%>_where or value is null)
+balance, string(50), result
+action_allow, string(50), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(50), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(50), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(50), result , rule : (value in ruleset action_custom or value is null)
+
+[<%=product_name %>_THRESHOLD]
+<%=prd_thresholds_output%>
+
+#
+#############################################
+### WHEN condition
+[RULESET_<%=product_name%>_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+AMOUNT, string(32)
+custom_when, string(50)     # Custom value(ex, reg_date)
+
+[<%=product_name%>_WHEN]
+<%=@condition_when_output%>
+
+#############################################
+### Where condition
+[RULESET_<%=product_name%>_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+call_type, string(20)
+custom_where, string(50)
+
+[<%=product_name%>_WHERE]
+<%=@condition_where_output%>
+
+#############################################
+### Whom condition
+[RULESET_<%=product_name%>_WHO]
+is_family, string(6)	# YYYYMMDD format 
+is_vpn, string(6)	# 
+is_favorite, string(6)	# 
+is_cac, string(6)	# 
+age, string(10)
+gender, string(10)  #  gender 
+called, string(10) # called number
+custom_who, string(50) # prefix
+
+[<%=product_name%>_WHO]
+<%=@condition_who_output%>
+
+#############################################
+### PROMOTION
+[RULESET_<%=product_name%>_PROMOTION]
+promotion_type, string(50) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(50) rule: (value in list promotion_rulesets or value is null)
+
+[<%=product_name%>_PROMOTION]
+<%=prd_promotions_output%>
+
+#############################################
+### VAS
+[RULESET_<%=product_name%>_VAS]
+vas_name, 		string(50) 
+is_required, 	string(10), result
+vas_fee, 			string(50), result
+bill_term, 		enum, 		result
+balance, 		string(50), result : (value in list balance_list or value is null)
+
+[<%=product_name%>_VAS]
+<%=prd_additional_services_output%>

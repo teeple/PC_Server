@@ -1,0 +1,8 @@
+##########################################
+### Product list
+[RULESET_PRODUCT_LIST]
+product_code, string(5)
+in_service, string(10)
+
+[PRODUCT_LIST]
+<%=@product_list_output%>

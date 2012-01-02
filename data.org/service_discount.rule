@@ -1,0 +1,76 @@
+[RULESET_SERVICE_DISCOUNT]
+discount_vas, string(15)
+discount_vas_code, string(5)
+service_id, string(10)
+in_service, string(30)
+nas, string(15)
+cs_node, string(15)
+omtc, string(15)
+discount_rate , string(10), desc, result
+
+[SERVICE_DISCOUNT]
+# 일반 SVC : SMS_SVC, MMS_SVC, MSG_SVC, DATA_SVC, IMS_SVC, WIBRO_SVC, VOICE_SVC, VIDEO_SVC
+# 유무선 지정번호 할인 : FMC1, FMC2  
+# 결합상품 할인 : MEGA_PLUS
+# 무제한 : UFM, UONE(먼저 GROUP에 등록여부를 판단해야 하므로 discount rate=100으로 처리
+
+# SMS_SVC
+SMS_SVC : discount_vas = SMS_SVC, discount_vas_code = 0, discount_rate = 10
+SMS_SVC : discount_vas = SMS_SVC, discount_vas_code = 1, discount_rate = 20
+SMS_SVC : discount_vas = SMS_SVC, discount_vas_code = 2, discount_rate = 30
+SMS_SVC : discount_vas = SMS_SVC, discount_vas_code = 3, discount_rate = 40
+
+# MMS_SVC
+MMS_SVC : discount_vas = MMS_SVC, discount_vas_code = 0, discount_rate = 10
+MMS_SVC : discount_vas = MMS_SVC, discount_vas_code = 1, discount_rate = 20
+MMS_SVC : discount_vas = MMS_SVC, discount_vas_code = 2, discount_rate = 30
+MMS_SVC : discount_vas = MMS_SVC, discount_vas_code = 3, discount_rate = 40
+
+# MSG_SVC
+MSG_SVC : discount_vas = MSG_SVC, discount_vas_code = 0, discount_rate = 10
+MSG_SVC : discount_vas = MSG_SVC, discount_vas_code = 1, discount_rate = 20
+MSG_SVC : discount_vas = MSG_SVC, discount_vas_code = 2, discount_rate = 30
+MSG_SVC : discount_vas = MSG_SVC, discount_vas_code = 3, discount_rate = 40
+
+# DATA_SVC
+DATA_SVC : discount_vas = DATA_SVC, discount_vas_code = 0, discount_rate = 10
+DATA_SVC : discount_vas = DATA_SVC, discount_vas_code = 1, discount_rate = 100
+DATA_SVC : discount_vas = DATA_SVC, discount_vas_code = 2, nas=('1', '2', '5', '8'), discount_rate = 30
+DATA_SVC : discount_vas = DATA_SVC, discount_vas_code = 3, discount_rate = 40
+
+# IMS_SVC 
+IMS_SVC : discount_vas = IMS_SVC, discount_vas_code = 0, discount_rate = 10
+IMS_SVC : discount_vas = IMS_SVC, discount_vas_code = 1, discount_rate = 20
+IMS_SVC : discount_vas = IMS_SVC, discount_vas_code = 2, discount_rate = 30
+IMS_SVC : discount_vas = IMS_SVC, discount_vas_code = 3, discount_rate = 40
+
+# WIBRO_SVC
+WIBRO_SVC : discount_vas = WIBRO_SVC, discount_vas_code = 0, discount_rate = 10
+WIBRO_SVC : discount_vas = WIBRO_SVC, discount_vas_code = 1, discount_rate = 20
+WIBRO_SVC : discount_vas = WIBRO_SVC, discount_vas_code = 2, discount_rate = 30
+WIBRO_SVC : discount_vas = WIBRO_SVC, discount_vas_code = 3, discount_rate = 40
+
+# VOICE_SVC
+VOICE_SVC : discount_vas = VOICE_SVC, discount_vas_code = 0, discount_rate = 10
+VOICE_SVC : discount_vas = VOICE_SVC, discount_vas_code = 1, discount_rate = 20
+VOICE_SVC : discount_vas = VOICE_SVC, discount_vas_code = 2, discount_rate = 30
+VOICE_SVC : discount_vas = VOICE_SVC, discount_vas_code = 3, discount_rate = 40
+
+# VIDEO_SVC
+VIDEO_SVC : discount_vas = VIDEO_SVC, discount_vas_code = 0, discount_rate = 10
+VIDEO_SVC : discount_vas = VIDEO_SVC, discount_vas_code = 1, discount_rate = 20
+VIDEO_SVC : discount_vas = VIDEO_SVC, discount_vas_code = 2, discount_rate = 30
+VIDEO_SVC : discount_vas = VIDEO_SVC, discount_vas_code = 3, discount_rate = 40
+
+# FMC1
+FMC1 : discount_vas = FMC1, discount_vas_code = true, discount_rate = 40
+
+# FMC2
+FMC2 : discount_vas = FMC2, discount_vas_code = true, discount_rate = 60
+
+# MEGA_PLUS
+MEGA_PLUS : discount_vas = MEGA_PLUS, discount_vas_code = true, discount_rate = 60
+
+# 무제한
+UONE : discount_vas = UONE, discount_vas_code = true, discount_rate = 100
+UFM : discount_vas = UFM, discount_vas_code = true, discount_rate = 100

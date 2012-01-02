@@ -1,0 +1,60 @@
+<h1>New prd_attribute</h1>
+
+<% form_for(@prd_attribute) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :status_id %><br />
+    <%= f.text_field :status_id %>
+  </p>
+  <p>
+    <%= f.label :prd_type %><br />
+    <%= f.text_field :prd_type %>
+  </p>
+  <p>
+    <%= f.label :bill_type_id %><br />
+    <%= f.text_field :bill_type_id %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.text_field :start_date %>
+  </p>
+  <p>
+    <%= f.label :end_date %><br />
+    <%= f.text_field :end_date %>
+  </p>
+  <p>
+    <%= f.label :subscription_fee %><br />
+    <%= f.text_field :subscription_fee %>
+  </p>
+  <p>
+    <%= f.label :monthly_fee %><br />
+    <%= f.text_field :monthly_fee %>
+  </p>
+  <p>
+    <%= f.label :target_user %><br />
+    <%= f.text_field :target_user %>
+  </p>
+  <p>
+    <%= f.label :service_type_id %><br />
+    <%= f.text_field :service_type_id %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', prd_attributes_path %>

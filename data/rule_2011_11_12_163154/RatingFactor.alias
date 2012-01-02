@@ -1,0 +1,13 @@
+[COMMON_ALIAS]
+COMMON           TARIFF        is_vpn           rating.extension.getBoolean('Ext_IsVpn')
+COMMON           TARIFF        vpn_rate         rating.extension.getExtension('Ext_VpnRate')
+COMMON           TARIFF        is_favorite      rating.extension.getBoolean('Ext_IsFavorite')
+COMMON           TARIFF        is_family        rating.extension.getBoolean('Ext_IsFamily')
+COMMON           TARIFF        is_cac           rating.extension.getBoolean('Ext_IsCac')
+COMMON           TARIFF        service_type     rating.extension.getExtension('Ext_Service')
+COMMON           TARIFF        product_code     rating.extension.getExtension('Ext_Product')
+COMMON           TARIFF        bundle_code      rating.extension.getExtension('Ext_Bundle')
+COMMON           TARIFF        package_code     rating.extension.getExtension('Ext_Package', '').split(" ")
+COMMON           TARIFF        user_grade       rating.extension.getExtension('Ext_Grade')
+COMMON           TARIFF        rating_group     rating.extension.getExtension('Ext_PacketRatingGroup')
+COMMON           TARIFF        DEP_CODE         rating.extension.getExtension('Ext_Deposit_Code')

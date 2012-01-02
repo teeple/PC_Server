@@ -1,0 +1,56 @@
+<h1>New tariff_list</h1>
+
+<% form_for(@tariff_list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :prefix_country %><br />
+    <%= f.text_field :prefix_country %>
+  </p>
+  <p>
+    <%= f.label :prefix_region %><br />
+    <%= f.text_field :prefix_region %>
+  </p>
+  <p>
+    <%= f.label :unit_1 %><br />
+    <%= f.text_field :unit_1 %>
+  </p>
+  <p>
+    <%= f.label :tariff_1 %><br />
+    <%= f.text_field :tariff_1 %>
+  </p>
+  <p>
+    <%= f.label :unit_2 %><br />
+    <%= f.text_field :unit_2 %>
+  </p>
+  <p>
+    <%= f.label :tariff_2 %><br />
+    <%= f.text_field :tariff_2 %>
+  </p>
+  <p>
+    <%= f.label :unit_3 %><br />
+    <%= f.text_field :unit_3 %>
+  </p>
+  <p>
+    <%= f.label :tariff_3 %><br />
+    <%= f.text_field :tariff_3 %>
+  </p>
+  <p>
+    <%= f.label :unit_4 %><br />
+    <%= f.text_field :unit_4 %>
+  </p>
+  <p>
+    <%= f.label :tariff_4 %><br />
+    <%= f.text_field :tariff_4 %>
+  </p>
+  <p>
+    <%= f.label :tariff_file_list_id %><br />
+    <%= f.text_field :tariff_file_list_id %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', tariff_lists_path %>

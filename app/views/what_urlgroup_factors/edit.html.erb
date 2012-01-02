@@ -1,0 +1,16 @@
+<h1>Editing what_urlgroup_factor</h1>
+
+<% form_for(@what_urlgroup_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @what_urlgroup_factor %> |
+<%= link_to 'Back', what_urlgroup_factors_path %>

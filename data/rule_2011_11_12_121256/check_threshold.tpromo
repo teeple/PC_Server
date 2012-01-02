@@ -1,0 +1,10 @@
+BLOCK_THRESHOLD = {
+    service_id = check_threshold
+
+    promoUseRule = '
+        /threshold_ruleset(balance)/g && rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000, rate_db.getCounterScale(rate_db.getCounterID(rule.balance))) <= rating.getCounterValue(rate_db.getCounterID(rule.balance)) {
+            selected_tariff.setAccountable(false);
+        }
+    '
+}
+

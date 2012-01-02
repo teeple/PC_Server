@@ -1,0 +1,26 @@
+<h1>Listing rating_factors</h1>
+
+<table>
+  <tr>
+    <th>Basic product</th>
+    <th>Packaged product</th>
+    <th>Factor</th>
+    <th>Function</th>
+  </tr>
+
+<% @rating_factors.each do |rating_factor| %>
+  <tr>
+    <td><%=h rating_factor.basic_product_id %></td>
+    <td><%=h rating_factor.packaged_product_id %></td>
+    <td><%=h rating_factor.factor %></td>
+    <td><%=h rating_factor.function %></td>
+    <td><%= link_to 'Show', rating_factor %></td>
+    <td><%= link_to 'Edit', edit_rating_factor_path(rating_factor) %></td>
+    <td><%= link_to 'Destroy', rating_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rating_factor', new_rating_factor_path %>

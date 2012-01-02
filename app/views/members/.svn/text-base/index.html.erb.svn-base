@@ -1,0 +1,30 @@
+<h1>Listing members</h1>
+
+<table>
+  <tr>
+    <th>Userid</th>
+    <th>User name</th>
+    <th>User class</th>
+    <th>User role</th>
+    <th>Phone</th>
+    <th>Email</th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%=h member.userId %></td>
+    <td><%=h member.user_name %></td>
+    <td><%=h member.user_class %></td>
+    <td><%=h member.user_role %></td>
+    <td><%=h member.phone %></td>
+    <td><%=h member.email %></td>
+    <td><%= link_to 'Show', member %></td>
+    <td><%= link_to 'Edit', edit_member_path(member) %></td>
+    <td><%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New member', new_member_path %>

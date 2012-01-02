@@ -1,0 +1,58 @@
+###########################################
+### CONDITION_WHERE_COUNTRY
+[RULESET_CONDITION_WHERE_COUNTRY]
+country, enum
+
+[CONDITION_WHERE_COUNTRY]
+Asia_region: country = ('BO','BR','IO','BG','BI')
+Indonesia: country = ('ID')
+
+
+[RULESET_CONDITION_WHERE_ZONE]
+zone, string(100)
+
+[CONDITION_WHERE_ZONE]
+
+
+###########################################
+### CONDITION_WHERE_NETWORK
+[RULESET_CONDITION_WHERE_NETWORK]
+network, string(20)
+
+[CONDITION_WHERE_NETWORK]
+test network1: network = ('June')
+CDMA: network = ('CDMA','GSM')
+
+
+[RULESET_CONDITION_WHERE_CUSTOM]
+is_Homezone, string(20)
+is_international, string(20)
+is_roaming, string(20)
+call_type, string(20)
+
+[CONDITION_WHERE_CUSTOM]
+home_zone: is_Homezone = 'true' 
+not_in_homezone: is_Homezone = 'false' 
+DOMESTIC: is_international = 'FALSE' 
+ROAMED: is_roaming = 'true' 
+CALL_VPLMN: call_type = 'VPLMN' 
+CALL_HPLMN: call_type = 'HPLMN' 
+CALL_INCOMING: call_type = 'incoming' 
+CALL_OTHER_PLMN: call_type = 'OTHER_PLMN' 
+
+###########################################
+### CONDITION_WHERE
+[RULESET_CONDITION_WHERE]
+c_type, enum
+c_where_country, string(50), rule : (value in ruleset condition_where_country or value is null)
+c_where_zone, string(50), rule : (value in ruleset condition_where_zone or value is null)
+c_where_network, string(50), rule : (value in ruleset condition_where_network or value is null)
+c_where_custom, string(50), rule : (value in ruleset condition_where_custom or value is null)
+
+[CONDITION_WHERE]
+home_zone: c_where_custom = home_zone
+not_in_homezone: c_where_custom = not_in_homezone
+CALL_VPLMN: c_where_custom = CALL_VPLMN
+CALL_HPLMN: c_where_custom = CALL_HPLMN
+CALL_INCOMING: c_where_custom = CALL_INCOMING
+CALL_OTHER_PLMN: c_where_custom = CALL_OTHER_PLMN

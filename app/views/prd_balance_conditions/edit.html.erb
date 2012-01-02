@@ -1,0 +1,28 @@
+<h1>Editing prd_balance_condition</h1>
+
+<% form_for(@prd_balance_condition) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :condition_id %><br />
+    <%= f.text_field :condition_id %>
+  </p>
+  <p>
+    <%= f.label :condition_type %><br />
+    <%= f.text_field :condition_type %>
+  </p>
+  <p>
+    <%= f.label :prd_balance_id %><br />
+    <%= f.text_field :prd_balance_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_balance_condition %> |
+<%= link_to 'Back', prd_balance_conditions_path %>

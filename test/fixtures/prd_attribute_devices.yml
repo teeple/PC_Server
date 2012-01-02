@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code_factor_id: 1
+  prd_attribute_id: 1
+  lock_version: 1
+
+two:
+  code_factor_id: 1
+  prd_attribute_id: 1
+  lock_version: 1

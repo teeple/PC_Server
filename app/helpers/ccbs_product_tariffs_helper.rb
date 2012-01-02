@@ -1,0 +1,2 @@
+module CcbsProductTariffsHelper
+end

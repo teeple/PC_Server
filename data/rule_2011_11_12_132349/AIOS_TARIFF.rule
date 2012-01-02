@@ -1,0 +1,9 @@
+[RULESET_AIOS_TARIFF_DECISION]
+call_type, string(32)
+service, string(32)
+service_id, string(32)
+
+
+[AIOS_TARIFF_DECISION]
+AIOS_VOICE  : service = AIOS, service_id = VOICE
+AIOS_PACKET : service = AIOS, service_id = PACKET 

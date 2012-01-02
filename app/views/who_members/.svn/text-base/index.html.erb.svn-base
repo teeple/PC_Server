@@ -1,0 +1,35 @@
+<h1>Listing who_members</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Viceversa</th>
+    <th>Onoffnet</th>
+    <th>Memberof</th>
+    <th>Age</th>
+    <th>AgeOpType</th>
+    <th>Gender</th>
+  </tr>
+  </tr>
+
+<% @who_members.each do |who_member| %>
+  <tr>
+    <td><%=h who_member.subfctr_name %></td>
+    <td><%=h who_member.description %></td>
+    <td><%=h who_member.viceversa %></td>
+    <td><%=h who_member.onoffnet %></td>
+    <td><%=h who_member.memberof %></td>
+    <td><%=h who_member.age %></td>
+    <td><%=h who_member.age_op_type %></td>
+    <td><%=h who_member.gender %></td>
+    <td><%= link_to 'Show', who_member %></td>
+    <td><%= link_to 'Edit', edit_who_member_path(who_member) %></td>
+    <td><%= link_to 'Destroy', who_member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_member', new_who_member_path %>

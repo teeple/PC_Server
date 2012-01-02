@@ -1,0 +1,17 @@
+[RULESET_DC_BONUS]
+net, string(10)
+product_code, string(15)
+MSP_DCChar, double, result
+dc_rate, double, result
+
+
+[DC_BONUS]
+DC_TYPEA_PROMO : net = 0 and ( MSP_DCChar between 480000, 960000) , dc_rate = 20
+DC_TYPEB_PROMO : net = 0 and ( MSP_DCChar between 960000, 1680000) , dc_rate = 30
+DC_TYPEC_PROMO : net = 0 and ( MSP_DCChar between 1680000, 1000000000) , dc_rate = 40
+DC_TYPEA_PROMO : net = 1 and ( MSP_DCChar between 720000, 1200000) , dc_rate = 20
+DC_TYPEB_PROMO : net = 1 and ( MSP_DCChar between 1200000, 1680000) , dc_rate = 30
+DC_TYPEC_PROMO : net = 1 and ( MSP_DCChar between 1680000, 1000000000) , dc_rate = 40
+#DC_TYPEA_PROMO : net = 1 and product_code = 'AA' and ( MSP_DCChar between 100000, 200000) , dc_rate = 20
+#DC_TYPEB_PROMO : net = 1 and product_code = 'AA' and ( MSP_DCChar between 200000, 250000) , dc_rate = 30
+#DC_TYPEC_PROMO : net = 1 and product_code = 'AA' and ( MSP_DCChar between 250000, 1000000000) , dc_rate = 40

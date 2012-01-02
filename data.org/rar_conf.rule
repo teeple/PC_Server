@@ -1,0 +1,17 @@
+[RULESET_RAR_CONF]
+cc_request_type , string(32)
+legacy_in, string(32)
+cs_node, integer
+validity_time, integer, result
+rar_plus_alpha, integer, result
+rar_timeout, integer, result
+rar_retry_cnt, integer, result
+
+[RAR_CONF]
+2G_MSC_INIT  : cc_request_type = 'INITIAL_REQUEST',                         legacy_in = 'Legacy-SCP', cs_node = 3,   validity_time = 3600, rar_plus_alpha = 10,  rar_timeout = 10, rar_retry_cnt = 0
+2G_MSC_OTHER : cc_request_type = ('UPDATE_REQUEST', 'TERMINATION_REQUEST'), legacy_in = 'Legacy-SCP', cs_node = 3,   validity_time = 3600, rar_plus_alpha = 10,  rar_timeout = 10, rar_retry_cnt = 0
+3G_MSC_INIT  : cc_request_type = 'INITIAL_REQUEST',                         legacy_in = 'Legacy-SCP', cs_node = 4,   validity_time = 130,  rar_plus_alpha = 190, rar_timeout = 10, rar_retry_cnt = 0
+3G_MSC_OTHER : cc_request_type = ('UPDATE_REQUEST', 'TERMINATION_REQUEST'), legacy_in = 'Legacy-SCP', cs_node = 4,   validity_time = 130,  rar_plus_alpha = 10,  rar_timeout = 10, rar_retry_cnt = 0
+DSCP         : cc_request_type = ('INITIAL_REQUEST', 'UPDATE_REQUEST', 'TERMINATION_REQUEST'), legacy_in = 'DSCP',   validity_time = 130,  rar_plus_alpha = 3470,  rar_timeout = 10, rar_retry_cnt = 0
+IMSCP        : cc_request_type = ('INITIAL_REQUEST', 'UPDATE_REQUEST', 'TERMINATION_REQUEST'), legacy_in = 'IM-SCP', validity_time = 130,  rar_plus_alpha = 3470,  rar_timeout = 10, rar_retry_cnt = 0
+OCS        : cc_request_type = ('INITIAL_REQUEST', 'UPDATE_REQUEST', 'TERMINATION_REQUEST'), validity_time = 3600,  rar_plus_alpha = 3470,  rar_timeout = 10, rar_retry_cnt = 0

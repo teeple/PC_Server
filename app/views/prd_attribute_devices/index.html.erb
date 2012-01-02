@@ -1,0 +1,24 @@
+<h1>Listing prd_attribute_devices</h1>
+
+<table>
+  <tr>
+    <th>Code factor</th>
+    <th>Prd attribute</th>
+    <th>Lock version</th>
+  </tr>
+
+<% @prd_attribute_devices.each do |prd_attribute_device| %>
+  <tr>
+    <td><%=h prd_attribute_device.code_factor_id %></td>
+    <td><%=h prd_attribute_device.prd_attribute_id %></td>
+    <td><%=h prd_attribute_device.lock_version %></td>
+    <td><%= link_to 'Show', prd_attribute_device %></td>
+    <td><%= link_to 'Edit', edit_prd_attribute_device_path(prd_attribute_device) %></td>
+    <td><%= link_to 'Destroy', prd_attribute_device, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_attribute_device', new_prd_attribute_device_path %>

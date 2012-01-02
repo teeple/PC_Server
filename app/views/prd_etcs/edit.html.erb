@@ -1,0 +1,12 @@
+<h1>Editing prd_etc</h1>
+
+<% form_for(@prd_etc) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_etc %> |
+<%= link_to 'Back', prd_etcs_path %>

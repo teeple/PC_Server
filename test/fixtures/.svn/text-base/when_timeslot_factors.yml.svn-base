@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_time: MyString
+  end_time: MyString
+  when_timeslot_id: 1
+
+two:
+  start_time: MyString
+  end_time: MyString
+  when_timeslot_id: 1

@@ -1,0 +1,6 @@
+[RULESET_CALL_TYPE]
+called, string(32)
+
+[CALL_TYPE]
+MOBILE : called starts (010, 011, 016, 017, 018, 019)
+PSTN : called starts (02, 03, 04 , 05 , 06 , 07, 08, 09)

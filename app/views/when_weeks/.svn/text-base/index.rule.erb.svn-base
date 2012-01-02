@@ -1,0 +1,9 @@
+###########################################
+### CONDITION_WHEN_WEEK
+[RULESET_CONDITION_WHEN_WEEK]
+week, string(5)
+holiday, string(10)
+    
+[CONDITION_WHEN_WEEK] 
+<%=@when_weeks_output-%>
+

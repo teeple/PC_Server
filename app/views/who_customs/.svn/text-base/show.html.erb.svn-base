@@ -1,0 +1,28 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @who_custom.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @who_custom.description %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @who_custom.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @who_custom.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @who_custom.operation %>
+</p>
+
+
+<%= link_to 'Edit', edit_who_custom_path(@who_custom) %> |
+<%= link_to 'Back', who_customs_path %>

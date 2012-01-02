@@ -1,0 +1,22 @@
+<p>
+  <b>Id :</b>
+  <%=h @action_custom.id %>
+</p>
+
+<p>
+  <b>Subfctr name:</b>
+  <%=h @action_custom.subfctr_name %>
+</p>
+
+<p>
+  <b>Subfctr code:</b>
+  <%=h @action_custom.subfctr_code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @action_custom.description %>
+</p>
+
+<%= link_to 'Edit', edit_action_custom_path(@action_custom) %> |
+<%= link_to 'Back', action_customs_path %>

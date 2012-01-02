@@ -1,0 +1,10 @@
+[RULESET_PACKET_TARIFF_CONDITION]
+called, string(32)
+in_service , string(20)
+product_code , string(15)
+
+[PACKET_TARIFF_CONDITION]
+PACKET_PACKET : called = 'data_packet'
+PACKET_TIME : called = 'data_time'
+PACKET_MONEY : called = 'data_money'
+PACKET_UNIT : called = 'data_unit'

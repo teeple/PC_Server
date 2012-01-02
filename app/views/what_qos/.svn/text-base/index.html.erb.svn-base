@@ -1,0 +1,32 @@
+<h1>Listing what_qos</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Level1</th>
+    <th>Level2</th>
+    <th>Level3</th>
+    <th>Level4</th>
+    <th>Level5</th>
+  </tr>
+
+<% @what_qos.each do |what_qo| %>
+  <tr>
+    <td><%=h what_qo.subfctr_name %></td>
+    <td><%=h what_qo.description %></td>
+    <td><%=h what_qo.level1 %></td>
+    <td><%=h what_qo.level2 %></td>
+    <td><%=h what_qo.level3 %></td>
+    <td><%=h what_qo.level4 %></td>
+    <td><%=h what_qo.level5 %></td>
+    <td><%= link_to 'Show', what_qo %></td>
+    <td><%= link_to 'Edit', edit_what_qo_path(what_qo) %></td>
+    <td><%= link_to 'Destroy', what_qo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New what_qo', new_what_qo_path %>

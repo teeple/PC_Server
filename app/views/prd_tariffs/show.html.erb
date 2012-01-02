@@ -1,0 +1,33 @@
+<p>
+  <b>Parent:</b>
+  <%=h @prd_tariff.parent_id %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%=h @prd_tariff.condition_id %>
+</p>
+
+<p>
+  <b>Condition type:</b>
+  <%=h @prd_tariff.condition_type %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%=h @prd_tariff.action_id %>
+</p>
+
+<p>
+  <b>Action type:</b>
+  <%=h @prd_tariff.action_type %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @prd_tariff.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_tariff_path(@prd_tariff) %> |
+<%= link_to 'Back', prd_tariffs_path %>

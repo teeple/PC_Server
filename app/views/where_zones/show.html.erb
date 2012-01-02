@@ -1,0 +1,28 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @where_zone.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @where_zone.description %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @where_zone.title %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%=h @where_zone.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%=h @where_zone.lng %>
+</p>
+
+
+<%= link_to 'Edit', edit_where_zone_path(@where_zone) %> |
+<%= link_to 'Back', where_zones_path %>

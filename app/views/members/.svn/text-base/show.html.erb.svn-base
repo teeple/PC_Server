@@ -1,0 +1,33 @@
+<p>
+  <b>Userid:</b>
+  <%=h @member.userId %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%=h @member.user_name %>
+</p>
+
+<p>
+  <b>User class:</b>
+  <%=h @member.user_class %>
+</p>
+
+<p>
+  <b>User role:</b>
+  <%=h @member.user_role %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @member.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @member.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

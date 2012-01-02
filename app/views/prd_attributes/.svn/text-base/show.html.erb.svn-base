@@ -1,0 +1,37 @@
+<p>
+  <b>Code:</b>
+  <%=h @prd_attribute.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @prd_attribute.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @prd_attribute.description %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @prd_attribute.status %>
+</p>
+
+<p>
+  <b>Prd Type:</b>
+  <%=h @prd_attribute.prd_type %>
+</p>
+
+<p>
+  <b>Bill Type:</b>
+  <%=h @prd_attribute.bill_type %>
+</p>
+<p>
+  <b>Product:</b>
+  <%=h @prd_attribute.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_attribute_path(@prd_attribute) %> |
+<%= link_to 'Back', prd_attributes_path %>

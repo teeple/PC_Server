@@ -1,0 +1,10 @@
+[RULESET_COUNTRY_DISCOUNT_PP]
+in_service , string(32) , asc
+country_tariff_id , int , asc
+mcc_mnc , int , asc
+l3_pc , string(32) , asc, result
+l7_pc , string(32) , asc, result
+
+[COUNTRY_DISCOUNT_PP]
+SHOW_JAPAN1 : in_service = 'RDS',country_tariff_id = 1, mcc_mnc = 44010, l3_pc = 'OC' , l7_pc ='OC'
+SHOW_JAPAN1 : in_service = 'RDS',country_tariff_id = 1, mcc_mnc = 44020, l3_pc = 'OC' , l7_pc ='OC'

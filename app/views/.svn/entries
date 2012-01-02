@@ -1,0 +1,253 @@
+10
+
+dir
+24
+svn+ssh://bhtak@192.168.1.15/data3/svn/product_catalog/product/trunk/product_catalog/app/views
+svn+ssh://bhtak@192.168.1.15/data3/svn/product_catalog
+
+
+
+2010-11-16T02:29:15.015625Z
+24
+bhtak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84df4ed3-418f-0410-9388-e0b3d7c591ff
+
+prd_additional_services
+dir
+
+when_factors
+dir
+
+what_factors
+dir
+
+where_zones
+dir
+
+members
+dir
+
+action_customs
+dir
+
+who_prefix_factors
+dir
+
+code_factors
+dir
+
+prd_members
+dir
+
+layouts
+dir
+
+when_timeslots
+dir
+
+who_members
+dir
+
+who_country_sames
+dir
+
+prd_attribute_devices
+dir
+
+what_custom_factors
+dir
+
+who_factors
+dir
+
+when_zones
+dir
+
+when_days
+dir
+
+what_urlgroups
+dir
+
+when_duration_factors
+dir
+
+action_custom_factors
+dir
+
+where_factors
+dir
+
+tariffs
+dir
+
+who_prefixes
+dir
+
+prd_tariffs
+dir
+
+where_countries
+dir
+
+promotion_factors
+dir
+
+action_discounts
+dir
+
+when_customs
+dir
+
+what_customs
+dir
+
+prd_balance_conditions
+dir
+
+who_number_factors
+dir
+
+action_deduct_factors
+dir
+
+cs_products
+dir
+
+when_countries
+dir
+
+codes
+dir
+
+cs_product_conditions
+dir
+
+when_weeks
+dir
+
+who_country_factors
+dir
+
+tests
+dir
+
+prd_promotion_rules
+dir
+
+where_networks
+dir
+
+balances
+dir
+
+conditions
+dir
+
+who_customs
+dir
+
+when_custom_factors
+dir
+
+prd_promotions
+dir
+
+where_country_factors
+dir
+
+when_day_factors
+dir
+
+time_tests
+dir
+
+action_deduct_fators
+dir
+
+what_urlgroup_factors
+dir
+
+what_qos
+dir
+
+where_custom_factors
+dir
+
+where_zone_factors
+dir
+
+where_customs
+dir
+
+who_numbers
+dir
+
+who_countries
+dir
+
+action_deducts
+dir
+
+when_durations
+dir
+
+prd_attributes
+dir
+
+action_allows
+dir
+
+actions
+dir
+
+when_timeslot_factors
+dir
+
+products
+dir
+
+where_network_factors
+dir
+
+exports
+dir
+
+who_custom_factors
+dir
+
+promotions
+dir
+
+additional_services
+dir
+
+cs_product_addinfos
+dir
+
+prd_promotion_factors
+dir
+
+prd_subscriptions
+dir
+
+prd_balances
+dir
+
+cs_product_vas
+dir
+

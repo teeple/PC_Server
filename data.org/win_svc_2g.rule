@@ -1,0 +1,30 @@
+[RULESET_WIN_SVC_2G]
+in_service,             string(16),
+out_service,            string(16),
+service_poi,            string,
+int_service_pri,        string,         result
+priority_call_type,     string(8),      result
+priority_is_sac_check,  string(8),      result
+service_action,         string(32),     result
+exclusive_mode,         string(8),      result
+charging_indicator,     string,         result
+
+[WIN_SVC_2G]
+FRP-0 : out_service=FRP,service_poi=0,int_service_pri=1,service_action=04,exclusive_mode=true,charging_indicator=1
+FRP-1 : out_service=FRP,service_poi=1,int_service_pri=1,service_action=01,exclusive_mode=true,charging_indicator=1
+DCS : out_service=DCS,service_poi=0,int_service_pri=8 , service_action=1d , exclusive_mode=true , charging_indicator=1
+TNS : out_service=TNS,service_poi=0,int_service_pri=1 , service_action=1f , exclusive_mode=true , charging_indicator=1
+DNT : out_service=DNT , service_poi=1,int_service_pri=9 , service_action=none , exclusive_mode=true , charging_indicator=1
+DNT : out_service=DNT , service_poi=0,int_service_pri=9 , service_action=none , exclusive_mode=true , charging_indicator=1
+KT1577 : out_service=_KT1577 , service_poi=0,int_service_pri=9 , service_action=none , exclusive_mode=true , charging_indicator=1
+DNT2 : in_service=ALL, out_service=DNT2,service_poi=0,int_service_pri=1 , service_action=1f , exclusive_mode=true , charging_indicator=1
+DNT2 : in_service=TCS ,out_service=DNT2,service_poi=0,int_service_pri=1  , service_action=none , exclusive_mode=true, charging_indicator=1
+NCS : out_service=NCS,service_poi=0,int_service_pri=1 , service_action=33 , exclusive_mode=true , charging_indicator=0
+FNS-0 : out_service=FNS,service_poi=0,int_service_pri=7 , service_action=0a , exclusive_mode=true , charging_indicator=1
+FNS-1 : out_service=FNS,service_poi=1,int_service_pri=7 , service_action=01 , exclusive_mode=true , charging_indicator=1
+ANS-0 : out_service=ANS,service_poi=0,int_service_pri=7 , service_action=0f , exclusive_mode=true , charging_indicator=1
+ANS-1 : out_service=ANS,service_poi=1,int_service_pri=7 , service_action=01 , exclusive_mode=true , charging_indicator=1
+PRS :out_service=PRS,service_poi=0,int_service_pri=7 , service_action=none , exclusive_mode=true , charging_indicator=1
+TAXI : out_service=TAXI,service_poi=0,int_service_pri=7 , service_action=1f , exclusive_mode=true , charging_indicator=1
+RFC : out_service=RFC,service_poi=0,int_service_pri=7 , service_action=14 , exclusive_mode=true , charging_indicator=1
+VPN : out_service=VPN,service_poi=1,int_service_pri=10 , service_action=none , exclusive_mode=true , charging_indicator=1

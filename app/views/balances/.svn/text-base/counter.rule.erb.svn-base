@@ -1,0 +1,2 @@
+[TABLE_COUNTERNAME_TBL]
+<%=balance_counters_output%>

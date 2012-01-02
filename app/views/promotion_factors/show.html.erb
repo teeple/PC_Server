@@ -1,0 +1,20 @@
+<p>
+  <b>Name:</b>
+  <%=h @promotion_factor.name %>
+</p>
+<p>
+  <b>Promotion:</b>
+  <%=h @promotion_factor.promotion_id %>
+</p>
+<p>
+  <b>Cond Or Result:</b>
+  <%=h @promotion_factor.cond_or_result %>
+</p>
+<p>
+  <b>Is Required:</b>
+  <%=h @promotion_factor.is_required %>
+</p>
+
+
+<%= link_to 'Edit', edit_promotion_factor_path(@promotion_factor) %> |
+<%= link_to 'Back', promotion_factors_path %>

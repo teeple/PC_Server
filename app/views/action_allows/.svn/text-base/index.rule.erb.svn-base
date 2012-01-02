@@ -1,0 +1,9 @@
+##################################################
+### ACTION_ALLOW
+[RULESET_ACTION_ALLOW]
+@rule_name, condition
+unit_type, enum, result
+amount, double, result
+
+[ACTION_ALLOW]
+<%= action_allows_output %>

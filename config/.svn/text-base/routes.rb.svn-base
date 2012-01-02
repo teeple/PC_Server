@@ -1,0 +1,191 @@
+ActionController::Routing::Routes.draw do |map|
+  map.resources :prd_attribute_devices
+
+  map.resources :members
+
+  map.resources :action_custom_factors
+
+  map.resources :action_customs
+
+  map.resources :what_custom_factors
+
+  map.resources :what_customs
+
+  map.resources :what_urlgroup_factors
+
+  map.resources :what_qos
+
+  map.resources :what_urlgroups
+
+  map.resources :who_prefix_factors
+
+  map.resources :who_number_factors
+
+  map.resources :who_custom_factors
+
+  map.resources :who_country_factors
+
+  map.resources :where_zone_factors
+
+  map.resources :where_network_factors
+
+  map.resources :where_custom_factors
+
+  map.resources :where_country_factors
+
+  map.resources :when_timeslot_factors
+
+  map.resources :when_day_factors
+
+  map.resources :when_custom_factors
+
+  map.resources :when_duration_factors
+
+  map.resources :exports
+
+  map.resources :code_factors
+
+  map.resources :codes
+
+  map.resources :action_deduct_factors
+
+  map.resources :prd_promotion_rules
+
+  map.resources :actions
+
+  map.resources :conditions
+
+  map.resources :tests
+
+  map.resources :time_tests
+
+  map.resources :prd_balance_conditions
+
+  map.resources :tariffs
+
+  map.resources :where_networks
+
+  map.resources :when_customs
+
+  map.resources :where_customs
+
+  map.resources :where_factors
+
+  map.resources :where_factors
+
+  map.resources :when_factors
+
+  map.resources :who_customs
+
+  map.resources :who_countries
+
+  map.resources :who_prefixes
+
+  map.resources :who_numbers
+
+  map.resources :who_members
+
+  map.resources :who_country_sames
+
+  map.resources :where_zones
+
+  map.resources :where_countries
+
+  map.resources :when_weeks
+
+  map.resources :when_timeslots
+
+  map.resources :when_durations
+
+  map.resources :when_days
+
+  map.resources :cs_product_vas
+
+  map.resources :cs_product_addinfos
+
+  map.resources :cs_product_conditions
+
+  map.resources :cs_products
+
+  map.resources :what_factors
+
+  map.resources :action_discounts
+
+  map.resources :action_deducts
+
+  map.resources :action_allows
+
+  map.resources :promotion_factors
+
+  map.resources :prd_members
+
+  map.resources :prd_attributes
+
+  map.resources :additional_services
+
+  map.resources :balances
+
+  map.resources :prd_promotion_factors
+
+  map.resources :prd_additional_services
+
+  map.resources :prd_promotions
+
+  map.resources :promotions
+
+  map.resources :prd_balances
+
+  map.resources :prd_tariffs
+
+  map.resources :products
+
+  map.resources :who_factors
+
+  map.resources :when_factors
+
+  map.resources :where_factors
+
+  map.resources :prd_subscriptions
+
+  # The priority is based upon order of creation: first created -> highest priority.
+
+  # Sample of regular route:
+  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+  # Keep in mind you can assign values other than :controller and :action
+
+  # Sample of named route:
+  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   map.resources :products
+
+  # Sample resource route with options:
+  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+
+  # Sample resource route with sub-resources:
+  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
+  
+  # Sample resource route with more complex sub-resources
+  #   map.resources :products do |products|
+  #     products.resources :comments
+  #     products.resources :sales, :collection => { :recent => :get }
+  #   end
+
+  # Sample resource route within a namespace:
+  #   map.namespace :admin do |admin|
+  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+  #     admin.resources :products
+  #   end
+
+  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  # map.root :controller => "welcome"
+
+  # See how all your routes lay out with "rake routes"
+
+  # Install the default routes as the lowest priority.
+  # Note: These default routes make all actions in every controller accessible via GET requests. You should
+  # consider removing or commenting them out if you're using named routes and resources.
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+end

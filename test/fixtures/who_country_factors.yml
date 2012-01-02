@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code_factor_id: 1
+  who_country_id: 1
+
+two:
+  code_factor_id: 1
+  who_country_id: 1

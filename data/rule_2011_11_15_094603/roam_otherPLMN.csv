@@ -1,0 +1,6 @@
+country_prefix,carrier,country_code,tariff
+7,RUS01,82,roam_200TGper10Sec
+82,KORKF,81,roam_200TGper10Sec
+81,JPNJP,36,roam_200TGper10Sec
+358,KAZKT,358,roam_200TGper10Sec
+36,HUNVR,7,roam_150TGper10Sec

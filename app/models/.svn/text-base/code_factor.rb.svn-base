@@ -1,0 +1,33 @@
+class CodeFactor < ActiveRecord::Base
+	belongs_to :code
+	has_many :what_factors,
+			:dependent => :nullify
+	has_many :action_deduct_factors,
+			:foreign_key => "upto_type",
+			:dependent => :nullify 
+	has_many :tariffs,
+			:foreign_key => "unit_type",
+			:dependent => :nullify 
+	has_many :tariffs,
+			:foreign_key => "currency",
+			:dependent => :nullify 
+	has_many :members,
+			:foreign_key => "user_class",
+			:dependent => :nullify
+	has_many :members,
+			:foreign_key => "user_role",
+			:dependent => :nullify
+	has_many :additional_services,
+			:foreign_key => "currency_factor_id",
+			:dependent => :nullify
+
+	@@json_mapping_table = {
+		"id"		=> {:value => "id", :type => :DB_FIELD},
+		"name"		=> {:value => "name", :type => :DB_FIELD},
+		"code_id"	=> {:value => "code_id", :type => :DB_FIELD}
+	}
+
+	def self.json_mapping_table
+		return @@json_mapping_table
+	end
+end

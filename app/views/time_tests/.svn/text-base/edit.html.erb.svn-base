@@ -1,0 +1,16 @@
+<h1>Editing time_test</h1>
+
+<% form_for(@time_test) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :time_test %><br />
+    <%= f.datetime_select :time_test %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @time_test %> |
+<%= link_to 'Back', time_tests_path %>

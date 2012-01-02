@@ -1,0 +1,16 @@
+BASIC_DISCOUNT = {
+    service_id = basic_discount
+
+    targetSubsRule = '
+        /discount_ruleset/ {
+            action_discount = targetRule.action_discount
+        }
+    '
+    promoUseRule = /action_discount/
+
+    e3 = rule.amount
+
+    priority = 1
+    category = basic_discount
+}
+

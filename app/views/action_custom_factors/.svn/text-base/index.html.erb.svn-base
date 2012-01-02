@@ -1,0 +1,26 @@
+<h1>Listing action_custom_factors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Operation</th>
+    <th>Action custom</th>
+  </tr>
+
+<% @action_custom_factors.each do |action_custom_factor| %>
+  <tr>
+    <td><%=h action_custom_factor.name %></td>
+    <td><%=h action_custom_factor.value %></td>
+    <td><%=h action_custom_factor.operation %></td>
+    <td><%=h action_custom_factor.action_custom_id %></td>
+    <td><%= link_to 'Show', action_custom_factor %></td>
+    <td><%= link_to 'Edit', edit_action_custom_factor_path(action_custom_factor) %></td>
+    <td><%= link_to 'Destroy', action_custom_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New action_custom_factor', new_action_custom_factor_path %>

@@ -1,0 +1,20 @@
+<h1>Listing tariff_file_lists</h1>
+
+<table>
+  <tr>
+    <th>File name</th>
+  </tr>
+
+<% @tariff_file_lists.each do |tariff_file_list| %>
+  <tr>
+    <td><%=h tariff_file_list.file_name %></td>
+    <td><%= link_to 'Show', tariff_file_list %></td>
+    <td><%= link_to 'Edit', edit_tariff_file_list_path(tariff_file_list) %></td>
+    <td><%= link_to 'Destroy', tariff_file_list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tariff_file_list', new_tariff_file_list_path %>

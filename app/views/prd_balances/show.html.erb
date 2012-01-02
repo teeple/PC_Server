@@ -1,0 +1,33 @@
+<p>
+  <b>Parent:</b>
+  <%=h @prd_balance.parent_id %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%=h @prd_balance.condition_id %>
+</p>
+
+<p>
+  <b>Condition type:</b>
+  <%=h @prd_balance.condition_type %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%=h @prd_balance.balance_id %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @prd_balance.priority %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @prd_balance.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_balance_path(@prd_balance) %> |
+<%= link_to 'Back', prd_balances_path %>

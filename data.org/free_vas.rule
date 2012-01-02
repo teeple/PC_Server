@@ -1,0 +1,47 @@
+[RULESET_FREE_VAS]
+in_service, string(15)
+free_vas, string(15)
+free_vas_code, string(15)
+account_name, string(32), result
+account_value, int, result
+auto_recharge, string(10), result # reg_date : 가입일 충전, false : 충전 안함, (1~31): 해당 날자 충전
+value_transfer, string(10), result # true : 이월, false : 이월 안함
+day_divide, string(10), result # true : 일한, false : 일할 안함
+call_type, string(32) , result
+
+[FREE_VAS]
+# VAS : SMS_VAS, SMS_PLUS_VAS, MMS_VAS, DATA_VAS, IMS_VAS, WIBRO_VAS, VOICE_VAS, VIDEO_VAS, IP_VAS
+# PPS 데이터
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=1, account_name=PPS_DataRemains,  account_value=9240, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=2, account_name=PPS_DataRemains,  account_value=16500, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=3, account_name=PPS_DataRemains,  account_value=27720, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=4, account_name=PPS_DataRemains,  account_value=52800, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=5, account_name=PPS_DataRemains,  account_value=99000, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=6, account_name=PPS_DataRemains,  account_value=22000, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=7, account_name=PPS_DataRemains,  account_value=4096, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=8, account_name=PPS_DataRemains,  account_value=20480, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+PPS_DATA_VAS: in_service=PPS, free_vas=DATA_VAS, free_vas_code=9, account_name=PPS_DataRemains,  account_value=40960, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+
+# PPS 영상
+PPS_VIDEO_VAS: in_service=PPS, free_vas=VIDEO_VAS, free_vas_code=1, account_name=PPS_VideoTime,  account_value=2400, auto_recharge=1, value_transfer=false, day_divide = false, call_type=VIDEO
+PPS_VIDEO_VAS: in_service=PPS, free_vas=VIDEO_VAS, free_vas_code=2, account_name=PPS_VideoTime,  account_value=7200, auto_recharge=1, value_transfer=false, day_divide = false, call_type=VIDEO
+
+# MSP 데이터
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=1, account_name=MSP_DataRemains,  account_value=9240, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=2, account_name=MSP_DataRemains,  account_value=16500, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=3, account_name=MSP_DataRemains,  account_value=27720, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=4, account_name=MSP_DataRemains,  account_value=52800, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=5, account_name=MSP_DataRemains,  account_value=99000, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=6, account_name=MSP_DataRemains,  account_value=22000, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=7, account_name=MSP_DataRemains,  account_value=4096, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=8, account_name=MSP_DataRemains,  account_value=20480, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+MSP_DATA_VAS: in_service=MSP, free_vas=DATA_VAS, free_vas_code=9, account_name=MSP_DataRemains,  account_value=40960, auto_recharge=1, value_transfer=false, day_divide = false, call_type=DATA
+
+# MSP 영상
+MSP_VIDEO_VAS: in_service=MSP, free_vas=VIDEO_VAS, free_vas_code=1, account_name=MSP_VideoTime,  account_value=2400, auto_recharge=1, value_transfer=false, day_divide = false, call_type=VIDEO
+MSP_VIDEO_VAS: in_service=MSP, free_vas=VIDEO_VAS, free_vas_code=2, account_name=MSP_VideoTime,  account_value=7200, auto_recharge=1, value_transfer=false, day_divide = false, call_type=VIDEO
+
+# 데이터 상한 요금제(DLS) 데이터 부가 서비스 설정
+DLS_WIBRO_200M : in_service=DLS, free_vas=DATA_VAS, free_vas_code=8, account_name=DLS_FreeRemains, account_value=409600, auto_recharge=reg_date, value_transfer=false, day_divide = true, call_type=DATA
+DLS_WIBRO_500M : in_service=DLS, free_vas=DATA_VAS, free_vas_code=9, account_name=DLS_FreeRemains, account_value=1024000, auto_recharge=reg_date, value_transfer=false, day_divide = true, call_type=DATA
+DLS_WIBRO_1G : in_service=DLS, free_vas=DATA_VAS, free_vas_code=10, account_name=DLS_FreeRemains, account_value=2048000, auto_recharge=reg_date, value_transfer=false, day_divide = true, call_type=DATA

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fctr_code: MyString
+  duration_name: MyString
+  date_name: MyString
+  timeslot_name: MyString
+  custom_name: MyString
+  day_name: MyString
+
+two:
+  fctr_code: MyString
+  duration_name: MyString
+  date_name: MyString
+  timeslot_name: MyString
+  custom_name: MyString
+  day_name: MyString

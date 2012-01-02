@@ -1,0 +1,24 @@
+<h1>Listing when_timeslot_factors</h1>
+
+<table>
+  <tr>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>When timeslot</th>
+  </tr>
+
+<% @when_timeslot_factors.each do |when_timeslot_factor| %>
+  <tr>
+    <td><%=h when_timeslot_factor.start_time %></td>
+    <td><%=h when_timeslot_factor.end_time %></td>
+    <td><%=h when_timeslot_factor.when_timeslot_id %></td>
+    <td><%= link_to 'Show', when_timeslot_factor %></td>
+    <td><%= link_to 'Edit', edit_when_timeslot_factor_path(when_timeslot_factor) %></td>
+    <td><%= link_to 'Destroy', when_timeslot_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_timeslot_factor', new_when_timeslot_factor_path %>

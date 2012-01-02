@@ -1,0 +1,87 @@
+##################################################
+### ACTION_DEDUCT
+[RULESET_ACTION_DEDUCT]
+@rule_name, condition
+#money, int # money 
+#cnt_deduct, int # count  
+call_time, int # seconds 
+used_packet, int # packets
+rate_name, string(30), result, rule: (value in ruleset tariff or value is null)
+
+[ACTION_DEDUCT]
+22wonPer10Sec: rate_name=10.0SECOND_22.0WON_31, call_time >= 0
+20000_TG_1Time: 
+20000_TG_1Time: rate_name=1.0COUNT_20000.0TG_64
+10wonPer1Mbyte: used_packet >= 0, rate_name=1000000.0BYTE_10.0WON_29
+20wonPer1Mbyte: used_packet >= 0, rate_name=1000000.0BYTE_20.0WON_33
+30000TG1Time: 
+30000TG1Time: rate_name=1.0COUNT_30000.0TG_63
+10000won: rate_name=1.0COUNT_10000.0WON_21
+20wonPerCnt: rate_name=1.0COUNT_20.0WON_28
+30_25_20_TG: 
+30_25_20_TG: rate_name=10.0SECOND_30.0WON_53, call_time between 0, 60
+30_25_20_TG: rate_name=10.0SECOND_25.0WON_54, call_time between 60, 180
+30_25_20_TG: rate_name=10.0SECOND_20.0WON_55, call_time between 180, 99999
+40_30_20TG_time: rate_name=10.0SECOND_40.0TG_78, call_time between 0, 60
+40_30_20TG_time: rate_name=10.0SECOND_30.0TG_79, call_time between 60, 120
+40_30_20TG_time: rate_name=10.0SECOND_20.0TG_80, call_time between 120, 999999
+40_30_20TG_TBD: rate_name=10.0SECOND_40.0TG_59, call_time between 0, 60
+40_30_20TG_TBD: rate_name=10.0SECOND_30.0TG_60, call_time between 60, 120
+40_30_20TG_TBD: rate_name=10.0SECOND_20.0TG_61, call_time between 120, 999999
+10TGper10Sec: 
+10TGper10Sec: 
+10TGper10Sec: rate_name=10.0SECOND_10.0TG_70, call_time between 0, 999999999
+100_90_80won: rate_name=10.0SECOND_100.0WON_25, call_time between 0, 60
+100_90_80won: rate_name=10.0SECOND_90.0WON_26, call_time between 60, 120
+100_90_80won: rate_name=10.0SECOND_80.0WON_27, call_time >= 120
+30_20_10: rate_name=10.0SECOND_30.0WON_47, call_time between 0, 60
+30_20_10: rate_name=10.0SECOND_20.0WON_48, call_time between 60, 60
+30_20_10: rate_name=10.0SECOND_10.0WON_49, call_time >= 60
+100TG1Time: 
+100TG1Time: rate_name=1.0COUNT_100.0TG_62
+20_18_15won: rate_name=10.0SECOND_20.0WON_22, call_time between 0, 60
+20_18_15won: rate_name=10.0SECOND_18.0WON_23, call_time between 60, 120
+20_18_15won: rate_name=10.0SECOND_15.0WON_24, call_time >= 120
+25wonPerCnt: rate_name=1.0COUNT_25.0WON_32
+5000wonPerCnt: rate_name=1.0COUNT_5000.0WON_35
+20_TG_1M: used_packet between 0, 999999999, rate_name=1000000.0BYTE_20.0TG_71
+35000won: rate_name=1.0COUNT_35000.0WON_30
+10_8_5won: rate_name=10.0SECOND_8.0WON_37, call_time between 60, 120
+50_40_30_TG_Data: 
+50_40_30_TG_Data: used_packet between 0, 10000000, rate_name=1000000.0BYTE_50.0WON_56
+50_40_30_TG_Data: used_packet between 10000000, 110000000, rate_name=1000000.0BYTE_40.0WON_57
+50_40_30_TG_Data: used_packet between 110000000, 999999999, rate_name=1000000.0BYTE_30.0WON_58
+##################################################
+### ACTION_ALLOW
+[RULESET_ACTION_ALLOW]
+@rule_name, condition
+unit_type, enum, result
+amount, double, result
+
+[ACTION_ALLOW]
+1000minFree: unit_type= MINUTE, amount= 100
+250mFree: unit_type= BYTE, amount= 250000000
+100cntFree: unit_type= COUNT, amount= 100
+50minFree: unit_type= MINUTE, amount= 50
+300mbyteFree: unit_type= BYTE, amount= 300000000
+Free packet: unit_type= BYTE, amount= 500000
+200cntFree: unit_type= COUNT, amount= 200
+##################################################
+### ACTION_DISCOUNT
+[RULESET_ACTION_DISCOUNT]
+@rule_name, condition
+unit_type, 		enum, result
+upto_amount, 	int , result
+amount, 		int , 	result
+
+[ACTION_DISCOUNT]
+10percent: upto_amount= 10, unit_type= PERCENT, amount= 90
+
+##################################################
+### ACTION_CUSTOM
+[RULESET_ACTION_CUSTOM]
+@rule_name, condition
+must_block, string(20), result
+
+[ACTION_CUSTOM]
+more_than_3_subscription: num_mobile_subs >= 3

@@ -1,0 +1,2 @@
+[PROMOTION_LIST]
+<%=@promotion_list_value_output%>

@@ -1,0 +1,28 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @where_factor.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @where_factor.description %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @where_factor.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @where_factor.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @where_factor.operation %>
+</p>
+
+
+<%= link_to 'Edit', edit_where_factor_path(@where_factor) %> |
+<%= link_to 'Back', where_factors_path %>

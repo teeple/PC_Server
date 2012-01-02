@@ -1,0 +1,19 @@
+<%=member_output%>
+<%=numbers_output%>
+<%=prefixes_output%>
+<%=countries_output%>
+<%=customs_output%>
+
+###########################################
+### CONDITION_
+[RULESET_CONDITION_WHO]
+c_type, enum
+c_who_member, string(20), rule : (value in ruleset condition_who_member or value is null)
+c_who_number, string(20), rule : (value in ruleset condition_who_number or value is null)
+c_who_prefix, string(20), rule : (value in ruleset condition_who_prefix or value is null)
+c_who_country, string(20), rule : (value in ruleset condition_who_country or value is null)
+c_who_custom, string(20), rule : (value in ruleset condition_who_custom or value is null)
+
+[CONDITION_WHO]
+<%=who_factors_output%>
+

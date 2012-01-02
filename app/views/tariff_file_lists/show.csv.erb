@@ -1,0 +1,13 @@
+<%- headers = ["Id", "FileName"] -%>
+<%= CSV.generate_line headers %>
+<%- @tariff_file_list.each do |advertiser| -%>
+<%- advertiser.subscriptions.each do |subscription| -%>
+<%- row = [ advertiser.id,
+            advertiser.name,
+            advertiser.external_id,
+            advertiser.publisher.name,
+            publisher_product_name(subscription),
+            subscription.state ] -%>
+<%=   CSV.generate_line row %>
+<%- end -%>
+<%- end -%>

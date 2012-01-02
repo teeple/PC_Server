@@ -1,0 +1,12 @@
+<h1>Editing crm_product</h1>
+
+<% form_for(@crm_product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @crm_product %> |
+<%= link_to 'Back', crm_products_path %>

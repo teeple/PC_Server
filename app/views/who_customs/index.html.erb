@@ -1,0 +1,28 @@
+<h1>Listing who_customs</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Operation</th>
+  </tr>
+
+<% @who_customs.each do |who_custom| %>
+  <tr>
+    <td><%=h who_custom.subfctr_name %></td>
+    <td><%=h who_custom.description %></td>
+    <td><%=h who_custom.name %></td>
+    <td><%=h who_custom.value %></td>
+    <td><%=h who_custom.operation %></td>
+    <td><%= link_to 'Show', who_custom %></td>
+    <td><%= link_to 'Edit', edit_who_custom_path(who_custom) %></td>
+    <td><%= link_to 'Destroy', who_custom, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_custom', new_who_custom_path %>

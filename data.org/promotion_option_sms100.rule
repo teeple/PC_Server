@@ -1,0 +1,7 @@
+[RULESET_PROMOTION_OPTION_SMS100]
+product_name, string(20), rule :(value in ruleset product_list or value is null)
+is_subscribed, string(20) 
+option_amount, string(20), result
+
+[PROMOTION_OPTION_SMS100]
+

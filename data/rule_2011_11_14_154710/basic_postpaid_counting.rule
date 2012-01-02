@@ -1,0 +1,7 @@
+[RULESET_BASIC_POSTPAID_COUNTING]
+called , string(32)
+counting_counter_name, string(32) , result
+counting_target_account , string(32) , result 
+
+[BASIC_POSTPAID_COUNTING]
+INTL_COUNTING : called starts 00 , counting_counter_name = INTL_USAGE , counting_target_account = GENERAL_USAGES

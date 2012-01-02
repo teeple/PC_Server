@@ -1,0 +1,325 @@
+module JsonMapper
+	class JsonMappingTable
+		@@json_mapping_tables = Hash.new
+
+		@@json_mapping_tables["Qos"] = {
+		 	"level1" => {:value => "level1", :type => :DB_FIELD},
+		 	"level2" => {:value => "level2", :type => :DB_FIELD},
+		 	"level3" => {:value => "level3", :type => :DB_FIELD},
+		 	"level4" => {:value => "level4", :type => :DB_FIELD},
+		 	"level5" => {:value => "level5", :type => :DB_FIELD},
+		} 
+
+		@@json_mapping_tables["HeaderDeduct"] = {
+		 	"header_upto_start" => {:value => "Start", :type => :TITLE},
+		 	"header_upto_end" 	=> {:value => "End", :type => :TITLE},
+		 	"header_upto_type" 	=> {:value => "Type", :type => :TITLE},
+		 	"header_unit" 		=> {:value => "Unit", :type => :TITLE},
+		 	"header_unit_param" => {:value => "Param ", :type => :TITLE},
+		 	"header_rate" 		=> {:value => "Rate", :type => :TITLE},
+		 	"header_currency" 	=> {:value => "Currency", :type => :TITLE},
+		} 
+
+		@@json_mapping_tables["Weeks"] = {
+		 	"view_sun" 		=> {:value => "Sunday", :type => :TITLE},
+		 	"sun" 			=> {:value => "sun", :type => :DB_FIELD},
+		 	"view_mon" 		=> {:value => "Monday", :type => :TITLE},
+		 	"mon" 			=> {:value => "mon", :type => :DB_FIELD},
+		 	"view_tue" 		=> {:value => "Tuesday", :type => :TITLE},
+		 	"tue" 			=> {:value => "tue", :type => :DB_FIELD},
+		 	"view_wed" 		=> {:value => "Wednsesday", :type => :TITLE},
+		 	"wed" 			=> {:value => "wed", :type => :DB_FIELD},
+		 	"view_thu" 		=> {:value => "Thursday", :type => :TITLE},
+		 	"thu" 			=> {:value => "thu", :type => :DB_FIELD},
+		 	"view_fri" 		=> {:value => "Sunday", :type => :TITLE},
+		 	"fri" 			=> {:value => "fri", :type => :DB_FIELD},
+		 	"view_sat" 		=> {:value => "Saturday", :type => :TITLE},
+		 	"sat" 			=> {:value => "sat", :type => :DB_FIELD},
+		 	"view_holiday" 	=> {:value => "Sunday", :type => :TITLE},
+		 	"holiday" 		=> {:value => "sun", :type => :DB_FIELD}
+		}
+
+		def JsonMappingTable.mapping_table 
+			@@json_mapping_tables
+		end 
+	end
+
+	def mapping_to_hash(object, mapping_table)
+
+		returns_hash = Hash.new
+		temp_hash = Hash.new
+		mapping_table.each do |k, v|
+
+			if (not object.blank?) || (v[:value][0] == 64)  || (v[:type] == :HAS_CHILD_MULTI_AND_SELF) # @ == 64
+				case v[:type]
+					when :TITLE:
+						returns_hash[k] = v[:value]
+
+					when :DB_FIELD:
+						returns_hash[k] = object[v[:value]].blank? ? nil: object[v[:value]].to_s
+					when :DB_FIELD_MODIFIED:
+
+						if object[v[:value]].blank? 
+							returns_hash[k] = nil
+						else 
+							case v[:act][:operation]
+								when :DELETE:
+									returns_hash[k] = (object[v[:value]].sub v[:act][:params], "")
+								else
+									returns_hash[k] = nil
+							end
+						end 
+
+					when :DB_FIELD_MODIFIED_ARRAY_ID:
+
+						if  object[v[:value]].blank?
+							returns_hash[k] = []
+						else
+							product_ids = object[v[:value]].split(",")
+							array_ = []
+							product_ids.each do |product_id|
+								hash_ = Hash.new
+								hash_['product_id'] = product_id
+
+								temp_product = Product.find_by_id(product_id)
+								hash_['prd_type'] = temp_product.prd_attribute.prd_type 
+								hash_['name'] = temp_product.prd_attribute.name
+
+								array_ << hash_
+							end 
+							returns_hash[k] = array_
+						end
+						
+					when :FOREIGN_DB_FIELD: # similar to refering others but located in self 
+						returns_hash[k] = object
+
+					when :HAS_CHILD: # refer to others using foreign key 
+						object_of_fkey = object.instance_variable_get(v[:value])
+
+						if object_of_fkey.nil? 
+							class_name = ""
+							temp_array = (v[:value].delete "@").split('_')
+							temp_array.each do |node|
+								class_name += node.capitalize
+							end 
+							returns_hash[k] = mapping_to_hash(nil, eval(class_name).json_mapping_table)
+						else
+							returns_hash[k] = mapping_to_hash(object_of_fkey, object_of_fkey.class.json_mapping_table)
+						end
+
+					when :HAS_CHILD_MULTI: # refer to others using foreign key 
+						object_of_fkey = object.instance_variable_get(v[:value])
+
+						if object_of_fkey.nil?
+							main_array = []
+							class_name = ""
+							temp_array = (v[:value].delete "@").split('_')
+							temp_array.each do |node|
+								class_name += node.capitalize.singularize
+							end 
+
+							temp_hash = Hash.new
+							temp_hash = mapping_to_hash(nil, eval(class_name).json_mapping_table)
+							if_nil = 1
+							temp_hash.values.each do |value|
+								if not value.nil? 
+									if_nil = 0
+								end
+							end 
+
+							if if_nil == 0
+								main_array  << temp_hash
+							end
+
+							if main_array.empty?
+								returns_hash[k] = []
+							else
+								returns_hash[k] = main_array
+							end
+
+						elsif object_of_fkey.empty?
+							returns_hash[k] = []
+							
+						else
+							temp_array = []
+							object_of_fkey.each do |node|
+								temp_array << mapping_to_hash(node, node.class.json_mapping_table)
+							end
+							returns_hash[k] = temp_array
+						end
+
+					when :HAS_CHILD_MULTI_PRODUCT:
+
+						array_1 = []
+
+						if not object.products.blank?
+							object.products.each do |product|
+								hash_1 = Hash.new
+								hash_1['product_id'] = product.id
+								array_1 << hash_1
+							end
+						end
+						returns_hash[k] = array_1
+
+					when :HAS_CHILD_MULTI_AND_DUMMY:
+
+						temp_array = []	
+						object_of_fkey = object.instance_variable_get(v[:value])
+
+						if not object_of_fkey.blank?
+							object_of_fkey.each do |c|
+								temp_array << mapping_to_hash(c, c.class.json_mapping_table)
+							end 
+						end
+						returns_hash[k] = temp_array
+
+
+					when :HAS_CHILD_AND_DUMMY: # refer to others using foreign key, but self is dummy 
+						temp_hash = Hash.new
+
+						object_of_fkey  = object.instance_variable_get(v[:value])
+						if not object_of_fkey.blank?
+							temp_hash = mapping_to_hash(object_of_fkey, object_of_fkey.class.json_mapping_table)
+						end
+
+					when :HAS_CHILD_AND_SELF: # similar to refering other but located in self 
+						returns_hash[k] = mapping_to_hash(object, JsonMappingTable.mapping_table[v[:value]])
+				
+					when :HAS_CHILD_MULTI_AND_SELF: # similar to refering others but located in self 
+						temp_array = []
+						temp_hash = Hash.new
+						temp_hash = mapping_to_hash(object, JsonMappingTable.mapping_table[v[:value]])
+					    temp_hash.each do |c|
+							temp_array << Hash[*c.flatten]
+						end 
+						returns_hash[k] = temp_array
+
+					when :EVAL: # evaluate the value
+
+						eval_str = "object." + v[:value]
+						temp_array = eval_str.split(".")
+						temp_str = ""
+						is_nil = 0
+
+						begin 
+							temp_array.each do |str_sub|
+								temp_str += str_sub
+
+								if eval(temp_str).blank? 
+									is_nil = 1
+								end
+								temp_str += "."
+							end
+						rescue NoMethodError
+							is_nil = 1
+						end
+
+						if is_nil == 0 
+							returns_hash[k] = eval(eval_str)
+						end
+
+					when :PASS_MULTI:
+
+						temp_array = []
+
+						eval_str = "object." + v[:value] 
+						class_name = v[:value].singularize.capitalize
+
+						eval(eval_str).each do |sub|
+
+							temp_array << mapping_to_hash(sub, eval(sub.class.name).json_mapping_table)
+						end 
+						returns_hash[k] = temp_array 
+
+					when :PASS_MULTI_ALIAS:
+						temp_array = []
+
+						eval_str = "object." + v[:value] 
+						class_name = v[:class_name]
+
+						eval(eval_str).each do |sub|
+							temp_array << mapping_to_hash(sub, eval(sub.class.name).json_mapping_table)
+						end 
+						returns_hash[k] = temp_array
+
+					when :ASSOCIATION:
+
+						case v[:asso_target]
+							when :CONDITION:
+								if object.condition_id.blank? || object.condition_id == 0
+									returns_hash[k]  = nil
+								else
+									returns_hash[k]  = object.condition.blank? ? "": object.condition[v[:value]]
+								end
+
+							when :ACTION:
+								if object.action_id.blank? || object.action_id == 0
+									returns_hash[k]  = nil
+								else
+									returns_hash[k]  = object.action.blank? ? "": object.action[v[:value]]
+								end 	
+
+							when :BALANCE:
+								returns_hash[k] = object.balance.blank? ? "": object.balance[v[:value]]
+							when :TARIFF:
+								returns_hash[k] = object.tariff.blank? ? "": object.tariff[v[:value]]
+
+							when :CODE_FACTOR:
+								case v[:asso_key]
+									when "unittype":
+										if object.unittype.blank?
+											returns_hash[k] = nil
+										else
+											returns_hash[k] = object.unittype.name.blank? ? "": object.unittype.name
+										end
+
+									when "currency_unit":
+										if object.currency_unit.blank?
+											returns_hash[k] = nil
+										else
+											returns_hash[k] = object.currency_unit.name.blank? ? "": object.currency_unit.name
+										end
+
+									when "currency_factor_id":
+										if object.currency_factor_id.blank?
+											returns_hash[k] = nil
+										else
+											returns_hash[k] = object.currency_factor.name.blank? ? "": object.currency_factor.name
+										end
+
+
+									when "uptotype":
+										if object.uptotype.blank?
+											returns_hash[k] = nil
+										else
+											returns_hash[k] = object.uptotype.name.blank? ? "": object.uptotype.name
+										end 
+
+									when "user_class_type":
+										if object.user_class_type.blank?
+											returns_hash[k] = nil
+										else
+											returns_hash[k] = object.user_class_type.name.blank? ? "": object.user_class_type.name
+										end 
+
+									when "user_role_type":
+										if object.user_role_type.blank?
+											returns_hash[k] = nil
+										else
+											returns_hash[k] = object.user_role_type.name.blank? ? "": object.user_role_type.name
+										end
+								end
+						 end
+					end # end of case control
+			else 
+				returns_hash[k] = nil
+			end 
+		end  #end of each control
+
+		if not temp_hash.blank? && temp_hash.size > 0 
+			returns_hash.merge! temp_hash
+		end
+
+		return returns_hash 
+	end
+end

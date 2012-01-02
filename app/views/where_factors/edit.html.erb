@@ -1,0 +1,44 @@
+<h1>Editing where_factor</h1>
+
+<% form_for(@where_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fctr_code %><br />
+    <%= f.text_field :fctr_code %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :operation %><br />
+    <%= f.text_field :operation %>
+  </p>
+   <p>
+    <%= f.label :target %><br />
+    <%= f.text_field :target %>
+  </p>
+   <p>
+    <%= f.label :default %><br />
+    <%= f.text_field :default %>
+  </p>
+   <p>
+    <%= f.label :service_type %><br />
+    <%= f.text_field :service_type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @where_factor %> |
+<%= link_to 'Back', where_factors_path %>

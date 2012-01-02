@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  description: MyString
+  viceversa: MyString
+  onoffnet: MyString
+  memberof: MyString
+
+two:
+  subfctr_name: MyString
+  description: MyString
+  viceversa: MyString
+  onoffnet: MyString
+  memberof: MyString

@@ -1,0 +1,93 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_CC_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset cc_who or value is null)
+condition_when, string(50) , rule : (value in ruleset cc_when or value is null)
+condition_where, string(20) , rule : (value in ruleset cc_where or value is null)
+balance, string(20), result
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[CC_SUBSCRIPTION]
+rule_1: condition_what=unsubscribe
+
+#############################################
+### TARIFF
+[RULESET_CC_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset cc_who or value is null)
+condition_when, string(50) , rule : (value in ruleset cc_when or value is null)
+condition_where, string(20) , rule : (value in ruleset cc_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[CC_TARIFF]
+rule_1: condition_who=family
+
+#############################################
+### WHEN condition
+[RULESET_CC_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[CC_WHEN]
+
+
+#############################################
+### Where condition
+[RULESET_CC_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+custom_where, string(30)
+
+[CC_WHERE]
+
+
+#############################################
+### Whom condition
+[RULESET_CC_WHO]
+is_Family, string(6)	# YYYYMMDD format 
+age, string(10)
+gender, string(10)  #  gender 
+called, string(10) # called number
+custom_who, string(10) # prefix
+
+[CC_WHO]
+family: is_Family = 'true'
+
+
+#############################################
+### PROMOTION
+[RULESET_CC_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[CC_PROMOTION]
+rule_0: promotion_type=DISCOUNT, promotion_name=family_bonus
+rule_1: promotion_type=GIVE, promotion_name=first_activation_bonus
+
+#############################################
+### VAS
+[RULESET_CC_VAS]
+vas_name, 		string(20) 
+is_required, 	string(10), result
+vas_fee, 			string(20), result
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[CC_VAS]
+rule_0: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'WAP', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_1: is_required= 'ADDITIONAL', vas_fee= '0.0', vas_name= 'FullBrowsing', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_2: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'eMail', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'

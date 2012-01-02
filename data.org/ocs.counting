@@ -1,0 +1,57 @@
+PPS_REFILL_DC_COUNTING = {
+	service_id = REFILL
+
+	priority = 10
+	category = 3
+	targetSubsRule = '
+		dc_type == "true" && in_service == "PPS" && now() < untilTheDay(dc_enddate)
+	'
+
+	counterPrice = {
+		{
+			counterType = 1
+			promotionCounterType = 1
+			counterID = DCChar
+			counterChange = selected_price.sumCounterChange()
+		}
+	}
+}
+
+MSP_REFILL_DC_COUNTING = {
+	service_id = REFILL
+
+	priority = 10
+	category = 3
+	targetSubsRule = '
+		dc_type == "true" && in_service == "MSP" && now() < untilTheDay(dc_enddate)
+	'
+
+	counterPrice = {
+		{
+			counterType = 1
+			promotionCounterType = 1
+			counterID = DCChar
+			counterChange = selected_price.sumCounterChange()
+		}
+	}
+}
+
+VOICE_USAGE_COUNTING = {
+	service_id = IMS
+
+	priority = 10
+	category = 3
+	targetSubsRule = '
+		in_service == "TES"
+	'
+
+	counterTariff = {
+		{
+			counterType = 1
+			promotionCounterType = 1
+			counterID = VOICE_T1
+			ccForFirstChargeableTimeUnit = -selected_tariff.sumCounterChangeForFirstChargeableTimeUnit()
+			ccPerSubsequentChargeableTimeUnit = -selected_tariff.sumCounterChangePerSubsequentChargeableTimeUnit()
+		}
+	}
+}

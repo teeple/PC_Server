@@ -1,0 +1,24 @@
+<h1>Editing prd_attribute_device</h1>
+
+<% form_for(@prd_attribute_device) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code_factor_id %><br />
+    <%= f.text_field :code_factor_id %>
+  </p>
+  <p>
+    <%= f.label :prd_attribute_id %><br />
+    <%= f.text_field :prd_attribute_id %>
+  </p>
+  <p>
+    <%= f.label :lock_version %><br />
+    <%= f.text_field :lock_version %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_attribute_device %> |
+<%= link_to 'Back', prd_attribute_devices_path %>

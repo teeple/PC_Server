@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  subfctr_code: MyString
+
+two:
+  subfctr_name: MyString
+  subfctr_code: MyString

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  description: MyString
+  level1: 1
+  level2: 1
+  level3: 1
+  level4: 1
+  level5: 1
+
+two:
+  subfctr_name: MyString
+  description: MyString
+  level1: 1
+  level2: 1
+  level3: 1
+  level4: 1
+  level5: 1

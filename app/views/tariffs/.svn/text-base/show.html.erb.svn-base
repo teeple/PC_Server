@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @tariff.name %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%=h @tariff.unit %>
+</p>
+
+<p>
+  <b>Unit type:</b>
+  <%=h @tariff.unit_type %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%=h @tariff.rate %>
+</p>
+
+<p>
+  <b>Currency:</b>
+  <%=h @tariff.currency %>
+</p>
+
+
+<%= link_to 'Edit', edit_tariff_path(@tariff) %> |
+<%= link_to 'Back', tariffs_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @when_duration.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @when_duration.description %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @when_duration.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @when_duration.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_duration_path(@when_duration) %> |
+<%= link_to 'Back', when_durations_path %>

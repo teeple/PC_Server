@@ -1,0 +1,12 @@
+<h1>Editing dbs_deposit_threshold</h1>
+
+<% form_for(@dbs_deposit_threshold) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dbs_deposit_threshold %> |
+<%= link_to 'Back', dbs_deposit_thresholds_path %>

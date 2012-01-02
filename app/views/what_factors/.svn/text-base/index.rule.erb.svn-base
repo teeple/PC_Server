@@ -1,0 +1,16 @@
+<%=qos_output%>
+<%=urlgroups_output%>
+<%=what_customs_output%>
+
+########################################
+### RULESET_CONDITION_WHAT
+[RULESET_CONDITION_WHAT]
+service_id, enum
+rating_group, int
+c_what_qo, string(20), rule : (value in ruleset condition_what_qo or value is null)
+c_what_urlgroup, string(20), rule : (value in ruleset condition_what_urlgroup or value is null)
+c_what_custom, string(20), rule : (value in ruleset condition_what_custom or value is null)
+
+
+[CONDITION_WHAT]
+<%=what_factors_output%>

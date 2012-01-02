@@ -1,0 +1,10 @@
+[RULESET_DISCOUNT_RULES]
+service, string(32)
+service_id, string(32)
+data_load_type, int
+discount_rate, int , desc, result
+
+[DISCOUNT_RULES]
+DataLoadFare_100 : service = AIOS, service_id = PACKET, data_load_type = 0, discount_rate = 0
+DataLoadFare_200 : service = AIOS, service_id = PACKET, data_load_type = 1, discount_rate = -100
+DataLoadFare_50  : service = AIOS, service_id = PACKET, data_load_type = 2, discount_rate = 50

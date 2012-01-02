@@ -1,0 +1,9 @@
+[RULESET_PROMOTION_OPTION_VOICE50]
+product_name, string(20), rule :(value in ruleset product_list or value is null)
+is_activated, string(20) 
+is_firsttime, string(20) 
+discount_rate, string(20), result
+
+[PROMOTION_OPTION_VOICE50]
+
+rule_1: product_name = skytel_pps1.0,is_firsttime=TRUE,is_activated=TRUE,discount_rate=20

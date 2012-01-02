@@ -1,0 +1,28 @@
+<h1>Editing where_custom_factor</h1>
+
+<% form_for(@where_custom_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :operation %><br />
+    <%= f.text_field :operation %>
+  </p>
+  <p>
+    <%= f.label :where_custom_id %><br />
+    <%= f.text_field :where_custom_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @where_custom_factor %> |
+<%= link_to 'Back', where_custom_factors_path %>

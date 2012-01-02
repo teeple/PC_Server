@@ -1,0 +1,26 @@
+set_counter = {
+    service_id = SET_COUNTER
+    targetSubsRule = '
+        /counter_list/g {
+            action_allow = targetRule.action_allow
+            uaLog.info("allow = %s", action_allow);
+        }
+    '
+
+    promoGrantRule = '
+        /action_allow/ {
+            amount = rule.amount;
+            if(rule.unit_type == "MINUTE")
+                amount = amount*60;
+        }
+    '
+
+    counterPrice = {
+        {
+            counterID = targetRule.balance
+            counterType = 1
+            promotionCounterType = 2
+            counterChange = amount
+        }
+    }
+}

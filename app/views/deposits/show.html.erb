@@ -1,0 +1,23 @@
+<p>
+  <b>Id:</b>
+  <%=h @deposit.id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @deposit.product_id %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%=h @deposit.balance_id %>
+</p>
+
+<p>
+  <b>Deposit:</b>
+  <%=h @deposit.deposit %>
+</p>
+
+
+<%= link_to 'Edit', edit_deposit_path(@deposit) %> |
+<%= link_to 'Back', deposits_path %>

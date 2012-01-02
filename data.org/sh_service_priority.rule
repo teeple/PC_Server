@@ -1,0 +1,26 @@
+[RULESET_SH_SERVICE_PRIORITY]
+in_service , string(16)
+poi , int
+in_service_pri , int, result
+in_service_exclusive, string(8), result
+priority_call_type, string(8), result
+priority_is_sac_check, string(8), result
+
+[SH_SERVICE_PRIORITY]
+1 : in_service = 'NCS', in_service_pri = 1, in_service_exclusive = 'Y', priority_call_type = 'D', priority_is_sac_check = 'Y'
+2 : in_service = 'TCS', in_service_pri = 2, in_service_exclusive = 'Y', priority_call_type = 'A', priority_is_sac_check = 'Y'
+3 : in_service = 'PPS', poi = 1, in_service_pri = 3, in_service_exclusive = 'Y', priority_call_type = 'D', priority_is_sac_check = 'N'
+4 : in_service = 'MSP', poi = 1, in_service_pri = 4, in_service_exclusive = 'Y', priority_call_type = 'D', priority_is_sac_check = 'N'
+5 : in_service = 'TES', in_service_pri = 5, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+6 : in_service = 'HZS', in_service_pri = 6, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+7 : in_service = 'RTS', in_service_pri = 7, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+8 : in_service = 'NZS', in_service_pri = 8, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+9 : in_service = 'PPS', in_service_pri = 9, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+10 : in_service = 'MSP', in_service_pri = 10, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+11 : in_service = 'TTS', in_service_pri = 11, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+12 : in_service = 'DLS', in_service_pri = 12,  in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'N'
+13 : in_service = 'FRP', in_service_pri = 13,  in_service_exclusive = 'Y', priority_call_type = 'D', priority_is_sac_check = 'N'
+14 : in_service = 'RFC', in_service_pri = 14,  in_service_exclusive = 'Y', priority_call_type = 'D', priority_is_sac_check = 'N'
+15 : in_service = 'ANS', in_service_pri = 15,  in_service_exclusive = 'N', priority_call_type = 'D', priority_is_sac_check = 'N'
+16 : in_service = 'FNS', in_service_pri = 16, in_service_exclusive = 'N', priority_call_type = 'D', priority_is_sac_check = 'Y'
+17 : in_service = 'FNSO', in_service_pri = 17, in_service_exclusive = 'N', priority_call_type = 'G', priority_is_sac_check = 'Y'

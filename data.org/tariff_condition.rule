@@ -1,0 +1,78 @@
+[RULESET_TARIFF_CONDITION]
+in_service , string(20)
+call_type , string(32)
+product_code , string(15)
+price_plan , string(10)
+tariff , string(20)
+holiday , string(6)
+week , string(4)
+time , string(5)
+npa , string(5)
+airCharge, string(6)
+
+[TARIFF_CONDITION]
+#####  주의 !! :: time 은 필수 요소라고 하네요.  #####
+#060A : (call_type = '060A') and (time between '0000','2400')
+#060B : (call_type = '060B') and (time between '0000','2400')
+#700 : (call_type = '700') and (time between '0000','2400')
+#EVENT_02131 : ( call_type = 'EVENT_02131' ) and (time between '0000','2400')
+#FIX_200 : (call_type = 'FIX_200') and (time between '0000','2400')
+KT114 : (in_service = ('TTS', 'TCS')) and (call_type = 'KT114') and (time between '0000','2400')
+#INFO_RING_TO_YOU : ( call_type = 'INFO_RING_TO_YOU' ) and (time between '0000','2400')
+
+# PPS KT 114
+PPS_KT114_DISCOUNT : (in_service = 'PPS') and (call_type = 'KT114') and  (holiday = 'false') and (week = ( 'fri' , 'mon' , 'wed' , 'tue' , 'thu' )) and (time between '0900','1800')
+PPS_KT114_DISCOUNT : (in_service = 'PPS') and (call_type = 'KT114') and  (holiday = 'false') and (week = 'sat') and (time between '0900','1300')
+PPS_KT114_NORMAL : (in_service = 'PPS') and (call_type = 'KT114') and  (holiday = 'true') and (time between '0000','2400')
+PPS_KT114_NORMAL : (in_service = 'PPS') and (call_type = 'KT114') and  (holiday = 'false') and (week = ( 'fri' , 'mon' , 'wed' , 'tue' , 'thu' )) and (time between '0000','0900' or time between '1800','2400')
+PPS_KT114_NORMAL : (in_service = 'PPS') and (call_type = 'KT114') and  (holiday = 'false') and (week = 'sat') and (time between '0000','0900' or time between '1300','2400')
+
+normal : (call_type = 'VOICE') and (holiday = 'false') and (week = ( 'fri' , 'mon' , 'wed' , 'tue' , 'thu' )) and (time between '0000','1800' or time between '2200','2400')
+normal : (call_type = 'VOICE') and (holiday = 'false') and (week = 'sat') and (time between '0000','1300' or time between '2200','2400')
+discount : (call_type = 'VOICE') and (holiday = 'true') and (time between '0000','2400')
+discount : (call_type = 'VOICE') and (holiday = 'false') and (week = ( 'thu' , 'fri' , 'wed' , 'mon' , 'tue' )) and (time between '1800','2200')
+discount : (call_type = 'VOICE') and (holiday = 'false') and (week = 'sat') and (time between '1300','2200')
+
+video : (call_type = 'VIDEO') and (holiday = 'false') and (week = ( 'mon' , 'tue' , 'wed' , 'thu' , 'fri' )) and (time between '2200','2400' or time between '0000','1800')
+video : (call_type = 'VIDEO') and (holiday = 'false') and (week = 'sat') and (time between '0000','1300' or time between '2200','2400')
+video_discount : (call_type = 'VIDEO') and (holiday = 'true') and (time between '0000','2400')
+video_discount : (call_type = 'VIDEO') and (holiday = 'false') and (week = ( 'fri' , 'mon' , 'tue' , 'wed' , 'thu' )) and (time between '1800','2200')
+video_discount : (call_type = 'VIDEO') and (holiday = 'false') and (week = 'sat') and (time between '1300','2200')
+
+ROAM_TYPEA : (call_type = ('ROAM_VOICE', 'ROAM_VIDEO')) and (time between '0000', '2400')
+ROAM_TYPEB : (call_type = ('ROAM_KOR_VOICE', 'ROAM_KOR_VIDEO')) and (time between '1800','2200')
+ROAM_TYPEB_DIS : (call_type = ('ROAM_KOR_VOICE', 'ROAM_KOR_VIDEO')) and (time between '0000','1800' or time between '2200','2400')
+ROAM_TYPEC : (call_type = ('ROAM_INTL_VOICE', 'ROAM_INTL_VIDEO')) and (time between '0000','2400')
+001_UnitedStates : (call_type = 'UnitedStates') and (npa = '001') and (time between '0600','2400')
+002_UnitedStates : (call_type = 'UnitedStates') and (npa = '002') and (time between '0600','2400')
+UnitedStates_NIGHT : (call_type = 'UnitedStates') and (time between '0000', '0600')
+USVirgin : (call_type = 'USVirgin') and (time between '0000','2400')
+
+# PPS - CA
+PPS_CA_NORMAL : (in_service = 'PPS') and (product_code = 'CA') and (price_plan = 'CA') and (holiday = 'false') and (week = ( 'fri' , 'mon' , 'wed' , 'tue' , 'thu', 'sat' )) and (time between '0800','2100')
+PPS_CA_DISCOUNT : (in_service = 'PPS') and (product_code = 'CA') and (price_plan = 'CA') and (holiday = 'false') and (week = ( 'fri' , 'mon' , 'wed' , 'tue' , 'thu', 'sat' )) and (time between '0600','0800' or time between '2100','2400')
+PPS_CA_DISCOUNT : (in_service = 'PPS') and (product_code = 'CA') and (price_plan = 'CA') and (week = 'sun') and (time between '0600','2400')
+PPS_CA_DISCOUNT : (in_service = 'PPS') and (product_code = 'CA') and (price_plan = 'CA') and (holiday = 'true') and (time between '0600','2400')
+PPS_CA_SPECIAL : (in_service = 'PPS') and (product_code = 'CA') and (price_plan = 'CA') and (time between '0000','0600')
+
+# International Call
+INTL_00300_VOICE_AREA1_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA1') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA1_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA1') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA2_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA2') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA2_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA2') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA3_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA3') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA3_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA3') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA4_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA4') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA4_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA4') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA5_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA5') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA5_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA5') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA6_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA6') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA6_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA6') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA7_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA7') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA7_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA7') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA8_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA8') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA8_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA8') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA9_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA9') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA9_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA9') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VOICE_AREA10_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VOICE_AREA10') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false
+INTL_00300_VIDEO_AREA10_NORMAL : (in_service = ( 'MSP', 'RTS' )) and (call_type = 'INTL_00300_VIDEO_AREA10') and (week = ( 'sun' )) and (time between '0000', '2400') and airCharge=false

@@ -1,0 +1,28 @@
+<h1>Listing cs_product_addinfos</h1>
+
+<table>
+  <tr>
+  	<th>Jobkey</th>
+  	<th>Command</th>
+  	<th>Product Code</th>
+  	<th>Name</th>
+  	<th>Description</th>
+  </tr>
+
+<% @cs_product_addinfos.each do |cs_product_addinfo| %>
+  <tr>
+    <td><%= cs_product_addinfo.jobkey %></td>
+    <td><%= cs_product_addinfo.command %></td>
+    <td><%= cs_product_addinfo.product_code %></td>
+    <td><%= cs_product_addinfo.name %></td>
+    <td><%= cs_product_addinfo.description %></td>
+    <td><%= link_to 'Show', cs_product_addinfo %></td>
+    <td><%= link_to 'Edit', edit_cs_product_addinfo_path(cs_product_addinfo) %></td>
+    <td><%= link_to 'Destroy', cs_product_addinfo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cs_product_addinfo', new_cs_product_addinfo_path %>

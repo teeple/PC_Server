@@ -1,0 +1,38 @@
+<p>
+  <b>Service code:</b>
+  <%=h @custom_promotion.service_code_id %>
+</p>
+
+<p>
+  <b>Product code:</b>
+  <%=h @custom_promotion.product_code %>
+</p>
+
+<p>
+  <b>Promotion service:</b>
+  <%=h @custom_promotion.promotion_service_id %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @custom_promotion.priority %>
+</p>
+
+<p>
+  <b>Promotion category:</b>
+  <%=h @custom_promotion.promotion_category %>
+</p>
+
+<p>
+  <b>Promotion parameter:</b>
+  <%=h @custom_promotion.promotion_parameter %>
+</p>
+
+<p>
+  <b>Package:</b>
+  <%=h @custom_promotion.package %>
+</p>
+
+
+<%= link_to 'Edit', edit_custom_promotion_path(@custom_promotion) %> |
+<%= link_to 'Back', custom_promotions_path %>

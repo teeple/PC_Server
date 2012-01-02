@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  threhold: 1
+  action: MyString
+  deposit_id: 1
+
+two:
+  threhold: 1
+  action: MyString
+  deposit_id: 1

@@ -1,0 +1,43 @@
+<p>
+  <b>Code:</b>
+  <%=h @ccbs_packaged_product.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @ccbs_packaged_product.name %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @ccbs_packaged_product.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @ccbs_packaged_product.end_date %>
+</p>
+
+<p>
+  <b>Product type:</b>
+  <%=h @ccbs_packaged_product.product_type %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @ccbs_packaged_product.status %>
+</p>
+
+<p>
+  <b>Crtdt:</b>
+  <%=h @ccbs_packaged_product.crtdt %>
+</p>
+
+<p>
+  <b>Package product list:</b>
+  <%=h @ccbs_packaged_product.package_product_list %>
+</p>
+
+
+<%= link_to 'Edit', edit_ccbs_packaged_product_path(@ccbs_packaged_product) %> |
+<%= link_to 'Back', ccbs_packaged_products_path %>

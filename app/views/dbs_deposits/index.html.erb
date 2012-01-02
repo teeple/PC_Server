@@ -1,0 +1,18 @@
+<h1>Listing dbs_deposits</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @dbs_deposits.each do |dbs_deposit| %>
+  <tr>
+    <td><%= link_to 'Show', dbs_deposit %></td>
+    <td><%= link_to 'Edit', edit_dbs_deposit_path(dbs_deposit) %></td>
+    <td><%= link_to 'Destroy', dbs_deposit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dbs_deposit', new_dbs_deposit_path %>

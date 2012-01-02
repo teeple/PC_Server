@@ -1,0 +1,27 @@
+[COMMON_ALIAS]
+#service_name   service_type    var_name        expression                                          
+VOICE	  		TARIFF 			called          rating.destinationID
+VOICE			TARIFF 			calling         request.subscriptionID
+VOICE			TARIFF 			service_id      rating.serviceIdentifier
+VOICE			TARIFF			service 		rating.extension.getExtension('Ext_Service')
+VOICE			TARIFF 			balance         rating.extension.getExtension('Ext_Balance')
+VOICE			TARIFF			service_option	rating.extension.getExtension('Ext_ServiceOption')
+VOICE			TARIFF			vas				rating.extension.getExtension('Ext_VAS')
+
+SMS				PRICE			called			rating.destinationID
+SMS				PRICE			calling			request.subscriptionID
+SMS				PRICE			service_id		rating.serviceIdentifier
+SMS				PRICE			service			rating.extension.getExtension('Ext_Service')
+SMS				PRICE			balance			rating.extension.getExtension('Ext_Balance')
+SMS				PRICE			service_option	rating.extension.getExtension('Ext_ServiceOption')
+SMS				PRICE			vas				rating.extension.getExtension('Ext_VAS')
+
+PACKET	  		TARIFF 			called          rating.destinationID
+PACKET			TARIFF 			calling         request.subscriptionID
+PACKET			TARIFF 			service_id      rating.serviceIdentifier
+PACKET			TARIFF			service 		rating.extension.getExtension('Ext_Service')
+PACKET			TARIFF 			balance         rating.extension.getExtension('Ext_Balance')
+PACKET			TARIFF			service_option	rating.extension.getExtension('Ext_ServiceOption')
+PACKET			TARIFF			vas				rating.extension.getExtension('Ext_VAS')
+PACKET			TARIFF			data_load_type	rating.extension.getExtension('Ext_DataLoadType')
+# Ext_DataLoadType은 임의로 설정 데이터 망 부하 정보 확인 용

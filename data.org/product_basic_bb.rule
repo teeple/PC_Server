@@ -1,0 +1,98 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_BB_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset bb_who or value is null)
+condition_when, string(50) , rule : (value in ruleset bb_when or value is null)
+condition_where, string(20) , rule : (value in ruleset bb_where or value is null)
+balance, string(20), result
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[BB_SUBSCRIPTION]
+rule_1: condition_where=NETWORK_2
+
+#############################################
+### TARIFF
+[RULESET_BB_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset bb_who or value is null)
+condition_when, string(50) , rule : (value in ruleset bb_when or value is null)
+condition_where, string(20) , rule : (value in ruleset bb_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[BB_TARIFF]
+rule_1: action_allow=1000minFree, condition_where=COUNTRY_2
+rule_2: action_deduct=30000TG1Time, condition_where=NETWORK_2
+
+#############################################
+### WHEN condition
+[RULESET_BB_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[BB_WHEN]
+
+
+#############################################
+### Where condition
+[RULESET_BB_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+custom_where, string(30)
+
+[BB_WHERE]
+COUNTRY_1: country = ('BO','BR','IO','BG','BI')
+COUNTRY_2: country = ('ID')
+ZONE_6: 
+NETWORK_2: network = ('CDMA','GSM')
+ZONE_7: 
+
+
+#############################################
+### Whom condition
+[RULESET_BB_WHO]
+is_Family, string(6)	# YYYYMMDD format 
+age, string(10)
+gender, string(10)  #  gender 
+called, string(10) # called number
+custom_who, string(10) # prefix
+
+[BB_WHO]
+
+
+#############################################
+### PROMOTION
+[RULESET_BB_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[BB_PROMOTION]
+rule_0: promotion_type=GIVE, promotion_name=first_activation_bonus
+
+#############################################
+### VAS
+[RULESET_BB_VAS]
+vas_name, 		string(20) 
+is_required, 	string(10), result
+vas_fee, 			string(20), result
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[BB_VAS]
+rule_0: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'WAP', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_1: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'eMail', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_2: is_required= 'ADDITIONAL', vas_fee= '0.0', vas_name= 'FullBrowsing', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_3: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'SecureData', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'

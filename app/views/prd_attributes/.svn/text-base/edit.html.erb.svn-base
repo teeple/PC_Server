@@ -1,0 +1,40 @@
+<h1>Editing prd_attribute</h1>
+
+<% form_for(@prd_attribute) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :prd_type %><br />
+    <%= f.text_field :prd_type %>
+  </p>
+  <p>
+    <%= f.label :bill_type %><br />
+    <%= f.text_field :bill_type %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_attribute %> |
+<%= link_to 'Back', prd_attributes_path %>

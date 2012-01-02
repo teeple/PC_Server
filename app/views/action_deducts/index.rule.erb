@@ -1,0 +1,12 @@
+##################################################
+### ACTION_DEDUCT
+[RULESET_ACTION_DEDUCT]
+@rule_name, condition
+#money, int # money 
+#cnt_deduct, int # count  
+call_time, int # seconds 
+used_packet, int # packets
+rate_name, string(30), result, rule: (value in ruleset tariff or value is null)
+
+[ACTION_DEDUCT]
+<%=action_deducts_output %>

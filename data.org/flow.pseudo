@@ -1,0 +1,63 @@
+#
+#<on subscription> 
+#	input
+#	{ subscriber: 
+#		{number, {profile: (age, gender, and etc)}
+
+#<during conversation>
+#  {input: 
+#	calling_party: calling_number, location, what, product_list
+#	called_party: called, location}
+
+
+<handle basic product>
+1. GET 
+	handle basic_product from product_list 
+2. Factor 
+	calculate condition_factors based on input_factor and etc (used_time, .... ) 
+3. Condition_Path 
+	find condition_path(match condition and fetch action-sets) 
+	save condition_path
+
+<handle optional product>
+For product in product_list(subscribed) 
+	1. GET 
+		handle optional_products(subs) from product_list 
+
+	2. Factor 
+		calculate condition_factors based on input_factor and etc (used_time, .... ) 
+
+	3. Condition_Path 
+
+
+<handle promotional product>
+For product in product_list(subscribed) 
+	1. GET 
+		handle optional_products(subs) from product_list 
+
+	2. Factor 
+		calculate condition_factors based on input_factor and etc (used_time, .... ) 
+
+	3. Condition_Path 
+
+For product in product_list(subscribed) 
+	1. GET 
+		handle optional_products(subs) from product_list 
+
+	2. Factor 
+		calculate condition_factors based on input_factor and etc (used_time, .... ) 
+
+	3. Condition_Path 
+
+
+<handle relation from relations>
+For relation in relation_list(subscribed)
+	1. GET 
+		handle 
+
+	2. Factor 
+
+	3. Condition_Path 
+
+	4. Act - condition_path 
+

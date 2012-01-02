@@ -1,0 +1,5 @@
+[ENUM_BILL_TERM]
+bill_term
+1	Daily
+2	Monthly
+3	Calculated_Daily

@@ -1,0 +1,15 @@
+#############################################
+### BALANCE
+[RULESET_CHARGING_ACCOUNT]
+product_code, string(32)
+package_code, string(32)
+condition_what, string(20), rule : (value in ruleset condition_what or value is null)
+condition_who, string(20), rule : (value in ruleset condition_who or value is null)
+condition_when, string(50), rule : (value in ruleset condition_when  or value is null)
+condition_where, string(20), rule : (value in ruleset condition_where or value is null)
+priority, int, result, asc 
+counter_name, string(30), result, rule :(value in list balance_list or value is null)
+counter_type, string(10), result
+
+[CHARGING_ACCOUNT]
+<%=@prd_balances_output%>

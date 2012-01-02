@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  value: MyString
+  operation: MyString
+  when_custom_id: 1
+
+two:
+  name: MyString
+  value: MyString
+  operation: MyString
+  when_custom_id: 1

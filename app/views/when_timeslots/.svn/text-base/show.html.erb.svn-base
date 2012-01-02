@@ -1,0 +1,23 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @when_timeslot.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @when_timeslot.description %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%=h @when_timeslot.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%=h @when_timeslot.end_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_timeslot_path(@when_timeslot) %> |
+<%= link_to 'Back', when_timeslots_path %>

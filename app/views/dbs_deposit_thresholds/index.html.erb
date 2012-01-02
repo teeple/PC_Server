@@ -1,0 +1,18 @@
+<h1>Listing dbs_deposit_thresholds</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @dbs_deposit_thresholds.each do |dbs_deposit_threshold| %>
+  <tr>
+    <td><%= link_to 'Show', dbs_deposit_threshold %></td>
+    <td><%= link_to 'Edit', edit_dbs_deposit_threshold_path(dbs_deposit_threshold) %></td>
+    <td><%= link_to 'Destroy', dbs_deposit_threshold, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dbs_deposit_threshold', new_dbs_deposit_threshold_path %>

@@ -1,0 +1,38 @@
+<p>
+  <b>Parent:</b>
+  <%=h @prd_threshold.parent_id %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%=h @prd_threshold.condition_id %>
+</p>
+
+<p>
+  <b>Condition type:</b>
+  <%=h @prd_threshold.condition_type %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%=h @prd_threshold.balance_id %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%=h @prd_threshold.action_id %>
+</p>
+
+<p>
+  <b>Action type:</b>
+  <%=h @prd_threshold.action_type %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @prd_threshold.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_threshold_path(@prd_threshold) %> |
+<%= link_to 'Back', prd_thresholds_path %>

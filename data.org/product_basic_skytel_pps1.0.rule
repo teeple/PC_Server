@@ -1,0 +1,100 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_SKYTEL_PPS1.0_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset skytel_pps1.0_who or value is null)
+condition_when, string(50) , rule : (value in ruleset skytel_pps1.0_when or value is null)
+condition_where, string(20) , rule : (value in ruleset skytel_pps1.0_where or value is null)
+balance, string(20), result
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[SKYTEL_PPS1.0_SUBSCRIPTION]
+rule_1: action_deduct=5000wonPerCnt, condition_who=who_over_20, condition_what=subscribe, balance=GENERAL_REMAINS
+rule_2: action_deduct=5000wonPerCnt, condition_who=who_over20_woman, condition_what=subscribe, balance=GENERAL_REMAINS, action_discount=10percent
+rule_3: condition_what=unsubscribe
+
+#############################################
+### TARIFF
+[RULESET_SKYTEL_PPS1.0_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset skytel_pps1.0_who or value is null)
+condition_when, string(50) , rule : (value in ruleset skytel_pps1.0_when or value is null)
+condition_where, string(20) , rule : (value in ruleset skytel_pps1.0_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[SKYTEL_PPS1.0_TARIFF]
+rule_1: action_deduct=25wonPerCnt, condition_what=sms
+rule_2: action_deduct=10_8_5won, condition_what=voice
+rule_3: action_deduct=20wonPer1Mbyte, condition_what=packet
+
+#############################################
+### WHEN condition
+[RULESET_SKYTEL_PPS1.0_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[SKYTEL_PPS1.0_WHEN]
+
+
+#############################################
+### Where condition
+[RULESET_SKYTEL_PPS1.0_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+custom_where, string(30)
+
+[SKYTEL_PPS1.0_WHERE]
+
+
+#############################################
+### Whom condition
+[RULESET_SKYTEL_PPS1.0_WHO]
+is_Family, string(6)	# YYYYMMDD format 
+age, string(10)
+gender, string(10)  #  gender 
+called, string(10) # called number
+custom_who, string(10) # prefix
+
+[SKYTEL_PPS1.0_WHO]
+who_over_20: age>= '20'
+who_over20_woman: gender = 'female', age>= '20'
+
+
+#############################################
+### PROMOTION
+[RULESET_SKYTEL_PPS1.0_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[SKYTEL_PPS1.0_PROMOTION]
+rule_0: promotion_type=GIVE, promotion_name=option_voice50
+rule_1: promotion_type=GIVE, promotion_name=option_data300
+
+#############################################
+### VAS
+[RULESET_SKYTEL_PPS1.0_VAS]
+vas_name, 		string(20) 
+is_required, 	string(10), result
+vas_fee, 			string(20), result
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[SKYTEL_PPS1.0_VAS]
+rule_0: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'CID', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_1: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'SecureData', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_2: is_required= 'ADDITIONAL', vas_fee= '0.0', vas_name= 'FullBrowsing', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_3: is_required= 'BASIC', vas_fee= '0.0', vas_name= 'MCA', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'
+rule_4: is_required= 'ADDITIONAL', vas_fee= '1000.0', vas_name= 'RBT', bill_term= 'Calculated_Daily', balance= 'GENERAL_REMAINS'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  additional_service_id: 1
+  type: MyString
+  action_id: 1
+  action_type: MyString
+
+two:
+  additional_service_id: 1
+  type: MyString
+  action_id: 1
+  action_type: MyString

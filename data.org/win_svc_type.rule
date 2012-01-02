@@ -1,0 +1,96 @@
+[RULESET_WIN_SVC_TYPE]
+in_service , string(32)
+counter_id, int
+account_name, string(32) result
+win_svc_type, int result
+
+[WIN_SVC_TYPE]
+#  0 일반 통화호, 지능망호 아님
+#  1 IP 접속호
+#  2 -
+#  3 VPN
+#  4 FRP
+#  5 PRS
+#  6 PPS
+#  7 ?
+#  8 IPC호
+#  9 HZS
+# 10 FNS
+# 11 -
+# 12 TFS 1차 금액
+# 13 TFS 2차 금액
+# 14 -
+# 15 ANS
+# 16 PPS Free
+PPS_FREE_TIME : in_service = PPS, counter_id = 1, account_name = PPS_FreeTime , win_svc_type = 16
+# 17 PPS Normal
+PPS_REMAINS : in_service = PPS, counter_id = 0, account_name =  PPS_Balance, win_svc_type = 17
+PPS_REMAINS : in_service = PPS, counter_id = 10, account_name =  PPS_DCRemains, win_svc_type = 17
+# 18 TFS 3차 금액(카드 충전금액)
+# -
+# 20 RFC
+# 21 PPS Data Free
+PPS_DATA : in_service = PPS, counter_id = 5, account_name = PPS_DataRemains, win_svc_type = 21
+# 22 PPS Video Free
+PPS_VIDEO : in_service = PPS, counter_id = 2, account_name = PPS_VideoTime, win_svc_type = 22
+
+# 16 MSP Free
+MSP_FREE_TIME : in_service = MSP, counter_id = 601, account_name = MSP_FreeTime , win_svc_type = 16
+# 17 MSP Normal
+MSP_REMAINS : in_service = MSP, counter_id = 600, account_name =  MSP_Balance, win_svc_type = 17
+MSP_REMAINS : in_service = MSP, counter_id = 610, account_name =  MSP_DCRemains, win_svc_type = 17
+# 18 TFS 3차 금액(카드 충전금액)
+# -
+# 20 RFC
+# 21 MSP Data Free
+MSP_DATA : in_service = MSP, counter_id = 605, account_name = MSP_DataRemains, win_svc_type = 21
+# 22 MSP Video Free
+MSP_VIDEO : in_service = MSP, counter_id = 602, account_name = MSP_VideoTime, win_svc_type = 22
+
+# 23 -
+# 24
+# 25 PHS
+# 26 ACS
+# 27 -
+# 28
+# 29 DCS
+# 30 NZS
+# 31 TAXI
+# 32 NZS
+# 33 MCS
+# 34 -
+# ....
+# 39 RTS(기본잔액)
+RTS_REMAINS : in_service = RTS, counter_id = 110, account_name = RTS_Balance, win_svc_type = 39
+# 39 RTS(기본잔액)
+RTS_REMAINS : in_service = RTS, counter_id = 120, account_name = RTS_PostPaid, win_svc_type = 39
+# 40 RTS(충전잔액)
+RTS_CHA_REMAINS : in_service = RTS, counter_id = 100, account_name = RTS_ChaRemains, win_svc_type = 40
+# 41 TTS
+TTS_REMAINS : in_service = TTS, counter_id = 301, account_name = TTS_Balance, win_svc_type = 41
+# 42 -
+# 43 TCS
+TCS_Telcoin : in_service = TCS, counter_id = 201, account_name = TCS_NormalTelcoin, win_svc_type = 43
+TCS_Telcoin : in_service = TCS, counter_id = 211, account_name = TCS_ADTelcoin1, win_svc_type = 43
+TCS_Telcoin : in_service = TCS, counter_id = 221, account_name = TCS_ADTelcoin2, win_svc_type = 43
+TCS_Telcoin : in_service = TCS, counter_id = 231, account_name = TCS_ADTelcoin3, win_svc_type = 43
+TCS_Telcoin : in_service = TCS, counter_id = 241, account_name = TCS_ADTelcoin4, win_svc_type = 43
+TCS_Telcoin : in_service = TCS, counter_id = 251, account_name = TCS_ADTelcoin5, win_svc_type = 43
+# ...
+# 51 NCS
+NCS_1 : in_service = NCS, win_svc_type = 51
+# 52 DLS 계정
+DLS_BaseRemains : in_service = DLS, counter_id = 405, account_name = DLS_BaseRemains, win_svc_type = 52
+DLS_FreeRemains : in_service = DLS, counter_id = 415, account_name = DLS_FreeRemains, win_svc_type = 55
+DLS_PreRefill : in_service = DLS, counter_id = 425, account_name = DLS_PreRefill, win_svc_type = 59
+DLS_PostRefill : in_service = DLS, counter_id = 435, account_name = DLS_PostRefill, win_svc_type = 53
+DLS_PromotionRemains : in_service = DLS, counter_id = 445, account_name = DLS_PromotionRemains, win_svc_type = 54
+
+# 60 61 62 RDS 계정
+RDS_MonthlyVolume : in_service = RDS, counter_id = 505, account_name = RDS_MonthlyVolume, win_svc_type = 60
+RDS_MonthlyVolumeAccumulated : in_service = RDS, counter_id = 515, account_name = RDS_MonthlyVolumeAccumulated, win_svc_type = 60
+RDS_DailyVolume : in_service = RDS, counter_id = 525, account_name = RDS_DailyVolume, win_svc_type = 61
+RDS_DailyVolumeAccumulated : in_service = RDS, counter_id = 535, account_name = RDS_DailyVolumeAccumulated, win_svc_type = 61
+RDS_DailyDuration : in_service = RDS, counter_id = 545, account_name = RDS_DailyDuration, win_svc_type = 62
+RDS_DailyDurationAccumulated : in_service = RDS, counter_id = 555, account_name = RDS_DailyDurationAccumulated, win_svc_type = 62
+

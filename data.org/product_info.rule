@@ -1,0 +1,116 @@
+# 서비스 계정
+[RULESET_PRODUCT_INFO]
+in_service, string(15)
+product_code, string(2)
+product_name, string(32)
+account_name, string(32), result
+account_value, int, result
+auto_recharge, string(10), result # reg_date : 가입일 충전, false : 충전 안함, (1~31): 해당 날자 충전
+value_transfer, string(10), result # true : 이월, false : 이월 안함
+day_divide, string(10), result # true : 일한, false : 일할 안함
+refill_rate, string(10), result # DLS ARS 긴급충전 요율
+
+[PRODUCT_INFO]
+PPS: in_service=PPS, product_name='PPS_NORM_CA', product_code=CA, account_name=PPS_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+PPS: in_service=PPS, product_name='PPS_NORM_CA', product_code=CA, account_name=PPS_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+PPS: in_service=PPS, product_name='PPS_NORM_CB', product_code=CB, account_name=PPS_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+PPS: in_service=PPS, product_name='PPS_NORM_CB', product_code=CB, account_name=PPS_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+PPS: in_service=PPS, product_name='PPS_NORM_CC', product_code=CC, account_name=PPS_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+PPS: in_service=PPS, product_name='PPS_NORM_CC', product_code=CC, account_name=PPS_FreeTime, account_value=12000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+
+MSP: in_service=MSP, product_name='MSP_NORM_CA', product_code=CA, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CA', product_code=CA, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CB', product_code=CB, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CB', product_code=CB, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CC', product_code=CC, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CC', product_code=CC, account_name=MSP_FreeTime, account_value=12000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CD', product_code=CD, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CD', product_code=CD, account_name=MSP_FreeTime, account_value=24000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CE', product_code=CE, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CE', product_code=CE, account_name=MSP_FreeTime, account_value=48000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CF', product_code=CF, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CF', product_code=CF, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CH', product_code=CH, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CH', product_code=CH, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CI', product_code=CI, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CI', product_code=CI, account_name=MSP_FreeTime, account_value=12000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CJ', product_code=CJ, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CJ', product_code=CJ, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CK', product_code=CK, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CK', product_code=CK, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CL', product_code=CL, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CL', product_code=CL, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CM', product_code=CM, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_CM', product_code=CM, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_KK', product_code=KK, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_KK', product_code=KK, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SA', product_code=SA, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SA', product_code=SA, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SB', product_code=SB, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SB', product_code=SB, account_name=MSP_FreeTime, account_value=12000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SC', product_code=SC, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SC', product_code=SC, account_name=MSP_FreeTime, account_value=24000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SG', product_code=SG, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SG', product_code=SG, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SH', product_code=SH, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SH', product_code=SH, account_name=MSP_FreeTime, account_value=12000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SI', product_code=SI, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_SI', product_code=SI, account_name=MSP_FreeTime, account_value=24000, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_WA', product_code=WA, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_WA', product_code=WA, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_WV', product_code=WV, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_WV', product_code=WV, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_ZZ', product_code=ZZ, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NORM_ZZ', product_code=ZZ, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NEW_SJ', product_code=SJ, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_NEW_SJ', product_code=SJ, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SK', product_code=SK, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SK', product_code=SK, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SL', product_code=SL, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SL', product_code=SL, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SM', product_code=SM, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SM', product_code=SM, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SN', product_code=SN, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SN', product_code=SN, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SO', product_code=SO, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SO', product_code=SO, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SP', product_code=SP, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SP', product_code=SP, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SQ', product_code=SQ, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SQ', product_code=SQ, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SR', product_code=SR, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SR', product_code=SR, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SS', product_code=SS, account_name=MSP_Balance, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+MSP: in_service=MSP, product_name='MSP_MVNO_SS', product_code=SS, account_name=MSP_FreeTime, account_value=0, auto_recharge=1, value_transfer=true, day_divide=false, refill_rate=1.00
+
+RTS: in_service=RTS, product_name='RTS10000000', product_code=RA, account_name=RTS_PostPaid, account_value=0, auto_recharge=0, value_transfer=false, day_divide=false, refill_rate=1.00
+RTS: in_service=RTS, product_name='RTS50000', product_code=RB, account_name=RTS_Balance, account_value=50000, auto_recharge=0, value_transfer=false, day_divide=false, refill_rate=1.00
+RTS: in_service=RTS, product_name='RTS100000', product_code=RC, account_name=RTS_Balance, account_value=100000, auto_recharge=0, value_transfer=false, day_divide=false, refill_rate=1.00
+
+DLS : in_service=DLS, product_name='DLS_10000_A', product_code=DA, account_name=DLS_BaseRemains, account_value=10000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_10000_B', product_code=DB, account_name=DLS_BaseRemains, account_value=10000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_10000_B', product_code=DB, account_name=DLS_FreeRemains, account_value=1000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_20000_C', product_code=DC, account_name=DLS_BaseRemains, account_value=20000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_20000_D', product_code=DD, account_name=DLS_BaseRemains, account_value=20000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_20000_D', product_code=DD, account_name=DLS_FreeRemains, account_value=1000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='SHOW_DLS', product_code=DE, account_name=DLS_FreeRemains, account_value=50000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='SHOW_COMPLETE_FREE', product_code=DG, account_name=DLS_FreeRemains, account_value=100000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='SHOW_DATA_FREE', product_code=DH, account_name=DLS_FreeRemains, account_value=3000000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DATA_PREMINUM_1G', product_code=DJ, account_name=DLS_FreeRemains, account_value=4470000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_LIGHT', product_code=DK, account_name=DLS_FreeRemains, account_value=20000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_PREMIUM_2G', product_code=DL, account_name=DLS_FreeRemains, account_value=8940000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='DLS_PREMIUM_3G', product_code=DM, account_name=DLS_FreeRemains, account_value=22350000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='MORNING_FREEPAKC', product_code=DO, account_name=DLS_FreeRemains, account_value=50000, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+DLS : in_service=DLS, product_name='WIBRO_DBDM', product_code=DW, account_name=DLS_BaseRemains, account_value=0, auto_recharge=reg_date, value_transfer=false, day_divide=false, refill_rate=1.00
+
+TTS : in_service=TTS, product_name='Teen_Teen',      product_code=0121, account_name=TTS_Balance, account_value=18360, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='Teen_Teen2',     product_code=0123, account_name=TTS_Balance, account_value=24480, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='X-Teen',         product_code=0124, account_name=TTS_Balance, account_value=32640, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='Love-Letter',    product_code=0125, account_name=TTS_Balance, account_value=19350, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='xteen_350',      product_code=0126, account_name=TTS_Balance, account_value=46200, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='SMS-Mania',      product_code=0127, account_name=TTS_Balance, account_value=19350, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='SHOW_AutoLimit', product_code=0131, account_name=TTS_Balance, account_value=0,     auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='2G_ANNEX_350',   product_code=0132, account_name=TTS_Balance, account_value=8400,  auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='2G_ANNEX_400',   product_code=0133, account_name=TTS_Balance, account_value=24000, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='3G_ANNEX_350',   product_code=0134, account_name=TTS_Balance, account_value=8400,  auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00
+TTS : in_service=TTS, product_name='3G_ANNEX_400',   product_code=0135, account_name=TTS_Balance, account_value=24000, auto_recharge=refill_day, value_transfer=false, day_divide=false, refill_rate=1.00

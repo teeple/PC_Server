@@ -1,0 +1,19 @@
+# 서비스별 호 제한기준 금액
+[RULESET_UDB_SVC_LIMIT_VALUE]
+in_service, string(15)
+service_id, string(30)
+account_name, string(32)
+account_value, int
+is_allow, string(32), result
+
+
+[UDB_SVC_LIMIT_VALUE]
+#PPS: in_service=PPS, account_name=(PPS_Balance, PPS_FreeTime), account_value = 0, is_allow = false
+#PPS: in_service=PPS, service_id = PACKET, account_name=(PPS_DataRemains, PPS_Balance), account_value = 0, is_allow = false
+PPS: in_service=PPS, account_name=(PPS_Balance), account_value = 0, is_allow = false
+#PPS: in_service=PPS, service_id = PACKET, account_name=(PPS_DataRemains, PPS_Balance), account_value = 0, is_allow = false
+
+#MSP: in_service=MSP, account_name=(MSP_Balance, MSP_FreeTime), account_value = 0, is_allow = false
+#MSP: in_service=MSP, service_id = PACKET, account_name=(MSP_DataRemains, MSP_Balance), account_value = 0, is_allow = false
+MSP: in_service=MSP, account_name=(MSP_Balance), account_value = 0, is_allow = false
+#MSP: in_service=MSP, service_id = PACKET, account_name=(MSP_DataRemains, MSP_Balance), account_value = 0, is_allow = false

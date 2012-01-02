@@ -1,0 +1,46 @@
+<h1>Listing balances</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Canbe promotional</th>
+    <th>Balance Type</th>
+    <th>Scale</th>
+    <th>Code</th>
+    <th>Suffix</th>
+    <th>Charging Target</th>
+    <th>Type</th>
+    <th>Free Charged</th>
+    <th>Expire Date</th>
+    <th>Reset Cycle</th>
+  </tr>
+
+<% @balances.each do |balance| %>
+  <tr>
+    <td><%=h balance.id %></td>
+    <td><%=h balance.code %></td>
+    <td><%=h balance.name %></td>
+    <td><%=h balance.description %></td>
+    <td><%=h balance.canbe_promotional %></td>
+    <td><%=h balance.balance_type %></td>
+    <td><%=h balance.scale %></td>
+    <td><%=h balance.code %></td>
+    <td><%=h balance.suffix %></td>
+    <td><%=h balance.charging_target %></td>
+    <td><%=h balance.type %></td>
+    <td><%=h balance.free_charged %></td>
+    <td><%=h balance.expire_date %></td>
+    <td><%=h balance.reset_cycle %></td>
+    <td><%= link_to 'Show', balance %></td>
+    <td><%= link_to 'Edit', edit_balance_path(balance) %></td>
+    <td><%= link_to 'Destroy', balance, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New balance', new_balance_path %>

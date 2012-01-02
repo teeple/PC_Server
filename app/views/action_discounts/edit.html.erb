@@ -1,0 +1,32 @@
+<h1>Editing action_discount</h1>
+
+<% form_for(@action_discount) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :upto %><br />
+    <%= f.text_field :upto %>
+  </p>
+  <p>
+    <%= f.label :rate %><br />
+    <%= f.text_field :rate %>
+  </p>
+  <p>
+    <%= f.label :uptounit %><br />
+    <%= f.text_field :uptounit %>
+  </p>
+  <p>
+    <%= f.label :rateunit %><br />
+    <%= f.text_field :rateunit %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @action_discount %> |
+<%= link_to 'Back', action_discounts_path %>

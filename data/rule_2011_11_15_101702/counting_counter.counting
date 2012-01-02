@@ -1,0 +1,41 @@
+COUNTING_COUNTER = {
+    service_id = counting_post_usage
+
+    setup = '
+        uaLog.info("=====================");
+    '
+    targetSubsRule = '
+        /counting_condition/g {
+            uaLog.info("targetRule.counting_counter_name = %s, targetRule.counting_target_account = %s", targetRule.counting_counter_name , targetRule.counting_target_account);
+        }
+    '
+
+    counterTariff = {
+        {
+            promotionCounterType = 1
+            counterType = 1
+            counterID = targetRule.counting_counter_name
+            ccPerSession = selected_tariff.sumCounterChangePerSession(rate_db.getCounterID(targetRule.counting_target_account))
+            ccForFirstChargeableTimeUnit = selected_tariff.sumCounterChangeForFirstChargeableTimeUnit(rate_db.getCounterID(targetRule.counting_target_account))
+            ccPerSubsequentChargeableTimeUnit = selected_tariff.sumCounterChangePerSubsequentChargeableTimeUnit(rate_db.getCounterID(targetRule.counting_target_account))
+        }
+    }
+}
+
+COUNTING_COUNTER = {
+    service_id = counting_post_usage
+
+    targetSubsRule = '
+        /counting_condition/g
+    '
+
+    counterPrice = {
+        {
+            promotionCounterType = 1
+            counterType = 1
+            counterID = targetRule.counting_counter_name
+            counterChange = selected_price.sumCounterChange(rate_db.getCounterID(targetRule.counting_target_account))
+
+        }
+    }
+}

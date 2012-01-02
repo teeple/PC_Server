@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  service_code_id: 1
+  product_code: MyString
+  promotion_service_id: MyString
+  priority: 1
+  promotion_category: MyString
+  promotion_parameter: MyString
+  package: MyString
+
+two:
+  service_code_id: 1
+  product_code: MyString
+  promotion_service_id: MyString
+  priority: 1
+  promotion_category: MyString
+  promotion_parameter: MyString
+  package: MyString

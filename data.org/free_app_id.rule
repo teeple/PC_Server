@@ -1,0 +1,11 @@
+[RULESET_FREE_APP_ID]
+in_service , string(32) , asc
+free_app_id , int , asc
+category_id , int , asc
+mcc , int , asc
+discount_rate , int , asc, result
+
+[FREE_APP_ID]
+FREE_APP_ID_1_202 : in_service = 'RDS', free_app_id = 1, category_id = 202 , mcc = 44010, discount_rate = 50
+FREE_APP_ID_1_203 : in_service = 'RDS', free_app_id = 1, category_id = 203 ,  mcc = 44010,  discount_rate = 100
+FREE_APP_ID_1_TEST : in_service = 'RDS', free_app_id = 1, category_id = 210 ,  mcc = 44010,  discount_rate = 100

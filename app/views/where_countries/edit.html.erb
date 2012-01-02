@@ -1,0 +1,24 @@
+<h1>Editing where_country</h1>
+
+<% form_for(@where_country) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :country_inex %><br />
+    <%= f.text_area :country_inex %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @where_country %> |
+<%= link_to 'Back', where_countries_path %>

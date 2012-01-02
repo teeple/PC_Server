@@ -1,0 +1,7 @@
+[RULESET_AIOS_PRICE_DECISION]
+call_type, string(32)
+service, string(32)
+service_id, string(32)
+
+[AIOS_PRICE_DECISION]
+AIOS_SMS : call_type = (MOBILE) and service = (AIOS) and service_id = (SMS)

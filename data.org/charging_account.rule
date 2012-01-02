@@ -1,0 +1,46 @@
+#############################################
+### BALANCE
+[RULESET_CHARGING_ACCOUNT]
+product_name, string(40), rule: (value in ruleset product_list or value is null)
+condition_what, string(20), rule : (value in ruleset condition_what or value is null)
+condition_who, string(20), rule : (value in ruleset condition_who or value is null)
+condition_when, string(50), rule : (value in ruleset condition_when  or value is null)
+condition_where, string(20), rule : (value in ruleset condition_where or value is null)
+priority, int, result, asc 
+counter_name, string(30), result, rule :(value in list balance_list or value is null)
+counter_type, string(10), result
+
+[CHARGING_ACCOUNT]
+rule_31: product_name = family, counter_name = Family Free Voice, counter_type = TIME, priority = 1, condition_what = voice
+rule_33: product_name = family, counter_name = Family Free SMS, counter_type = COUNT, priority = 2, condition_what = sms
+rule_2: product_name = family, counter_name = FREE_VOICE, counter_type = TIME, priority = 3, condition_what = voice
+rule_3: product_name = family, counter_name = FREE_SMS, counter_type = COUNT, priority = 4, condition_what = sms
+rule_29: product_name = family, counter_name = FREE_PACKET, counter_type = BYTE, priority = 5, condition_what = packet
+rule_1: product_name = family, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 6
+rule_34: product_name = family, counter_name = Sponsor's Balance, counter_type = MONEY, priority = 7
+rule_33: product_name = pps, counter_name = Family Free SMS, counter_type = COUNT, priority = 1, condition_what = sms
+rule_3: product_name = pps, counter_name = FREE_SMS, counter_type = COUNT, priority = 2, condition_what = sms
+rule_1: product_name = pps, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 3
+rule_34: product_name = pps, counter_name = Sponsor's Balance, counter_type = MONEY, priority = 4
+rule_31: product_name = family_pps, counter_name = Family Free Voice, counter_type = TIME, priority = 1, condition_what = voice
+rule_33: product_name = family_pps, counter_name = Family Free SMS, counter_type = COUNT, priority = 2, condition_what = sms
+rule_34: product_name = family_pps, counter_name = Sponsor's Balance, counter_type = MONEY, priority = 3, condition_what = voice, condition_what = sms, condition_what = packet
+rule_2: product_name = family_pps, counter_name = FREE_VOICE, counter_type = TIME, priority = 4, condition_what = voice
+rule_3: product_name = family_pps, counter_name = FREE_SMS, counter_type = COUNT, priority = 5, condition_what = sms
+rule_29: product_name = family_pps, counter_name = FREE_PACKET, counter_type = BYTE, priority = 6, condition_what = packet
+rule_1: product_name = family_pps, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 7, condition_what = voice, condition_what = sms, condition_what = packet
+rule_31: product_name = family_postpaid, counter_name = Family Free Voice, counter_type = TIME, priority = 1, condition_what = voice
+rule_33: product_name = family_postpaid, counter_name = Family Free SMS, counter_type = COUNT, priority = 2, condition_what = sms
+rule_34: product_name = family_postpaid, counter_name = Sponsor's Balance, counter_type = MONEY, priority = 3, condition_what = voice, condition_what = sms, condition_what = packet
+rule_2: product_name = family_postpaid, counter_name = FREE_VOICE, counter_type = TIME, priority = 4, condition_what = voice
+rule_3: product_name = family_postpaid, counter_name = FREE_SMS, counter_type = COUNT, priority = 5, condition_what = sms
+rule_29: product_name = family_postpaid, counter_name = FREE_PACKET, counter_type = BYTE, priority = 6, condition_what = packet
+rule_1: product_name = family_postpaid, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 7, condition_what = voice, condition_what = sms, condition_what = packet
+rule_1: product_name = iptv_unitel, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 1, condition_what = VoD
+rule_35: product_name = unitel_hybrid, counter_name = balance_prepaid, counter_type = MONEY, priority = 1, condition_who = PREFIX_2
+rule_36: product_name = unitel_hybrid, counter_name = balance_postpaid, counter_type = MONEY, priority = 2, condition_who = PREFIX_4, condition_who = PREFIX_3
+rule_1: product_name = unitel_hybrid, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 3
+rule_34: product_name = bb, counter_name = Sponsor's Balance, counter_type = MONEY, priority = 1, condition_where = ZONE_7
+rule_31: product_name = bb, counter_name = Family Free Voice, counter_type = TIME, priority = 2, condition_where = ZONE_6
+rule_29: product_name = bb, counter_name = FREE_PACKET, counter_type = BYTE, priority = 3, condition_where = COUNTRY_1
+rule_31: product_name = cc, counter_name = Family Free Voice, counter_type = TIME, priority = 1

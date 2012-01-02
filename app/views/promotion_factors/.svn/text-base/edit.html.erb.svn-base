@@ -1,0 +1,28 @@
+<h1>Editing promotion_factor</h1>
+
+<% form_for(@promotion_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :promotion_id %><br />
+    <%= f.text_field :promotion_id %>
+  </p>
+  <p>
+    <%= f.label :cond_or_result %><br />
+    <%= f.text_field :cond_or_result %>
+  </p>
+  <p>
+    <%= f.label :is_required %><br />
+    <%= f.text_field :is_required %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @promotion_factor %> |
+<%= link_to 'Back', promotion_factors_path %>

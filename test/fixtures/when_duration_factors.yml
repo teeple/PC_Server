@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_date: MyString
+  end_date: MyString
+  when_duration_id: 1
+
+two:
+  start_date: MyString
+  end_date: MyString
+  when_duration_id: 1

@@ -1,0 +1,14 @@
+[RULESET_CALL_DISCOUNT]
+service_id , string(32)
+product_code, string(15)
+is_Family , string(6)
+is_Friend , string(6)
+is_Designated , string(6)
+is_MegaPass, string(6)
+discount_rate , string(10), desc, result
+
+[CALL_DISCOUNT]
+FAMILY_DISCOUNT : service_id = VOICE, product_code = AA, is_Family = true, discount_rate = 11
+FRIEND_DISCOUNT : service_id = VOICE, product_code = AA, is_Friend = true, discount_rate = 30
+DESIGNATED_DISCOUNT : service_id = VOICE, product_code = AA, is_Designated = true, discount_rate = 10
+MEGAPASS_DISCOUNT : service_id = VOICE, product_code = AA, is_MegaPass = true, discount_rate = 10

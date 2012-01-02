@@ -1,0 +1,10 @@
+###########################################
+### CONDITION_WHEN_TERM
+[RULESET_CONDITION_WHEN_TERM]
+year_month_day, string(10)  # YYYYMMDD format
+
+[CONDITION_WHEN_TERM]
+<%=when_durations.each do 
+	
+   end
+%>

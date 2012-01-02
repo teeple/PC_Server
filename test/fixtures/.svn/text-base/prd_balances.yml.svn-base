@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parent_id: 1
+  condition_id: 1
+  condition_type: MyString
+  balance_id: 1
+  priority: 1
+  product_id: 1
+
+two:
+  parent_id: 1
+  condition_id: 1
+  condition_type: MyString
+  balance_id: 1
+  priority: 1
+  product_id: 1

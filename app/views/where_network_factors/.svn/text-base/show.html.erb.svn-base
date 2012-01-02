@@ -1,0 +1,13 @@
+<p>
+  <b>Network:</b>
+  <%=h @where_network_factor.network %>
+</p>
+
+<p>
+  <b>Where network:</b>
+  <%=h @where_network_factor.where_network_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_where_network_factor_path(@where_network_factor) %> |
+<%= link_to 'Back', where_network_factors_path %>

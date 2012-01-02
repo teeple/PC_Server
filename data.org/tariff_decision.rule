@@ -1,0 +1,10 @@
+[RULESET_TARIFF_DECISION]
+holiday , string(6)
+weekday , string(6)
+time , string(6)
+
+
+[TARIFF_DECISION]
+DEFAULT : holiday = false , time between 0900 , 1800
+DISCOUNT : holiday = false , (time between 0000 , 0900 or time between 1800 , 2400)
+DISCOUNT : holiday = true

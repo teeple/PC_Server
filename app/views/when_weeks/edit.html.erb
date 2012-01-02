@@ -1,0 +1,48 @@
+<h1>Editing when_week</h1>
+
+<% form_for(@when_week) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :sun %><br />
+    <%= f.text_field :sun %>
+  </p>
+  <p>
+    <%= f.label :mon %><br />
+    <%= f.text_field :mon %>
+  </p>
+  <p>
+    <%= f.label :tue %><br />
+    <%= f.text_field :tue %>
+  </p>
+  <p>
+    <%= f.label :wed %><br />
+    <%= f.text_field :wed %>
+  </p>
+  <p>
+    <%= f.label :thu %><br />
+    <%= f.text_field :thu %>
+  </p>
+  <p>
+    <%= f.label :fri %><br />
+    <%= f.text_field :fri %>
+  </p>
+  <p>
+    <%= f.label :sat %><br />
+    <%= f.text_field :sat %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @when_week %> |
+<%= link_to 'Back', when_weeks_path %>

@@ -1,0 +1,5 @@
+[RULESET_HOLIDAY]
+week , string(4)
+
+[HOLIDAY]
+false :

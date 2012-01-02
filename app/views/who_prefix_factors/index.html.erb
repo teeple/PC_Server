@@ -1,0 +1,22 @@
+<h1>Listing who_prefix_factors</h1>
+
+<table>
+  <tr>
+    <th>Prefix</th>
+    <th>Who prefix</th>
+  </tr>
+
+<% @who_prefix_factors.each do |who_prefix_factor| %>
+  <tr>
+    <td><%=h who_prefix_factor.prefix %></td>
+    <td><%=h who_prefix_factor.who_prefix_id %></td>
+    <td><%= link_to 'Show', who_prefix_factor %></td>
+    <td><%= link_to 'Edit', edit_who_prefix_factor_path(who_prefix_factor) %></td>
+    <td><%= link_to 'Destroy', who_prefix_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_prefix_factor', new_who_prefix_factor_path %>

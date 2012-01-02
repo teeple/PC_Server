@@ -1,0 +1,102 @@
+PC_PACKET_CHARGING = {
+	service_id = PCEF_PACKET_VOLUME
+	priority = 10
+	promoUseRule = true
+	accountingType = volume_charge
+
+	counterTariff = {
+		{
+			counterType = 16
+			counterID = 200
+			promotionCounterType = 3
+			ccPerChargeableVolumeUnit = -price
+		}
+	}
+}
+
+PC_PACKET_POST_CHARGING = {
+	service_id = PCEF_PACKET_VOLUME
+	priority = 11
+	promoUseRule = calling == "97688881001"
+	accountingType = volume_charge
+
+	counterTariff = {
+		{
+			counterType = 1
+			counterID = 300
+			promotionCounterType = 3
+			ccPerChargeableVolumeUnit = +price
+		}
+	}
+}
+
+/*
+PCEF_PACKET_VOLUME_ACCOUNTING = {
+	service_id = PCEF_PACKET_VOLUME
+	promoUseRule = 'true' 
+	priority = 10
+	accountingType = volume_charge
+
+	counterTariff = {
+		{
+			counterType = 16
+			counterID = Remains
+			promotionCounterType = 3
+			ccPerChargeableVolumeUnit = -price
+		}
+	}
+}
+
+PCEF_PACKET_TIME_ACCOUNTING = {
+	service_id = PCEF_PACKET_TIME
+	promoUseRule = 'true' 
+	priority = 10
+	accountingType = time_charge
+
+	counterTariff = {
+		{
+			counterType = 16
+			counterID = Remains 
+			promotionCounterType = 3
+			ccPerSubsequentChargeableTimeUnit = -price
+		}
+	}
+}
+*/
+
+HIGH_QOS_QOUTA_ACCOUNTING = {
+	service_id = PCEF_PACKET_VOLUME
+	promoUseRule = 'true' 
+	priority = 8
+	accountingType = volume_charge
+
+	validTime = (valid=rating.getCounter(102).getCounterExpiryDate())!=0?(uaLog.info("valid = %s", valid),valid):null
+	validTimeType = min
+
+	e6 = 1
+	counterTariff = {
+		{
+			counterType = 16
+			counterID = 102
+			promotionCounterType = 3
+			ccPerChargeableVolumeUnit = -e6
+		}
+	}
+}
+
+SNS_CHARGING = {
+	service_id = PCEF_PACKET_VOLUME
+	priority = 9
+	promoUseRule = 'rating_group == 103 && packet_service_id == 103'
+	accountingType = volume_charge
+
+	counterTariff = {
+		{
+			counterType = 16
+			counterID = 207
+			promotionCounterType = 3
+			ccPerChargeableVolumeUnit = -price
+		}
+	}
+}
+

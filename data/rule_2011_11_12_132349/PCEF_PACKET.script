@@ -1,0 +1,4 @@
+[TABLE_SERVICE_SCRIPT]
+#service_identifier 	request_type 	script_path
+#PCEF_PACKET_VOLUME		TARIFF			$(UASYS_HOME)/rating/js/PCEF_PACKET_VOLUME.js
+#PCEF_PACKET_TIME		TARIFF			$(UASYS_HOME)/rating/js/PCEF_PACKET_TIME.js

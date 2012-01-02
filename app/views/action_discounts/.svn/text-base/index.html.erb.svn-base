@@ -1,0 +1,28 @@
+<h1>Listing action_discounts</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Upto</th>
+    <th>Rate</th>
+    <th>Uptounit</th>
+    <th>Rateunit</th>
+  </tr>
+
+<% @action_discounts.each do |action_discount| %>
+  <tr>
+    <td><%=h action_discount.subfctr_name %></td>
+    <td><%=h action_discount.upto %></td>
+    <td><%=h action_discount.rate %></td>
+    <td><%=h action_discount.uptounit %></td>
+    <td><%=h action_discount.rateunit %></td>
+    <td><%= link_to 'Show', action_discount %></td>
+    <td><%= link_to 'Edit', edit_action_discount_path(action_discount) %></td>
+    <td><%= link_to 'Destroy', action_discount, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New action_discount', new_action_discount_path %>

@@ -1,0 +1,36 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @who_member.subfctr_name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @who_member.description %>
+</p>
+<p>
+  <b>Viceversa:</b>
+  <%=h @who_member.viceversa %>
+</p>
+<p>
+  <b>Onoffnet:</b>
+  <%=h @who_member.onoffnet %>
+</p>
+<p>
+  <b>Memberof:</b>
+  <%=h @who_member.memberof %>
+</p>
+<p>
+  <b>Age:</b>
+  <%=h @who_member.age %>
+</p>
+<p>
+  <b>AgeOpType:</b>
+  <%=h @who_member.age_op_type %>
+</p>
+<p>
+  <b>Gender:</b>
+  <%=h @who_member.gender %>
+</p>
+
+
+<%= link_to 'Edit', edit_who_member_path(@who_member) %> |
+<%= link_to 'Back', who_members_path %>

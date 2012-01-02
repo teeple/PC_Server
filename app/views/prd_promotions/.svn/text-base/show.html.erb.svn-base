@@ -1,0 +1,11 @@
+<p>
+  <b>Promotion Id:</b>
+  <%=h @prd_promotion.promotion_id %>
+</p>
+<p>
+  <b>Product Id:</b>
+  <%=h @prd_promotion.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_prd_promotion_path(@prd_promotion) %> |
+<%= link_to 'Back', prd_promotions_path %>

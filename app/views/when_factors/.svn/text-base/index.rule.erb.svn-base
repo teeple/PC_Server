@@ -1,0 +1,20 @@
+<%=when_durations_output%>
+<%=when_weeks_output %>
+<%=when_timeslots_output %>
+<%=when_days_output %>
+<%=when_customs_output %>
+
+###########################################
+### CONDITION_WHEN
+[RULESET_CONDITION_WHEN]
+@rule_name, condition
+c_type, enum
+c_when_term, string(50), rule : (value in ruleset condition_when_term or value is null)
+c_when_week, string(50), rule : (value in ruleset condition_when_week or value is null)
+c_when_day, string(50), rule : (value in ruleset condition_when_day or value is null)
+c_when_timeslot, string(20), rule : (value in ruleset condition_when_timeslot or value is null)
+c_when_custom, string(20), rule : (value in ruleset condition_when_custom or value is null)
+c_when_mday, string(4);
+
+[CONDITION_WHEN]
+<%=when_factors_output%>

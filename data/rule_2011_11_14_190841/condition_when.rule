@@ -1,0 +1,70 @@
+###########################################
+### CONDITION_WHEN_TERM
+[RULESET_CONDITION_WHEN_TERM]
+year_month_day, string(10)  # YYYYMMDD format
+
+[CONDITION_WHEN_TERM]
+CHOOSUK: (year_month_day between '20100921', '20100923')
+LUNAR_NEWYEAR: (year_month_day between '20100213', '20100215')
+HOLIDAY: (year_month_day between '20100921', '20100925')
+
+###########################################
+### CONDITION_WHEN_WEEK
+[RULESET_CONDITION_WHEN_WEEK]
+week, string(5)
+holiday, string(10)
+    
+[CONDITION_WHEN_WEEK] 
+weekday: week = ('mon', 'tue', 'wed', 'thu', 'fri')
+weekend: week = ('sun', 'sat')
+holiday:  holiday = 'true'
+not_holiday:  holiday = 'false'
+
+###########################################
+### CONDITION_WHEN_DATE
+[RULESET_CONDITION_WHEN_TIMESLOT]
+time, string(5)
+
+[CONDITION_WHEN_TIMESLOT]
+NIGHT: (time between '0000', '0600' or time between '2100', '2400')
+NORMAL: (time between '0600', '2100')
+
+
+###########################################
+### CONDITION_WHEN_DAY
+[RULESET_CONDITION_WHEN_DAY]
+day, string(10)
+day_of_month, string(20)
+
+[CONDITION_WHEN_DAY]
+25: day = ('20100125', '20100225')
+3_1: day = ('20100301')
+5_5: day = ('20100505')
+4_5: day = ('20100405')
+mday_1: day_of_month = ('01')
+
+[RULESET_CONDITION_WHEN_CUSTOM]
+
+
+[CONDITION_WHEN_CUSTOM]
+
+
+###########################################
+### CONDITION_WHEN
+[RULESET_CONDITION_WHEN]
+@rule_name, condition
+c_type, enum
+c_when_term, string(50), rule : (value in ruleset condition_when_term or value is null)
+c_when_week, string(50), rule : (value in ruleset condition_when_week or value is null)
+c_when_day, string(50), rule : (value in ruleset condition_when_day or value is null)
+c_when_timeslot, string(50), rule : (value in ruleset condition_when_timeslot or value is null)
+c_when_custom, string(50), rule : (value in ruleset condition_when_custom or value is null)
+c_when_mday, string(50);
+
+[CONDITION_WHEN]
+HOLIDAYS_1: c_when_term = HOLIDAY
+DayOfMonth_25: c_when_day = 25
+NormalDay: c_when_week = not_holiday, c_when_timeslot = NORMAL
+NormalNight: c_when_week = not_holiday, c_when_timeslot = NIGHT
+holiday_day: c_when_week = holiday, c_when_timeslot = NORMAL
+holiday_night: c_when_week = holiday, c_when_timeslot = NIGHT

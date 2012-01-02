@@ -1,0 +1,8 @@
+<p>
+  <b>Time test:</b>
+  <%=h @time_test.time_test %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_test_path(@time_test) %> |
+<%= link_to 'Back', time_tests_path %>

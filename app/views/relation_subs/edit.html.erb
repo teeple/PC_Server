@@ -1,0 +1,24 @@
+<h1>Editing relation_sub</h1>
+
+<% form_for(@relation_sub) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :prd_attribute_id %><br />
+    <%= f.text_field :prd_attribute_id %>
+  </p>
+  <p>
+    <%= f.label :relation_id %><br />
+    <%= f.text_field :relation_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @relation_sub %> |
+<%= link_to 'Back', relation_subs_path %>

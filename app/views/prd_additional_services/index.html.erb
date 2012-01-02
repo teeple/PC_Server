@@ -1,0 +1,32 @@
+<h1>Listing prd_additional_services</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Additional service</th>
+    <th>VAS Type</th>
+    <th>Bill Cycle</th>
+    <th>Rate</th>
+    <th>Currency</th>
+    <th>Product Id</th>
+  </tr>
+
+<% @prd_additional_services.each do |prd_additional_service| %>
+  <tr>
+    <td><%=h prd_additional_service.id %></td>
+    <td><%=h prd_additional_service.additional_service_id %></td>
+    <td><%=h prd_additional_service.vas_type %></td>
+    <td><%=h prd_additional_service.bill_cycle %></td>
+    <td><%=h prd_additional_service.rate %></td>
+    <td><%=h prd_additional_service.currency %></td>
+    <td><%=h prd_additional_service.product_id %></td>
+    <td><%= link_to 'Show', prd_additional_service %></td>
+    <td><%= link_to 'Edit', edit_prd_additional_service_path(prd_additional_service) %></td>
+    <td><%= link_to 'Destroy', prd_additional_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_additional_service', new_prd_additional_service_path %>

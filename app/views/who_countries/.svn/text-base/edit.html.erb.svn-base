@@ -1,0 +1,32 @@
+<h1>Editing who_country</h1>
+
+<% form_for(@who_country) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :country_index %><br />
+    <%= f.text_field :country_index %>
+  </p>
+  <p>
+    <%= f.label :is_same_country %><br />
+    <%= f.text_field :is_same_country %>
+  </p>
+  <p>
+    <%= f.label :is_same_zone %><br />
+    <%= f.text_field :is_same_zone %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @who_country %> |
+<%= link_to 'Back', who_countries_path %>

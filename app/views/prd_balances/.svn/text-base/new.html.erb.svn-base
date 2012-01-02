@@ -1,0 +1,35 @@
+<h1>New prd_balance</h1>
+
+<% form_for(@prd_balance) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :condition_id %><br />
+    <%= f.text_field :condition_id %>
+  </p>
+  <p>
+    <%= f.label :condition_type %><br />
+    <%= f.text_field :condition_type %>
+  </p>
+  <p>
+    <%= f.label :balance_id %><br />
+    <%= f.text_field :balance_id %>
+  </p>
+  <p>
+    <%= f.label :priority %><br />
+    <%= f.text_field :priority %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', prd_balances_path %>

@@ -1,0 +1,65 @@
+###########################################
+### CONDITION_TOWHOM_MEMBER
+[RULESET_CONDITION_TOWHOM_MEMBER]
+vice_versa, string(15)
+on_off_net, string(15)
+member_of, string(15)
+
+[CONDITION_TOWHOM_MEMBER]
+member_1: vice_versa = 'yes', on_off_net = 'on', member_of = 'family'
+member_2: vice_versa = 'yes', member_of = 'family'
+
+
+###########################################
+### CONDITION_TOWHOM_NUMBER
+[RULESET_CONDITION_TOWHOM_NUMBER]
+number, string(20)
+
+[CONDITION_TOWHOM_NUMBER]
+number_1: number = ('114', '119', '115') 
+number_2: number = ('010114', '010112', '0101123123')
+
+###########################################
+### CONDITION_TOWHOM_PREFIX
+[RULESET_CONDITION_TOWHOM_PREFIX]
+prefix, string(20)
+
+[CONDITION_TOWHOM_PREFIX]
+prefix_1: prefix starts ( '070', '080' )
+prefix_2: prefix starts ( '002', '001', '00365', '00700' )
+
+###########################################
+### CONDITION_TOWHOM_COUNTRY
+[RULESET_CONDITION_TOWHOM_COUNTRY]
+country, enum
+
+[CONDITION_TOWHOM_COUNTRY]
+country_1: country = ( 1, 2, 3, 4)
+country_2: country = ( 1, 2, 3, 4, 5, 6 )
+
+###########################################
+### CONDITION_TOWHOM_CUSTOM
+[RULESET_CONDITION_TOWHOM_CUSTOM]
+country, enum
+
+[CONDITION_TOWHOM_CUSTOM]
+country_1: country = ( 1, 2, 3, 4)
+country_2: country = ( 1, 2, 3, 4, 5, 6 )
+
+###########################################
+### CONDITION_
+[RULESET_CONDITION_TOWHOM]
+c_type, enum
+c_member, string(20), rule : (value in ruleset condition_towhom_member or value is null)
+c_number, string(20), rule : (value in ruleset condition_towhom_number or value is null)
+c_prefix, string(20), rule : (value in ruleset condition_towhom_prefix or value is null)
+c_country, string(20), rule : (value in ruleset condition_towhom_country or value is null)
+c_custom, string(20), rule : (value in ruleset condition_towhom_custom or value is null)
+
+[CONDITION_TOWHOM]
+towhom_1: c_member = member_1, c_number = number_1, c_prefix = prefix_2, c_country = country_2
+under_20age: c_member = member_1, c_number = number_1, c_prefix = prefix_2, c_country = country_2
+over_20age: c_member = member_1, c_number = number_1, c_prefix = prefix_2, c_country = country_2
+over_20age_woman: c_member = member_1, c_number = number_1, c_prefix = prefix_2, c_country = country_2
+
+

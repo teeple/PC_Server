@@ -1,0 +1,18 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @when_day.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @when_day.description %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%=h @when_day.day %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_day_path(@when_day) %> |
+<%= link_to 'Back', when_days_path %>

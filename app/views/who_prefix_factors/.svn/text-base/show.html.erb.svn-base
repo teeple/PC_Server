@@ -1,0 +1,13 @@
+<p>
+  <b>Prefix:</b>
+  <%=h @who_prefix_factor.prefix %>
+</p>
+
+<p>
+  <b>Who prefix:</b>
+  <%=h @who_prefix_factor.who_prefix_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_who_prefix_factor_path(@who_prefix_factor) %> |
+<%= link_to 'Back', who_prefix_factors_path %>

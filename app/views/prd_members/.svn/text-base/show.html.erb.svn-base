@@ -1,0 +1,38 @@
+<p>
+  <b>User:</b>
+  <%=h @prd_member.user_id %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @prd_member.role %>
+</p>
+
+<p>
+  <b>Hashed password:</b>
+  <%=h @prd_member.hashed_password %>
+</p>
+
+<p>
+  <b>Salt:</b>
+  <%=h @prd_member.salt %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @prd_member.role %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @prd_member.status %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @prd_member.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_member_path(@prd_member) %> |
+<%= link_to 'Back', prd_members_path %>

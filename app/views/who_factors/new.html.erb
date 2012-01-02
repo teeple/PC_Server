@@ -1,0 +1,51 @@
+<h1>New who_factor</h1>
+
+<% form_for(@who_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fctr_code %><br />
+    <%= f.text_field :fctr_code %>
+  </p>
+  <p>
+    <%= f.label :who_member_id %><br />
+    <%= f.text_field :who_member_id %>
+  </p>
+  <p>
+    <%= f.label :who_number_id %><br />
+    <%= f.text_field :who_number_id %>
+  </p>
+  <p>
+    <%= f.label :who_prefix_id %><br />
+    <%= f.text_field :who_prefix_id %>
+  </p>
+  <p>
+    <%= f.label :who_country_id %><br />
+    <%= f.text_field :who_country_id %>
+  </p>
+  <p>
+    <%= f.label :who_custom_id %><br />
+    <%= f.text_field :who_custom_id %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+   <p>
+    <%= f.label :target %><br />
+    <%= f.text_field :target %>
+  </p>
+   <p>
+    <%= f.label :default %><br />
+    <%= f.text_field :default %>
+  </p>
+   <p>
+    <%= f.label :service_type %><br />
+    <%= f.text_field :service_type %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', who_factors_path %>

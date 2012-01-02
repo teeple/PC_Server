@@ -1,0 +1,24 @@
+<h1>Listing where_countries</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Country inex</th>
+  </tr>
+
+<% @where_countries.each do |where_country| %>
+  <tr>
+    <td><%=h where_country.subfctr_name %></td>
+    <td><%=h where_country.description %></td>
+    <td><%=h where_country.country_inex %></td>
+    <td><%= link_to 'Show', where_country %></td>
+    <td><%= link_to 'Edit', edit_where_country_path(where_country) %></td>
+    <td><%= link_to 'Destroy', where_country, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_country', new_where_country_path %>

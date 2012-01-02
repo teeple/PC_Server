@@ -1,0 +1,8 @@
+###########################################
+### CONDITION_WHERE_COUNTRY
+[RULESET_CONDITION_WHERE_COUNTRY]
+country, enum
+
+[CONDITION_WHERE_COUNTRY]
+<%=@where_countries_output%>
+

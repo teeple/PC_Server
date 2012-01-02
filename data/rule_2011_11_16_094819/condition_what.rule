@@ -1,0 +1,74 @@
+[RULESET_CONDITION_WHAT_QO]
+qos, int 
+
+[CONDITION_WHAT_QO]
+level1: qos = 5
+temp: qos = 5
+low: qos = 5
+
+[RULESET_CONDITION_WHAT_URLGROUP]
+url, string(50)
+
+[CONDITION_WHAT_URLGROUP]
+SNS: url = ('http://www.facebook.com', 'http://www.twitter.com')
+Portal: url = ('http://www.google.com', 'http://www.yahoo.com', 'http://www.daum.net', 'http://www.naver.com', 'http://www.daum.net')
+
+[RULESET_CONDITION_WHAT_CUSTOM]
+block, string(20)
+Rollover, string(20)
+COUNTER_THRESHOLD, string(20)
+THRESHOLD, string(20)
+NOTI_BY, string(20)
+IS_BLOCK, string(20)
+SUBSCRIBE, string(20)
+AMOUNT, string(20)
+DEP_CODE, string(20)
+RECHARGE_CODE, string(20)
+
+[CONDITION_WHAT_CUSTOM]
+VoD: block = 'true' 
+ROLLOVER: Rollover = 'TRUE' 
+THRESHOLD_OVER_12000: COUNTER_THRESHOLD > '12000' 
+THRESHOLD_OVER_11000: THRESHOLD > '11000' 
+NOTI_BY_SMS: NOTI_BY = 'SMS' 
+BLOCK: IS_BLOCK = 'TRUE' 
+
+SUBSCRIBE: SUBSCRIBE = 'TRUE' 
+DEPOSIT_10000: DEP_CODE = 'DEP_10000' 
+DEPOSIT_20000: DEP_CODE = 'DEP_20000' 
+DEPOSIT_30000: DEP_CODE = 'DEP_30000' 
+RECHARGE_CD1: RECHARGE_CODE = 'CD1' 
+RECHARGE_CD2: RECHARGE_CODE = 'CD2' 
+RECHARGE_CD3: RECHARGE_CODE = 'CD3' 
+RECHARGE_CD4: RECHARGE_CODE = 'CD4' 
+RECHARGE_CD5: RECHARGE_CODE = 'CD5' 
+
+########################################
+### RULESET_CONDITION_WHAT
+[RULESET_CONDITION_WHAT]
+service_id, string(32)
+rating_group, int
+promotion, string(50)
+c_what_qo, string(50), rule : (value in ruleset condition_what_qo or value is null)
+c_what_urlgroup, string(50), rule : (value in ruleset condition_what_urlgroup or value is null)
+c_what_custom, string(50), rule : (value in ruleset condition_what_custom or value is null)
+
+
+[CONDITION_WHAT]
+VOUCHER_CD5: service_id = PC_RECHARGE,c_what_custom  = RECHARGE_CD5
+freeVoD: service_id = PC_EVENT
+VoD_B: service_id = PC_EVENT
+VoD_A: service_id = PC_EVENT
+RECHARGE_CD4: service_id = PC_RECHARGE,c_what_custom  = RECHARGE_CD4
+RECHARGE_CD3: service_id = PC_RECHARGE,c_what_custom  = RECHARGE_CD3
+RECHARGE_CD2: service_id = PC_RECHARGE,c_what_custom  = RECHARGE_CD2
+RECHARGE_CD1: service_id = PC_RECHARGE,c_what_custom  = RECHARGE_CD1
+DEPOSIT_30000: service_id = PC_DEPOSIT,c_what_custom  = DEPOSIT_30000
+DEPOSIT_20000: service_id = PC_DEPOSIT,c_what_custom  = DEPOSIT_20000
+DEPOSIT_10000: service_id = PC_DEPOSIT,c_what_custom  = DEPOSIT_10000
+SUBSCRIBE: service_id = PC_SUBSCRIBE
+ROLLOVER: service_id = PC_ROLLOVER,c_what_custom  = ROLLOVER
+UNSUBSCRIBE: service_id = PC_UNSUBSCRIBE
+PACKET: service_id = PC_PACKET,rating_group  = 2
+VOICE: service_id = PC_VOICE
+SMS: service_id = PC_SMS

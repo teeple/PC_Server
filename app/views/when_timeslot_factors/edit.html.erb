@@ -1,0 +1,24 @@
+<h1>Editing when_timeslot_factor</h1>
+
+<% form_for(@when_timeslot_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :start_time %><br />
+    <%= f.text_field :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %><br />
+    <%= f.text_field :end_time %>
+  </p>
+  <p>
+    <%= f.label :when_timeslot_id %><br />
+    <%= f.text_field :when_timeslot_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @when_timeslot_factor %> |
+<%= link_to 'Back', when_timeslot_factors_path %>

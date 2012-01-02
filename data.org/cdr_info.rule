@@ -1,0 +1,16 @@
+[RULESET_CDR_INFO]
+in_service , string(32)
+message_type , string(32)
+legacy_in , integer
+cs_node , integer
+basic_service , integer
+carrier_id , string(8)
+
+[CDR_INFO]
+3A : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 1
+3V : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 2
+3S : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 102, cs_node = 4
+3D : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 103, cs_node = 4
+3AI : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 1, carrier_id = 'being'
+3VI : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 2, carrier_id = 'being'
+ID : in_service = ('PPS', 'MSP', 'RTS'), message_type = 'User-Data', legacy_in = 104

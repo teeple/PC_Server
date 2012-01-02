@@ -1,0 +1,26 @@
+[RULESET_SH_CALL_FUNCTION]
+message_type , string(32)
+request_detail_action , int
+in_service , string(16)
+
+#message_type : 306(UserData), 307(ProfileUpdate)
+#request_detail_action :
+
+# UDR (Request-Detail-Action)
+# 1 : ServiceQuery_1
+# 2 : ServiceQuery_2
+# 3 : ServiceQuery_3
+
+# PUR (Request-Svc-Type)
+# 0 : UPDATE_SUBS_INFO(가입자 정보 변경)
+# 1 : VOUCHER_REFILL(바우쳐 카드 충전)
+# 2 : CREDIT_CARD_REFILL(신용 카드 충전)
+# 3 : CASH_REFILL(현금 충전)
+# 4 : TRANSFER_REMAINS(잔액 전송)
+# 5 : RG_ZONE(NZS Cell정보수신)
+
+[SH_CALL_FUNCTION]
+execUdrSQ1 : message_type = 'User-Data', request_detail_action = 1
+execUdrSQ3NCS : message_type = 'User-Data', request_detail_action = 3, in_service = 'NCS'
+execUdrSQ2PPS : message_type = 'User-Data', request_detail_action = 2, in_service = ('NCS', 'PPS', 'MSP', 'RTS', 'TTS', 'TCS', 'DLS')
+execPurARS : message_type = 'Profile-Update', request_detail_action = -1, in_service = ('PPS', 'MSP', 'RTS', 'TTS', 'TCS', 'DLS', 'NZS')

@@ -1,0 +1,23 @@
+<p>
+  <b>Basic product:</b>
+  <%=h @rating_factor.basic_product_id %>
+</p>
+
+<p>
+  <b>Packaged product:</b>
+  <%=h @rating_factor.packaged_product_id %>
+</p>
+
+<p>
+  <b>Factor:</b>
+  <%=h @rating_factor.factor %>
+</p>
+
+<p>
+  <b>Function:</b>
+  <%=h @rating_factor.function %>
+</p>
+
+
+<%= link_to 'Edit', edit_rating_factor_path(@rating_factor) %> |
+<%= link_to 'Back', rating_factors_path %>

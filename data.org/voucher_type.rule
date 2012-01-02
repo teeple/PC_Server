@@ -1,0 +1,12 @@
+[RULESET_VOUCHER_TYPE]
+card_type , string(2) , asc
+account_name , string(32) , result
+account_value , string(32) , result
+description , string(128) , result
+
+[VOUCHER_TYPE]
+AA : (card_type = 'AA') and (account_name = 'PPS_Balance') and (account_value = '1000') and (description = 'AA_Balance')
+AB : (card_type = 'AB') and (account_name = 'PPS_Balance') and (account_value = '2000')
+
+AA : (card_type = 'AA') and (account_name = 'MSP_Balance') and (account_value = '1000') and (description = 'AA_Balance')
+AB : (card_type = 'AB') and (account_name = 'MSP_Balance') and (account_value = '2000')

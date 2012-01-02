@@ -1,0 +1,19 @@
+[RULESET_DISCOUNT_VAS]
+service_id, string(32)
+in_service, string(32)
+VOICE_SVC, string(15)
+DATA_SVC, string(15)
+MSG_SVC, string(15)
+WIBRO_SVC, string(15)
+IMS_SVC, string(15)
+SMS_SVC, string(15)
+MMS_SVC, string(15)
+FMC1, string(15)
+FMC2, string(15)
+MEGA_PLUS, string(15)
+discount_rate , string(10), desc, result
+
+
+[DISCOUNT_VAS]
+# service_id : VOICE, MESSAGE, IMS, DATA
+UNLIMIT_WIBRO_SVC : service_id=PACKET, in_service=DLS, DATA_SVC=1, discount_rate=100

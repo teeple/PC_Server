@@ -1,0 +1,22 @@
+<h1>Listing who_number_factors</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Who number</th>
+  </tr>
+
+<% @who_number_factors.each do |who_number_factor| %>
+  <tr>
+    <td><%=h who_number_factor.number %></td>
+    <td><%=h who_number_factor.who_number_id %></td>
+    <td><%= link_to 'Show', who_number_factor %></td>
+    <td><%= link_to 'Edit', edit_who_number_factor_path(who_number_factor) %></td>
+    <td><%= link_to 'Destroy', who_number_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_number_factor', new_who_number_factor_path %>

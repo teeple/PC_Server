@@ -1,0 +1,32 @@
+<h1>Listing prd_subscriptions</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Condition</th>
+    <th>Condition type</th>
+    <th>Balance</th>
+    <th>Action</th>
+    <th>Action type</th>
+    <th>Product Id</th>
+  </tr>
+
+<% @prd_subscriptions.each do |prd_subscription| %>
+  <tr>
+    <td><%=h prd_subscription.parent_id %></td>
+    <td><%=h prd_subscription.condition_id %></td>
+    <td><%=h prd_subscription.condition_type %></td>
+    <td><%=h prd_subscription.balance_id %></td>
+    <td><%=h prd_subscription.action_id %></td>
+    <td><%=h prd_subscription.action_type %></td>
+    <td><%=h prd_subscription.product_id %></td>
+    <td><%= link_to 'Show', prd_subscription %></td>
+    <td><%= link_to 'Edit', edit_prd_subscription_path(prd_subscription) %></td>
+    <td><%= link_to 'Destroy', prd_subscription, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_subscription', new_prd_subscription_path %>

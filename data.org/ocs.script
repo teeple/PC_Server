@@ -1,0 +1,11 @@
+[TABLE_SERVICE_SCRIPT]
+#service_identifier service user_tariff price_script    tariff_script
+VOICE            TARIFF  $(UASYS_HOME)/rating/js/voice.js
+MESSAGE          PRICE   $(UASYS_HOME)/rating/js/sms.js
+PACKET           TARIFF   $(UASYS_HOME)/rating/js/packet.js
+DATA             TARIFF   $(UASYS_HOME)/rating/js/data.js
+#IMS              PRICE   $(UASYS_HOME)/rating/js/imscp.js
+#IMS              TARIFF  $(UASYS_HOME)/rating/js/ims.js
+REFILL           PRICE   $(UASYS_HOME)/rating/js/refill.js
+#CRON_DEDUCT      PRICE   $(UASYS_HOME)/rating/js/cron_deduct.js
+#MONEY_DEDUCT     PRICE   $(UASYS_HOME)/rating/js/money_deduct.js

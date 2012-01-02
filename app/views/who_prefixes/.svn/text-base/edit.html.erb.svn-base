@@ -1,0 +1,24 @@
+<h1>Editing who_prefix</h1>
+
+<% form_for(@who_prefix) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :prefix %><br />
+    <%= f.text_field :prefix %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @who_prefix %> |
+<%= link_to 'Back', who_prefixes_path %>

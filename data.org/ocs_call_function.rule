@@ -1,0 +1,36 @@
+[RULESET_OCS_CALL_FUNCTION]
+service_context_id , string(64)
+cc_request_type , string(32)
+requested_action , string(32)
+function_name , string(128)
+service_priority , int , result
+if_fail , string(10)
+
+
+# ---------------------------------- description ----------------------------------
+# service_context_id
+# MSP - 다단계 선불전화서비스
+# RTS - 렌탈 서비스
+# TTS - 틴틴서비스
+# TCS - 텔코인
+# DLS - 데이터 상한
+#
+# cc_request_type
+# 1 - INITIAL_REQUEST(통화가능 시간조회)
+# 2 - UPDATE_REQUEST(주기적 차감, 잔액 예약요청)
+# 3 - TERMINATION_REQUEST(잔액 차감요청)
+# 4 - EVENT_REQUEST(단발성 차감요청, 누적, check balance, Service Price Enquiry)
+# ---------------------------------- description ----------------------------------
+
+
+[OCS_CALL_FUNCTION]
+# ---------------------------------- MSP ----------------------------------
+# TATA OCS Prepaid Volume Based Charging
+ocs_prevbc_initial : service_context_id = 'PrepaidPacket@tata.com', cc_request_type = INITIAL_REQUEST, function_name = execOcsPreVbcInitial, service_priority = 10, if_fail = stop
+ocs_prevbc_update : service_context_id = 'PrepaidPacket@tata.com', cc_request_type = UPDATE_REQUEST, function_name = execOcsPreVbcUpdate, service_priority = 10, if_fail = stop
+ocs_prevbc_termination : service_context_id = 'PrepaidPacket@tata.com', cc_request_type = TERMINATION_REQUEST, function_name = execOcsPreVbcTermination, service_priority = 10, if_fail = stop
+
+# TATA OCS Prepaid Time Based Charging
+ocs_pretbc_initial : service_context_id = 'PrepaidTime@tata.com', cc_request_type = INITIAL_REQUEST, function_name = execOcsPreTbcInitial, service_priority = 10, if_fail = stop
+ocs_pretbc_update : service_context_id = 'PrepaidTime@tata.com', cc_request_type = UPDATE_REQUEST, function_name = execOcsPreTbcUpdate, service_priority = 10, if_fail = stop
+ocs_pretbc_termination : service_context_id = 'PrepaidTime@tata.com', cc_request_type = TERMINATION_REQUEST, function_name = execOcsPreTbcTermination, service_priority = 10, if_fail = stop

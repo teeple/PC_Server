@@ -1,0 +1,12 @@
+<h1>Editing dbs_deposit</h1>
+
+<% form_for(@dbs_deposit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dbs_deposit %> |
+<%= link_to 'Back', dbs_deposits_path %>

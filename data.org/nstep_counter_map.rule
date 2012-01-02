@@ -1,0 +1,53 @@
+[RULESET_NSTEP_COUNTER_MAP]
+in_service , string(32) , asc
+nstep_parameter , string(32) , asc
+counter_name , string(32) , result
+nstep_account_type , string(8) , result
+
+[NSTEP_COUNTER_MAP]
+# PPS
+GENERAL_REMAINS : (in_service = 'PPS') and (nstep_parameter = 'GENERAL_REMAINS') and (counter_name = 'GENERAL_REMAINS') and (nstep_account_type = 'C')
+FREE_VOICE : (in_service = 'PPS') and (nstep_parameter = 'FREE_VOICE') and (counter_name = 'FREE_VOICE') and (nstep_account_type = 'C')
+FREE_SMS : (in_service = 'PPS') and (nstep_parameter = 'FREE_SMS') and (counter_name = 'FREE_SMS') and (nstep_account_type = 'C')
+FREE_PACKET : (in_service = 'PPS') and (nstep_parameter = 'FREE_PACKET') and (counter_name = 'FREE_PACKET') and (nstep_account_type = 'C')
+VOICE_REMAINS : (in_service = 'PPS') and (nstep_parameter = 'VOICE_REMAINS') and (counter_name = 'VOICE_REMAINS') and (nstep_account_type = 'C')
+SMS_REMAINS : (in_service = 'PPS') and (nstep_parameter = 'SMS_REMAINS') and (counter_name = 'SMS_REMAINS') and (nstep_account_type = 'C')
+VOICE_REMAINS : (in_service = 'PPS') and (nstep_parameter = 'VOICE_REMAINS') and (counter_name = 'VOICE_REMAINS') and (nstep_account_type = 'C')
+
+# MSP
+msp_pp_class : (in_service = 'MSP') and (nstep_parameter = 'PP_CLASS') and (counter_name = 'MSP_Balance') and (nstep_account_type = 'P')
+msp_pp_class : (in_service = 'MSP') and (nstep_parameter = 'PP_Class') and (counter_name = 'MSP_Balance') and (nstep_account_type = 'P')
+msp_data_vas : (in_service = 'MSP') and (nstep_parameter = 'DATA_VAS') and (counter_name = 'MSP_DataRemains') and (nstep_account_type = 'V')
+msp_video_vas : (in_service = 'MSP') and (nstep_parameter = 'VIDEO_VAS') and (counter_name = 'MSP_VideoTime') and (nstep_account_type = 'V')
+msp_remains : (in_service = 'MSP') and (nstep_parameter = 'REMAINS') and (counter_name = 'MSP_Balance') and (nstep_account_type = 'C')
+msp_data_remains : (in_service = 'MSP') and (nstep_parameter = 'DATA_REMAINS') and (counter_name = 'MSP_DataRemains') and (nstep_account_type = 'C')
+msp_free_time : (in_service = 'MSP') and (nstep_parameter = 'FREE_TIME') and (counter_name = 'MSP_FreeTime') and (nstep_account_type = 'C')
+msp_video_time : (in_service = 'MSP') and (nstep_parameter = 'VIDEO_TIME') and (counter_name = 'MSP_VideoTime') and (nstep_account_type = 'C')
+msp_dc_remains : (in_service = 'MSP') and (nstep_parameter = 'DC_REMAINS') and (counter_name = 'MSP_DCRemains') and (nstep_account_type = 'C')
+msp_dc_char : (in_service = 'MSP') and (nstep_parameter = 'DC_CHAR') and (counter_name = 'MSP_DCChar') and (nstep_account_type = 'C')
+
+# TCS
+tcs_normal_coin : (in_service = 'TCS') and (nstep_parameter = 'NORMAL_COIN') and (counter_name = 'TCS_NormalTelcoin') and (nstep_account_type = 'C')
+
+# RTS
+rts_remains : (in_service = 'RTS') and (nstep_parameter = 'REMAINS') and (counter_name = 'RTS_Balance') and (nstep_account_type = 'C')
+rts_cha_remains : (in_service = 'RTS') and (nstep_parameter = 'CHA_REMAINS') and (counter_name = 'RTS_ChaRemains') and (nstep_account_type = 'C')
+
+#DLS
+dls_product_code : (in_service = 'DLS') and (nstep_parameter = 'PC') and (counter_name = 'DLS_BaseRemains') and (nstep_account_type = 'P')
+dls_data_vas : (in_service = 'DLS') and (nstep_parameter = 'DATA_VAS') and (counter_name = 'DLS_FreeRemains') and (nstep_account_type = 'V')
+dls_base_r : (in_service = 'DLS') and (nstep_parameter = 'BASE_R') and (counter_name = 'DLS_BaseRemains') and (nstep_account_type = 'C')
+dls_base_r2 : (in_service = 'DLS') and (nstep_parameter = 'BASE_R2') and (counter_name = 'DLS_FreeRemains') and (nstep_account_type = 'C')
+dls_charge_r : (in_service = 'DLS') and (nstep_parameter = 'CHARGE_R') and (counter_name = 'DLS_PostRefill') and (nstep_account_type = 'C')
+dls_prom_r : (in_service = 'DLS') and (nstep_parameter = 'PROM_R') and (counter_name = 'DLS_PromotionRemains') and (nstep_account_type = 'C')
+dls_pre_chg_r : (in_service = 'DLS') and (nstep_parameter = 'PRE_CHG_R') and (counter_name = 'DLS_PreRefill') and (nstep_account_type = 'C')
+
+#TTS
+tts_product_code : (in_service = 'TTS') and (nstep_parameter = 'PPLAN') and (counter_name = 'TTS_Balance') and (nstep_account_type = 'P')
+tts_money : (in_service = 'TTS') and (nstep_parameter = 'MONEY') and (counter_name = 'TTS_Balance') and (nstep_account_type = 'C')
+tts_rem : (in_service = 'TTS') and (nstep_parameter = 'REM') and (counter_name = 'TTS_Balance') and (nstep_account_type = 'C')
+
+#RDS
+rds_product_code : (in_service = 'RDS') and (nstep_parameter = 'PC') and (counter_name = 'RDS_DailyDuration') and (nstep_account_type = 'P')
+rds_daily_volume : (in_service = 'RDS') and (nstep_parameter = 'DAILY_VOLUME') and (counter_name = 'RDS_DailyVolume') and (nstep_account_type = 'C')
+rds_daily_duration : (in_service = 'RDS') and (nstep_parameter = 'DAILY_DURATION') and (counter_name = 'RDS_MonthlyVolume') and (nstep_account_type = 'C')

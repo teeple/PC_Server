@@ -1,0 +1,44 @@
+<h1>Editing ccbs_packaged_product</h1>
+
+<% form_for(@ccbs_packaged_product) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.text_field :start_date %>
+  </p>
+  <p>
+    <%= f.label :end_date %><br />
+    <%= f.text_field :end_date %>
+  </p>
+  <p>
+    <%= f.label :product_type %><br />
+    <%= f.text_field :product_type %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :crtdt %><br />
+    <%= f.date_select :crtdt %>
+  </p>
+  <p>
+    <%= f.label :package_product_list %><br />
+    <%= f.text_area :package_product_list %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ccbs_packaged_product %> |
+<%= link_to 'Back', ccbs_packaged_products_path %>

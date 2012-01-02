@@ -1,0 +1,36 @@
+<h1>Editing prd_additional_service</h1>
+
+<% form_for(@prd_additional_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :additional_service_id %><br />
+    <%= f.text_field :additional_service_id %>
+  </p>
+  <p>
+    <%= f.label :vas_type %><br />
+    <%= f.text_field :vas_type %>
+  </p>
+  <p>
+    <%= f.label :bill_cycle %><br />
+    <%= f.text_field :bill_cycle %>
+  </p>
+  <p>
+    <%= f.label :rate %><br />
+    <%= f.text_field :rate %>
+  </p>
+  <p>
+    <%= f.label :currency %><br />
+    <%= f.text_field :currency %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_additional_service %> |
+<%= link_to 'Back', prd_additional_services_path %>

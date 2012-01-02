@@ -1,0 +1,76 @@
+<h1>Editing ccbs_product_tariff</h1>
+
+<% form_for(@ccbs_product_tariff) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :product_code %><br />
+    <%= f.text_field :product_code %>
+  </p>
+  <p>
+    <%= f.label :itemcod %><br />
+    <%= f.text_field :itemcod %>
+  </p>
+  <p>
+    <%= f.label :fromdt %><br />
+    <%= f.date_select :fromdt %>
+  </p>
+  <p>
+    <%= f.label :todt %><br />
+    <%= f.date_select :todt %>
+  </p>
+  <p>
+    <%= f.label :method %><br />
+    <%= f.text_field :method %>
+  </p>
+  <p>
+    <%= f.label :add_unit %><br />
+    <%= f.text_field :add_unit %>
+  </p>
+  <p>
+    <%= f.label :unit_charge %><br />
+    <%= f.text_field :unit_charge %>
+  </p>
+  <p>
+    <%= f.label :suspamt %><br />
+    <%= f.text_field :suspamt %>
+  </p>
+  <p>
+    <%= f.label :validity_term %><br />
+    <%= f.text_field :validity_term %>
+  </p>
+  <p>
+    <%= f.label :crt_user %><br />
+    <%= f.text_field :crt_user %>
+  </p>
+  <p>
+    <%= f.label :updt_user %><br />
+    <%= f.text_field :updt_user %>
+  </p>
+  <p>
+    <%= f.label :crtdt %><br />
+    <%= f.date_select :crtdt %>
+  </p>
+  <p>
+    <%= f.label :updtdt %><br />
+    <%= f.date_select :updtdt %>
+  </p>
+  <p>
+    <%= f.label :pgm_id %><br />
+    <%= f.text_field :pgm_id %>
+  </p>
+  <p>
+    <%= f.label :min_unitcharge %><br />
+    <%= f.text_field :min_unitcharge %>
+  </p>
+  <p>
+    <%= f.label :max_unitcharge %><br />
+    <%= f.text_field :max_unitcharge %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ccbs_product_tariff %> |
+<%= link_to 'Back', ccbs_product_tariffs_path %>

@@ -1,0 +1,28 @@
+<h1>Editing who_custom_factor</h1>
+
+<% form_for(@who_custom_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :operation %><br />
+    <%= f.text_field :operation %>
+  </p>
+  <p>
+    <%= f.label :who_custom_id %><br />
+    <%= f.text_field :who_custom_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @who_custom_factor %> |
+<%= link_to 'Back', who_custom_factors_path %>

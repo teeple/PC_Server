@@ -1,0 +1,26 @@
+<h1>Listing when_custom_factors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Operation</th>
+    <th>When custom</th>
+  </tr>
+
+<% @when_custom_factors.each do |when_custom_factor| %>
+  <tr>
+    <td><%=h when_custom_factor.name %></td>
+    <td><%=h when_custom_factor.value %></td>
+    <td><%=h when_custom_factor.operation %></td>
+    <td><%=h when_custom_factor.when_custom_id %></td>
+    <td><%= link_to 'Show', when_custom_factor %></td>
+    <td><%= link_to 'Edit', edit_when_custom_factor_path(when_custom_factor) %></td>
+    <td><%= link_to 'Destroy', when_custom_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_custom_factor', new_when_custom_factor_path %>

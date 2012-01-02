@@ -1,0 +1,2 @@
+module CcbsProductsHelper
+end

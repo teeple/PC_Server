@@ -1,0 +1,8 @@
+[RULESET_PROMOTION_FIRST_ACTIVATION_BONUS]
+product_name, string(20), rule :(value in ruleset product_list or value is null)
+is_first, string(20) 
+from_other_operators, string(20) 
+free_amount, string(20), result
+
+[PROMOTION_FIRST_ACTIVATION_BONUS]
+

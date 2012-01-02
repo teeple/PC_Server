@@ -1,0 +1,38 @@
+[RULESET_SERVICE_PROPERTY]
+in_service , string(32)
+product_code, string(15)
+svc_property_name , string(32)
+svc_property_type ,  string(32)
+svc_property_chk_type , string(32), result
+svc_property_chk_value , string(32) , result
+recharge_req_threshold , string(32) , result
+ann_type , int , result  # 0:충전, 1:가입자 없음, 2:소진, 3:잔액 안내
+
+
+[SERVICE_PROPERTY]
+# PPS 용
+ANN : in_service = PPS, product_code = AA, svc_property_name = ANN_TYPE, svc_property_type = 1, svc_property_chk_type = voice
+ANN : in_service = PPS, product_code = AA, svc_property_name = ANN_TYPE, svc_property_type = 2, svc_property_chk_type = sms
+ANN : in_service = PPS, product_code = AA, svc_property_name = ANN_TYPE, svc_property_type = 3, svc_property_chk_type = ussd
+ANN : in_service = PPS, product_code = AA, svc_property_name = ANN_PERIOD, svc_property_type = none, svc_property_chk_type = used, svc_property_chk_value = 3000 , ann_type = 3
+ANN : in_service = PPS, product_code = AA, svc_property_name = ANN_PERIOD, svc_property_type = 1, svc_property_chk_type = remains, svc_property_chk_value = 3000
+ANN : in_service = PPS, product_code = AA, svc_property_name = ANN_RECHARGE, svc_property_type = none, svc_property_chk_type = remains, svc_property_chk_value = none , ann_type = 0
+TONE : in_service = PPS, product_code = AA, svc_property_name ='TONE_FLAG_TIME', svc_property_type = none, svc_property_chk_value = 30
+
+# MSP 용
+ANN : in_service = MSP, product_code = AA, svc_property_name = ANN_TYPE, svc_property_type = 1, svc_property_chk_type = voice
+ANN : in_service = MSP, product_code = AA, svc_property_name = ANN_TYPE, svc_property_type = 2, svc_property_chk_type = sms
+ANN : in_service = MSP, product_code = AA, svc_property_name = ANN_TYPE, svc_property_type = 3, svc_property_chk_type = ussd
+ANN : in_service = MSP, product_code = AA, svc_property_name = ANN_PERIOD, svc_property_type = none, svc_property_chk_type = used, svc_property_chk_value = 3000 , ann_type = 3
+ANN : in_service = MSP, product_code = AA, svc_property_name = ANN_PERIOD, svc_property_type = 1, svc_property_chk_type = remains, svc_property_chk_value = 3000
+ANN : in_service = MSP, product_code = AA, svc_property_name = ANN_RECHARGE, svc_property_type = none, svc_property_chk_type = remains, svc_property_chk_value = none , ann_type = 0
+TONE : in_service = MSP, product_code = AA, svc_property_name ='TONE_FLAG_TIME', svc_property_type = none, svc_property_chk_value = 30
+
+# RTS 용
+ANN : in_service = RTS, product_code = RA, svc_property_name = 'ANN_TYPE', svc_property_type = 1, svc_property_chk_type = voice
+ANN : in_service = RTS, product_code = RA, svc_property_name = 'ANN_TYPE', svc_property_type = 2, svc_property_chk_type = sms
+ANN : in_service = RTS, product_code = RA, svc_property_name = 'ANN_TYPE', svc_property_type = 3, svc_property_chk_type = ussd
+ANN : in_service = RTS, product_code = RA, svc_property_name = 'ANN_PERIOD', svc_property_type = none, svc_property_chk_type = used, svc_property_chk_value = 3000, ann_type = 3
+ANN : in_service = RTS, product_code = RA, svc_property_name = 'ANN_PERIOD', svc_property_type = 1, svc_property_chk_type = remains, svc_property_chk_value = 3000
+ANN : in_service = RTS, product_code = RA, svc_property_name = 'ANN_RECHARGE', svc_property_type = none, svc_property_chk_type = remains, svc_property_chk_value = none, ann_type = 0
+TONE : in_service = RTS, product_code = RA, svc_property_name ='TONE_FLAG_TIME', svc_property_type = none, svc_property_chk_value = 30

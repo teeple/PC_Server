@@ -1,0 +1,18 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @where_country.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @where_country.description %>
+</p>
+
+<p>
+  <b>Country inex:</b>
+  <%=h @where_country.country_inex %>
+</p>
+
+
+<%= link_to 'Edit', edit_where_country_path(@where_country) %> |
+<%= link_to 'Back', where_countries_path %>

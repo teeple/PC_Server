@@ -1,0 +1,24 @@
+[RULESET_PCEF_PACKET_TARIFF]
+calling, 			string(32)
+rating_group, 		int
+packet_service_id, 	int 
+used_packet , int
+
+
+[PCEF_PACKET_TARIFF]
+voip			: rating_group =   2, packet_service_id =   2
+google			: rating_group =   1, packet_service_id =   3
+any_low_qos		: rating_group =   2, packet_service_id =   5
+any_middle_qos	: rating_group =   3, packet_service_id =   6
+any_high_qos	: rating_group =   4, packet_service_id =   7
+
+ftp				: rating_group =   (5,101), used_packet < 100000000
+ftp2			: rating_group =   (5,101), used_packet < 1100000000
+ftp3			: rating_group =   (5,101)
+
+#any_volume		: rating_group = 101, packet_service_id = 101
+any_time		: rating_group = 102, packet_service_id = 102 
+naver			: rating_group =  50, packet_service_id =  50 
+daum			: rating_group =  50, packet_service_id =  51
+sns				: rating_group = 103 ,packet_service_id = 103
+free			: rating_group =  20

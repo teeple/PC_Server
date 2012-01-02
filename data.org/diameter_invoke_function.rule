@@ -1,0 +1,61 @@
+[RULESET_DIAMETER_INVOKE_FUNCTION]
+in_service , string(16)
+service_context_id , string(64)
+cc_request_type , string(32)
+requested_action , string(32)
+legacy_in , string(32)
+function_name , string(128)
+service_priority , int , result
+if_fail , string(10)
+
+
+# ---------------------------------- description ----------------------------------
+# in_service
+# PPS - Prepaid Service
+# MSP - 다단계 선불전화서비스
+# RTS - 렌탈 서비스
+# TTS - 틴틴서비스
+# TCS - 텔코인
+# DLS - 데이터 상한
+#
+# cc_request_type
+# 1 - INITIAL_REQUEST(통화가능 시간조회)
+# 2 - UPDATE_REQUEST(주기적 차감, 잔액 예약요청)
+# 3 - TERMINATION_REQUEST(잔액 차감요청)
+# 4 - EVENT_REQUEST(단발성 차감요청, 누적, check balance, Service Price Enquiry)
+# ---------------------------------- description ----------------------------------
+
+
+[DIAMETER_INVOKE_FUNCTION]
+
+# ---------------------------------- PPS ----------------------------------
+# PPS Voice
+#pps_voice_initial : in_service = PPS, cc_request_type = INITIAL_REQUEST, legacy_in = 'Legacy-SCP', function_name = PPS_VOICE_ccrInitial, service_priority = 10, if_fail = stop
+#pps_voice_update : in_service = PPS, cc_request_type = UPDATE_REQUEST, legacy_in = 'Legacy-SCP', function_name = PPS_VOICE_ccrUpdate, service_priority = 10, if_fail = stop
+#pps_voice_termination	: in_service = PPS, cc_request_type = TERMINATION_REQUEST, legacy_in = 'Legacy-SCP', function_name = PPS_VOICE_ccrTermination, service_priority = 10, if_fail = stop
+#pps_voice_check_balance : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = CHECK_BALANCE, legacy_in = 'Legacy-SCP', function_name = PPS_VOICE_checkBalance, service_priority = 10, if_fail = stop
+
+# PPS Data
+#pps_data_initial : in_service = PPS, cc_request_type = INITIAL_REQUEST, legacy_in = DSCP, function_name = PPS_DATA_ccrInitial, service_priority = 10, if_fail = stop
+#pps_data_update : in_service = PPS, cc_request_type = UPDATE_REQUEST, legacy_in = DSCP, function_name = PPS_DATA_ccrUpdate, service_priority = 10, if_fail = stop
+#pps_data_termination : in_service = PPS, cc_request_type = TERMINATION_REQUEST, legacy_in = DSCP, function_name = PPS_DATA_ccrTermination, service_priority = 10, if_fail = stop
+#pps_data_check_balance : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = CHECK_BALANCE, legacy_in = DSCP, function_name = PPS_DATA_checkBalance, service_priority = 10, if_fail = stop
+#pps_data_direct_debit : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = DIRECT_DEBITING, legacy_in = DSCP, function_name = PPS_DATA_directDebit, service_priority = 10, if_fail = stop
+
+# PPS SMS
+#pps_sms_check_balance : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = CHECK_BALANCE, legacy_in = INBH, function_name = PPS_SMS_checkBalance, service_priority = 10, if_fail = stop
+#pps_sms_direct_debit : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = DIRECT_DEBITING, legacy_in = INBH, function_name = PPS_SMS_directDebit, service_priority = 10, if_fail = stop
+
+# PPS IMS
+#pps_ims_check_balance : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = CHECK_BALANCE, legacy_in = IM-SCP, function_name = PPS_IMS_checkBalance, service_priority = 10, if_fail = stop
+#pps_ims_direct_debit : in_service = PPS, cc_request_type = EVENT_REQUEST, requested_action = DIRECT_DEBITING, legacy_in = 'IM-SCP', function_name = PPS_IMS_directDebit, service_priority = 10, if_fail = stop
+#pps_ims_initial : in_service = PPS, cc_request_type = INITIAL_REQUEST, legacy_in = 'IM-SCP', function_name = PPS_IMS_ccrInitial, service_priority = 10, if_fail = stop
+#pps_ims_update : in_service = PPS, cc_request_type = UPDATE_REQUEST, legacy_in = 'IM-SCP', function_name = PPS_IMS_ccrUpdate, service_priority = 10, if_fail = stop
+#pps_ims_termination : in_service = PPS, cc_request_type = TERMINATION_REQUEST, legacy_in = 'IM-SCP', function_name = PPS_IMS_ccrTermination, service_priority = 10, if_fail = stop
+# ---------------------------------- PPS ----------------------------------
+
+# ---------------------------------- OCS ----------------------------------
+ocs_prevbc_initial : service_context_id = ('duration@samsung.com', 'volume@samsung.com', 'hybrid@samsung.com') , cc_request_type = INITIAL_REQUEST, function_name = OCS_DATA_ccrInitial, service_priority = 10, if_fail = stop
+ocs_prevbc_update : service_context_id = ('duration@samsung.com', 'volume@samsung.com', 'hybrid@samsung.com'), cc_request_type = UPDATE_REQUEST, function_name = OCS_DATA_ccrUpdate, service_priority = 10, if_fail = stop
+ocs_prevbc_termination : service_context_id = ('duration@samsung.com', 'volume@samsung.com', 'hybrid@samsung.com'), cc_request_type = TERMINATION_REQUEST, function_name = OCS_DATA_ccrTermination, service_priority = 10, if_fail = stop
+# ---------------------------------- OCS ----------------------------------

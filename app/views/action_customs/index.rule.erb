@@ -1,0 +1,16 @@
+##################################################
+### ACTION_CUSTOM
+[RULESET_ACTION_CUSTOM]
+@rule_name, condition
+#must_block, string(20), result
+is_vpn, string(20)
+is_favorite, string(20)
+is_family, string(20)
+is_cac, string(20)
+referred_tariff, string(20), result
+tariff_table, string(50), result
+ACTION, string(30),  result 
+threshold, string(32), result
+
+[ACTION_CUSTOM]
+<%=action_customs_output %>

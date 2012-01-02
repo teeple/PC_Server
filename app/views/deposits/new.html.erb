@@ -1,0 +1,23 @@
+<h1>New deposit</h1>
+
+<% form_for(@deposit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :balance_id %><br />
+    <%= f.text_field :balance_id %>
+  </p>
+  <p>
+    <%= f.label :deposit %><br />
+    <%= f.text_field :deposit %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', deposits_path %>

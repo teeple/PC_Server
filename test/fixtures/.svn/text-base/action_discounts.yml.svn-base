@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  upto: 1
+  rate: 1
+  uptounit: MyString
+  rateunit: MyString
+
+two:
+  subfctr_name: MyString
+  upto: 1
+  rate: 1
+  uptounit: MyString
+  rateunit: MyString

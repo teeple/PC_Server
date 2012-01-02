@@ -1,0 +1,28 @@
+<h1>Listing where_factors</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Operation</th>
+  </tr>
+
+<% @where_factors.each do |where_factor| %>
+  <tr>
+    <td><%=h where_factor.subfctr_name %></td>
+    <td><%=h where_factor.description %></td>
+    <td><%=h where_factor.name %></td>
+    <td><%=h where_factor.value %></td>
+    <td><%=h where_factor.operation %></td>
+    <td><%= link_to 'Show', where_factor %></td>
+    <td><%= link_to 'Edit', edit_where_factor_path(where_factor) %></td>
+    <td><%= link_to 'Destroy', where_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_factor', new_where_factor_path %>

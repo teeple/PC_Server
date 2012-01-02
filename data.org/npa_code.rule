@@ -1,0 +1,27 @@
+[RULESET_NPA_CODE]
+called, string(32)
+calling, string(32)
+aaa, string(32), result
+
+[NPA_CODE]
+MOBILE : called starts (010, 011, 016, 017, 018, 019) , aaa = 1000
+INTL : called starts (00)
+INTL001 : called starts (001)
+INTL002 : called starts (002)
+#INTL005 : called starts (002)
+INTL008 : called starts (008)
+INTL00300 : called starts (00300)
+INTL00321 : called starts (00321)
+INTL00345 : called starts (00345)
+INTL00365 : called starts (00365)
+INTL00388 : called starts (00388)
+INTL00700 : called starts (00700)
+INTL00707 : called starts (00707)
+INTL00727 : called starts (00727)
+INTL00755 : called starts (00755)
+INTL00766 : called starts (00766)
+INTL00770 : called starts (00770)
+INTL00777 : called starts (00777)
+PSTN : called starts (02, 031, 032, 033, 041, 042, 043, 051, 052, 053, 054, 055, 061, 062, 063, 064)
+BGMS: called starts (09980002, 099800031, 099800032, 099800033, 099800041, 099800042, 099800043, 099800051, 099800052, 099800053, 099800054, 099800055, 099800061, 099800062, 099800063, 099800064, 09980102, 099801031, 099801032, 099801033, 099801041, 099801042, 099801043, 099801051, 099801052, 099801053, 099801054, 099801055, 099801061, 099801062, 099801063, 099801064)
+MOBILE : calling starts (010, 011, 016, 017, 018, 019)

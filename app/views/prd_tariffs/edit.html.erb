@@ -1,0 +1,36 @@
+<h1>Editing prd_tariff</h1>
+
+<% form_for(@prd_tariff) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :condition_id %><br />
+    <%= f.text_field :condition_id %>
+  </p>
+  <p>
+    <%= f.label :condition_type %><br />
+    <%= f.text_field :condition_type %>
+  </p>
+  <p>
+    <%= f.label :action_id %><br />
+    <%= f.text_field :action_id %>
+  </p>
+  <p>
+    <%= f.label :action_type %><br />
+    <%= f.text_field :action_type %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_tariff %> |
+<%= link_to 'Back', prd_tariffs_path %>

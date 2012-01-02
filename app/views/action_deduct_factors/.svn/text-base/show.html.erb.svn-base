@@ -1,0 +1,28 @@
+<p>
+  <b>Upto start:</b>
+  <%=h @action_deduct_factor.upto_start %>
+</p>
+
+<p>
+  <b>Upto end:</b>
+  <%=h @action_deduct_factor.upto_end %>
+</p>
+
+<p>
+  <b>Upto type:</b>
+  <%=h @action_deduct_factor.upto_type %>
+</p>
+
+<p>
+  <b>Tariff:</b>
+  <%=h @action_deduct_factor.tariff_id %>
+</p>
+
+<p>
+  <b>Action deduct:</b>
+  <%=h @action_deduct_factor.action_deduct_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_action_deduct_factor_path(@action_deduct_factor) %> |
+<%= link_to 'Back', action_deduct_factors_path %>

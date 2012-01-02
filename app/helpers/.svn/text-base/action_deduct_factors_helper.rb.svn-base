@@ -1,0 +1,2 @@
+module ActionDeductFactorsHelper
+end

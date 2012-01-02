@@ -1,0 +1,20 @@
+<h1>Editing where_country_factor</h1>
+
+<% form_for(@where_country_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code_factor_id %><br />
+    <%= f.text_field :code_factor_id %>
+  </p>
+  <p>
+    <%= f.label :where_country_id %><br />
+    <%= f.text_field :where_country_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @where_country_factor %> |
+<%= link_to 'Back', where_country_factors_path %>

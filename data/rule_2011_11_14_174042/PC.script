@@ -1,0 +1,7 @@
+[TABLE_SERVICE_SCRIPT]
+PC_VOICE            TARIFF  $(UASYS_HOME)/rating/js/pc_voice.js
+PC_SMS              PRICE   $(UASYS_HOME)/rating/js/pc_sms.js
+PC_PACKET           TARIFF   $(UASYS_HOME)/rating/js/pc_packet.js
+PC_SUBSCRIBE        PRICE   $(UASYS_HOME)/rating/js/pc_event.js
+PC_DEPOSIT             PRICE   $(UASYS_HOME)/rating/js/pc_event.js
+PC_RECHARGE             PRICE   $(UASYS_HOME)/rating/js/pc_event.js

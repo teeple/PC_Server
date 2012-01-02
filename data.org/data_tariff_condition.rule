@@ -1,0 +1,11 @@
+[RULESET_DATA_TARIFF_CONDITION]
+call_type, string(20)
+in_service , string(20)
+product_code , string(15)
+
+[DATA_TARIFF_CONDITION]
+DATA_ASIA : call_type = (ROAM_CHINA)
+DATA_ASIA_DISCOUNT : call_type = (ROAM_CHINA_TEL, ROAM_CHINA_UNI)
+DATA_AMERICA : call_type = ROAM_USA
+DATA_AMERICA_DISCOUNT : call_type = (ROAM_USA_SPRINT, ROAM_USA_WIRELESS)
+DATA_OTHER : call_type = ROAM_UNKNOWN

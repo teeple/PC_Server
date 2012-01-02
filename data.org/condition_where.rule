@@ -1,0 +1,50 @@
+###########################################
+### CONDITION_WHERE_COUNTRY
+[RULESET_CONDITION_WHERE_COUNTRY]
+country, enum
+
+[CONDITION_WHERE_COUNTRY]
+Asia_region: country = ('BO','BR','IO','BG','BI')
+Indonesia: country = ('ID')
+
+
+[RULESET_CONDITION_WHERE_ZONE]
+zone, string(100)
+
+[CONDITION_WHERE_ZONE]
+
+
+###########################################
+### CONDITION_WHERE_NETWORK
+[RULESET_CONDITION_WHERE_NETWORK]
+network, string(20)
+
+[CONDITION_WHERE_NETWORK]
+test network1: network = ('June')
+CDMA: network = ('CDMA','GSM')
+
+
+[RULESET_CONDITION_WHERE_CUSTOM]
+is_Homezone, string(20)
+
+[CONDITION_WHERE_CUSTOM]
+home_zone: is_Homezone = 'true' 
+not_in_homezone: is_Homezone = 'false' 
+
+###########################################
+### CONDITION_WHERE
+[RULESET_CONDITION_WHERE]
+c_type, enum
+c_where_country, string(20), rule : (value in ruleset condition_where_country or value is null)
+c_where_zone, string(20), rule : (value in ruleset condition_where_zone or value is null)
+c_where_network, string(20), rule : (value in ruleset condition_where_network or value is null)
+c_where_custom, string(20), rule : (value in ruleset condition_where_custom or value is null)
+
+[CONDITION_WHERE]
+home_zone: c_where_custom = home_zone
+not_in_homezone: c_where_custom = not_in_homezone
+COUNTRY_1: c_where_country = Asia_region
+bbbb: c_where_country = Asia_region, c_where_custom = home_zone
+bbb: c_where_country = Asia_region
+COUNTRY_2: c_where_country = Indonesia
+NETWORK_2: c_where_network = CDMA

@@ -1,0 +1,265 @@
+var _pcg_messages = {
+	common : {
+		ui : {
+			confirmDiscard : "There is items changed. Do you want to ignore and go ahead?",
+			confirmDeleteFactor : "If once factor is deleted, you cannot recover it. \n Do you want to delete it??",
+			confirmDeleteSubfactor : "If once sub-factor is deleted, you cannot recover it. Do you want to delete it?",
+			inputRequired : "There are more than one mandatory items required to enter.\n\nPlease enter it.",
+			namedInputRequired : "There is mandatory item required to  enter.\n\n Required items: {1}",
+			grid : {
+				capWhat : "What",
+		  		capQos : "QoS",
+		  		capUrl : "URL",
+		  		capCustom : "Custom",
+		  		capWho : "Who",
+		  		capWhen : "When",
+		  		capWhere : "Where",
+
+		  		capDeduct : "Deduct",
+		  		capAllow : "Allow",
+		  		capDiscount : "Discount",
+
+		  		btnAdd : "Add",
+		  		btnModify : "Modify",
+		  		btnDelete : "Delete",
+
+				lblCode : "Code",
+				lblName : "Name",
+				lblDescription : "Description",
+				lblQos : "QoS",
+				lblUrl : "URL",
+				lblCustom : "Custom",
+				lblQosLevel1 : "Level1",
+				lblQosLevel2 : "Level2",
+				lblQosLevel3 : "Level3",
+				lblQosLevel4 : "Level4",
+				lblQosLevel5 : "Level5"
+			},
+			dialog : {
+				titNotice : "Notice",
+				titAlert : "Alert",
+				titConfirm : "Confirm",
+
+				btnOk : "OK",
+				btnCancel : "Cancel"
+		 	},
+			text : {
+				add : "ADD",
+	  			modify : "MODIFY",
+	  			remove : "REMOVE",
+
+	  			notAvailable : "N/A"
+	   		}
+	 	},
+		factor : {
+			code : "Code",
+	   		name : "Name",
+	   		description : "DESCRIPTION"
+		},
+		subfactor : {
+			code : "CODE",
+		   name : "NAME",
+		   description : "DESCRIPTION"
+		},
+		customFactor : {
+			operator : {
+				eq : "Equal",
+			 	lt : "&lt;",
+			 	le : "&lt;=",
+			 	gt : "&gt;",
+			 	ge : "&gt;=",
+			 	inlist : "In List",
+			 	starts : "Starts",
+			 	ends : "Ends",
+			 	between : "Between"
+			},
+			entryName : "Entry name",
+			operand : "operand",
+			operandA : "left operand",
+			operandB : "right operand"
+		}
+	},
+	condition : {
+		what : {
+			whatFactor : {
+				saved : "??What? factor is saved.",
+				deleted : "?What? factor is deleted.",
+				unknownAction : "This action is not supported."
+			},
+			qos : {
+				saved : "?QoS?? factor is saved.",
+				deleted : "?QoS? factor is deleted.",
+				unknownAction : "This ?QoS? action is not supported."
+	  		},
+			url : {
+				saved : "?URL? factor is saved.",
+				deleted : "?URL? factor is deleted.",
+				unknownAction : "This ??URL? action is not supported.",
+				lblRemoveEntry : "Remove URL entry"
+	  		},
+			custom : {
+				saved : "??Custom? factor is saved.",
+				deleted : "?Custom? factor is deleted.",
+				unknownAction : "This ?Custom? action is not supported.",
+				restrictEntryDeletion : "There is not allowed to delete the last entry.",
+				lblRemoveEntry : "Remove custom entry"
+		 	},
+		dialog : {
+title : "What factors",
+		selectRequired : "Please select a factor to {1}."
+		 }
+	   },
+when : {
+whenFactor : {
+saved : "?When? factor is saved -.",
+		deleted : " When? factor ?is deleted.",
+		unknownAction : "This action is not supported."
+			 },
+duration : {
+unknownAction : "This action is not supported."
+		   },
+week : {
+unknownAction : "This action is not supported."
+	   },
+day : {
+unknownAction : "This action is not supported."
+	  },
+timeslot : {
+unknownAction : "This action is not supported."
+		   },
+custom : {
+saved : "?Custom? factor is saved.",
+		deleted : "?Custom? factor is deleted.",
+		unknownAction : "This ??Custom? action is not supported.",
+		restrictEntryDeletion : "Thre is not allowed to delete the last entry.",
+		lblRemoveEntry : "Remove custom entry"
+		 },
+dialog : {
+title : "When factors",
+		selectRequired : "Please select a factor to {1}."
+		 }
+	   },
+where : {
+whereFactor : {
+saved : "âWhere? factor is saved.",
+		deleted : "?Where? factor is deleted.",
+		unknownAction : "This action is not supported."
+			  },
+country : {
+unknownAction : "This action is not supported."
+		  },
+zone : {
+unknownAction : "This action is not supported."
+	   },
+network : {
+unknownAction : "This action is not supported."
+		  },
+custom : {
+saved : "?Custom? factor is saved.",
+		deleted : "?Custom? factor is deleted.",
+		unknownAction : "This ?Custom? action is not supported.",
+		restrictEntryDeletion : "There is not allowed to delete the last entry.",
+		lblRemoveEntry : "Remove custom entry"
+		 },
+dialog : {
+title : "Where factors",
+		selectRequired : " Please select a factor to {1}."
+		 }
+		},
+who : {
+
+whoFactor : {
+saved : "?Who? factor is saved.",
+		deleted : "?Who? factor is deleted.",
+		unknownAction : "This action is not supported."
+			},
+member : {
+unknownAction : "This action is not supported."
+		 },
+number : {
+unknownAction : "This action is not supported."
+		 },
+prefix : {
+unknownAction : "This action is not supported."
+		 },
+country : {
+unknownAction : "This action is not supported."
+		  },
+custom : {
+saved : "?Custom?? factor is saved .",
+		deleted : "?Custom? factor is deleted.",
+		unknownAction : "This ?Custom? action is not supported.",
+		restrictEntryDeletion : "You are not allowed to delete the last entry.",
+		lblRemoveEntry : "Remove custom entry"
+		 },
+dialog : {
+title : "Who factors",
+		selectRequired : " Please select a factor to {1}."
+		 }
+	  }
+			},
+
+action : {
+deduct : {
+saved : "?Deduct? factor is saved .",
+		deleted : "?Deduct?? factor is deleted.",
+		unknownAction : "This ??Deduct?? action is not supported.",
+		restrictEntryDeletion : "You are not allowed to delete the last entry.",
+
+		lblRemoveEntry : "Remove deduct entry",
+		lblUpto : "Upto",
+		lblUnit : "Unit",
+		lblRate : "Rate",
+
+		plot : {
+lblUnknownUnit : "Unknown unit"
+		}
+		 },
+allow : {
+saved : "??Allow?? factor is saved.",
+		deleted : "??Allow? factor is deleted.",
+		unknownAction : "This ?Allow? action is not supported.",
+
+		lblGive : "Give",
+		lblUnit : "Unit",
+		lblCurrency : "Currency"
+		},
+discount : {
+saved : "??Discount? factor is saved.",
+		deleted : "?Discount? factor is deleted.",
+		unknownAction : "This ?Discount? action is not supported.",
+
+		lblUpto : "Upto",
+		lblUptoUnit : "Upto unit",
+		lblRate : "Rate",
+		lblRateUnit : "Rate unit"
+		   },
+custom : {
+saved : "?Custom? factor is saved.",
+		deleted : "?Custom? factor is deleted.",
+		unknownAction : "This ??Custom? action is not supported.",
+		restrictEntryDeletion : "You are not allowed to delete the last entry.",
+		lblRemoveEntry : "Remove custom entry"
+		 },
+dialog : {
+selectRequired : "-Please select a factor to {1}."
+		 }
+		 },
+
+error : {
+client : {
+loadServerData : "There is unable to load data from the server..",
+				 detailedReasonLabel : "Detailed reason: ",
+				 flashEventDelivery : "There is unable to deliver the system event.\nPlease contact an administrator if same action is repeated even if you try to ??Refresh?."
+		 },
+server : {
+unprocessable_entity : "your operation are failed to progress"
+		 }, 
+unsupportedOperation : "This function is not supported.",
+					   unknownCustomOperator : "This ?Custom Operator? is not allowed to handle.",
+					   blankInput : "There is item required to enter.",
+					   illegalValue : "Illegal value has entered .",
+					   daoError : "?It is an error of access to data storage side of server. Please contact an administrator.",
+					   unexpectedError : "Operation stops owing to unexpected error from a server. Please contact an administrator."
+		}
+};

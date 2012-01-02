@@ -1,0 +1,20 @@
+<h1>Listing prd_promotion_rules</h1>
+
+<table>
+  <tr>
+    <th>Prd promotion</th>
+  </tr>
+
+<% @prd_promotion_rules.each do |prd_promotion_rule| %>
+  <tr>
+    <td><%=h prd_promotion_rule.prd_promotion_id %></td>
+    <td><%= link_to 'Show', prd_promotion_rule %></td>
+    <td><%= link_to 'Edit', edit_prd_promotion_rule_path(prd_promotion_rule) %></td>
+    <td><%= link_to 'Destroy', prd_promotion_rule, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_promotion_rule', new_prd_promotion_rule_path %>

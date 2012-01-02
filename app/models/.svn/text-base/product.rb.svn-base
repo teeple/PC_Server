@@ -1,0 +1,53 @@
+class Product < ActiveRecord::Base
+	belongs_to :prd_attribute 
+	has_many :prd_members, 
+			:dependent => :destroy
+	has_many :prd_subscriptions, 
+			:dependent => :destroy
+	has_many :prd_tariffs, 
+			:dependent => :destroy
+	has_many :prd_balances,
+			:dependent => :destroy,
+			:include => [:prd_balance_conditions]
+	has_many :prd_promotions,
+			:dependent => :destroy,
+			:include => [:prd_promotion_rules]
+	has_many :prd_additional_services,
+			:dependent => :destroy,
+			:include => [:additional_service]
+
+	@@json_mapping_table = {
+		"prd_attribute"    => {:value => "@prd_attribute", :type => :HAS_CHILD},
+		"prd_members"      => {:value => "@prd_members", :type => :HAS_CHILD_MULTI},
+		"prd_subscriptions" => {:value => "@prd_subscriptions", :type => :HAS_CHILD_MULTI},
+		"prd_tariffs"      => {:value => "@prd_tariffs", :type => :HAS_CHILD_MULTI},
+		"prd_balances"     => {:value => "@prd_balances", :type => :HAS_CHILD_MULTI},
+		"prd_promotions"   => {:value => "@prd_promotions", :type => :HAS_CHILD_MULTI},
+		"prd_additional_services"  => {:value => "@prd_additional_services", :type => :HAS_CHILD_MULTI}
+	}
+
+	@@json_mapping_table_id = {
+		"product_id"			=> {:value => "id", :type => :DB_FIELD}
+	}
+
+	def self.json_mapping_table
+		return @@json_mapping_table
+	end 
+
+	def self.json_mapping_table_id 
+		return @@json_mapping_table_id
+	end
+
+	def data_to_ruleset_list
+
+		returns = nil
+		if not self.blank?
+			if (not self.prd_attribute.blank?) && (not self.prd_attribute.code.blank?)
+				product_name = self.prd_attribute.name.downcase.gsub " ", "_"
+				returns = sprintf("%s : product_code = '%s' , in_service = 'PPS'", product_name, self.prd_attribute.code, self.prd_attribute.name)
+			end
+		end
+
+		returns 
+	end 
+end

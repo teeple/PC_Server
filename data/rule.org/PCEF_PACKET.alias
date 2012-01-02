@@ -1,0 +1,24 @@
+[PCEF_PACKET_ALIAS]
+#service_name	service_type	var_name			expression
+PCEF_PACKET_VOLUME 		TARIFF          service_id      	rating.serviceIdentifier
+PCEF_PACKET_VOLUME   	TARIFF          service         	rating.extension.getExtension('Ext_Service')
+PCEF_PACKET_VOLUME   	TARIFF          subsId          	request.subscriptionID
+PCEF_PACKET_VOLUME	    TARIFF          called          	rating.destinationID
+PCEF_PACKET_VOLUME      TARIFF        calling          request.subscriptionID
+PCEF_PACKET_VOLUME		TARIFF 			balance         	rating.extension.getExtension('Ext_Balance')
+PCEF_PACKET_VOLUME		TARIFF			vas					rating.extension.getExtension('Ext_VAS')
+PCEF_PACKET_VOLUME		TARIFF			service_option		rating.extension.getExtension('Ext_ServiceOption')
+PCEF_PACKET_VOLUME		TARIFF			rating_group 		rating.extension.getExtension('Ext_PacketRatingGroup')
+PCEF_PACKET_VOLUME		TARIFF			packet_service_id	rating.extension.getExtension('Ext_PacketServiceId')
+
+
+PCEF_PACKET_TIME	 	TARIFF          service_id      	rating.serviceIdentifier
+PCEF_PACKET_TIME	    TARIFF          service         	rating.extension.getExtension('Ext_Service')
+PCEF_PACKET_TIME     	TARIFF          subsId          	request.subscriptionID
+PCEF_PACKET_TIME     	TARIFF          called          	rating.destinationID
+PCEF_PACKET_TIME	    TARIFF          calling         	rating.extension.getExtension('Ext_Calling')
+PCEF_PACKET_TIME		TARIFF 			balance         	rating.extension.getExtension('Ext_Balance')
+PCEF_PACKET_TIME		TARIFF			vas					rating.extension.getExtension('Ext_VAS')
+PCEF_PACKET_TIME		TARIFF			service_option		rating.extension.getExtension('Ext_ServiceOption')
+PCEF_PACKET_TIME		TARIFF			rating_group 		rating.extension.getExtension('Ext_PacketRatingGroup')
+PCEF_PACKET_TIME		TARIFF			packet_service_id	rating.extension.getExtension('Ext_PacketServiceId')

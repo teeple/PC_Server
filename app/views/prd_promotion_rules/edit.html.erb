@@ -1,0 +1,16 @@
+<h1>Editing prd_promotion_rule</h1>
+
+<% form_for(@prd_promotion_rule) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :prd_promotion_id %><br />
+    <%= f.text_field :prd_promotion_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_promotion_rule %> |
+<%= link_to 'Back', prd_promotion_rules_path %>

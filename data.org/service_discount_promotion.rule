@@ -1,0 +1,10 @@
+[RULESET_SERVICE_DISCOUNT_PROMOTION]
+discount_vas, string(15)
+discount_vas_code, string(15)
+year_month_day, string(15)
+discount_rate , string(10), desc, result
+
+[SERVICE_DISCOUNT_PROMOTION]
+VOICE_SVC : discount_vas = VOICE_SVC, (year_month_day between 20090801,20090830), discount_rate = 10
+#VOICE_SVC : discount_vas = VOICE_SVC, discount_rate = 10
+

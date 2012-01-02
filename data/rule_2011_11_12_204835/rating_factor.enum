@@ -1,0 +1,19 @@
+[ENUM_RATING_FACTOR]
+rating_factor
+73	is_favorite
+74	data_load_type
+75	vas
+76	service
+77	in_service
+78	vpn_rate
+79	used_packet
+80	calling
+81	rating_group
+82	service_id
+83	service_option
+84	is_vpn
+85	balance
+86	isPostSubs
+87	called
+88	product_code
+89	is_family

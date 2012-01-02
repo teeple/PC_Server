@@ -1,0 +1,38 @@
+<h1>Listing cs_product_vas</h1>
+
+<table>
+  <tr>
+	  <th>Jobkey</th>
+	  <th>Command</th>
+	  <th>Product Code</th>
+	  <th>Name</th>
+	  <th>Is Required </th>
+	  <th>Group Type</th>
+	  <th>Group No</th>
+	  <th>Fee</th>
+	  <th>Bill Term</th>
+	  <th>Description</th>
+  </tr>
+
+<% @cs_product_vas.each do |cs_product_va| %>
+  <tr>
+    <td><%= cs_product_va.jobkey %></td>
+    <td><%= cs_product_va.command %></td>
+    <td><%= cs_product_va.product_code %></td>
+    <td><%= cs_product_va.name %></td>
+    <td><%= cs_product_va.is_required %></td>
+    <td><%= cs_product_va.group_type %></td>
+    <td><%= cs_product_va.group_no %></td>
+    <td><%= cs_product_va.fee %></td>
+    <td><%= cs_product_va.bill_term %></td>
+    <td><%= cs_product_va.description %></td>
+    <td><%= link_to 'Show', cs_product_va %></td>
+    <td><%= link_to 'Edit', edit_cs_product_va_path(cs_product_va) %></td>
+    <td><%= link_to 'Destroy', cs_product_va, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cs_product_va', new_cs_product_va_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  description: MyString
+  day: MyString
+
+two:
+  subfctr_name: MyString
+  description: MyString
+  day: MyString

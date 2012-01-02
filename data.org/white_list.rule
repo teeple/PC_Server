@@ -1,0 +1,12 @@
+[RULESET_WHITE_LIST]
+npa_type, string(30)
+npa, string(10)
+in_service , string(10)
+basic_service , string(10)
+called , string(20)
+dest, string(20)
+
+[WHITE_LIST]
+#117 : npa_type = 'PSTN', in_service = 'TCS', dest = '117', basic_service = 'VOICE'
+#RTS_06011 : npa_type = 'PSTN', in_service = 'RTS', dest starts ('06011'), basic_service = ('VOICE', 'VIDEO')
+#RTS_TEST : npa_type = 'MOBILE', in_service = 'RTS', dest starts ('2917483'), basic_service = ('VOICE', 'VIDEO')

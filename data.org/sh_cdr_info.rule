@@ -1,0 +1,27 @@
+[RULESET_SH_CDR_INFO]
+message_type , string(32)
+legacy_in , integer
+cs_node , integer
+basic_service , integer
+carrier_id , string(8)
+in_service , string(16)
+req_svc_type , integer
+cdr_name , string(64), result
+cdr_code , string(4), result
+
+[SH_CDR_INFO]
+2G_voice : message_type = 'User-Data', legacy_in = 101, cs_node = 3, basic_service = 1, carrier_id = 'null', cdr_name = '2G_voice', cdr_code = '2A'
+2G_ars : message_type = 'Profile-Update', legacy_in = 101, req_svc_type = (0, 1, 2, 3, 4), cdr_name = '2G_ars', cdr_code = '2P'
+2G_intl_voice : message_type = 'User-Data', legacy_in = 101, cs_node = 3, basic_service = 1, carrier_id not in ('null'), cdr_name = '2G_intl_voice', cdr_code = '2AI'
+
+3G_voice : message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 1, carrier_id = 'null', cdr_name = '3G_voice', cdr_code = '3A'
+3G_vedio : message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 2, carrier_id = 'null', cdr_name = '3G_vedio', cdr_code = '3V'
+3G_intl_voice : message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 1, carrier_id not in ('null'), cdr_name = '3G_intl_voice', cdr_code = '3AI'
+3G_intl_vedio : message_type = 'User-Data', legacy_in = 101, cs_node = 4, basic_service = 2, carrier_id not in ('null'), cdr_name = '3G_intl_vedio', cdr_code = '3VI'
+
+ims_voice : message_type = 'User-Data', legacy_in = 104, basic_service = 1, carrier_id = 'null', cdr_name = 'ims_voice', cdr_code = 'IA'
+ims_vedio : message_type = 'User-Data', legacy_in = 104, basic_service = 2, carrier_id = 'null', cdr_name = 'ims_vedio', cdr_code = 'IV'
+ims_ars : message_type = 'Profile-Update', legacy_in = 104, basic_service = -1, carrier_id = 'null', cdr_name = 'ims_ars', cdr_code = 'IP'
+
+nzs_cell : message_type = 'Profile-Update', legacy_in = 101, basic_service = -1, carrier_id = 'null', in_service = 'NZS', req_svc_type = 5, cdr_name = 'nzs_cell', cdr_code = 'NC'
+nzs_imsi : message_type = 'Profile-Update', legacy_in = 101, basic_service = -1, carrier_id = 'null', in_service = 'NZS', req_svc_type = 0, cdr_name = 'nzs_imsi', cdr_code = 'NI'

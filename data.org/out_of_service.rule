@@ -1,0 +1,13 @@
+[RULESET_OUT_OF_SERVICE]
+out_service, string(15)
+poi, string
+in_service, string(16)
+is_restrict, string(8), result
+
+[OUT_OF_SERVICE]
+FNS_0 : out_service=FNS, poi=0, is_restrict = 'N'
+FNS_1 : out_service=FNS, poi=1, is_restrict = 'N'
+#FRP_0 : out_service=FRP, poi=0, is_restrict = 'N'
+#FRP_1 : out_service=FRP, poi=1, is_restrict = 'N'
+#RFC : out_service=RFC, poi=0, is_restrict = 'Y'
+#RFC : out_service=RFC, poi=1, is_restrict = 'Y'

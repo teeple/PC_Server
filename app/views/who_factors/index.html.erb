@@ -1,0 +1,40 @@
+<h1>Listing who_factors</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Fctr code</th>
+    <th>Member id</th>
+    <th>Number id</th>
+    <th>Prefix id</th>
+    <th>Country id</th>
+    <th>Custom id</th>
+    <th>Description</th>
+    <th>Target</th>
+    <th>Default</th>
+    <th>Service Type</th>
+  </tr>
+
+<% @who_factors.each do |who_factor| %>
+  <tr>
+    <td><%=h who_factor.id %></td>
+    <td><%=h who_factor.fctr_code %></td>
+    <td><%=h who_factor.who_member_id %></td>
+    <td><%=h who_factor.who_number_id %></td>
+    <td><%=h who_factor.who_prefix_id %></td>
+    <td><%=h who_factor.who_country_id %></td>
+    <td><%=h who_factor.who_custom_id %></td>
+    <td><%=h who_factor.description %></td>
+    <td><%=h who_factor.target %></td>
+    <td><%=h who_factor.default %></td>
+    <td><%=h who_factor.service_type %></td>
+    <td><%= link_to 'Show', who_factor %></td>
+    <td><%= link_to 'Edit', edit_who_factor_path(who_factor) %></td>
+    <td><%= link_to 'Destroy', who_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_factor', new_who_factor_path %>

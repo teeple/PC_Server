@@ -1,0 +1,11 @@
+<h1>New dbs_deposit</h1>
+
+<% form_for(@dbs_deposit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', dbs_deposits_path %>

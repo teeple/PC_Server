@@ -1,0 +1,24 @@
+<h1>Editing where_network</h1>
+
+<% form_for(@where_network) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :network %><br />
+    <%= f.text_field :network %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @where_network %> |
+<%= link_to 'Back', where_networks_path %>

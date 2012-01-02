@@ -1,0 +1,22 @@
+<h1>Listing where_network_factors</h1>
+
+<table>
+  <tr>
+    <th>Network</th>
+    <th>Where network</th>
+  </tr>
+
+<% @where_network_factors.each do |where_network_factor| %>
+  <tr>
+    <td><%=h where_network_factor.network %></td>
+    <td><%=h where_network_factor.where_network_id %></td>
+    <td><%= link_to 'Show', where_network_factor %></td>
+    <td><%= link_to 'Edit', edit_where_network_factor_path(where_network_factor) %></td>
+    <td><%= link_to 'Destroy', where_network_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_network_factor', new_where_network_factor_path %>

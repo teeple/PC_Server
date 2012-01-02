@@ -1,0 +1,36 @@
+<h1>Listing when_weeks</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Sun</th>
+    <th>Mon</th>
+    <th>Tue</th>
+    <th>Wed</th>
+    <th>Thu</th>
+    <th>Fri</th>
+    <th>Sat</th>
+  </tr>
+
+<% @when_weeks.each do |when_week| %>
+  <tr>
+    <td><%=h when_week.subfctr_name %></td>
+    <td><%=h when_week.description %></td>
+    <td><%=h when_week.sun %></td>
+    <td><%=h when_week.mon %></td>
+    <td><%=h when_week.tue %></td>
+    <td><%=h when_week.wed %></td>
+    <td><%=h when_week.thu %></td>
+    <td><%=h when_week.fri %></td>
+    <td><%=h when_week.sat %></td>
+    <td><%= link_to 'Show', when_week %></td>
+    <td><%= link_to 'Edit', edit_when_week_path(when_week) %></td>
+    <td><%= link_to 'Destroy', when_week, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_week', new_when_week_path %>

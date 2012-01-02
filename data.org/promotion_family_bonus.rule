@@ -1,0 +1,7 @@
+[RULESET_PROMOTION_FAMILY_BONUS]
+product_name, string(20), rule :(value in ruleset product_list or value is null)
+only_to_family, string(20) 
+amount_of_discount, string(20), result
+
+[PROMOTION_FAMILY_BONUS]
+

@@ -1,0 +1,25 @@
+[COMMON_ALIAS]
+PC_VOICE         TARIFF        isPostSubs      rating.extension.getBoolean('Ext_IsPostSubs')
+PC_VOICE         TARIFF        calling          request.subscriptionID
+PC_VOICE         TARIFF        called           rating.destinationID
+PC_VOICE         TARIFF        product_code     rating.extension.getExtension('Ext_Category', 'none')
+PC_VOICE         TARIFF        in_service       rating.extension.getExtension('Ext_Service')
+PC_VOICE         TARIFF        rating_group      rating.extension.getExtension('Ext_RatingGroup',null)
+PC_VOICE         TARIFF        is_family      rating.extension.getBoolean('Ext_IsFamily')
+
+PC_SMS          PRICE        isPostSubs      rating.extension.getBoolean('Ext_IsPostSubs')
+PC_SMS          PRICE        calling          request.subscriptionID
+PC_SMS          PRICE        called           rating.destinationID
+PC_SMS          PRICE        product_code     rating.extension.getExtension('Ext_Category', 'none')
+PC_SMS          PRICE        in_service       rating.extension.getExtension('Ext_Service')
+PC_SMS          PRICE        rating_group      rating.extension.getExtension('Ext_RatingGroup',null)
+PC_SMS         PRICE        is_family      rating.extension.getBoolean('Ext_IsFamily')
+
+PC_PACKET       TARIFF        isPostSubs      rating.extension.getBoolean('Ext_IsPostSubs')
+PC_PACKET       TARIFF        calling          request.subscriptionID
+PC_PACKET       TARIFF        called           rating.destinationID
+PC_PACKET       TARIFF        product_code     rating.extension.getExtension('Ext_Category', 'none')
+PC_PACKET       TARIFF        in_service       rating.extension.getExtension('Ext_Service')
+PC_PACKET       TARIFF        rating_group      rating.extension.getExtension('Ext_PacketRatingGroup',null)
+PC_PACKET       TARIFF        used_packet       rating.getCounterValue(210)
+PC_PACKET         TARIFF        is_family      rating.extension.getBoolean('Ext_IsFamily')

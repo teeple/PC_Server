@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @where_custom_factor.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @where_custom_factor.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @where_custom_factor.operation %>
+</p>
+
+<p>
+  <b>Where custom:</b>
+  <%=h @where_custom_factor.where_custom_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_where_custom_factor_path(@where_custom_factor) %> |
+<%= link_to 'Back', where_custom_factors_path %>

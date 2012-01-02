@@ -1,0 +1,34 @@
+Disable_Time_Accounting = {
+    service_id = disable_account
+    accountingType = time_charge
+    promoUseRule = ' 
+        /disable_ruleset/ { 
+            uaLog.info("hello world");
+               selected_tariff.setAccountable(false);
+        }
+    '
+
+
+    priority = 10
+
+    counterTariff = {
+    }
+}
+
+Disable_Volume_Accounting = {
+    service_id = disable_account
+    accountingType = volume_charge
+    promoUseRule = ' 
+        /disable_ruleset/ { 
+            uaLog.info("hello world");
+               selected_tariff.setAccountable(false);
+        }
+    '
+
+
+    priority = 10
+
+    counterTariff = {
+    }
+}
+

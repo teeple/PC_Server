@@ -1,0 +1,244 @@
+Voice_Accounting_Prepaid = {
+	service_id = VOICE
+
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		promoUseRule = /charging_account/s && (!isPostSubs || rule.counter_name!="GENERAL_REMAINS")
+
+		priority = 12
+
+		/* */
+		accountingType = time_charge
+		/* e2 = rule.counter_type=="TIME"?1:e2 */
+
+		counterTariff = {
+			{
+				counterType = 0
+				promotionCounterType = 3
+				counterID = rule.counter_name
+				ccPerSubsequentChargeableTimeUnit = rule.counter_type=="TIME"?-e2:(rule.counter_type=="R"?-1:-price)
+			}
+		}
+}
+
+Voice_Accounting_Postpaid = {
+	service_id = VOICE
+
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		promoUseRule = isPostSubs==true
+
+		priority = 13
+
+		/* */
+		accountingType = time_charge
+		/* e2 = rule.counter_type=="TIME"?1:e2 */
+
+		counterTariff = {
+			{
+				counterType = 1
+				promotionCounterType = 3
+				counterID = GENERAL_REMAINS
+				ccPerSubsequentChargeableTimeUnit = +price
+			}
+		}
+}
+
+Voice_Accounting_Prepaid_e4 = {
+    service_id = VOICE
+
+        /* isFirstRequest == true : in case of first request, there is no used_counter */
+        promoUseRule = /charging_account/s && (!isPostSubs || rule.counter_name!="GENERAL_REMAINS") && isFirstRequest == true && rule.counter_type == "MONEY"
+
+        priority = 12
+
+        /* if extra_charge will be applied only if e4 exist */
+        accountingType = extra_charge
+
+        counterTariff = {
+            {
+                counterType = 0
+                    promotionCounterType = 3
+                    counterID = rule.counter_name
+                    ccPerSession = -price
+            }
+        }
+}
+
+Voice_Accounting_Postpaid_e4 = {
+    service_id = VOICE
+
+        /* isFirstRequest == true : in case of first request, there is no used_counter */
+        promoUseRule = isPostSubs==true
+
+        priority = 13
+
+        /* if extra_charge will be applied only if e4 exist */
+        accountingType = extra_charge
+
+        counterTariff = {
+            {
+                counterType = 1
+                    promotionCounterType = 3
+                    counterID = GENERAL_REMAINS
+                    ccPerSession = +price
+            }
+        }
+}
+
+SMS_Accounting_Prepaid = {
+	service_id = MESSAGE
+
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		promoUseRule = /charging_account/s && (!isPostSubs || rule.counter_name!="GENERAL_REMAINS") && rule.counter_type != "TIME"
+
+		priority = 12
+
+		counterPrice = {
+			{
+				counterType = 0
+					promotionCounterType = 3
+					counterID = rule.counter_name
+					counterChange = rule.counter_type == "COUNT"?-1:-price
+			}
+		}
+}
+
+SMS_Accounting_Postpaid = {
+	service_id = MESSAGE
+
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		promoUseRule = isPostSubs==true
+
+		priority = 13
+
+		counterPrice = {
+			{
+				counterType = 1
+					promotionCounterType = 3
+					counterID = GENERAL_REMAINS
+					counterChange = +price
+			}
+		}
+}
+
+Packet_Accounting_Prepaid = {
+	service_id = PACKET
+
+/*
+		targetSubsRule = 'in_service != "RDS"'
+*/
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		promoUseRule = /charging_account/s && (!isPostSubs || rule.counter_name!="GENERAL_REMAINS") && rule.counter_type != "TIME" { uaLog.info( ">> promoUseRule. rule.counter_name=%s", rule.counter_name); }
+
+		e6 = rule.counter_type=="BYTE"?1:e6
+		priority = 12
+
+		/* */
+		accountingType = volume_charge
+
+		counterTariff = {
+			{
+				counterType = 0
+					promotionCounterType = 3
+					counterID = rule.counter_name
+					ccPerChargeableVolumeUnit = (rule.counter_type=="BYTE"||rule.counter_type=="PACKET")?-e6:-price
+			}
+		}
+}
+
+Packet_Accounting_Postpaid = {
+	service_id = PACKET
+
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		promoUseRule = isPostSubs==true
+
+		priority = 13
+
+		/* */
+		accountingType = volume_charge
+
+		counterTariff = {
+			{
+				counterType = 1
+					promotionCounterType = 3
+					counterID = GENERAL_REMAINS
+					ccPerChargeableVolumeUnit = +price
+			}
+		}
+}
+
+Data_Accounting_Prepaid = {
+	service_id = DATA
+
+		promoUseRule = /charging_account/s && (!isPostSubs || rule.counter_name!="GENERAL_REMAINS" )
+
+		priority = 12
+
+		accountingType = time_charge
+
+		counterTariff = {
+			{
+				counterType = 0
+				promotionCounterType = 3
+				counterID = rule.counter_name
+				ccPerSubsequentChargeableTimeUnit = rule.counter_type=="TIME"?-e2:(rule.counter_type=="R"?-1:-price)
+			}
+		}
+}
+
+Data_Accounting_Prepaid_e4 = {
+    service_id = DATA
+
+        promoUseRule = /charging_account/s && (!isPostSubs || rule.counter_name!="GENERAL_REMAINS") && isFirstRequest == true && rule.counter_type == "MONEY"
+
+        priority = 12
+
+        accountingType = extra_charge
+
+        counterTariff = {
+            {
+                counterType = 0
+                    promotionCounterType = 3
+                    counterID = rule.counter_name
+                    ccPerSession = -price
+            }
+        }
+}
+
+Data_Accounting_Postpaid = {
+	service_id = DATA
+
+		promoUseRule = isPostSubs==true
+
+		priority = 13
+
+		accountingType = time_charge
+
+		counterTariff = {
+			{
+				counterType = 1
+					promotionCounterType = 3
+					counterID = GENERAL_REMAINS
+					ccPerSubsequentChargeableTimeUnit = +price
+			}
+		}
+}
+
+Data_Accounting_Postpaid_e4 = {
+    service_id = DATA
+
+        promoUseRule = isPostSubs==true
+
+        priority = 13
+
+        accountingType = extra_charge
+
+        counterTariff = {
+            {
+                counterType = 1
+                    promotionCounterType = 3
+                    counterID = GENERAL_REMAINS
+                    ccPerSession = +price
+            }
+        }
+}
+

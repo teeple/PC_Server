@@ -1,0 +1,22 @@
+<h1>Listing test_tests</h1>
+
+<table>
+  <tr>
+    <th>Fidl1</th>
+    <th>Fld2</th>
+  </tr>
+
+<% @test_tests.each do |test_test| %>
+  <tr>
+    <td><%=h test_test.fidl1 %></td>
+    <td><%=h test_test.fld2 %></td>
+    <td><%= link_to 'Show', test_test %></td>
+    <td><%= link_to 'Edit', edit_test_test_path(test_test) %></td>
+    <td><%= link_to 'Destroy', test_test, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New test_test', new_test_test_path %>

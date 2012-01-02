@@ -1,0 +1,22 @@
+<h1>Listing where_country_factors</h1>
+
+<table>
+  <tr>
+    <th>Code factor</th>
+    <th>Where country</th>
+  </tr>
+
+<% @where_country_factors.each do |where_country_factor| %>
+  <tr>
+    <td><%=h where_country_factor.code_factor_id %></td>
+    <td><%=h where_country_factor.where_country_id %></td>
+    <td><%= link_to 'Show', where_country_factor %></td>
+    <td><%= link_to 'Edit', edit_where_country_factor_path(where_country_factor) %></td>
+    <td><%= link_to 'Destroy', where_country_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_country_factor', new_where_country_factor_path %>

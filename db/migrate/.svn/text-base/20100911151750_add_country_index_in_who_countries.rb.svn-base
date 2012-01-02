@@ -1,0 +1,9 @@
+class AddCountryIndexInWhoCountries < ActiveRecord::Migration
+  def self.up
+  	add_column :who_countries, :country_index, :text
+  end
+
+  def self.down
+  	remove_column :who_countries, :country_index
+  end
+end

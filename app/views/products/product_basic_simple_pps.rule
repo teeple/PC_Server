@@ -1,0 +1,110 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_BASIC_SIMPLE_PPS_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset basic_simple_pps_what or value is null)
+condition_who, string(20) , rule : (value in ruleset condition_towhom or value is null)
+condition_when, string(50) , rule : (value in ruleset basic_simple_pps_when or value is null)
+condition_where, string(20) , rule : (value in ruleset condition_where or value is null)
+balance, string(20), result
+#action_name, string(20), result, rule : (value in ruleset actions or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+
+[BASIC_SIMPLE_PPS_SUBSCRIPTION]
+#path_1: condition_what= subscribe, condition_who = under_20age, action_name = block
+path_2: condition_what= subscribe, condition_who = over_20age, action_deduct = deduct_over_20, balance=GENERAL_REMAINS
+path_3: condition_what= subscribe, condition_who = over_20age_woman, action_deduct = deduct_over_20, action_discount = 10_percent, balance=GENERAL_REMAINS
+
+path_4: condition_what = refill, condition_when = mday_1, balance = FREE_VOICE, action_allow = allow_free_voice
+path_5: condition_what = refill, condition_when = mday_1, balance = FREE_SMS, action_allow = allow_free_sms
+
+#############################################
+### TARIFF
+[RULESET_BASIC_SIMPLE_PPS_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_towhom, string(20) , rule : (value in ruleset basic_simple_pps_towhom or value is null)
+condition_when, string(50) , rule : (value in ruleset basic_simple_pps_when or value is null)
+condition_where, string(20) , rule : (value in ruleset basic_simple_pps_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+
+[BASIC_SIMPLE_PPS_TARIFF]
+rule_1: condition_what = voice, condition_when = normal_day, action_deduct = sim_pps_voice
+rule_2: condition_what = voice, condition_when = normal_day, condition_where = home_zone, action_deduct = sim_pps_voice, action_discount = 10_percent
+rule_3: condition_what = voice, condition_when = (normal_night, holiday_day, holiday_night), action_deduct = sim_pps_voice, action_discount = 10_percent
+rule_4: condition_what = voice, condition_when = (normal_night, holiday_day, holiday_night), condition_where = home_zone, action_deduct = sim_pps_voice, action_discount = 20_percent
+rule_5: condition_what = sms, condition_when = normal_day, action_deduct = sim_pps_sms
+rule_6: condition_what = sms, condition_when = (normal_night, holiday_day, holiday_night), action_deduct = sim_pps_sms, action_discount = 10_percent
+
+rule_6: condition_what = packet, condition_when = normal_day, action_deduct = sim_pps_packet
+rule_6: condition_what = packet, condition_when = (normal_night, holiday_day, holiday_night), action_deduct = sim_pps_packet, action_discount = 10_percent
+
+#rule_2: condition_what = voice, used_time_sec between (0, 60), tariff = tariff_3
+#rule_3: condition_what = voice, used_time_sec between (60, 180), tariff = tariff_4
+#rule_4: condition_what = voice, used_time_sec > 180, tariff = tariff_5
+
+#############################################
+### WHEN condition
+[RULESET_BASIC_SIMPLE_PPS_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[BASIC_SIMPLE_PPS_WHEN]
+normal_day: time between '0600', '2100'
+normal_night: (time between '2100', '2400' or time between '0000', '0600')
+holiday_day: time between '0600', '2100', week = ('sun', 'sat')
+holiday_day: time between '0600', '2100', holiday = 'true'
+holiday_night: (time between '2100', '2400' or time between '0000', '0600') , week = ('sun', 'sat')
+holiday_night: (time between '2100', '2400' or time between '0000', '0600') , holiday = 'true'
+mday_1: day_of_month >= '01' 
+reg_date: custom_when = 'reg_date'
+
+
+#############################################
+### Where condition
+[RULESET_BASIC_SIMPLE_PPS_WHERE]
+is_HomeZone, string(6)	# YYYYMMDD format 
+
+[BASIC_SIMPLE_PPS_WHERE]
+home_zone: is_HomeZone = 'true'
+
+#############################################
+### Whom condition
+[RULESET_BASIC_SIMPLE_PPS_TOWHOM]
+is_Family, string(6)	# YYYYMMDD format 
+
+[BASIC_SIMPLE_PPS_TOWHOM]
+family: is_Family = 'true'
+
+#############################################
+### PROMOTION
+[RULESET_BASIC_SIMPLE_PPS_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[BASIC_SIMPLE_PPS_PROMOTION]
+rule_1: promotion_type = DISCOUNT, promotion_name = promotion_home_zone
+rule_2: promotion_type = GIVE_BONUS , promotion_name = promotion_activation
+
+#############################################
+### VAS
+[RULESET_BASIC_SIMPLE_PPS_VAS]
+vas_name, 		string(20) rule: (value in ruleset vas_list or value is null)
+is_required, 	string(10), result
+fee, 			string(20), result, rule: (value in ruleset tariff  or value is null)
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[BASIC_SIMPLE_PPS_VAS]
+rule_1: vas_name = CID, is_required = yes, fee=tariff_free, bill_term=Daily, balance=GENERAL_REMAINS
+rule_2: vas_name = RBT, is_required = yes, fee=tariff_free, bill_term=Daily, balance=GENERAL_REMAINS
+rule_3: vas_name = CFW, is_required = no, fee=tariff_1Dollar, bill_term=Calculated_Daily, balance=GENERAL_REMAINS
+rule_4: vas_name = CW, is_required = no, fee=tariff_1Dollar, bill_term=Calculated_Daily, balance=GENERAL_REMAINS
+rule_5: vas_name = CALL_BARRING, is_required = no, fee=tariff_1Dollar, bill_term=Calculated_Daily, balance=GENERAL_REMAINS

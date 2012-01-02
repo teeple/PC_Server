@@ -1,0 +1,19 @@
+[RULESET_PCEF_PACKET_COUNTING]
+calling, 			string(32)
+rating_group, 		int
+packet_service_id, 	int 
+is_volume_counting,	int, 	result
+is_time_counting,	int,	result
+
+
+[PCEF_PACKET_COUNTING]
+voip			: rating_group =   2, packet_service_id =   2, is_volume_counting = 1 
+google			: rating_group =   1, packet_service_id =   3, is_volume_counting = 1 
+any_low_qos		: rating_group =   2, packet_service_id =   5, is_volume_counting = 1 
+any_middle_qos	: rating_group =   3, packet_service_id =   6, is_volume_counting = 1 
+any_high_qos	: rating_group =   4, packet_service_id =   7, is_volume_counting = 1 
+ftp				: rating_group =   5, packet_service_id =   8, is_volume_counting = 1
+any_volume		: rating_group = 101, packet_service_id = 101, is_volume_counting = 1 
+any_time		: rating_group = 102, packet_service_id = 102, is_volume_counting = 0
+naver			: rating_group =  50, packet_service_id =  50, is_volume_counting = 1 
+daum			: rating_group =  50, packet_service_id =  51, is_volume_counting = 1 

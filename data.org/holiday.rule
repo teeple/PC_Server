@@ -1,0 +1,10 @@
+[RULESET_HOLIDAY]
+year_month_day , string(8)
+day , string(8)
+week , string(4)
+
+[HOLIDAY]
+true : day in list holiday
+true : year_month_day in list holiday
+true : week = sun
+false : week = (mon,tue,wed,thu,fri,sat)

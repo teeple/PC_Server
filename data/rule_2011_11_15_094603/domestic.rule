@@ -1,0 +1,13 @@
+[RULESET_DOMESTIC]
+area_prefix , string(64)
+tariff , string(64) , result
+
+[DOMESTIC]
+rule_0 : area_prefix starts 11 , tariff = 20_15_10_TGper10Sec
+rule_1 : area_prefix starts 12 , tariff = 20_15_10_TGper10Sec
+rule_2 : area_prefix starts 21 , tariff = 20_15_10_TGper10Sec
+rule_3 : area_prefix starts 22 , tariff = 20_15_10_TGper10Sec
+rule_4 : area_prefix starts 23 , tariff = 20_15_10_TGper10Sec
+rule_5 : area_prefix starts 27 , tariff = 20_15_10_TGper10Sec
+rule_6 : area_prefix starts 30 , tariff = 20_15_10_TGper10Sec
+rule_7 : area_prefix starts 31 , tariff = 20_15_10_TGper10Sec

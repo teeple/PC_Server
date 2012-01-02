@@ -1,0 +1,22 @@
+<h1>Listing what_urlgroups</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+  </tr>
+
+<% @what_urlgroups.each do |what_urlgroup| %>
+  <tr>
+    <td><%=h what_urlgroup.subfctr_name %></td>
+    <td><%=h what_urlgroup.description %></td>
+    <td><%= link_to 'Show', what_urlgroup %></td>
+    <td><%= link_to 'Edit', edit_what_urlgroup_path(what_urlgroup) %></td>
+    <td><%= link_to 'Destroy', what_urlgroup, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New what_urlgroup', new_what_urlgroup_path %>

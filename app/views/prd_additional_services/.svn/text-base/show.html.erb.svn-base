@@ -1,0 +1,26 @@
+<p>
+  <b>Additional service:</b>
+  <%=h @prd_additional_service.additional_service_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @prd_additional_service.vas_type %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%=h @prd_additional_service.action_id %>
+</p>
+
+<p>
+  <b>Action type:</b>
+  <%=h @prd_additional_service.action_type %>
+</p>
+<p>
+  <b>Product Id:</b>
+  <%=h @prd_additional_service.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_prd_additional_service_path(@prd_additional_service) %> |
+<%= link_to 'Back', prd_additional_services_path %>

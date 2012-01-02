@@ -1,0 +1,28 @@
+<h1>Listing where_zones</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Title</th>
+    <th>Lat</th>
+    <th>Lng</th>
+  </tr>
+
+<% @where_zones.each do |where_zone| %>
+  <tr>
+    <td><%=h where_zone.subfctr_name %></td>
+    <td><%=h where_zone.description %></td>
+    <td><%=h where_zone.title %></td>
+    <td><%=h where_zone.lat %></td>
+    <td><%=h where_zone.lng %></td>
+    <td><%= link_to 'Show', where_zone %></td>
+    <td><%= link_to 'Edit', edit_where_zone_path(where_zone) %></td>
+    <td><%= link_to 'Destroy', where_zone, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_zone', new_where_zone_path %>

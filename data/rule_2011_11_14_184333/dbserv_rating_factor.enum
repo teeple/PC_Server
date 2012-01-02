@@ -1,0 +1,7 @@
+[ENUM_DBSERV_RATING_FACTOR]
+dbserv_rating_factor
+98	vpn_rate
+99	is_favorite
+100	is_family
+101	is_vpn
+102	is_cac

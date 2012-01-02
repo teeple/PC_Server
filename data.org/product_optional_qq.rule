@@ -1,0 +1,90 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_QQ_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset qq_who or value is null)
+condition_when, string(50) , rule : (value in ruleset qq_when or value is null)
+condition_where, string(20) , rule : (value in ruleset qq_where or value is null)
+balance, string(20), result
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[QQ_SUBSCRIPTION]
+rule_1: condition_where=NETWORK_2
+
+#############################################
+### TARIFF
+[RULESET_QQ_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset qq_who or value is null)
+condition_when, string(50) , rule : (value in ruleset qq_when or value is null)
+condition_where, string(20) , rule : (value in ruleset qq_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[QQ_TARIFF]
+
+
+#############################################
+### WHEN condition
+[RULESET_QQ_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[QQ_WHEN]
+
+
+#############################################
+### Where condition
+[RULESET_QQ_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+custom_where, string(30)
+
+[QQ_WHERE]
+NETWORK_2: network = ('CDMA','GSM')
+
+
+#############################################
+### Whom condition
+[RULESET_QQ_WHO]
+is_Family, string(6)	# YYYYMMDD format 
+age, string(10)
+gender, string(10)  #  gender 
+called, string(10) # called number
+custom_who, string(10) # prefix
+
+[QQ_WHO]
+
+
+#############################################
+### PROMOTION
+[RULESET_QQ_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[QQ_PROMOTION]
+
+
+#############################################
+### VAS
+[RULESET_QQ_VAS]
+vas_name, 		string(20) 
+is_required, 	string(10), result
+vas_fee, 			string(20), result
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[QQ_VAS]
+

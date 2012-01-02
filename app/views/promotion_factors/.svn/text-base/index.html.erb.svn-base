@@ -1,0 +1,26 @@
+<h1>Listing promotion_factors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Promotion Id</th>
+    <th>Cond Or Result</th>
+    <th>Is Required</th>
+  </tr>
+
+<% @promotion_factors.each do |promotion_factor| %>
+  <tr>
+    <td><%=h promotion_factor.name %></td>
+    <td><%=h promotion_factor.promotion_id %></td>
+    <td><%=h promotion_factor.cond_or_result %></td>
+    <td><%=h promotion_factor.is_required %></td>
+    <td><%= link_to 'Show', promotion_factor %></td>
+    <td><%= link_to 'Edit', edit_promotion_factor_path(promotion_factor) %></td>
+    <td><%= link_to 'Destroy', promotion_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New promotion_factor', new_promotion_factor_path %>

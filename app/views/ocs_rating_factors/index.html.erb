@@ -1,0 +1,18 @@
+<h1>Listing ocs_rating_factors</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @ocs_rating_factors.each do |ocs_rating_factor| %>
+  <tr>
+    <td><%= link_to 'Show', ocs_rating_factor %></td>
+    <td><%= link_to 'Edit', edit_ocs_rating_factor_path(ocs_rating_factor) %></td>
+    <td><%= link_to 'Destroy', ocs_rating_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ocs_rating_factor', new_ocs_rating_factor_path %>

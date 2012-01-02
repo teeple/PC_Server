@@ -1,0 +1,24 @@
+<h1>Listing deposit_thresholds</h1>
+
+<table>
+  <tr>
+    <th>Threhold</th>
+    <th>Action</th>
+    <th>Deposit</th>
+  </tr>
+
+<% @deposit_thresholds.each do |deposit_threshold| %>
+  <tr>
+    <td><%=h deposit_threshold.threhold %></td>
+    <td><%=h deposit_threshold.action %></td>
+    <td><%=h deposit_threshold.deposit_id %></td>
+    <td><%= link_to 'Show', deposit_threshold %></td>
+    <td><%= link_to 'Edit', edit_deposit_threshold_path(deposit_threshold) %></td>
+    <td><%= link_to 'Destroy', deposit_threshold, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New deposit_threshold', new_deposit_threshold_path %>

@@ -1,0 +1,23 @@
+[RULESET_EVENT_PRICE]
+service_id, string(15)
+in_service, string(15)
+product_code, string(15)
+
+[EVENT_PRICE]
+TES_DATA_AA : service_id=DATA, in_service='TES', product_code='AA'
+TES_DATA_AB : service_id=DATA, in_service='TES', product_code='AB'
+TES_DATA_AC : service_id=DATA, in_service='TES', product_code='AC'
+TES_DATA_AE : service_id=DATA, in_service='TES', product_code='AE'
+
+TES_IMS_AA : service_id=IMS, in_service='TES', product_code='AA'
+TES_IMS_AB : service_id=IMS, in_service='TES', product_code='AB'
+TES_IMS_AC : service_id=IMS, in_service='TES', product_code='AC'
+TES_IMS_AE : service_id=IMS, in_service='TES', product_code='AE'
+
+# RTS
+RTS_DATA_RA : service_id=DATA, in_service='RTS', product_code='RA'
+RTS_DATA_RB : service_id=DATA, in_service='RTS', product_code='RB'
+RTS_DATA_RC : service_id=DATA, in_service='RTS', product_code='RC'
+RTS_IMS_RA : service_id=IMS, in_service='RTS', product_code='RA'
+RTS_IMS_RB : service_id=IMS, in_service='RTS', product_code='RB'
+RTS_IMS_RC : service_id=IMS, in_service='RTS', product_code='RC'

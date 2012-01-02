@@ -1,0 +1,18 @@
+##########################################
+### Product list
+[RULESET_PRODUCT_LIST]
+product_code, string(32)
+service_type, string(32)
+bill_type, string(32), result
+
+[PRODUCT_LIST]
+testproduct : product_code = 'tptptp', service_type = 'MOBILE', bill_type = 'HYBRID' 
+family_pack1 : product_code = 'FB', service_type = 'MOBILE', bill_type = 'PPS' 
+bundle_uni : product_code = 'BN', service_type = 'MOBILE', bill_type = 'PPS' 
+speedy500 : product_code = 'P5', service_type = 'BROADBAND', bill_type = 'PPS' 
+unitv_basic : product_code = 'U1', service_type = 'IPTV', bill_type = 'PPS' 
+mobile_general : product_code = 'M1', service_type = 'MOBILE', bill_type = 'PPS' 
+favorite : product_code = 'FA', service_type = 'MOBILE', bill_type = 'PPS' 
+vpn_pack1 : product_code = 'VP', service_type = 'MOBILE', bill_type = 'PPS' 
+simple100 : product_code = 'S2', service_type = 'MOBILE', bill_type = 'PPS' 
+

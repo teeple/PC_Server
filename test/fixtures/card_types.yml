@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  price_model: MyString
+  price_model_nm: MyString
+  price: 1.5
+  real_price: 1.5
+  svc_type: MyString
+  ext_days: 1.5
+  crtdt: 2011-10-31
+  crt_user: MyString
+  updtdt: 2011-10-31
+  updt_user: MyString
+  pgm_id: MyString
+  sale_item: MyString
+  recharge_item: MyString
+
+two:
+  price_model: MyString
+  price_model_nm: MyString
+  price: 1.5
+  real_price: 1.5
+  svc_type: MyString
+  ext_days: 1.5
+  crtdt: 2011-10-31
+  crt_user: MyString
+  updtdt: 2011-10-31
+  updt_user: MyString
+  pgm_id: MyString
+  sale_item: MyString
+  recharge_item: MyString

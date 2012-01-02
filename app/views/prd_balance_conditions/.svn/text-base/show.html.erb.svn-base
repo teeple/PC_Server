@@ -1,0 +1,23 @@
+<p>
+  <b>Parent:</b>
+  <%=h @prd_balance_condition.parent_id %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%=h @prd_balance_condition.condition_id %>
+</p>
+
+<p>
+  <b>Condition type:</b>
+  <%=h @prd_balance_condition.condition_type %>
+</p>
+
+<p>
+  <b>Prd balance:</b>
+  <%=h @prd_balance_condition.prd_balance_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_balance_condition_path(@prd_balance_condition) %> |
+<%= link_to 'Back', prd_balance_conditions_path %>

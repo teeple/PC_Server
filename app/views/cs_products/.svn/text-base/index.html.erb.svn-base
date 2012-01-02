@@ -1,0 +1,42 @@
+<h1>Listing cs_products</h1>
+
+<table>
+  <tr>
+  	<th>Jobkey</th>
+  	<th>Command</th>
+  	<th>Service Type</th>
+  	<th>Code</th>
+  	<th>Name</th>
+  	<th>Description</th>
+  	<th>Billing Type</th>
+  	<th>Subscription Fee</th>
+  	<th>Product Type</th>
+  	<th>Status</th>
+  	<th>Device List</th>
+  	<th>Crtdt</th>
+  </tr>
+
+<% @cs_products.each do |cs_product| %>
+  <tr>
+  	<td><%= cs_product.jobkey %></td>
+  	<td><%= cs_product.command %></td>
+  	<td><%= cs_product.service_type %></td>
+  	<td><%= cs_product.code %></td>
+  	<td><%= cs_product.name %></td>
+  	<td><%= cs_product.description %></td>
+  	<td><%= cs_product.billing_type %></td>
+  	<td><%= cs_product.subscription_fee %></td>
+  	<td><%= cs_product.product_type %></td>
+  	<td><%= cs_product.status %></td>
+  	<td><%= cs_product.device_list %></td>
+  	<td><%= cs_product.crtdt %></td>
+	<td><%= link_to 'Show', cs_product %></td>
+	<td><%= link_to 'Edit', edit_cs_product_path(cs_product) %></td>
+	<td><%= link_to 'Destroy', cs_product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cs_product', new_cs_product_path %>

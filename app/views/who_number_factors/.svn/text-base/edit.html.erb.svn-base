@@ -1,0 +1,20 @@
+<h1>Editing who_number_factor</h1>
+
+<% form_for(@who_number_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.label :who_number_id %><br />
+    <%= f.text_field :who_number_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @who_number_factor %> |
+<%= link_to 'Back', who_number_factors_path %>

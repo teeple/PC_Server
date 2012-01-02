@@ -1,0 +1,101 @@
+##################################################
+### ACTION_DEDUCT
+[RULESET_ACTION_DEDUCT]
+@rule_name, condition
+#money, int # money 
+#cnt_deduct, int # count  
+call_time, int # seconds 
+used_packet, int # packets
+rate_name, string(30), result, rule: (value in ruleset tariff or value is null)
+
+[ACTION_DEDUCT]
+roam_250TGper10Sec: rate_name=10.0SECOND_250.0WON_210, call_time between 0, 999999999
+10TGperCnt: rate_name=1.0COUNT_10.0TG_195
+roam_150TGper10Sec: rate_name=10.0SECOND_150.0TG_208, call_time between 0, 999999999
+20_15_10_TG_1KB: used_packet between 0, 1024000, rate_name=1024.0BYTE_20.0TG_158
+20_15_10_TG_1KB: used_packet between 1024000, 10240000, rate_name=1024.0BYTE_15.0TG_159
+20_15_10_TG_1KB: used_packet between 10240000, 999999999, rate_name=1024.0BYTE_10.0TG_160
+10000TG_subscription: rate_name=1.0COUNT_10000.0TG_109
+8TGper10Sec: rate_name=10.0SECOND_8.0TG_201, call_time between 0, 999999999
+0.1TGper1kbyte: used_packet between 0, 999999999, rate_name=1024.0BYTE_0.1TG_200
+roam_100TGper10Sec: rate_name=10.0SECOND_100.0WON_209, call_time between 0, 999999999
+20_TG_SMS: rate_name=1.0COUNT_20.0WON_151
+20_15_10_TGper10Sec: rate_name=10.0SECOND_20.0TG_211, call_time between 0, 60
+20_15_10_TGper10Sec: rate_name=10.0SECOND_15.0TG_212, call_time between 60, 120
+20_15_10_TGper10Sec: rate_name=10.0SECOND_10.0TG_213, call_time between 120, 999999999
+100TG1Time: rate_name=1.0COUNT_100.0WON_84
+INTL_60TGper6Sec: rate_name=6.0SECOND_60.0WON_199, call_time between 0, 999999999
+15_13_10TGper10Sec: rate_name=10.0SECOND_15.0WON_214, call_time between 0, 60
+15_13_10TGper10Sec: rate_name=10.0SECOND_13.0WON_215, call_time between 60, 120
+15_13_10TGper10Sec: rate_name=10.0SECOND_10.0WON_216, call_time between 120, 999999999
+VPN_10_8_TGper10Sec: rate_name=10.0SECOND_10.0TG_192, call_time between 0, 60
+VPN_10_8_TGper10Sec: rate_name=10.0SECOND_8.0TG_193, call_time between 60, 99999999
+roam_200TGper10Sec: rate_name=10.0SECOND_200.0TG_207, call_time between 0, 999999999
+##################################################
+### ACTION_ALLOW
+[RULESET_ACTION_ALLOW]
+@rule_name, condition
+unit_type, enum, result
+amount, double, result
+
+[ACTION_ALLOW]
+10cntFree: unit_type= COUNT, amount= 10
+20mbFree: unit_type= BYTE, amount= 20000000
+1200minFree: unit_type= MINUTE, amount= 120
+10minFree: unit_type= MINUTE, amount= 10
+20minFree: unit_type= MINUTE, amount= 20
+250mFree: unit_type= BYTE, amount= 250000000
+50cntSMSFree: unit_type= COUNT, amount= 50
+30minFree: unit_type= MINUTE, amount= 30
+100cntFree: unit_type= COUNT, amount= 100
+300cntFree: unit_type= COUNT, amount= 300
+3VoDFree: unit_type= COUNT, amount= 3
+50minFree: unit_type= MINUTE, amount= 50
+300mbyteFree: unit_type= BYTE, amount= 300000000
+20cntFree: unit_type= COUNT, amount= 20
+Free packet: unit_type= BYTE, amount= 500000
+40minFree: unit_type= MINUTE, amount= 40
+200cntFree: unit_type= COUNT, amount= 200
+100MinFree_VoIP: unit_type= MINUTE, amount= 100
+100minFree: unit_type= MINUTE, amount= 100
+50mbFree: unit_type= BYTE, amount= 50000000
+100mbDataFree: unit_type= BYTE, amount= 100000000
+##################################################
+### ACTION_DISCOUNT
+[RULESET_ACTION_DISCOUNT]
+@rule_name, condition
+unit_type, 		enum, result
+upto_amount, 	int , result
+amount, 		int , 	result
+
+[ACTION_DISCOUNT]
+freeofcharge: unit_type= PERCENT, amount= 100
+10percentDiscount: unit_type= PERCENT, amount= 90
+
+##################################################
+### ACTION_CUSTOM
+[RULESET_ACTION_CUSTOM]
+@rule_name, condition
+#must_block, string(20), result
+is_vpn, string(20)
+is_favorite, string(20)
+is_family, string(20)
+is_cac, string(20)
+referred_tariff, string(20), result
+tariff_table, string(50), result
+ACTION, string(30),  result 
+threshold, string(32), result
+
+[ACTION_CUSTOM]
+BLOCK_THRESHOLD_12000: ACTION = BLOCK, threshold = 12000
+SMS_THRESHOLD_21000: ACTION = SMS, threshold = 21000
+BLOCK_THRESHOLD_22000: ACTION = BLOCK, threshold = 22000
+VPN_RATE: referred_tariff = vpn_rate
+BLOCK_THRESHOLD_5000: ACTION = BLOCK, threshold = 5000
+SMS_THRESHOLD_11000: ACTION = SMS, threshold = 11000
+BLOCK_THRESHOLD_32000: ACTION = BLOCK, threshold = 32000
+roam_00777_incoming: tariff_table = roam_incoming.csv
+roam_00777_otherPLMN: tariff_table = roam_otherPLMN.csv
+SMS_THRESHOLD_31000: ACTION = SMS, threshold = 31000
+roam_00777_HPLMN: tariff_table = roam_HPLMN.csv
+roam_00777_VPLMN: tariff_table = roam_VPLMN.csv

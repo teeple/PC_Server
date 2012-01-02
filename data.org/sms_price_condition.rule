@@ -1,0 +1,13 @@
+[RULESET_SMS_PRICE_CONDITION]
+service_id, string(32)
+in_service, string(30)
+product_code , string(15)
+sms_call_type, string(15) # SMS(1), FEE-INFOUSEO(2), MMS(3), ETC(4)
+sms_price, string(10), result
+
+
+[SMS_PRICE_CONDITION]
+#MSP_MVNO_SMS : service_id = MESSAGE, in_service=MSP, product_code=(SK,SL,SM,SN,SO,SP,SQ,SR,SS), sms_call_type=SMS, sms_price=22
+MSP_MVNO_MMS : service_id = MESSAGE, in_service=MSP, product_code=(SK,SL,SM,SN,SO,SP,SQ,SR,SS), sms_call_type=MMS, sms_price=44
+SMS : service_id = MESSAGE, sms_call_type=SMS, sms_price=15
+MMS : service_id = MESSAGE, sms_call_type=MMS, sms_price=15

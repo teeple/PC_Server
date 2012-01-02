@@ -1,0 +1,11 @@
+[RULESET_SMS_TARIFF_CONDITION]
+call_type, string(32)
+in_service , string(20)
+product_code , string(15)
+
+[SMS_TARIFF_CONDITION]
+SMS_ASIA : call_type = (ROAM_CHINA)
+SMS_ASIA_DISCOUNT : call_type = (ROAM_CHINA_TEL, ROAM_CHINA_UNI)
+SMS_AMERICA : call_type = ROAM_USA
+SMS_AMERICA_DISCOUNT : call_type = (ROAM_USA_SPRINT, ROAM_USA_WIRELESS)
+SMS_OTHER : call_type = ROAM_UNKNOWN

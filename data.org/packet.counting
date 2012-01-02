@@ -1,0 +1,35 @@
+Packet_Usage_Counting = {
+	service_id = PACKET
+
+		/* isFirstRequest == true : in case of first request, there is no used_counter */
+		/* targetSubsRule = aaa == bbb */
+		/* targetSubsRule -> targetRule
+			promoUseRule , promoGrantRule -> rule */
+
+		/*
+		targetSubsRule = '/product_list/ && targetRule == "basic_simple_pps" {
+			uaLog.info( "targetSubRule");
+			action_deduct = "sim_pps_packet";
+		}'
+
+		promoCountingRule = '/action_deduct/ {
+			uaLog.info( "match action_deduct rule=%s", rule);
+		}'
+		*/
+		setup = '
+			uaLog.info("endVolume = %s", volumeThreshold);
+		'	
+		targetSubsRule = true
+
+		priority = 12
+
+		counterTariff = {
+			{
+					counterType = 4097
+					promotionCounterType = 1
+					counterID = 80
+					ccPerChargeableVolumeUnit = +e6
+					counterThreshold = volumeThreshold
+			}
+		}
+}

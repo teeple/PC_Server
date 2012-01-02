@@ -1,0 +1,37 @@
+<p>
+  <b>Parent:</b>
+  <%=h @prd_subscription.parent_id %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%=h @prd_subscription.condition_id %>
+</p>
+
+<p>
+  <b>Condition type:</b>
+  <%=h @prd_subscription.condition_type %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%=h @prd_subscription.balance_id %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%=h @prd_subscription.action_id %>
+</p>
+
+<p>
+  <b>Action type:</b>
+  <%=h @prd_subscription.action_type %>
+</p>
+
+<p>
+  <b>Product Id:</b>
+  <%=h @prd_subscription.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_prd_subscription_path(@prd_subscription) %> |
+<%= link_to 'Back', prd_subscriptions_path %>

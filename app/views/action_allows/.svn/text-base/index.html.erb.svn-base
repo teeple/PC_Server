@@ -1,0 +1,28 @@
+<h1>Listing action_allows</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Give</th>
+    <th>Currency</th>
+    <th>Unitgive</th>
+    <th>Unit</th>
+  </tr>
+
+<% @action_allows.each do |action_allow| %>
+  <tr>
+    <td><%=h action_allow.subfctr_name %></td>
+    <td><%=h action_allow.give %></td>
+    <td><%=h action_allow.currency %></td>
+    <td><%=h action_allow.unitgive %></td>
+    <td><%=h action_allow.unit %></td>
+    <td><%= link_to 'Show', action_allow %></td>
+    <td><%= link_to 'Edit', edit_action_allow_path(action_allow) %></td>
+    <td><%= link_to 'Destroy', action_allow, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New action_allow', new_action_allow_path %>

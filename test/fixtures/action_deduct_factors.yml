@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  upto_start: 1
+  upto_end: 1
+  upto_type: MyString
+  tariff_id: 1
+  action_deduct_id: 1
+
+two:
+  upto_start: 1
+  upto_end: 1
+  upto_type: MyString
+  tariff_id: 1
+  action_deduct_id: 1

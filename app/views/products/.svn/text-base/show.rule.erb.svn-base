@@ -1,0 +1,87 @@
+#############################################
+### SUBSCRIPTION
+[RULESET_<%=product_name%>_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset <%=product_name.downcase%>_who or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_name.downcase%>_when or value is null)
+condition_where, string(20) , rule : (value in ruleset <%=product_name.downcase%>_where or value is null)
+balance, string(20), result
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[<%=product_name %>_SUBSCRIPTION]
+<%=prd_subscriptions_output%>
+
+#############################################
+### TARIFF
+[RULESET_<%=product_name%>_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset <%=product_name.downcase%>_who or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_name.downcase%>_when or value is null)
+condition_where, string(20) , rule : (value in ruleset <%=product_name.downcase%>_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+action_custom, string(20), result , rule : (value in ruleset action_custom or value is null)
+
+[<%=product_name %>_TARIFF]
+<%=prd_tariffs_output%>
+
+#############################################
+### WHEN condition
+[RULESET_<%=product_name%>_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[<%=product_name%>_WHEN]
+<%=@condition_when_output%>
+
+#############################################
+### Where condition
+[RULESET_<%=product_name%>_WHERE]
+is_Homezone, string(10)
+country, string(10)
+zone, string(10)
+network, string(20)
+custom_where, string(30)
+
+[<%=product_name%>_WHERE]
+<%=@condition_where_output%>
+
+#############################################
+### Whom condition
+[RULESET_<%=product_name%>_WHO]
+is_Family, string(6)	# YYYYMMDD format 
+age, string(10)
+gender, sting(10)  #  gender 
+
+[<%=product_name%>_WHO]
+<%=@condition_who_output%>
+
+#############################################
+### PROMOTION
+[RULESET_<%=product_name%>_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[<%=product_name%>_PROMOTION]
+<%=prd_promotions_output%>
+
+#############################################
+### VAS
+[RULESET_<%=product_name%>_VAS]
+vas_name, 		string(20) 
+is_required, 	string(10), result
+vas_fee, 			string(20), result
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[<%=product_name%>_VAS]
+<%=prd_additional_services_output%>

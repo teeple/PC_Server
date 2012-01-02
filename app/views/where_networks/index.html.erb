@@ -1,0 +1,24 @@
+<h1>Listing where_networks</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Network</th>
+  </tr>
+
+<% @where_networks.each do |where_network| %>
+  <tr>
+    <td><%=h where_network.subfctr_name %></td>
+    <td><%=h where_network.description %></td>
+    <td><%=h where_network.network %></td>
+    <td><%= link_to 'Show', where_network %></td>
+    <td><%= link_to 'Edit', edit_where_network_path(where_network) %></td>
+    <td><%= link_to 'Destroy', where_network, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_network', new_where_network_path %>

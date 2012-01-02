@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: MyString
+  role: MyString
+  hashed_password: MyString
+  salt: MyString
+  role: MyString
+  status: MyString
+  product_id: 1
+
+two:
+  user_id: MyString
+  role: MyString
+  hashed_password: MyString
+  salt: MyString
+  role: MyString
+  status: MyString
+  product_id: 1

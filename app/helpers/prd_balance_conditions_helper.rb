@@ -1,0 +1,2 @@
+module PrdBalanceConditionsHelper
+end

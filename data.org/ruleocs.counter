@@ -1,0 +1,13 @@
+[TABLE_COUNTERNAME_TBL]
+37	1	balance_prepaid_voice	1	balance_prepaid_voice
+36	1	balance_postpaid	1	balance_postpaid
+35	1	balance_prepaid	1	balance_prepaid
+34	1	Sponsor's Balance	1	Sponsor'smainremains
+33	2	Family Free SMS	1	Family'ssharedbalancefor'FreeSMS'
+31	4	Family Free Voice	1	Family'ssharedbalancefor'FreeVoice'
+30	1	BALANCE_TEST	10	TestBalance
+29	3	FREE_PACKET	1	FREEPACKET
+66	1	VOICE_REMAINS	100	VoiceRemainsDescription
+33	2	FREE_SMS	1	FreeSMSDescription
+21	4	FREE_VOICE	1	FreeVoiceDescription
+10	1	GENERAL_REMAINS	100	GeneralRemainsDescription

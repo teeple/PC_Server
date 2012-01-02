@@ -1,0 +1,15 @@
+is_vpn: 
+    factor: Ext_IsVpn
+    function: checkVPN
+vpn_rate:
+    factor: Ext_VpnRate
+    function: checkVpnRate
+is_favorite:
+    factor:Ext_IsFavorite
+    function:checkFavorite
+is_family:
+    factor:Ext_IsFamily
+    function:checkFamily
+is_cac:
+    factor:Ext_IsCac
+    function:checkCac

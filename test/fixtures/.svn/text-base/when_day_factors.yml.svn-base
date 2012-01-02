@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  day: MyString
+  day_type: MyString
+  when_day_id: 1
+
+two:
+  day: MyString
+  day_type: MyString
+  when_day_id: 1

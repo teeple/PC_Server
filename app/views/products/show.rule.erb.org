@@ -1,0 +1,83 @@
+#############################################
+### SUBSCRIPTION
+		
+[RULESET_<%=product_type%>_<%=product_name %>_SUBSCRIPTION]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_who, string(20) , rule : (value in ruleset condition_towhom or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_type.downcase%>_<%=product_name.downcase%>_when or value is null)
+condition_where, string(20) , rule : (value in ruleset condition_where or value is null)
+balance, string(20), result
+action_allow, string(20), result , rule : (value in ruleset action_allow or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount or value is null)
+
+[<%=product_type%>_<%=product_name %>_SUBSCRIPTION]
+<%=prd_subscriptions_output%>
+
+#############################################
+### TARIFF
+[RULESET_<%=product_type%>_<%=product_name %>_TARIFF]
+condition_what, string(20) , rule : (value in ruleset condition_what or value is null)
+condition_towhom, string(20) , rule : (value in ruleset condition_towhom or value is null)
+condition_when, string(50) , rule : (value in ruleset <%=product_type.downcase%>_<%=product_name.downcase%>_when or value is null)
+condition_where, string(20) , rule : (value in ruleset condition_where or value is null)
+action_allow, string(20), result , rule : (value in ruleset action_allow  or value is null)
+action_deduct, string(20), result , rule : (value in ruleset action_deduct  or value is null)
+action_discount, string(20), result , rule : (value in ruleset action_discount  or value is null)
+
+[<%=product_type%>_<%=product_name %>_TARIFF]
+rule_3: condition_what = voice, condition_when = normal_day, action_deduct = sim_pps_voice
+rule_4: condition_what = voice, condition_when = (normal_night, holiday_day, holiday_night), action_deduct = sim_pps_voice, action_discount = 10_percent
+rule_5: condition_what = sms, condition_when = normal_day, action_deduct = sim_pps_sms
+rule_6: condition_what = sms, condition_when = (normal_night, holiday_day, holiday_night), action_deduct = sim_pps_sms, action_discount = 10_percent
+rule_7: condition_what = packet, condition_when = normal_day, action_deduct = sim_pps_packet
+rule_8: condition_what = packet, condition_when = (normal_night, holiday_day, holiday_night), action_deduct = sim_pps_packet, action_discount = 10_percent
+
+#############################################
+### WHEN condition
+[RULESET_<%=product_type%>_<%=product_name%>_WHEN]
+year_month_day, string(10)	# YYYYMMDD format 
+week, string(5) 
+date, string(10)
+time, string(5) 
+holiday, string(5)
+day_of_month, string(2) 
+custom_when, string(30)     # Custom value(ex, reg_date)
+
+[<%=product_type%>_<%=product_name%>_WHEN]
+normal_day: time between '0600', '2100'
+normal_night: (time between '2100', '2400' or time between '0000', '0600')
+holiday_day: time between '0600', '2100', week = ('sun', 'sat')
+holiday_day: time between '0600', '2100', holiday = 'true'
+holiday_night: (time between '2100', '2400' or time between '0000', '0600') , week = ('sun', 'sat')
+holiday_night: (time between '2100', '2400' or time between '0000', '0600') , holiday = 'true'
+mday_1: day_of_month >= '01'
+reg_date: custom_when = 'reg_date'
+
+#############################################
+### PROMOTION
+[RULESET_<%=product_type%>_<%=product_name%>_PROMOTION]
+promotion_type, string(20) rule: (value in ruleset promotion_type_list or value is null)
+promotion_name, string(20) rule: (value in list promotion_rulesets or value is null)
+
+[<%=product_type%>_<%=product_name%>_PROMOTION]
+rule_1: promotion_type = DISCOUNT, promotion_name = promotion_home_zone
+rule_2: promotion_type = GIVE_BONUS , promotion_name = promotion_activation
+
+#############################################
+### VAS
+[RULESET_<%=product_type%>_<%=product_name%>_VAS]
+vas_name, 		string(20) rule: (value in ruleset vas_list or value is null)
+is_required, 	string(10), result
+fee, 			string(20), result, rule: (value in ruleset tariff  or value is null)
+bill_term, 		enum, 		result
+balance, 		string(40), result : (value in list balance_list or value is null)
+
+[<%=product_type%>_<%=product_name%>]
+rule_1: vas_name = CID, is_required = yes, fee=tariff_free, bill_term=Daily, balance=GENERAL_REMAINS
+rule_2: vas_name = RBT, is_required = yes, fee=tariff_free, bill_term=Daily, balance=GENERAL_REMAINS
+rule_3: vas_name = CFW, is_required = no, fee=tariff_1Dollar, bill_term=Calculated_Daily, balance=GENERAL_REMAINS
+rule_4: vas_name = CW, is_required = no, fee=tariff_1Dollar, bill_term=Calculated_Daily, balance=GENERAL_REMAINS
+rule_5: vas_name = CALL_BARRING, is_required = no, fee=tariff_1Dollar, bill_term=Calculated_Daily, balance=GENERAL_REMAINS
+
+<%= link_to 'Back', products_path %>

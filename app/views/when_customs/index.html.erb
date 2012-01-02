@@ -1,0 +1,28 @@
+<h1>Listing when_customs</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Operation</th>
+  </tr>
+
+<% @when_customs.each do |when_custom| %>
+  <tr>
+    <td><%=h when_custom.subfctr_name %></td>
+    <td><%=h when_custom.description %></td>
+    <td><%=h when_custom.name %></td>
+    <td><%=h when_custom.value %></td>
+    <td><%=h when_custom.operation %></td>
+    <td><%= link_to 'Show', when_custom %></td>
+    <td><%= link_to 'Edit', edit_when_custom_path(when_custom) %></td>
+    <td><%= link_to 'Destroy', when_custom, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_custom', new_when_custom_path %>

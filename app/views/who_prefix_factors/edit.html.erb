@@ -1,0 +1,20 @@
+<h1>Editing who_prefix_factor</h1>
+
+<% form_for(@who_prefix_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :prefix %><br />
+    <%= f.text_field :prefix %>
+  </p>
+  <p>
+    <%= f.label :who_prefix_id %><br />
+    <%= f.text_field :who_prefix_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @who_prefix_factor %> |
+<%= link_to 'Back', who_prefix_factors_path %>

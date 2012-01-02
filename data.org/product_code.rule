@@ -1,0 +1,10 @@
+[RULESET_PRODUCT_CODE]
+in_service , string(32)
+pc , string(4)
+limit, int, result
+type, int, result
+
+[PRODUCT_CODE]
+UNREG_MONTHLY_PC : in_service = 'RDS', pc = 'OC', limit=100000, type=0
+REG_MONTHLY_PC   : in_service = 'RDS', pc = 'OB', limit=100000, type=1
+DAILY_PC         : in_service = 'RDS', pc = 'OA', limit=0,      type=2

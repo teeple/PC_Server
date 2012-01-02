@@ -1,0 +1,2 @@
+module PrdPromotionsHelper
+end

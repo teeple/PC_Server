@@ -1,0 +1,28 @@
+<h1>Listing action_deduct_factors</h1>
+
+<table>
+  <tr>
+    <th>Upto start</th>
+    <th>Upto end</th>
+    <th>Upto type</th>
+    <th>Tariff</th>
+    <th>Action deduct</th>
+  </tr>
+
+<% @action_deduct_factors.each do |action_deduct_factor| %>
+  <tr>
+    <td><%=h action_deduct_factor.upto_start %></td>
+    <td><%=h action_deduct_factor.upto_end %></td>
+    <td><%=h action_deduct_factor.upto_type %></td>
+    <td><%=h action_deduct_factor.tariff_id %></td>
+    <td><%=h action_deduct_factor.action_deduct_id %></td>
+    <td><%= link_to 'Show', action_deduct_factor %></td>
+    <td><%= link_to 'Edit', edit_action_deduct_factor_path(action_deduct_factor) %></td>
+    <td><%= link_to 'Destroy', action_deduct_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New action_deduct_factor', new_action_deduct_factor_path %>

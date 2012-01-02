@@ -1,0 +1,32 @@
+<h1>Listing custom_promotions</h1>
+
+<table>
+  <tr>
+    <th>Service code</th>
+    <th>Product code</th>
+    <th>Promotion service</th>
+    <th>Priority</th>
+    <th>Promotion category</th>
+    <th>Promotion parameter</th>
+    <th>Package</th>
+  </tr>
+
+<% @custom_promotions.each do |custom_promotion| %>
+  <tr>
+    <td><%=h custom_promotion.service_code_id %></td>
+    <td><%=h custom_promotion.product_code %></td>
+    <td><%=h custom_promotion.promotion_service_id %></td>
+    <td><%=h custom_promotion.priority %></td>
+    <td><%=h custom_promotion.promotion_category %></td>
+    <td><%=h custom_promotion.promotion_parameter %></td>
+    <td><%=h custom_promotion.package %></td>
+    <td><%= link_to 'Show', custom_promotion %></td>
+    <td><%= link_to 'Edit', edit_custom_promotion_path(custom_promotion) %></td>
+    <td><%= link_to 'Destroy', custom_promotion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New custom_promotion', new_custom_promotion_path %>

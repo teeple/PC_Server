@@ -1,0 +1,26 @@
+<h1>Listing prd_balance_conditions</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Condition</th>
+    <th>Condition type</th>
+    <th>Prd balance</th>
+  </tr>
+
+<% @prd_balance_conditions.each do |prd_balance_condition| %>
+  <tr>
+    <td><%=h prd_balance_condition.parent_id %></td>
+    <td><%=h prd_balance_condition.condition_id %></td>
+    <td><%=h prd_balance_condition.condition_type %></td>
+    <td><%=h prd_balance_condition.prd_balance_id %></td>
+    <td><%= link_to 'Show', prd_balance_condition %></td>
+    <td><%= link_to 'Edit', edit_prd_balance_condition_path(prd_balance_condition) %></td>
+    <td><%= link_to 'Destroy', prd_balance_condition, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_balance_condition', new_prd_balance_condition_path %>

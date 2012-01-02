@@ -1,0 +1,26 @@
+<h1>Listing action_customs</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Subfctr name</th>
+    <th>Subfctr code</th>
+    <th>Description</th>
+  </tr>
+
+<% @action_customs.each do |action_custom| %>
+  <tr>
+    <td><%=h action_custom.id %></td>
+    <td><%=h action_custom.subfctr_name %></td>
+    <td><%=h action_custom.subfctr_code %></td>
+    <td><%=h action_custom.description %></td>
+    <td><%= link_to 'Show', action_custom %></td>
+    <td><%= link_to 'Edit', edit_action_custom_path(action_custom) %></td>
+    <td><%= link_to 'Destroy', action_custom, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New action_custom', new_action_custom_path %>

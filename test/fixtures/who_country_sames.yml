@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  description: MyString
+  is_same_country: MyString
+  is_same_zone: MyString
+
+two:
+  subfctr_name: MyString
+  description: MyString
+  is_same_country: MyString
+  is_same_zone: MyString

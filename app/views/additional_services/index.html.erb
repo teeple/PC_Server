@@ -1,0 +1,26 @@
+<h1>Listing additional_services</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+
+<% @additional_services.each do |additional_service| %>
+  <tr>
+    <td><%=h additional_service.id %></td>
+    <td><%=h additional_service.name %></td>
+    <td><%=h additional_service.description %></td>
+    <td><%=h additional_service.vas_type %></td>
+    <td><%= link_to 'Show', additional_service %></td>
+    <td><%= link_to 'Edit', edit_additional_service_path(additional_service) %></td>
+    <td><%= link_to 'Destroy', additional_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New additional_service', new_additional_service_path %>

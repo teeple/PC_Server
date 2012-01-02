@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prefix: MyString
+  who_prefix_id: 1
+
+two:
+  prefix: MyString
+  who_prefix_id: 1

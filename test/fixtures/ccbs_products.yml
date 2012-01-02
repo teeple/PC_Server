@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  service_type: MyString
+  product_code: MyString
+  product_name: MyString
+  description: MyString
+  billing_type: MyString
+  start_date: MyString
+  end_date: MyString
+  product_type: MyString
+  status: MyString
+  device_list: MyString
+  crtdt: 2011-11-02
+  condition_list: MyText
+  item_list: MyText
+
+two:
+  service_type: MyString
+  product_code: MyString
+  product_name: MyString
+  description: MyString
+  billing_type: MyString
+  start_date: MyString
+  end_date: MyString
+  product_type: MyString
+  status: MyString
+  device_list: MyString
+  crtdt: 2011-11-02
+  condition_list: MyText
+  item_list: MyText

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  table_name: MyString
+  column_name: MyString
+  factor_name: MyString
+  key_column: MyString
+  key_value: MyString
+
+two:
+  table_name: MyString
+  column_name: MyString
+  factor_name: MyString
+  key_column: MyString
+  key_value: MyString

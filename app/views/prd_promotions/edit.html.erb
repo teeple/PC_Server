@@ -1,0 +1,20 @@
+<h1>Editing prd_promotion</h1>
+
+<% form_for(@prd_promotion) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :promotion_id %><br />
+    <%= f.text_field :promotion_id %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prd_promotion %> |
+<%= link_to 'Back', prd_promotions_path %>

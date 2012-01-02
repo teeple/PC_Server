@@ -1,0 +1,16 @@
+Packet_Usage_Counting = {
+	service_id = PC_PACKET
+
+	targetSubsRule = true
+
+	priority = 12
+
+	counterTariff = {
+		{
+			counterType = 4097
+			promotionCounterType = 1
+			counterID = 210
+			ccPerChargeableVolumeUnit = +e6
+		}
+	}
+}

@@ -1,0 +1,54 @@
+[RULESET_CONDITION_WHAT_QO]
+qos, int 
+
+[CONDITION_WHAT_QO]
+level1: qos = 5
+temp: qos = 5
+
+[RULESET_CONDITION_WHAT_URLGROUP]
+url, string(50)
+
+[CONDITION_WHAT_URLGROUP]
+SNS: url = ('http://www.facebook.com', 'http://www.twitter.com')
+Portal: url = ('http://www.google.com', 'http://www.yahoo.com', 'http://www.daum.net', 'http://www.naver.com', 'http://www.daum.net')
+
+[RULESET_CONDITION_WHAT_CUSTOM]
+block, string(20)
+
+[CONDITION_WHAT_CUSTOM]
+test_block: block =' true' 
+
+########################################
+### RULESET_CONDITION_WHAT
+[RULESET_CONDITION_WHAT]
+service_id, enum
+rating_group, int
+promotion, string(30)
+c_what_qo, string(20), rule : (value in ruleset condition_what_qo or value is null)
+c_what_urlgroup, string(20), rule : (value in ruleset condition_what_urlgroup or value is null)
+c_what_custom, string(20), rule : (value in ruleset condition_what_custom or value is null)
+
+
+[CONDITION_WHAT]
+REFILL: service_id = REFILL
+custom_test: service_id = CUSTOM,c_what_custom  = test_block
+option_data300: promotion = option_data300,service_id = PC_PACKET,rating_group  = 0
+option_sms100: promotion = option_sms100,service_id = PC_SMS
+option_voice50: promotion = option_voice50,service_id = PC_VOICE
+subscribe_options: service_id = CUSTOM
+subscribe: service_id = CUSTOM
+unsubscribe: service_id = CUSTOM
+level1: service_id = PC_PACKET,rating_group  = 0,c_what_qo  = level1
+Portal: service_id = PC_PACKET,rating_group  = 2,c_what_urlgroup  = Portal
+URL_GROUP_3: service_id = PC_PACKET,rating_group  = 102
+URL_GROUP_2: service_id = PC_PACKET,rating_group  = 101
+URL_GROUP_1: service_id = PC_PACKET,rating_group  = 100
+MUSIC_STEAMING: service_id = PC_PACKET,rating_group  = 6
+VIDEO_STREAMING: service_id = PC_PACKET,rating_group  = 5
+wap: service_id = PC_PACKET,rating_group  = 4
+wifi: service_id = PC_PACKET,rating_group  = 3
+ftp: service_id = PC_PACKET,rating_group  = 2
+http: service_id = PC_PACKET,rating_group  = 1
+packet: service_id = PC_PACKET,rating_group  = 0
+voice: service_id = PC_VOICE
+sms: service_id = PC_SMS

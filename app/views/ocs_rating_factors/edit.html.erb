@@ -1,0 +1,12 @@
+<h1>Editing ocs_rating_factor</h1>
+
+<% form_for(@ocs_rating_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ocs_rating_factor %> |
+<%= link_to 'Back', ocs_rating_factors_path %>

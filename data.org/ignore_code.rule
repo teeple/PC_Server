@@ -1,0 +1,29 @@
+[RULESET_IGNORE_CODE]
+ignore_code, string(64)
+ignore_operation, string(16), result
+rn_type, string(16), result
+
+#
+# 2010.03.25 last updated
+#
+
+[IGNORE_CODE]
+3G_TTS_INRN 		: ignore_code starts ('0940'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_MSP_INRN 		: ignore_code starts ('0943'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_HZS_INRN 		: ignore_code starts ('0944'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_PHS_INRN 		: ignore_code starts ('0945'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_TTS_LOVE_INRN 	: ignore_code starts ('0950'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_NZS_INRN 		: ignore_code starts ('0952'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_MCS_INRN 		: ignore_code starts ('0953'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+3G_RTS_INRN 		: ignore_code starts ('0954'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+TEST2 				: ignore_code starts ('0957'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+TEST 				: ignore_code starts ('0958'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+VPACK_PRO_SAC 		: ignore_code starts ('0959'), 	 ignore_operation = 'append', 		rn_type='RN'
+BGMS_SAC 			: ignore_code starts ('0997'), 	 ignore_operation = 'append', 		rn_type='RN'
+#3G_TCS_INRN 		: ignore_code starts ('1511'), 	 ignore_operation = 'not_append', 	rn_type='INRN'
+DCS_SAC_NUMBER 		: ignore_code starts ('099321'), ignore_operation = 'not_append', 	rn_type='RN'
+LIE_DETECTOR_CALL 	: ignore_code starts ('099322'), ignore_operation = 'append', 		rn_type='RN'
+LOVE_DETECTOR_CALL 	: ignore_code starts ('099323'), ignore_operation = 'append', 		rn_type='RN'
+VIDEOCALL_CHAT 		: ignore_code starts ('099324'), ignore_operation = 'append', 		rn_type='RN'
+BGMS_SAC 			: ignore_code starts ('099800'), ignore_operation = 'append', 		rn_type='RN'
+CESS_SAC 			: ignore_code starts ('099801'), ignore_operation = 'append', 		rn_type='RN'

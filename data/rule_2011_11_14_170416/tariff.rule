@@ -1,0 +1,63 @@
+[RULESET_TARIFF]
+@rule_name, condition
+unit_type, enum, result
+unit, double, result
+currency, enum, result
+rate, double, result
+
+[TARIFF]
+10.0SECOND_10.0WON_216: unit_type = SECOND, unit = 10.0, rate = 10.0, currency  = WON
+10.0SECOND_13.0WON_215: unit_type = SECOND, unit = 10.0, rate = 13.0, currency  = WON
+10.0SECOND_15.0WON_214: unit_type = SECOND, unit = 10.0, rate = 15.0, currency  = WON
+10.0SECOND_10.0TG_213: unit_type = SECOND, unit = 10.0, rate = 10.0, currency  = TG
+10.0SECOND_15.0TG_212: unit_type = SECOND, unit = 10.0, rate = 15.0, currency  = TG
+10.0SECOND_20.0TG_211: unit_type = SECOND, unit = 10.0, rate = 20.0, currency  = TG
+10.0SECOND_250.0WON_210: unit_type = SECOND, unit = 10.0, rate = 250.0, currency  = WON
+10.0SECOND_100.0WON_209: unit_type = SECOND, unit = 10.0, rate = 100.0, currency  = WON
+10.0SECOND_150.0TG_208: unit_type = SECOND, unit = 10.0, rate = 150.0, currency  = TG
+10.0SECOND_200.0TG_207: unit_type = SECOND, unit = 10.0, rate = 200.0, currency  = TG
+6.0SECOND_110.0WON_203: unit_type = SECOND, unit = 6.0, rate = 110.0, currency  = WON
+10.0SECOND_8.0TG_201: unit_type = SECOND, unit = 10.0, rate = 8.0, currency  = TG
+1024.0BYTE_0.1TG_200: unit_type = BYTE, unit = 1024.0, rate = 0.1, currency  = TG
+6.0SECOND_60.0WON_199: unit_type = SECOND, unit = 6.0, rate = 60.0, currency  = WON
+1.0COUNT_10.0TG_195: unit_type = COUNT, unit = 1.0, rate = 10.0, currency  = TG
+10.0SECOND_8.0TG_193: unit_type = SECOND, unit = 10.0, rate = 8.0, currency  = TG
+10.0SECOND_10.0TG_192: unit_type = SECOND, unit = 10.0, rate = 10.0, currency  = TG
+1024.0BYTE_10.0TG_160: unit_type = BYTE, unit = 1024.0, rate = 10.0, currency  = TG
+1024.0BYTE_15.0TG_159: unit_type = BYTE, unit = 1024.0, rate = 15.0, currency  = TG
+1024.0BYTE_20.0TG_158: unit_type = BYTE, unit = 1024.0, rate = 20.0, currency  = TG
+1.0COUNT_20.0WON_151: unit_type = COUNT, unit = 1.0, rate = 20.0, currency  = WON
+1.0COUNT_10000.0TG_109: unit_type = COUNT, unit = 1.0, rate = 10000.0, currency  = TG
+1.0COUNT_100.0WON_84: unit_type = COUNT, unit = 1.0, rate = 100.0, currency  = WON
+512.0BYTE_0.0WON_39: unit_type = BYTE, unit = 512.0, rate = 0.0, currency  = WON
+10.0SECOND_5.0WON_38: unit_type = SECOND, unit = 10.0, rate = 5.0, currency  = WON
+10.0SECOND_8.0WON_37: unit_type = SECOND, unit = 10.0, rate = 8.0, currency  = WON
+10.0SECOND_10.0WON_36: unit_type = SECOND, unit = 10.0, rate = 10.0, currency  = WON
+1.0COUNT_5000.0WON_35: unit_type = COUNT, unit = 1.0, rate = 5000.0, currency  = WON
+1.0COUNT_7000.0WON_34: unit_type = COUNT, unit = 1.0, rate = 7000.0, currency  = WON
+1000000.0BYTE_20.0WON_33: unit_type = BYTE, unit = 1000000.0, rate = 20.0, currency  = WON
+1.0COUNT_25.0WON_32: unit_type = COUNT, unit = 1.0, rate = 25.0, currency  = WON
+10.0SECOND_22.0WON_31: unit_type = SECOND, unit = 10.0, rate = 22.0, currency  = WON
+1000000.0BYTE_10.0WON_29: unit_type = BYTE, unit = 1000000.0, rate = 10.0, currency  = WON
+1.0COUNT_20.0WON_28: unit_type = COUNT, unit = 1.0, rate = 20.0, currency  = WON
+10.0SECOND_80.0WON_27: unit_type = SECOND, unit = 10.0, rate = 80.0, currency  = WON
+10.0SECOND_90.0WON_26: unit_type = SECOND, unit = 10.0, rate = 90.0, currency  = WON
+10.0SECOND_100.0WON_25: unit_type = SECOND, unit = 10.0, rate = 100.0, currency  = WON
+10.0SECOND_15.0WON_24: unit_type = SECOND, unit = 10.0, rate = 15.0, currency  = WON
+10.0SECOND_18.0WON_23: unit_type = SECOND, unit = 10.0, rate = 18.0, currency  = WON
+1000000.0BYTE_10.0WON_20: unit_type = BYTE, unit = 1000000.0, rate = 10.0, currency  = WON
+1000000.0BYTE_20.0WON_18: unit_type = BYTE, unit = 1000000.0, rate = 20.0, currency  = WON
+1.0COUNT_5000.0WON_15: unit_type = COUNT, unit = 1.0, rate = 5000.0, currency  = WON
+1.0COUNT_7000.0WON_14: unit_type = COUNT, unit = 1.0, rate = 7000.0, currency  = WON
+1.0COUNT_25.0WON_12: unit_type = COUNT, unit = 1.0, rate = 25.0, currency  = WON
+10.0SECOND_22.0WON_11: unit_type = SECOND, unit = 10.0, rate = 22.0, currency  = WON
+1.0COUNT_35000.0WON_10: unit_type = COUNT, unit = 1.0, rate = 35000.0, currency  = WON
+1000000.0BYTE_10.0WON_9: unit_type = BYTE, unit = 1000000.0, rate = 10.0, currency  = WON
+1.0COUNT_20.0WON_8: unit_type = COUNT, unit = 1.0, rate = 20.0, currency  = WON
+10.0SECOND_80.0WON_7: unit_type = SECOND, unit = 10.0, rate = 80.0, currency  = WON
+10.0SECOND_90.0WON_6: unit_type = SECOND, unit = 10.0, rate = 90.0, currency  = WON
+10.0SECOND_100.0WON_5: unit_type = SECOND, unit = 10.0, rate = 100.0, currency  = WON
+10.0SECOND_15.0WON_4: unit_type = SECOND, unit = 10.0, rate = 15.0, currency  = WON
+10.0SECOND_18.0WON_3: unit_type = SECOND, unit = 10.0, rate = 18.0, currency  = WON
+10.0SECOND_20.0WON_2: unit_type = SECOND, unit = 10.0, rate = 20.0, currency  = WON
+1.0COUNT_10000.0WON_1: unit_type = COUNT, unit = 1.0, rate = 10000.0, currency  = WON

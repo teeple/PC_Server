@@ -1,0 +1,11 @@
+DATA_LOAD = {
+	service_id = PACKET
+
+	priority = 1
+
+	category = data_load_discount
+
+	promoUseRule = /discount_rules/
+
+	e3 = 100 - rule.discount_rate
+}

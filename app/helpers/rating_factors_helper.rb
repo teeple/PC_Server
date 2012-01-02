@@ -1,0 +1,2 @@
+module RatingFactorsHelper
+end

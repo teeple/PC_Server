@@ -1,0 +1,2 @@
+module CcbsPackagedProductsHelper
+end

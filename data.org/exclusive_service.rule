@@ -1,0 +1,12 @@
+[RULESET_EXCLUSIVE_SERVICE]
+in_service, string(32)
+exclusive_service, string(32)
+
+[EXCLUSIVE_SERVICE]
+# 서로 중복 가입이 불가능한 서비스 정의
+PPS_EXCLUSIVE_SVC : in_service=PPS, exclusive_service=(MSP, DLS, TTS, RTS)
+DLS_EXCLUSIVE_SVC : in_service=DLS, exclusive_service=(MSP, HZS, PPS, TTS, RTS)
+MSP_EXCLUSIVE_SVC : in_service=MSP, exclusive_service=(PPS, DLS, TTS, RTS)
+HZS_EXCLUSIVE_SVC : in_service=HZS, exclusive_service=(DLS)
+TTS_EXCLUSIVE_SVC : in_service=TTS, exclusive_service=(PPS, DLS, MSP, RTS)
+RTS_EXCLUSIVE_SVC : in_service=RTS, exclusive_service=(PPS, DLS, MSP, TTS)

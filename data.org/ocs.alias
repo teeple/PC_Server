@@ -1,0 +1,92 @@
+[PPS_ALIAS]
+#service_name  service_type  var_name         expression
+COMMON           TARIFF       telcoin_one_account       !rating.extension.getBoolean("Ext_Telcoin_Multiple_Account")
+COMMON           TARIFF        service_id       rating.serviceIdentifier
+COMMON			TARIFF			prededuct		rating.extension.getExtension('Ext_Prededuct')
+COMMON          TARIFF          isPostSubs      rating.extension.getBoolean('Ext_IsPostSubs')
+COMMON          TARIFF          airCharge      rating.extension.getBoolean('Ext_AirCharge')
+COMMON          TARIFF          intlChargeType      rating.extension.getExtension('Ext_IntlChargeType')
+COMMON          TARIFF          ipCharge      rating.extension.getBoolean('Ext_IpCharge')
+VOICE           TARIFF        calling          request.subscriptionID
+VOICE           TARIFF        called           rating.destinationID
+VOICE           TARIFF        called_intl      rating.getValue("Service-Information","CS-Information","Called-Party-Address")
+COMMON           TARIFF        in_service       rating.extension.getExtension('Ext_Service')
+COMMON           TARIFF        is_HomeZone      rating.extension.getBoolean('Ext_HomeZoneFlag')
+COMMON           TARIFF        is_Family        rating.extension.getBoolean('Ext_IsFamily')
+COMMON           TARIFF        is_Friend        rating.extension.getBoolean('Ext_IsFriend')
+COMMON           TARIFF        is_Designated    rating.extension.getBoolean('Ext_IsDesignated')
+COMMON           TARIFF        is_MegaPass      rating.extension.getBoolean('Ext_IsMegaPass')
+COMMON           TARIFF        request_purpose  rating.extension.getExtension("Ext_RequestPurpose")
+COMMON           TARIFF        dc_type          rating.extension.getExtension('Ext_DcType', 'none')
+VOICE           TARIFF        dc_enddate       rating.extension.getExtension('Ext_DcEndDate', '19700101')
+VOICE           TARIFF        product_code     rating.extension.getExtension('Ext_Category', 'none')
+VOICE           TARIFF        price_plan       rating.extension.getExtension('Ext_PricePlan', 'none')
+VOICE           TARIFF        free_vas         rating.extension.getExtension('Ext_VASName')
+VOICE           TARIFF        free_vas_code    rating.extension.getExtension('Ext_VASType')
+VOICE           TARIFF        msc_address      rating.getValue("Service-Information","CS-Information","MSC-Address")
+VOICE           TARIFF        basic_service    rating.getValue("Service-Information","CS-Information","Basic-Service")
+COMMON          PRICE         isPostSubs       rating.extension.getBoolean('Ext_IsPostSubs')
+MESSAGE         PRICE         calling          request.subscriptionID
+MESSAGE         PRICE         called           rating.destinationID
+#MESSAGE         PRICE         omtc             rating.get("Service-Information").getString("Operator-My-Type-Code")
+MESSAGE         PRICE         cs_node          rating.getValue("Service-Information","CS-Information","Cs-Node-Functionality")
+MESSAGE         PRICE         sms_price        rating.extension.getExtension('Ext_MsgCharging', '0')
+MESSAGE         PRICE         mcc_mnc          rating.getValue("Service-Information", "SMS-Information","Sms-Service-Area-Info")
+MESSAGE         PRICE         product_code     rating.extension.getExtension('Ext_Category', 'none')
+MESSAGE         PRICE         price_plan       rating.extension.getExtension('Ext_PricePlan', 'none')
+MESSAGE         PRICE         free_vas         rating.extension.getExtension('Ext_VASName')
+MESSAGE         PRICE         free_vas_code    rating.extension.getExtension('Ext_VASType')
+DATA            PRICE         nas              rating.getValue("Service-Information", "PS-Information","Serving-Node-Type")
+DATA            PRICE         msc_address      rating.getValue("Service-Information", "PS-Information","MSC-Address")
+DATA            PRICE         product_code     rating.extension.getExtension('Ext_Category', 'none')
+DATA            PRICE         price_plan       rating.extension.getExtension('Ext_PricePlan', 'none')
+DATA            PRICE         free_vas         rating.extension.getExtension('Ext_VASName')
+DATA            PRICE         free_vas_code    rating.extension.getExtension('Ext_VASType')
+DATA            PRICE         air_charging     rating.extension.getExtension('Ext_AirCharging', '0')
+DATA            PRICE         packet_charging  rating.extension.getExtension('Ext_PacketCharging', '0')
+DATA            PRICE         msg_charging     rating.extension.getExtension('Ext_MsgCharging', '0')
+DATA            PRICE         ip_charging      rating.extension.getExtension('Ext_IpCharging', '0')
+IMS             PRICE         ims_price        rating.extension.getExtension('Ext_Ims_Price')
+IMS             PRICE         product_code     rating.extension.getExtension('Ext_Category', 'none')
+IMS             PRICE         price_plan       rating.extension.getExtension('Ext_PricePlan', 'none')
+IMS             PRICE         free_vas         rating.extension.getExtension('Ext_VASName')
+IMS             PRICE         nas              rating.getValue("Service-Information", "IMS-Information","Serving-Node-Type")
+IMS             PRICE         free_vas_code    rating.extension.getExtension('Ext_VASType')
+IMS             PRICE         service_unit     rating.extension.getExtension('Ext_SpecificServiceUnit')
+IMS             TARIFF        calling          request.subscriptionID
+IMS             TARIFF        called           rating.destinationID
+IMS             TARIFF        dc_enddate       rating.extension.getExtension('Ext_DcEndDate', '19700101')
+IMS             TARIFF        product_code     rating.extension.getExtension('Ext_Category', 'none')
+IMS             TARIFF        price_plan       rating.extension.getExtension('Ext_PricePlan', 'none')
+IMS             TARIFF        free_vas         rating.extension.getExtension('Ext_VASName')
+IMS             TARIFF        free_vas_code    rating.extension.getExtension('Ext_VASType')
+IMS             TARIFF        nas              rating.getValue("Service-Information", "IMS-Information","Serving-Node-Type")
+
+# Packet service
+PACKET          TARIFF        calling          request.subscriptionID
+PACKET          TARIFF        called           rating.destinationID
+PACKET          TARIFF        dc_enddate       rating.extension.getExtension('Ext_DcEndDate', '19700101')
+PACKET          TARIFF        product_code     rating.extension.getExtension('Ext_Category', 'none')
+PACKET          TARIFF        free_vas         rating.extension.getExtension('Ext_VASName')
+PACKET          TARIFF        free_vas_code    rating.extension.getExtension('Ext_VASType')
+PACKET          TARIFF        msc_address      rating.getValue("Service-Information","PS-Information","MSC-Address")
+PACKET          TARIFF        homezone         rating.extension.getExtension('Ext_HomeZoneFlag')
+PACKET          TARIFF        nas              rating.getValue("Service-Information", "PS-Information","Serving-Node-Type")
+PACKET          TARIFF        price_plan       rating.extension.getExtension('Ext_PricePlan', 'none')
+PACKET          TARIFF        rds_blockflag       rating.extension.getBoolean('Ext_RDSBlockFlagAfterVAS')
+PACKET          TARIFF        free_app_id       rating.extension.getExtension('Ext_FreeAppId', 'none')
+PACKET          TARIFF        category_id       rating.extension.getExtension('Ext_CategoryId', 'none')
+PACKET          TARIFF        mcc      			rating.extension.getExtension('Ext_Mcc', 'none')
+PACKET			TARIFF		  used_packet		rating.getCounterValue(80)==null?0:(rating.getCounterValue(80)+1)
+PACKET			TARIFF		  rating_group		rating.extension.getExtension('Ext_RatingGroup',null)
+#PACKET          TARIFF       omtc             rating.get("Service-Information").getString("Operator-My-Type-Code")
+
+
+
+
+REFILL          PRICE         subs_status      rating.extension.getExtension('Ext_SubsStatus', 'none')
+REFILL          PRICE         free_vas         rating.extension.getExtension('Ext_VASName', 'none')
+REFILL          PRICE         free_vas_code    rating.extension.getExtension('Ext_VASType', 'none')
+REFILL          PRICE         refill_accmulate    rating.extension.getExtension('Ext_AccumulatedCounter')
+CRON_DEDUCT     PRICE         free_vas         rating.extension.getExtension('Ext_VASName', 'none')
+CRON_DEDUCT     PRICE         free_vas_code    rating.extension.getExtension('Ext_VASType')

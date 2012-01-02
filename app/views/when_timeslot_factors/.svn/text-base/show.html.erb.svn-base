@@ -1,0 +1,18 @@
+<p>
+  <b>Start time:</b>
+  <%=h @when_timeslot_factor.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%=h @when_timeslot_factor.end_time %>
+</p>
+
+<p>
+  <b>When timeslot:</b>
+  <%=h @when_timeslot_factor.when_timeslot_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_when_timeslot_factor_path(@when_timeslot_factor) %> |
+<%= link_to 'Back', when_timeslot_factors_path %>

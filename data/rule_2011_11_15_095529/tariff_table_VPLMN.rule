@@ -1,0 +1,16 @@
+[RULESET_TARIFF_TABLE_VPLMN]
+country_prefix , string(64)
+Carrier , string(64)
+area_prefix , string(64)
+tariff , string(64) , result
+
+[TARIFF_TABLE_VPLMN]
+rule_0 : country_prefix starts 82 , Carrier = HKGH3 , tariff = 0.3_0.25USD_voice
+rule_1 : country_prefix starts 81 , Carrier = MACHT , tariff = 0.3_0.25USD_voice
+rule_2 : country_prefix starts 7 , Carrier = HKGM3 , tariff = 0.3_0.25USD_voice
+rule_3 : country_prefix starts 80 , Carrier = INDA1 , tariff = 0.3_0.25USD_voice
+rule_4 : country_prefix starts 52 , Carrier = INDA8 , tariff = 0.3_0.25USD_voice
+rule_5 : country_prefix starts 32 , Carrier = INDA4 , tariff = 0.3_0.25USD_voice
+rule_6 : country_prefix starts 33 , Carrier = INDA7 , tariff = 0.3_0.25USD_voice
+rule_7 : country_prefix starts 371 , Carrier = INDA9 , tariff = 0.3_0.25USD_voice
+rule_8 : country_prefix starts 852 , Carrier = INDJH , tariff = 0.3_0.25USD_voice

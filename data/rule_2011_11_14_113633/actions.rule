@@ -1,0 +1,95 @@
+##################################################
+### ACTION_DEDUCT
+[RULESET_ACTION_DEDUCT]
+@rule_name, condition
+#money, int # money 
+#cnt_deduct, int # count  
+call_time, int # seconds 
+used_packet, int # packets
+rate_name, string(30), result, rule: (value in ruleset tariff or value is null)
+
+[ACTION_DEDUCT]
+0.3_0.25perSec: rate_name=10.0SECOND_0.3DOLLAR_178, call_time between 0, 60
+0.3_0.25perSec: rate_name=10.0SECOND_0.3DOLLAR_179, call_time between 60, 999999
+5_4_3_TGper10Sec: rate_name=10.0SECOND_5.0TG_180, call_time between 0, 60
+5_4_3_TGper10Sec: rate_name=10.0SECOND_4.0TG_181, call_time between 60, 180
+5_4_3_TGper10Sec: rate_name=10.0SECOND_3.0TG_182, call_time between 180, 999999999
+0.03per1MB: used_packet between 0, 999999999, rate_name=1000000.0BYTE_0.0DOLLAR_121
+10TGperCnt: rate_name=1.0COUNT_1.0TG_147
+20_15_10_TG_1KB: used_packet between 0, 1024000, rate_name=1024.0BYTE_20.0TG_158
+20_15_10_TG_1KB: used_packet between 1024000, 10240000, rate_name=1024.0BYTE_15.0TG_159
+20_15_10_TG_1KB: used_packet between 10240000, 999999999, rate_name=1024.0BYTE_10.0TG_160
+10000TG_subscription: rate_name=1.0COUNT_10000.0TG_109
+1TGper1kbyte: used_packet between 0, 999999999, rate_name=1024.0BYTE_1.0TG_146
+3_2.5_2_TG: rate_name=10.0SECOND_3.0TG_161, call_time between 0, 60
+3_2.5_2_TG: rate_name=10.0SECOND_2.5TG_162, call_time between 60, 180
+3_2.5_2_TG: rate_name=10.0SECOND_2.0TG_163, call_time between 180, 99999
+20_TG_SMS: rate_name=1.0COUNT_20.0WON_151
+100TG1Time: rate_name=1.0COUNT_100.0WON_84
+##################################################
+### ACTION_ALLOW
+[RULESET_ACTION_ALLOW]
+@rule_name, condition
+unit_type, enum, result
+amount, double, result
+
+[ACTION_ALLOW]
+1000minFree: unit_type= MINUTE, amount= 100
+10cntFree: unit_type= COUNT, amount= 10
+10minFree: unit_type= MINUTE, amount= 10
+20minFree: unit_type= MINUTE, amount= 20
+20mbFree: unit_type= BYTE, amount= 20000000
+1200minFree: unit_type= MINUTE, amount= 120
+90minFree: unit_type= MINUTE, amount= 90
+250mFree: unit_type= BYTE, amount= 250000000
+50cntSMSFree: unit_type= COUNT, amount= 50
+100cntFree: unit_type= COUNT, amount= 100
+300cntFree: unit_type= COUNT, amount= 300
+3VoDFree: unit_type= COUNT, amount= 3
+DEPOSIT_11000TG: unit_type= MONEY, amount= 11000
+50minFree: unit_type= MINUTE, amount= 50
+300mbyteFree: unit_type= BYTE, amount= 300000000
+20cntFree: unit_type= COUNT, amount= 20
+Free packet: unit_type= BYTE, amount= 500000
+60minFree: unit_type= MINUTE, amount= 60
+80minFree: unit_type= MINUTE, amount= 80
+200cntFree: unit_type= COUNT, amount= 200
+100MinFree_VoIP: unit_type= MINUTE, amount= 100
+70minFree: unit_type= MINUTE, amount= 70
+50mbFree: unit_type= BYTE, amount= 50000000
+100mbDataFree: unit_type= BYTE, amount= 100000000
+5USD: unit_type= MONEY, amount= 5
+##################################################
+### ACTION_DISCOUNT
+[RULESET_ACTION_DISCOUNT]
+@rule_name, condition
+unit_type, 		enum, result
+upto_amount, 	int , result
+amount, 		int , 	result
+
+[ACTION_DISCOUNT]
+freeofcharge: unit_type= PERCENT, amount= 100
+10percentDiscount: unit_type= PERCENT, amount= 90
+
+##################################################
+### ACTION_CUSTOM
+[RULESET_ACTION_CUSTOM]
+@rule_name, condition
+#must_block, string(20), result
+is_vpn, string(20)
+is_favorite, string(20)
+is_family, string(20)
+is_cac, string(20)
+referred_tariff, string(20), result
+tariff_table, string(50), result
+ACTION, string(30),  result 
+threshold, string(32), result
+
+[ACTION_CUSTOM]
+BLOCK_THRESHOLD_12000: ACTION = BLOCK, threshold = 12000
+SMS_THRESHOLD_21000: ACTION = SMS, threshold = 21000
+BLOCK_THRESHOLD_22000: ACTION = BLOCK, threshold = 22000
+VPN_RATE: referred_tariff = vpn_rate
+SMS_THRESHOLD_11000: ACTION = SMS, threshold = 11000
+BLOCK_THRESHOLD_32000: ACTION = BLOCK, threshold = 32000
+SMS_THRESHOLD_31000: ACTION = SMS, threshold = 31000

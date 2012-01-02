@@ -1,0 +1,26 @@
+<h1>Listing where_zone_factors</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th>Where zone</th>
+  </tr>
+
+<% @where_zone_factors.each do |where_zone_factor| %>
+  <tr>
+    <td><%=h where_zone_factor.title %></td>
+    <td><%=h where_zone_factor.lat %></td>
+    <td><%=h where_zone_factor.lng %></td>
+    <td><%=h where_zone_factor.where_zone_id %></td>
+    <td><%= link_to 'Show', where_zone_factor %></td>
+    <td><%= link_to 'Edit', edit_where_zone_factor_path(where_zone_factor) %></td>
+    <td><%= link_to 'Destroy', where_zone_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_zone_factor', new_where_zone_factor_path %>

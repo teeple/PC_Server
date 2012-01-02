@@ -1,0 +1,24 @@
+<h1>Listing when_day_factors</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Day type</th>
+    <th>When day</th>
+  </tr>
+
+<% @when_day_factors.each do |when_day_factor| %>
+  <tr>
+    <td><%=h when_day_factor.day %></td>
+    <td><%=h when_day_factor.day_type %></td>
+    <td><%=h when_day_factor.when_day_id %></td>
+    <td><%= link_to 'Show', when_day_factor %></td>
+    <td><%= link_to 'Edit', edit_when_day_factor_path(when_day_factor) %></td>
+    <td><%= link_to 'Destroy', when_day_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_day_factor', new_when_day_factor_path %>

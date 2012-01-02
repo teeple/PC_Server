@@ -1,0 +1,15 @@
+[SUB_TARIFF_DATA]
+voip			=   0    0 100 0 100 1024 0 NULL NULL
+google 			=   0    0 100 0  10 1024 0 NULL NULL
+any_low_qos 	=   0    0 100 0   1 1024 0 NULL NULL
+any_middle_qos 	=   0    0 100 0  10 1024 0 NULL NULL
+any_high_qos 	=   0    0 100 0  20 1024 0 NULL NULL
+ftp				= 	0	 0 100 0 0.5 10240 0 NULL NULL
+ftp2				= 	0	 0 100 0 0.4 10240 0 NULL NULL
+ftp3				= 	0	 0 100 0 0.3 10240 0 NULL NULL
+sns				= 	0	 0 100 0 0.1 10240 0 NULL NULL
+any_volume		=   0    0 100 0   1 1024 0 NULL NULL
+any_time		=   1   10 100 0   0    0 0 NULL NULL
+naver 			=   0    0 100 0  10 1024 0 NULL NULL
+daum 			=   0    0 100 0  10 1024 0 NULL NULL
+free 			=   0    0 100 0  0 1024 0 NULL NULL

@@ -1,0 +1,11 @@
+<%= error_messages_for("tariff_file_list") %>
+<% form_for (:tariff_file_list,
+            :url => {:action => 'save'},
+            :html => { :multipart => true } ) do |form| %>
+    file_name:          <%= form.text_field("file_name") %><br/>
+    upload file name:   <%= form.file_field("uploaded_picture") %><br/>
+<%= submit_tag("Upload file" )%>
+<% end %>
+
+<%= link_to 'Back', tariff_file_lists_path %>
+

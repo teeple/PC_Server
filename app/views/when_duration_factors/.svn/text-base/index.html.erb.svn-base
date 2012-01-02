@@ -1,0 +1,24 @@
+<h1>Listing when_duration_factors</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>When duration</th>
+  </tr>
+
+<% @when_duration_factors.each do |when_duration_factor| %>
+  <tr>
+    <td><%=h when_duration_factor.start_date %></td>
+    <td><%=h when_duration_factor.end_date %></td>
+    <td><%=h when_duration_factor.when_duration_id %></td>
+    <td><%= link_to 'Show', when_duration_factor %></td>
+    <td><%= link_to 'Edit', edit_when_duration_factor_path(when_duration_factor) %></td>
+    <td><%= link_to 'Destroy', when_duration_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_duration_factor', new_when_duration_factor_path %>

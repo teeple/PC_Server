@@ -1,0 +1,28 @@
+<h1>Listing where_customs</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Operation</th>
+  </tr>
+
+<% @where_customs.each do |where_custom| %>
+  <tr>
+    <td><%=h where_custom.subfctr_name %></td>
+    <td><%=h where_custom.description %></td>
+    <td><%=h where_custom.name %></td>
+    <td><%=h where_custom.value %></td>
+    <td><%=h where_custom.operation %></td>
+    <td><%= link_to 'Show', where_custom %></td>
+    <td><%= link_to 'Edit', edit_where_custom_path(where_custom) %></td>
+    <td><%= link_to 'Destroy', where_custom, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New where_custom', new_where_custom_path %>

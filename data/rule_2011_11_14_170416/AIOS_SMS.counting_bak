@@ -1,0 +1,33 @@
+TOTAL_USED_MONEY_COUNTING = {
+	service_id = SMS
+	targetSubsRule = true
+
+	priority = 11
+
+	counterPrice = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = TotalUsedMoney 
+			counterChange = - selected_price.sumCounterChange(Remains.id)
+		}
+	}
+}
+
+/*
+TOTAL_FOR_PROMO_COUNTING = {
+	service_id = SMS
+	targetSubsRule = /ubb_condition/
+
+	priority = 11
+
+	counterPrice = {
+		{
+			counterType = 8193
+			promotionCounterType = 1
+			counterID = 1001 
+			counterChange = - selected_price.sumCounterChange(Remains.id)
+		}
+	}
+}
+*/

@@ -1,0 +1,25 @@
+#############################################
+### BALANCE
+[RULESET_CHARGING_ACCOUNT]
+product_name, string(40), rule: (value in ruleset product_list or value is null)
+is_family , string(6)
+condition_what, string(20), rule : (value in ruleset condition_what or value is null)
+condition_who, string(20), rule : (value in ruleset condition_who or value is null)
+condition_when, string(50), rule : (value in ruleset condition_when  or value is null)
+condition_where, string(20), rule : (value in ruleset condition_where or value is null)
+priority, int, result, asc 
+counter_name, string(30), result, rule :(value in list balance_list or value is null)
+counter_type, string(10), result
+
+[CHARGING_ACCOUNT]
+rule_2: product_name = skytel_pps1.0, counter_name = FREE_VOICE, counter_type = TIME, priority = 1, condition_what = voice , is_family = false
+rule_3: product_name = skytel_pps1.0, counter_name = FREE_SMS, counter_type = COUNT, priority = 2, condition_what = sms , is_family = false
+rule_29: product_name = skytel_pps1.0, counter_name = FREE_PACKET, counter_type = BYTE, priority = 3, condition_what = packet , is_family = false
+rule_1: product_name = skytel_pps1.0, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 4, condition_what = packet, condition_what = sms, condition_what = voice , is_family = false
+rule_31: product_name = family, counter_name = Family_Free_Voice, counter_type = TIME, priority = 1, condition_what = voice, is_family = true
+rule_33: product_name = family, counter_name = Family_Free_SMS, counter_type = COUNT, priority = 2, condition_what = sms, is_family = true
+rule_2: product_name = family, counter_name = FREE_VOICE, counter_type = TIME, priority = 3, condition_what = voice , is_family = false
+rule_3: product_name = family, counter_name = FREE_SMS, counter_type = COUNT, priority = 4, condition_what = sms , is_family = false
+rule_29: product_name = family, counter_name = FREE_PACKET, counter_type = BYTE, priority = 5, condition_what = packet , is_family = false
+rule_1: product_name = family, counter_name = GENERAL_REMAINS, counter_type = MONEY, priority = 6 , is_family = false
+rule_34: product_name = family, counter_name = Sponsor_Balance, counter_type = MONEY, priority = 7 , is_family = false

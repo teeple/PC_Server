@@ -1,0 +1,32 @@
+<h1>Listing dbs_rating_factors</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>ProductCode</th>
+    <th>ProductName</th>
+    <th>PackageCode</th>
+    <th>PackageName</th>
+    <th>factor</th>
+    <th>function</th>
+  </tr>
+
+<% @dbs_rating_factors.each do |dbs_rating_factor| %>
+  <tr>
+    <td><%=h dbs_rating_factor.id %></td>
+    <td><%=h dbs_rating_factor.product_code %></td>
+    <td><%=h dbs_rating_factor.product_name %></td>
+    <td><%=h dbs_rating_factor.packaged_code %></td>
+    <td><%=h dbs_rating_factor.packaged_name %></td>
+    <td><%=h dbs_rating_factor.factor %></td>
+    <td><%=h dbs_rating_factor.function %></td>
+    <td><%= link_to 'Show', dbs_rating_factor %></td>
+    <td><%= link_to 'Edit', edit_dbs_rating_factor_path(dbs_rating_factor) %></td>
+    <td><%= link_to 'Destroy', dbs_rating_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dbs_rating_factor', new_dbs_rating_factor_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Subfctr name:</b>
+  <%=h @who_number.subfctr_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @who_number.description %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%=h @who_number.number %>
+</p>
+
+
+<%= link_to 'Edit', edit_who_number_path(@who_number) %> |
+<%= link_to 'Back', who_numbers_path %>

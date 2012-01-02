@@ -1,0 +1,24 @@
+<h1>Listing when_days</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>Description</th>
+    <th>Day</th>
+  </tr>
+
+<% @when_days.each do |when_day| %>
+  <tr>
+    <td><%=h when_day.subfctr_name %></td>
+    <td><%=h when_day.description %></td>
+    <td><%=h when_day.day %></td>
+    <td><%= link_to 'Show', when_day %></td>
+    <td><%= link_to 'Edit', edit_when_day_path(when_day) %></td>
+    <td><%= link_to 'Destroy', when_day, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New when_day', new_when_day_path %>

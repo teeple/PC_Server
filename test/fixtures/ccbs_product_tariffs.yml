@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_code: MyString
+  itemcod: MyString
+  fromdt: 2011-11-02
+  todt: 2011-11-02
+  method: MyString
+  add_unit: 1
+  unit_charge: 1.5
+  suspamt: 1.5
+  validity_term: 1.5
+  crt_user: MyString
+  updt_user: MyString
+  crtdt: 2011-11-02
+  updtdt: 2011-11-02
+  pgm_id: MyString
+  min_unitcharge: 1.5
+  max_unitcharge: 1.5
+
+two:
+  product_code: MyString
+  itemcod: MyString
+  fromdt: 2011-11-02
+  todt: 2011-11-02
+  method: MyString
+  add_unit: 1
+  unit_charge: 1.5
+  suspamt: 1.5
+  validity_term: 1.5
+  crt_user: MyString
+  updt_user: MyString
+  crtdt: 2011-11-02
+  updtdt: 2011-11-02
+  pgm_id: MyString
+  min_unitcharge: 1.5
+  max_unitcharge: 1.5

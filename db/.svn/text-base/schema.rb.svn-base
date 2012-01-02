@@ -1,0 +1,666 @@
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# please use the migrations feature of Active Record to incrementally modify your database, and
+# then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your database schema. If you need
+# to create the application database on another system, you should be using db:schema:load, not running
+# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Schema.define(:version => 20101108021011) do
+
+  create_table "action_allows", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "give"
+    t.integer  "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "subfctr_code"
+    t.integer  "lock_version", :default => 0
+    t.integer  "currency"
+  end
+
+  create_table "action_custom_factors", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.string   "operation"
+    t.integer  "action_custom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "action_customs", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "subfctr_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "action_deduct_factors", :force => true do |t|
+    t.integer  "upto_start"
+    t.integer  "upto_end"
+    t.integer  "upto_type"
+    t.integer  "tariff_id"
+    t.integer  "action_deduct_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "action_deducts", :force => true do |t|
+    t.string   "subfctr_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "subfctr_code"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "action_discounts", :force => true do |t|
+    t.string   "subfctr_name"
+    t.integer  "upto"
+    t.integer  "rate"
+    t.integer  "uptounit"
+    t.integer  "rateunit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "subfctr_code"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "actions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "additional_services", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "vas_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",       :default => 0
+    t.integer  "rate"
+    t.integer  "currency_factor_id"
+    t.string   "code"
+  end
+
+  create_table "balances", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "canbe_promotional"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "balance_type"
+    t.integer  "scale"
+    t.string   "code"
+    t.integer  "suffix"
+    t.integer  "lock_version",      :default => 0
+    t.string   "charging_target"
+  end
+
+  create_table "code_factors", :force => true do |t|
+    t.string   "name"
+    t.integer  "code_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "codes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "conditions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "exports", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "members", :force => true do |t|
+    t.string   "user_name"
+    t.integer  "user_class"
+    t.integer  "user_role"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "salt"
+    t.datetime "accessed_at"
+    t.string   "hashed_password"
+    t.string   "user_id"
+  end
+
+  create_table "prd_additional_services", :force => true do |t|
+    t.integer  "additional_service_id"
+    t.string   "vas_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+    t.float    "rate"
+    t.string   "currency"
+    t.integer  "lock_version",          :default => 0
+  end
+
+  create_table "prd_attribute_devices", :force => true do |t|
+    t.integer  "code_factor_id"
+    t.integer  "prd_attribute_id"
+    t.integer  "lock_version"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+  end
+
+  create_table "prd_attributes", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.text     "description"
+    t.string   "status"
+    t.string   "prd_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "bill_type"
+    t.integer  "lock_version", :default => 0
+    t.string   "ref_products"
+  end
+
+  create_table "prd_balance_conditions", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "condition_id"
+    t.string   "condition_type"
+    t.integer  "prd_balance_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "prd_balances", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "balance_id"
+    t.integer  "priority"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "prd_members", :force => true do |t|
+    t.string   "user_id"
+    t.string   "role"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.string   "status"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",    :default => 0
+    t.integer  "member_id"
+  end
+
+  create_table "prd_promotion_factors", :force => true do |t|
+    t.string   "operation"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "prd_promotion_rule_id"
+    t.string   "name"
+    t.integer  "lock_version",          :default => 0
+    t.string   "cond_or_result"
+  end
+
+  create_table "prd_promotion_rules", :force => true do |t|
+    t.integer  "prd_promotion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "prd_promotions", :force => true do |t|
+    t.integer  "promotion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+    t.string   "description"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "prd_subscriptions", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "condition_id"
+    t.integer  "balance_id"
+    t.integer  "action_id"
+    t.string   "action_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "condition_type"
+    t.integer  "product_id"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "prd_tariffs", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "condition_id"
+    t.string   "condition_type"
+    t.integer  "action_id"
+    t.string   "action_type"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "products", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "name",                            :null => false
+    t.integer  "lock_version",     :default => 0
+    t.integer  "prd_attribute_id"
+  end
+
+  create_table "promotion_factors", :force => true do |t|
+    t.string   "name"
+    t.integer  "promotion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cond_or_result"
+    t.string   "is_required"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "promotions", :force => true do |t|
+    t.string   "name"
+    t.string   "action_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "code"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "tariffs", :force => true do |t|
+    t.string   "name"
+    t.float    "unit"
+    t.integer  "unit_type"
+    t.float    "rate"
+    t.integer  "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "tests", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "time_tests", :force => true do |t|
+    t.datetime "time_test"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "what_custom_factors", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.string   "operation"
+    t.integer  "what_custom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "what_customs", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "what_factors", :force => true do |t|
+    t.string   "fctr_code"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "code_factor_id"
+    t.integer  "rating_group"
+    t.integer  "what_urlgroup_id"
+    t.integer  "what_qo_id"
+    t.integer  "what_custom_id"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "what_qos", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.integer  "level1"
+    t.integer  "level2"
+    t.integer  "level3"
+    t.integer  "level4"
+    t.integer  "level5"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "what_urlgroup_factors", :force => true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "what_urlgroup_id"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "what_urlgroups", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "when_custom_factors", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.string   "operation"
+    t.integer  "when_custom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "when_customs", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "when_day_factors", :force => true do |t|
+    t.string   "day"
+    t.string   "day_type"
+    t.integer  "when_day_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "when_days", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "when_duration_factors", :force => true do |t|
+    t.string   "start_date"
+    t.string   "end_date"
+    t.integer  "when_duration_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "when_durations", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "when_factors", :force => true do |t|
+    t.string   "fctr_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "name"
+    t.integer  "when_duration_id"
+    t.integer  "when_week_id"
+    t.integer  "when_day_id"
+    t.integer  "when_timeslot_id"
+    t.integer  "when_custom_id"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "when_timeslot_factors", :force => true do |t|
+    t.string   "start_time"
+    t.string   "end_time"
+    t.integer  "when_timeslot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "when_timeslots", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "when_weeks", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.integer  "sun"
+    t.integer  "mon"
+    t.integer  "tue"
+    t.integer  "wed"
+    t.integer  "thu"
+    t.integer  "fri"
+    t.integer  "sat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "is_holiday"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "where_countries", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "where_country_factors", :force => true do |t|
+    t.integer  "where_country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+    t.string   "country_code"
+  end
+
+  create_table "where_custom_factors", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.string   "operation"
+    t.integer  "where_custom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",    :default => 0
+  end
+
+  create_table "where_customs", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "where_factors", :force => true do |t|
+    t.string   "fctr_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "name"
+    t.integer  "where_country_id"
+    t.integer  "where_zone_id"
+    t.integer  "where_network_id"
+    t.integer  "where_custom_id"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "where_network_factors", :force => true do |t|
+    t.string   "network"
+    t.integer  "where_network_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",     :default => 0
+  end
+
+  create_table "where_networks", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "where_zone_factors", :force => true do |t|
+    t.string   "title",         :limit => 250
+    t.string   "lat"
+    t.string   "lng"
+    t.integer  "where_zone_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",                 :default => 0
+  end
+
+  create_table "where_zones", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "who_countries", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.string   "is_same_country"
+    t.string   "is_same_zone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",    :default => 0
+  end
+
+  create_table "who_country_factors", :force => true do |t|
+    t.integer  "who_country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",   :default => 0
+    t.string   "country_code"
+  end
+
+  create_table "who_country_sames", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.string   "is_same_country"
+    t.string   "is_same_zone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",    :default => 0
+  end
+
+  create_table "who_custom_factors", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.string   "operation"
+    t.integer  "who_custom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",  :default => 0
+  end
+
+  create_table "who_customs", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "who_factors", :force => true do |t|
+    t.string   "fctr_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "name"
+    t.integer  "who_member_id"
+    t.integer  "who_number_id"
+    t.integer  "who_prefix_id"
+    t.integer  "who_country_id"
+    t.integer  "who_custom_id"
+    t.integer  "lock_version",   :default => 0
+  end
+
+  create_table "who_members", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.string   "viceversa"
+    t.string   "onoffnet"
+    t.string   "memberof"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "age"
+    t.string   "age_op_type"
+    t.string   "gender"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "who_number_factors", :force => true do |t|
+    t.string   "number"
+    t.integer  "who_number_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",  :default => 0
+  end
+
+  create_table "who_numbers", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+  create_table "who_prefix_factors", :force => true do |t|
+    t.string   "prefix"
+    t.integer  "who_prefix_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version",  :default => 0
+  end
+
+  create_table "who_prefixes", :force => true do |t|
+    t.string   "subfctr_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lock_version", :default => 0
+  end
+
+end

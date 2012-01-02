@@ -1,0 +1,16 @@
+[RULESET_SMS_DISCOUNT]
+service_id , string(32)
+discount_vas , string(32)
+omtc, string(32)
+is_Family , string(6)
+is_Friend , string(6)
+is_Designated , string(6)
+is_MegaPass, string(6)
+discount_rate , string(10), desc, result
+
+[SMS_DISCOUNT]
+FAMILY_DISCOUNT : service_id = MESSAGE, is_Family = true, discount_rate = 11
+FRIEND_DISCOUNT : service_id = MESSAGE, is_Friend = true, discount_rate = 30
+DESIGNATED_DISCOUNT : service_id = MESSAGE, is_Designated = true, discount_rate = 10
+MEGAPASS_DISCOUNT : service_id = MESSAGE, is_MegaPass = true, discount_rate = 10
+OP_DISCOUNT : service_id = MESSAGE, discount_vas = 0, omtc = SKT_WIRELESS, discount_rate = 10

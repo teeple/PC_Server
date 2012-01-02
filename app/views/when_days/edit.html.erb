@@ -1,0 +1,24 @@
+<h1>Editing when_day</h1>
+
+<% form_for(@when_day) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :subfctr_name %><br />
+    <%= f.text_field :subfctr_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :day %><br />
+    <%= f.text_field :day %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @when_day %> |
+<%= link_to 'Back', when_days_path %>

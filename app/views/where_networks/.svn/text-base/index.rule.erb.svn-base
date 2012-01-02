@@ -1,0 +1,8 @@
+###########################################
+### CONDITION_WHERE_NETWORK
+[RULESET_CONDITION_WHERE_NETWORK]
+network, string(20)
+
+[CONDITION_WHERE_NETWORK]
+<%=@where_networks_output%>
+

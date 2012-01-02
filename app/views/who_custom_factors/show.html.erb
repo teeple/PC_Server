@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @who_custom_factor.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @who_custom_factor.value %>
+</p>
+
+<p>
+  <b>Operation:</b>
+  <%=h @who_custom_factor.operation %>
+</p>
+
+<p>
+  <b>Who custom:</b>
+  <%=h @who_custom_factor.who_custom_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_who_custom_factor_path(@who_custom_factor) %> |
+<%= link_to 'Back', who_custom_factors_path %>

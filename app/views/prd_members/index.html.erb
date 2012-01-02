@@ -1,0 +1,32 @@
+<h1>Listing prd_members</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Role</th>
+    <th>Hashed password</th>
+    <th>Salt</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>Product</th>
+  </tr>
+
+<% @prd_members.each do |prd_member| %>
+  <tr>
+    <td><%=h prd_member.user_id %></td>
+    <td><%=h prd_member.role %></td>
+    <td><%=h prd_member.hashed_password %></td>
+    <td><%=h prd_member.salt %></td>
+    <td><%=h prd_member.role %></td>
+    <td><%=h prd_member.status %></td>
+    <td><%=h prd_member.product_id %></td>
+    <td><%= link_to 'Show', prd_member %></td>
+    <td><%= link_to 'Edit', edit_prd_member_path(prd_member) %></td>
+    <td><%= link_to 'Destroy', prd_member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_member', new_prd_member_path %>

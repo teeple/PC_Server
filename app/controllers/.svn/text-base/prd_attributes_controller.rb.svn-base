@@ -1,0 +1,242 @@
+class PrdAttributesController < ApplicationController
+  include JsonMapper
+
+  # GET /prd_attributes
+  # GET /prd_attributes.xml
+  def index
+    @prd_attributes = PrdAttribute.all(:include => [:products, :prd_attribute_devices], :order => "id DESC")
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @prd_attributes }
+      format.json  { 
+	  	@returns = []
+
+		@prd_attributes.each do |factor|
+			@returns << mapping_to_hash(factor, PrdAttribute.json_mapping_table)
+		end
+	  	render :json => @returns
+	  }
+	  format.rule {
+	  	@prd_attribute_list_output = []
+
+		begin 
+			@prd_attributes.each do |prd_attribute|
+				if not prd_attribute.data_to_ruleset_list.blank?
+					@prd_attribute_list_output << prd_attribute.data_to_ruleset_list + "\n"
+				end
+			end
+		rescue => e
+			render :rule => @errors
+		end 
+
+		@output = render_to_string(:file => TMPL_PATH + RULE['PrdAttribute']['tmpl_list'])
+		file_name = RULE_PATH + RULE['PrdAttribute']['rule_list']
+		File.delete(file_name) if File.exist?(file_name)
+
+		file = File.new(file_name, "w")
+		file << @output
+		file.close
+
+		render :rule => @output 
+	  }
+    end
+  end
+
+  # GET /prd_attributes/1
+  # GET /prd_attributes/1.xml
+  def show
+    @prd_attribute = PrdAttribute.find(params[:id], :include => [:products, :prd_attribute_devices])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @prd_attribute }
+      format.json  { 
+	  	render :json => mapping_to_hash(@prd_attribute, PrdAttribute.json_mapping_table)
+	}
+    end
+  end
+
+  # GET /prd_attributes/new
+  # GET /prd_attributes/new.xml
+  def new
+    @prd_attribute = PrdAttribute.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @prd_attribute }
+      format.json  { render :json => @prd_attribute }
+    end
+  end
+
+  # GET /prd_attributes/1/edit
+  def edit
+    @prd_attribute = PrdAttribute.find(params[:id])
+  end
+
+  # POST /prd_attributes
+  # POST /prd_attributes.xml
+  def create
+
+    @prd_attribute = PrdAttribute.new
+	
+	@prd_attribute.bill_type = params[:prd_attribute]['bill_type']
+	@prd_attribute.name = params[:prd_attribute]['name']
+	@prd_attribute.code = params[:prd_attribute]['code']
+	@prd_attribute.prd_type = params[:prd_attribute]['prd_type']
+	@prd_attribute.description = params[:prd_attribute]['description']
+	@prd_attribute.status = params[:prd_attribute]['status']
+
+    respond_to do |format|
+      if @prd_attribute.save
+        format.html { redirect_to(@prd_attribute, :notice => 'PrdAttribute was successfully created.') }
+        format.xml  { render :xml => @prd_attribute, :status => :created, :location => @prd_attribute }
+        format.json  {
+			case params[:prd_attribute]['prd_type'].upcase
+				when "PACKAGED":
+					product_ids = []
+					ref_attribute_device = ""
+					params[:prd_attribute]['ref_products'].each do |product_id|
+						product_ids << product_id['product_id'].to_s
+						
+						product = Product.new
+						product.prd_attribute_id = @prd_attribute.id
+						product.save!
+
+						begin 
+							ref_attribute_device = PrdAtrributeDevice.find_by_product_id(product_id['product_id'].to_i)
+
+							if not ref_attribute_device.blank?
+								prd_attribute_device = PrdAttributeDevice.new(ref_attribute_device)
+								prd_attribute_device.product_id = product.id
+								prd_attribute_device.prd_attribute_id = @prd_attribute.id
+								prd_attribute_device.save
+							end
+						rescue Exception => exc
+							STDERR.puts "prd_attribte_device save error !"
+						end
+
+					end
+
+					@prd_attribute.ref_products = product_ids.join(",")
+					@prd_attribute.save
+
+				else
+					product = Product.new
+					product.prd_attribute_id = @prd_attribute.id
+					product.save!
+
+					if not params[:prd_attribute]['devices'].blank?
+						params[:prd_attribute]['devices'].each do |device|
+							prd_attribute_device = PrdAttributeDevice.new
+							prd_attribute_device.code_factor_id = device['device'].to_i
+							prd_attribute_device.prd_attribute_id = @prd_attribute.id
+							prd_attribute_device.product_id = product.id
+							prd_attribute_device.save!
+						end
+					end
+			end
+
+			render :json => mapping_to_hash(@prd_attribute, PrdAttribute.json_mapping_table), :status => :created, :location => @prd_attribute 
+		}
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @prd_attribute.errors, :status => :unprocessable_entity }
+        format.json  { 
+			render :json => @prd_attribute.errors, :status => :unprocessable_entity 	}
+      end
+    end
+  end
+
+  # PUT /prd_attributes/1
+  # PUT /prd_attributes/1.xml
+  def update
+    @prd_attribute = PrdAttribute.find(params[:id])
+
+    respond_to do |format|
+        format.html { 
+      		if @prd_attribute.update_attributes(params[:prd_attribute]) 
+				redirect_to(@prd_attribute, :notice => 'PrdAttribute was successfully updated.') 
+			else 		
+        		format.html { render :action => "edit" }
+			end
+		}
+        format.xml  { 
+      		if @prd_attribute.update_attributes(params[:prd_attribute]) 
+				head :ok 
+			else 		
+        		format.xml  { render :xml => @prd_attribute.errors, :status => :unprocessable_entity }
+			end
+		}
+        format.json {
+
+			@prd_attribute.code = params[:prd_attribute]['code']
+			@prd_attribute.description = params[:prd_attribute]['description']
+			@prd_attribute.status = params[:prd_attribute]['status']
+			@prd_attribute.prd_type = params[:prd_attribute]['prd_type']
+			@prd_attribute.bill_type = params[:prd_attribute]['bill_type']
+
+			case params[:prd_attribute]['prd_type'].upcase
+				when "PACKAGED":
+					product_ids = ""
+					ref_attribute_device = ""
+					params[:prd_attribute]['ref_products'].each do |product_id|
+						product_ids += product_id['product_id'].to_s
+						
+						product = Product.new
+						product.prd_attribute_id = @prd_attribute.id
+						product.save!
+
+						begin 
+							ref_attribute_device = PrdAtrributeDevice.find_by_product_id(product_id['product_id'].to_i)
+
+							if not ref_attribute_device.blank?
+								prd_attribute_device = PrdAttributeDevice.new(ref_attribute_device)
+								prd_attribute_device.product_id = product.id
+								prd_attribute_device.prd_attribute_id = @prd_attribute.id
+								prd_attribute_device.save
+							end
+						rescue Exception => exc
+							STDERR.puts "prd_attribte_device save error !"
+						end
+					end
+
+					@prd_attribute.ref_products = product_ids
+					@prd_attribute.save
+
+				else
+					product = Product.new
+					product.prd_attribute_id = @prd_attribute.id
+					product.save!
+
+					if not params[:prd_attribute]['devices'].blank?
+						params[:prd_attribute]['devices'].each do |device|
+							prd_attribute_device = PrdAttributeDevice.new
+							prd_attribute_device.code_factor_id = device['device'].to_i
+							prd_attribute_device.prd_attribute_id = @prd_attribute.id
+							prd_attribute_device.product_id = product.id
+							prd_attribute_device.save!
+						end
+					end
+					@prd_attribute.save
+			end
+        	#render :json => @prd_attribute.errors, :status => :unprocessable_entity
+			head :ok
+	  }
+      end
+  end
+
+  # DELETE /prd_attributes/1
+  # DELETE /prd_attributes/1.xml
+  def destroy
+
+    @prd_attribute = PrdAttribute.find(params[:id])
+    @prd_attribute.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(prd_attributes_url) }
+      format.xml  { head :ok }
+      format.json  { head :ok }
+    end
+  end
+end

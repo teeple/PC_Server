@@ -1,0 +1,80 @@
+[RULESET_SAC_PARSE]
+sac_digits, string(64)
+sac_operation, string(16), result
+sac_app_val, string(32), result
+sac_len, string, result
+sac_net, string, result
+poi, int, result
+
+#
+# 2010.03.25 last updated
+#
+
+[SAC_PARSE]
+Intl 	: sac_digits starts ('82'),				sac_operation='replace', sac_app_val='0'
+Intl 	: sac_digits starts ('00345820'),		sac_operation='replace', sac_app_val='0'
+Intl 	: sac_digits starts ('0034582'),		sac_operation='replace', sac_app_val='0'
+NCS  	: sac_digits starts ('88'), 			sac_operation='delete', sac_len='12:13', sac_net='2G/3G',	poi=0
+FNS  	: sac_digits starts ('0951'), 			sac_operation='ignore', sac_len=' 4:22', sac_net='2G', 		poi=3
+FNS  	: sac_digits starts ('0991'), 			sac_operation='ignore', sac_len=' 4:24', sac_net='2G', 		poi=2
+MSP  	: sac_digits starts ('1510'), 			sac_operation='ignore', sac_len=' 4:24', sac_net='2G/3G', 	poi=1
+TCS  	: sac_digits starts ('1511'), 			sac_operation='delete', sac_len=' 7:22', sac_net='2G/3G', 	poi=0
+DNT  	: sac_digits starts ('1577'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G/3G', 	poi=0
+TNS  	: sac_digits starts ('1577'), 			sac_operation='ignore', sac_len=' 9:22', sac_net='2G/3G', 	poi=0
+ANS  	: sac_digits starts ('2004'), 			sac_operation='ignore', sac_len=' 4: 4', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6831'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6832'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6833'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6834'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6835'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6836'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6837'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6838'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('6839'), 			sac_operation='ignore', sac_len=' 8: 8', sac_net='2G', 		poi=0
+FRP  	: sac_digits starts ('08016'), 			sac_operation='ignore', sac_len='10:10', sac_net='2G/3G', 	poi=0
+FRP  	: sac_digits starts ('08018'), 			sac_operation='ignore', sac_len='10:10', sac_net='2G/3G', 	poi=0
+DNT  	: sac_digits starts ('016200'), 		sac_operation='ignore', sac_len='10:11', sac_net='2G/3G', 	poi=0
+FNS  	: sac_digits starts ('016999'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+DNT  	: sac_digits starts ('018200'), 		sac_operation='ignore', sac_len='10:11', sac_net='2G/3G', 	poi=0
+FNS  	: sac_digits starts ('018999'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+DNT  	: sac_digits starts ('080163'), 		sac_operation='ignore', sac_len='10:10', sac_net='2G/3G', 	poi=0
+DNT  	: sac_digits starts ('091216'), 		sac_operation='ignore', sac_len='10:10', sac_net='2G/3G', 	poi=0
+DCS  	: sac_digits starts ('099321'), 		sac_operation='ignore', sac_len='10:22', sac_net='2G/3G', 	poi=0
+FNS  	: sac_digits starts ('0106831'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106832'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106833'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106834'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106835'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106836'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106837'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106838'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+FNS  	: sac_digits starts ('0106839'), 		sac_operation='ignore', sac_len='11:11', sac_net='2G', 		poi=0
+DNT  	: sac_digits starts ('160281'), 		sac_operation='ignore', sac_len='10:10', sac_net='2G/3G', 	poi=0
+MSP  	: sac_digits starts ('0161510'), 		sac_operation='ignore', sac_len=' 7:24', sac_net='2G/3G', 	poi=1
+TCS  	: sac_digits starts ('0161511'), 		sac_operation='ignore', sac_len='10:18', sac_net='2G/3G', 	poi=0
+ANS  	: sac_digits starts ('0162004'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G', 		poi=0
+MSP  	: sac_digits starts ('0181510'), 		sac_operation='ignore', sac_len=' 7:24', sac_net='2G/3G', 	poi=1
+TCS  	: sac_digits starts ('0181511'), 		sac_operation='ignore', sac_len='10:18', sac_net='2G/3G', 	poi=0
+ANS  	: sac_digits starts ('0182004'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G', 		poi=0
+TTS  	: sac_digits starts ('2001018'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G/3G', 	poi=1
+TTS  	: sac_digits starts ('2002018'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G/3G', 	poi=1
+FNS  	: sac_digits starts ('2006004'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G', 		poi=1
+RFC  	: sac_digits starts ('2006016'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G', 		poi=1
+FRP  	: sac_digits starts ('2006080'), 		sac_operation='ignore', sac_len=' 7: 7', sac_net='2G', 		poi=1
+TCS  	: sac_digits starts ('15110959'), 		sac_operation='ignore', sac_len='11:22', sac_net='2G/3G', 	poi=0
+TCS  	: sac_digits starts ('15110997'), 		sac_operation='ignore', sac_len='11:22', sac_net='2G/3G', 	poi=0
+TTS  	: sac_digits starts ('0162001018'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G/3G', 	poi=1
+ANS  	: sac_digits starts ('0162002004'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G', 		poi=1
+TTS  	: sac_digits starts ('0162002018'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G/3G', 	poi=1
+FNS  	: sac_digits starts ('0162006004'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G', 		poi=1
+RFC  	: sac_digits starts ('0162006016'), 	sac_operation='ignore', sac_len='10:10', sac_net='2G', 		poi=1
+FRP  	: sac_digits starts ('0162006080'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G', 		poi=1
+TAXI 	: sac_digits starts ('0162008000'), 	sac_operation='ignore', sac_len='10:10', sac_net='2G', 		poi=0
+TTS  	: sac_digits starts ('0182001018'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G/3G', 	poi=1
+ANS  	: sac_digits starts ('0182002004'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G', 		poi=1
+TTS  	: sac_digits starts ('0182002018'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G/3G', 	poi=1
+FNS  	: sac_digits starts ('0182006004'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G', 		poi=1
+RFC  	: sac_digits starts ('0182006016'), 	sac_operation='ignore', sac_len='10:10', sac_net='2G', 		poi=1
+FRP  	: sac_digits starts ('0182006080'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G', 		poi=1
+DLS  	: sac_digits starts ('0602001111'), 	sac_operation='ignore', sac_len='10:24', sac_net='2G/3G', 	poi=1
+RTS  	: sac_digits starts ('0602006699'), 	sac_operation='ignore', sac_len='10:10', sac_net='2G/3G', 	poi=1

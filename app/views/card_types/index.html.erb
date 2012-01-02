@@ -1,0 +1,46 @@
+<h1>Listing card_types</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Price model</th>
+    <th>Price model nm</th>
+    <th>Price</th>
+    <th>Real price</th>
+    <th>Svc type</th>
+    <th>Ext days</th>
+    <th>Crtdt</th>
+    <th>Crt user</th>
+    <th>Updtdt</th>
+    <th>Updt user</th>
+    <th>Pgm</th>
+    <th>Sale item</th>
+    <th>Recharge item</th>
+  </tr>
+
+<% @card_types.each do |card_type| %>
+  <tr>
+    <td><%=h card_type.id %></td>
+    <td><%=h card_type.price_model %></td>
+    <td><%=h card_type.price_model_nm %></td>
+    <td><%=h card_type.price %></td>
+    <td><%=h card_type.real_price %></td>
+    <td><%=h card_type.svc_type %></td>
+    <td><%=h card_type.ext_days %></td>
+    <td><%=h card_type.crtdt %></td>
+    <td><%=h card_type.crt_user %></td>
+    <td><%=h card_type.updtdt %></td>
+    <td><%=h card_type.updt_user %></td>
+    <td><%=h card_type.pgm_id %></td>
+    <td><%=h card_type.sale_item %></td>
+    <td><%=h card_type.recharge_item %></td>
+    <td><%= link_to 'Show', card_type %></td>
+    <td><%= link_to 'Edit', edit_card_type_path(card_type) %></td>
+    <td><%= link_to 'Destroy', card_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New card_type', new_card_type_path %>

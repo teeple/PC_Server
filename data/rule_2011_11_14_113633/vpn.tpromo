@@ -1,0 +1,48 @@
+Change_Rate_By_Custom_Who = {
+    service_id = change_rate_custom_who
+
+    setup = '
+        uaLog.info("condition_what = %s", condition_what);
+    '
+    targetSubsRule = '
+        /condition_who,custom_tariff/  {
+            action_deduct = null;
+            if(targetRule.action_custom!=null)
+            {
+                action_custom = targetRule.action_custom;
+                action_custom = rate_db.matchRule("action_custom", global_scope);
+                if(action_custom!=null && action_custom.referred_tariff!=null)
+                {
+                    action_deduct = super_scope[action_custom.referred_tariff];
+                }
+            }
+            else if(targetRule.action_deduct!=null)
+            {
+                action_deduct =targetRule.action_deduct; 
+            }
+            uaLog.info("action_deduct = %s" , action_deduct);
+        }
+
+    '
+    promoUseRule = '
+        /action_deduct{tariff=rate_name},tariff/ {
+            tariff_limit = null;
+            if(rule1.call_time!=null)
+            {
+                if(rule1.call_time.op.hasRange())
+                {
+                    tariff_limit=rule1.call_time.upper - call_time + 1;
+                }
+                else if(rule1.call_time.op.toString() == ">=")
+                    tariff_limit=null;
+            }
+            uaLog.info("tariff_limit = %s", tariff_limit);
+        }
+    '
+
+    e1 = rule.rate
+    e2 = rule.unit
+
+    validTime = tariff_limit
+    validTimeType = min
+}

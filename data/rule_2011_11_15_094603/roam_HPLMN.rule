@@ -1,0 +1,14 @@
+[RULESET_ROAM_HPLMN]
+country_prefix , string(64)
+tariff , string(64) , result
+
+[ROAM_HPLMN]
+rule_0 : country_prefix starts 82 , tariff = roam_200TGper10Sec
+rule_1 : country_prefix starts 81 , tariff = roam_200TGper10Sec
+rule_2 : country_prefix starts 7 , tariff = roam_200TGper10Sec
+rule_3 : country_prefix starts 380 , tariff = roam_200TGper10Sec
+rule_4 : country_prefix starts 352 , tariff = roam_200TGper10Sec
+rule_5 : country_prefix starts 32 , tariff = roam_150TGper10Sec
+rule_6 : country_prefix starts 33 , tariff = roam_200TGper10Sec
+rule_7 : country_prefix starts 371 , tariff = roam_250TGper10Sec
+rule_8 : country_prefix starts 852 , tariff = roam_200TGper10Sec

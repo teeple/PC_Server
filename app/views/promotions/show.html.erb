@@ -1,0 +1,15 @@
+<p>
+  <b>Name:</b>
+  <%=h @promotion.name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @promotion.description %>
+</p>
+<p>
+  <b>Action Type:</b>
+  <%=h @promotion.action_type%>
+</p>
+
+<%= link_to 'Edit', edit_promotion_path(@promotion) %> |
+<%= link_to 'Back', promotions_path %>

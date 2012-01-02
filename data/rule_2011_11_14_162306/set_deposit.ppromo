@@ -1,0 +1,24 @@
+set_counter = {
+    service_id = set_deposit
+    targetSubsRule = '
+        /threshold_ruleset/g {
+            action_custom = targetRule.action_custom
+        }
+    '
+
+    promoGrantRule = '
+        /action_custom/ && rule.ACTION !=null {
+            uaLog.info("action = .%s.", rule.ACTION);
+        }
+    '
+
+    counterPrice = {
+        {
+            counterID = rate_db.getCounterID(targetRule.balance) + (rule.ACTION=="SMS"?100000:200000)
+            counterType = 1
+            promotionCounterType = 2
+            counterChange = +rule.threshold
+            counterScale = rate_db.getCounterScale(rate_db.getCounterID(targetRule.balance))
+        }
+    }
+}

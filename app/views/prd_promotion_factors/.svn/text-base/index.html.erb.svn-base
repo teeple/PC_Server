@@ -1,0 +1,26 @@
+<h1>Listing prd_promotion_factors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Operation</th>
+    <th>Value</th>
+    <th>Prd promotion</th>
+  </tr>
+
+<% @prd_promotion_factors.each do |prd_promotion_factor| %>
+  <tr>
+    <td><%=h prd_promotion_factor.name %></td>
+    <td><%=h prd_promotion_factor.operation %></td>
+    <td><%=h prd_promotion_factor.value %></td>
+    <td><%=h prd_promotion_factor.prd_promotion_id %></td>
+    <td><%= link_to 'Show', prd_promotion_factor %></td>
+    <td><%= link_to 'Edit', edit_prd_promotion_factor_path(prd_promotion_factor) %></td>
+    <td><%= link_to 'Destroy', prd_promotion_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prd_promotion_factor', new_prd_promotion_factor_path %>

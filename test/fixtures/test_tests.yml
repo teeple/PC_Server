@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fidl1: MyString
+  fld2: 1
+
+two:
+  fidl1: MyString
+  fld2: 1

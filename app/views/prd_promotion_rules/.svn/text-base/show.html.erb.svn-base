@@ -1,0 +1,8 @@
+<p>
+  <b>Prd promotion:</b>
+  <%=h @prd_promotion_rule.prd_promotion_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prd_promotion_rule_path(@prd_promotion_rule) %> |
+<%= link_to 'Back', prd_promotion_rules_path %>

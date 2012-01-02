@@ -1,0 +1,11 @@
+CCBS:
+  host: 61.100.30.188
+  port: 12126
+  url_product: /services/pc/priceplan
+  url_bundle_product: /services/pc/packagepriceplan
+  url_product_tariff: /services/pc/priceplantariff
+
+CRM:
+  host: 222.106.79.35 
+  port: 80
+  url_product: /crmapi/crmAddProduct

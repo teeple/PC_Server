@@ -1,0 +1,3 @@
+[COMMON_ALIAS]
+COMMON         TARIFF        calling          request.subscriptionID
+COMMON         TARIFF        called           rating.destinationID

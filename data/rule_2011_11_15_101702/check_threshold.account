@@ -1,0 +1,56 @@
+BLOCK_THRESHOLD_TIME = {
+    service_id = check_threshold
+
+    accountingType = time_charge
+    promoUseRule = '
+        /threshold_ruleset(balance)/g && (threshold = rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000, rate_db.getCounterScale(rate_db.getCounterID(rule.balance))))!=null && threshold <= rating.getCounterValue(rate_db.getCounterID(rule.balance)) {
+            uaLog.info("block threshold....... rule.balance = %s", rule.balance);
+            selected_tariff.setAccountable(false);
+        }
+    '
+
+    counterTariff = {
+        {
+            counterID = rule.balance
+            promotionCounterType = 3
+        }
+    }
+
+}
+
+BLOCK_THRESHOLD_VOLUME = {
+    service_id = check_threshold
+
+    accountingType = volume_charge
+    promoUseRule = '
+        /threshold_ruleset(balance)/g && (threshold = rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000, rate_db.getCounterScale(rate_db.getCounterID(rule.balance))))!=null && threshold <= rating.getCounterValue(rate_db.getCounterID(rule.balance)) {
+            uaLog.info("block threshold....... rule.balance = %s", rule.balance);
+            selected_tariff.e4 = 1000
+            selected_tariff.setAccountable(false);
+        }
+    '
+
+    counterTariff = {
+        {
+            counterID = rule.balance
+            promotionCounterType = 3
+        }
+    }
+}
+
+BLOCK_THRESHOLD = {
+    service_id = check_threshold
+
+    promoUseRule = '
+        /threshold_ruleset(balance)/g && (threshold = rating.getCounterValue(rate_db.getCounterID(rule.balance) + 200000, rate_db.getCounterScale(rate_db.getCounterID(rule.balance))))!=null && threshold <= rating.getCounterValue(rate_db.getCounterID(rule.balance)) {
+            selected_price.setAccountable(false);
+        }
+    '
+    counterPrice = {
+        {
+            counterID = rule.balance
+            promotionCounterType = 3
+        }
+    }
+}
+

@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prefix_country: 1
+  prefix_region: MyString
+  unit_1: 1.5
+  tariff_1: 1.5
+  unit_2: 1.5
+  tariff_2: 1.5
+  unit_3: 1.5
+  tariff_3: 1.5
+  unit_4: 1.5
+  tariff_4: 1.5
+
+two:
+  prefix_country: 1
+  prefix_region: MyString
+  unit_1: 1.5
+  tariff_1: 1.5
+  unit_2: 1.5
+  tariff_2: 1.5
+  unit_3: 1.5
+  tariff_3: 1.5
+  unit_4: 1.5
+  tariff_4: 1.5

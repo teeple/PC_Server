@@ -1,0 +1,53 @@
+Time_Accounting = {
+    service_id = custom_who_charging
+    promoUseRule = /condition_who,account_ruleset/sg && rule.counter_type!="BYTE" && rule.counter_type!="COUNT"
+
+    priority = 10
+
+    accountingType = time_charge
+
+    e2 = rule.counter_type=="TIME"?1:e2
+
+    counterTariff = {
+        {
+            promotionCounterType = 3
+            counterType = 16
+            counterID = rule.counter_name
+            ccPerSubsequentChargeableTimeUnit = rule.counter_type=="TIME"?-e2:-price
+        }
+    }
+}
+
+Extra_Accounting = {
+    service_id = custom_who_charging
+    promoUseRule = /condition_who,account_ruleset/sg && rule.counter_type == "MONEY"
+
+    priority = 9
+
+    accountingType = extra_charge
+
+    counterTariff = {
+        {
+            promotionCounterType = 3
+            counterType = 16
+            counterID = rule.counter_name
+            ccPerSession = -normalPrice
+        }
+    }
+}
+
+Price_Accounting = {
+    service_id = custom_who_charging
+    promoUseRule = /condition_who,account_ruleset/sg && rule.counter_type!="BYTE" && rule.counter_type!="TIME"
+
+    priority = 10
+
+    counterPrice = {
+        {
+            promotionCounterType = 3
+            counterType = 16
+            counterID = rule.counter_name
+            counterChange = rule.counter_type == "UNIT"?-1:-price
+        }
+    }
+}

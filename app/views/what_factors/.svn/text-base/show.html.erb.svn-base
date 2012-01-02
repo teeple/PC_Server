@@ -1,0 +1,18 @@
+<p>
+  <b>Fctr code:</b>
+  <%=h @what_factor.fctr_code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @what_factor.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @what_factor.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_what_factor_path(@what_factor) %> |
+<%= link_to 'Back', what_factors_path %>

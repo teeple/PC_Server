@@ -1,0 +1,37 @@
+<p>
+  <b>Fctr code:</b>
+  <%=h @who_factor.fctr_code %>
+</p>
+
+<p>
+  <b>Member id:</b>
+  <%=h @who_factor.who_member_id %>
+</p>
+
+<p>
+  <b>Number id:</b>
+  <%=h @who_factor.who_number_id %>
+</p>
+
+<p>
+  <b>Prefix id:</b>
+  <%=h @who_factor.who_prefix_id %>
+</p>
+
+<p>
+  <b>Country id:</b>
+  <%=h @who_factor.who_country_id %>
+</p>
+
+<p>
+  <b>Custom id:</b>
+  <%=h @who_factor.who_custom_id %>
+</p>
+
+<p>
+  <b>Description :</b>
+  <%=h @who_factor.description %>
+</p>
+
+<%= link_to 'Edit', edit_who_factor_path(@who_factor) %> |
+<%= link_to 'Back', who_factors_path %>

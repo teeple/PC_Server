@@ -1,0 +1,28 @@
+<h1>New cs_product_addinfo</h1>
+
+<% form_for(@cs_product_addinfo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+	<%= f.label :command %><br />
+	<%= f.text_field :command %>
+  </p>
+  <p>
+	<%= f.label :product_code %><br />
+	<%= f.text_field :product_code  %>
+  </p>
+  <p>
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+  </p>
+  <p>
+	<%= f.label :description %><br />
+	<%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', cs_product_addinfos_path %>

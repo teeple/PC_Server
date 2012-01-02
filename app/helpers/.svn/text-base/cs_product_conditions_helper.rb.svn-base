@@ -1,0 +1,2 @@
+module CsProductConditionsHelper
+end

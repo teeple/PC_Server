@@ -1,0 +1,22 @@
+<h1>Listing who_country_factors</h1>
+
+<table>
+  <tr>
+    <th>Code factor</th>
+    <th>Who country</th>
+  </tr>
+
+<% @who_country_factors.each do |who_country_factor| %>
+  <tr>
+    <td><%=h who_country_factor.code_factor_id %></td>
+    <td><%=h who_country_factor.who_country_id %></td>
+    <td><%= link_to 'Show', who_country_factor %></td>
+    <td><%= link_to 'Edit', edit_who_country_factor_path(who_country_factor) %></td>
+    <td><%= link_to 'Destroy', who_country_factor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New who_country_factor', new_who_country_factor_path %>

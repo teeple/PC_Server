@@ -1,0 +1,44 @@
+
+require 'open-uri'
+
+f = open("http://192.168.1.217:3000/who_factors.rule") # Webpage as a file 
+webpage = f.read                                # Read it as one big string 
+f.close
+						 
+f = open("http://192.168.1.217:3000/where_factors.rule") # Webpage as a file 
+webpage = f.read                                # Read it as one big string 
+f.close 
+						 
+f = open("http://192.168.1.217:3000/when_factors.rule") # Webpage as a file 
+webpage = f.read                                # Read it as one big string 
+f.close 
+						 
+f = open("http://192.168.1.217:3000/what_factors.rule") # Webpage as a file 
+webpage = f.read                                # Read it as one big string 
+f.close 
+						 
+f = open("http://192.168.1.217:3000/actions.rule") # Webpage as a file 
+webpage = f.read                                # Read it as one big string 
+f.close 
+						 
+f = open("http://192.168.1.217:3000/balances.rule") # Webpage as a file 
+webpage = f.read                           # Read it as one big string 
+f.close 
+
+f = open("http://192.168.1.217:3000/promotions.rule") # Webpage as a file 
+webpage = f.read                           # Read it as one big string 
+f.close 
+
+f = open("http://192.168.1.217:3000/codes.rule") # Webpage as a file 
+webpage = f.read                           # Read it as one big string 
+f.close 
+
+f = open("http://192.168.1.217:3000/tariffs.rule") # Webpage as a file 
+webpage = f.read                           # Read it as one big string 
+f.close 
+
+f = open("http://192.168.1.217:3000/prd_attributes.rule") # Webpage as a file 
+webpage = f.read                           # Read it as one big string 
+f.close 
+
+

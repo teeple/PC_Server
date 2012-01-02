@@ -1,0 +1,7 @@
+[RULESET_PROMOTION_TYPE_LIST]
+action , string(32)
+required_condition, string(32)
+required_result , string(32)
+
+[PROMOTION_TYPE_LIST]
+

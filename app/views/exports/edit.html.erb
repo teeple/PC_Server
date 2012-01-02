@@ -1,0 +1,12 @@
+<h1>Editing export</h1>
+
+<% form_for(@export) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @export %> |
+<%= link_to 'Back', exports_path %>

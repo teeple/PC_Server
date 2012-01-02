@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subfctr_name: MyString
+  disfactor: MyString
+  unitrate: MyString
+  rate: 1
+  upto: 1
+  amount: 1
+
+two:
+  subfctr_name: MyString
+  disfactor: MyString
+  unitrate: MyString
+  rate: 1
+  upto: 1
+  amount: 1

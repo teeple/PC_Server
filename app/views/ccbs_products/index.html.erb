@@ -1,0 +1,44 @@
+<h1>Listing ccbs_products</h1>
+
+<table>
+  <tr>
+    <th>Service type</th>
+    <th>Product code</th>
+    <th>Product name</th>
+    <th>Description</th>
+    <th>Billing type</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Product type</th>
+    <th>Status</th>
+    <th>Device list</th>
+    <th>Crtdt</th>
+    <th>Condition list</th>
+    <th>Item list</th>
+  </tr>
+
+<% @ccbs_products.each do |ccbs_product| %>
+  <tr>
+    <td><%=h ccbs_product.service_type %></td>
+    <td><%=h ccbs_product.product_code %></td>
+    <td><%=h ccbs_product.product_name %></td>
+    <td><%=h ccbs_product.description %></td>
+    <td><%=h ccbs_product.billing_type %></td>
+    <td><%=h ccbs_product.start_date %></td>
+    <td><%=h ccbs_product.end_date %></td>
+    <td><%=h ccbs_product.product_type %></td>
+    <td><%=h ccbs_product.status %></td>
+    <td><%=h ccbs_product.device_list %></td>
+    <td><%=h ccbs_product.crtdt %></td>
+    <td><%=h ccbs_product.condition_list %></td>
+    <td><%=h ccbs_product.item_list %></td>
+    <td><%= link_to 'Show', ccbs_product %></td>
+    <td><%= link_to 'Edit', edit_ccbs_product_path(ccbs_product) %></td>
+    <td><%= link_to 'Destroy', ccbs_product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ccbs_product', new_ccbs_product_path %>

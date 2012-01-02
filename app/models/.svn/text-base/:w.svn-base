@@ -1,0 +1,85 @@
+module JsonMapper
+
+	class JsonMappingTable
+
+		@@json_mapping_tables = Hash.new
+		@@json_mapping_tables["WhatFactor"] = {
+		 "view_name" 		=> {:value => "CONDITION_WHAT", :type => :TITLE},  
+		 "name" 			=> {:value => "name", :type => :DB_FIELD},
+		 "code" 			=> {:value => "fctr_code", :type => :DB_FIELD},
+		 "description" 		=> {:value => "description", :type => :DB_FIELD},
+		 "view_url_groups" 	=> {:value => "URL Groups", :type => :TITLE},
+		 "url_groups" 		=> {:value => "what_urlgroup", :type => :HAS_CHILD, :class => "WhatUrlgroup" },
+		 "view_qos" 		=> {:value => "Quality of Service", :type => :TITLE},
+		 "qos" 				=> {:value => "what_qo", :type => :HAS_CHILD, :class => "WhatQo" },
+		 "view_customs"		=> {:value => "CUSTOM", :type => :TITLE},
+		 "customs" 			=> {:value => "what_custom", :type => :HAS_CHILD, :class => "WhatCustom" }
+		}
+
+		@@json_mapping_tables['WhatUrlgroup'] = [
+		 "url" => {:value => "what_urlgroup_factor", :type => :HAS_CHILD_AND_DUMMY, :class => "WhatUrlgroupFactor" }
+		]
+
+		@@json_mapping_tables['WhatUrlgroupFactor'] = {
+		 "url" => {:value => "url", :type => :DB_FILED}
+		}
+
+		@@json_mapping_tables['WhatQo'] = {
+		 "view_name" 		=> {:value => "QoS", :type => :TITLE},  
+		 "view_qos"			=> {:value => "QoS Level", :type => :TITLE},
+		 "name" 			=> {:value => "name", :type => :DB_FIELD},
+		 "description" 		=> {:value => "description", :type => :DB_FIELD},
+		 "qos" 				=> {:value => {
+		 							"level1" => {:value => "level1", :type => :DB_FIELD},							"level2" => {:value => "level2", :type => :DB_FIELD},							"level3" => {:value => "level3", :type => :DB_FIELD},							"level4" => {:value => "level4", :type => :DB_FIELD}, 							"level5" => {:value => "level5", :type => :DB_FIELD}						:type => :HAS_CHILD_AND_SELF},
+								}
+		} 
+		def JsonMappingTable.mapping_table
+			@@json_mapping_tables
+		end 
+	end
+
+	def to_json_frontend_new( object )
+
+		json_table = JsonMappingTable.mapping_table
+
+		returns_hash = Hash.new
+
+		json_table[object.class.name].each do |k, v|
+
+			case v[:type]
+				when :TITLE:
+					returns_hash[k] = v[:value]
+				when :DB_FIELD:
+					returns_hash[k] = object[v[:value]].blank? ? "": object[v[:value]]
+				when :HAS_CHILD: # refer to others using foreign key 
+					debugger 
+
+					foreign_key = v[:value].to_s + "_id"
+
+					if object[foreign_key].blank? || object[foreign_key]== 0
+						returns_hash[k] = []
+					else
+						returns_hash[k] = to_json_frontend_new(object[v[:value]])
+					end
+				when :HAS_CHILD_AND_DUMMY: # refer to others using foreign key, but self is dummy 
+					to_json_frontend(object[v[:value]])
+
+				when :HAS_CHILD_AND_SELF: # similar to refering others but located in self 
+					temp_array = []
+					v[:value].each do |v_k, v_v|
+						temp_array 
+					end 
+			end 
+		end 
+
+		return returns_hash
+	end 
+
+#	def to_ruleset_frontend_new( object ) 
+#
+#		rule_mapping_tables[object.class.name].each do |k, v|
+#		end 
+#	end 
+
+end
+

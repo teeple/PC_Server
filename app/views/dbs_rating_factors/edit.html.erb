@@ -1,0 +1,37 @@
+<h1>Editing dbs_rating_factor</h1>
+
+<% form_for(@dbs_rating_factor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :product_code %><br />
+    <%= f.text_field :product_code %><br />
+  </p>
+  <p>
+    <%= f.label :product_name %><br />
+    <%= f.text_field :product_name %><br />
+  </p>
+  <p>
+    <%= f.label :packaged_code %><br />
+    <%= f.text_field :packaged_code %><br />
+  </p>
+  <p>
+    <%= f.label :packaged_name %><br />
+    <%= f.text_field :packaged_name %><br />
+  </p>
+  <p>
+    <%= f.label :factor %><br />
+    <%= f.text_field :factor %><br />
+  </p>
+  <p>
+    <%= f.label :function %><br />
+    <%= f.text_field :function %><br />
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dbs_rating_factor %> |
+<%= link_to 'Back', dbs_rating_factors_path %>

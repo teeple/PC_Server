@@ -1,0 +1,28 @@
+<h1>Listing action_deducts</h1>
+
+<table>
+  <tr>
+    <th>Subfctr name</th>
+    <th>UptoStart</th>
+    <th>UptoEnd</th>
+    <th>UptoType</th>
+    <th>Tariff Id</th>
+  </tr>
+
+<% @action_deducts.each do |action_deduct| %>
+  <tr>
+    <td><%=h action_deduct.subfctr_name %></td>
+    <td><%=h action_deduct.upto_start %></td>
+    <td><%=h action_deduct.upto_end %></td>
+    <td><%=h action_deduct.upto_type %></td>
+    <td><%=h action_deduct.tariff_id %></td>
+    <td><%= link_to 'Show', action_deduct %></td>
+    <td><%= link_to 'Edit', edit_action_deduct_path(action_deduct) %></td>
+    <td><%= link_to 'Destroy', action_deduct, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New action_deduct', new_action_deduct_path %>

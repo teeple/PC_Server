@@ -1,0 +1,36 @@
+<h1>Listing cs_product_conditions</h1>
+
+<table>
+  <tr>
+	<th>Jobkey</th>
+	<th>Command</th>
+	<th>Product Code</th>
+	<th>Condition Type </th>
+	<th>Promotion Code</th>
+	<th>Name</th>
+	<th>Value </th>
+	<th>Op Type</th>
+	<th>Condition Group No</th>
+  </tr>
+
+<% @cs_product_conditions.each do |cs_product_condition| %>
+  <tr>
+  	<td><%= cs_product_condition.jobkey %></td>
+  	<td><%= cs_product_condition.command %></td>
+  	<td><%= cs_product_condition.product_code %></td>
+  	<td><%= cs_product_condition.condition_type %></td>
+  	<td><%= cs_product_condition.promotion_code %></td>
+  	<td><%= cs_product_condition.name %></td>
+  	<td><%= cs_product_condition.value %></td>
+  	<td><%= cs_product_condition.op_type %></td>
+  	<td><%= cs_product_condition.condition_group_no %></td>
+    <td><%= link_to 'Show', cs_product_condition %></td>
+    <td><%= link_to 'Edit', edit_cs_product_condition_path(cs_product_condition) %></td>
+    <td><%= link_to 'Destroy', cs_product_condition, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cs_product_condition', new_cs_product_condition_path %>

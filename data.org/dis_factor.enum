@@ -1,0 +1,6 @@
+[ENUM_DIS_FACTOR]
+dis_factor
+1 used_time
+2 used_cnt
+3 used_money
+4 used_byte

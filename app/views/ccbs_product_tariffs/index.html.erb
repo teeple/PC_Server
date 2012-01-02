@@ -1,0 +1,50 @@
+<h1>Listing ccbs_product_tariffs</h1>
+
+<table>
+  <tr>
+    <th>Product code</th>
+    <th>Itemcod</th>
+    <th>Fromdt</th>
+    <th>Todt</th>
+    <th>Method</th>
+    <th>Add unit</th>
+    <th>Unit charge</th>
+    <th>Suspamt</th>
+    <th>Validity term</th>
+    <th>Crt user</th>
+    <th>Updt user</th>
+    <th>Crtdt</th>
+    <th>Updtdt</th>
+    <th>Pgm</th>
+    <th>Min unitcharge</th>
+    <th>Max unitcharge</th>
+  </tr>
+
+<% @ccbs_product_tariffs.each do |ccbs_product_tariff| %>
+  <tr>
+    <td><%=h ccbs_product_tariff.product_code %></td>
+    <td><%=h ccbs_product_tariff.itemcod %></td>
+    <td><%=h ccbs_product_tariff.fromdt %></td>
+    <td><%=h ccbs_product_tariff.todt %></td>
+    <td><%=h ccbs_product_tariff.method %></td>
+    <td><%=h ccbs_product_tariff.add_unit %></td>
+    <td><%=h ccbs_product_tariff.unit_charge %></td>
+    <td><%=h ccbs_product_tariff.suspamt %></td>
+    <td><%=h ccbs_product_tariff.validity_term %></td>
+    <td><%=h ccbs_product_tariff.crt_user %></td>
+    <td><%=h ccbs_product_tariff.updt_user %></td>
+    <td><%=h ccbs_product_tariff.crtdt %></td>
+    <td><%=h ccbs_product_tariff.updtdt %></td>
+    <td><%=h ccbs_product_tariff.pgm_id %></td>
+    <td><%=h ccbs_product_tariff.min_unitcharge %></td>
+    <td><%=h ccbs_product_tariff.max_unitcharge %></td>
+    <td><%= link_to 'Show', ccbs_product_tariff %></td>
+    <td><%= link_to 'Edit', edit_ccbs_product_tariff_path(ccbs_product_tariff) %></td>
+    <td><%= link_to 'Destroy', ccbs_product_tariff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ccbs_product_tariff', new_ccbs_product_tariff_path %>

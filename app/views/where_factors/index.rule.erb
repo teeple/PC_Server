@@ -1,0 +1,16 @@
+<%=where_countries_output%>
+<%=where_zones_output%>
+<%=where_networks_output%>
+<%=where_customs_output%>
+
+###########################################
+### CONDITION_WHERE
+[RULESET_CONDITION_WHERE]
+c_type, enum
+c_where_country, string(50), rule : (value in ruleset condition_where_country or value is null)
+c_where_zone, string(50), rule : (value in ruleset condition_where_zone or value is null)
+c_where_network, string(50), rule : (value in ruleset condition_where_network or value is null)
+c_where_custom, string(50), rule : (value in ruleset condition_where_custom or value is null)
+
+[CONDITION_WHERE]
+<%=where_factors_output%>

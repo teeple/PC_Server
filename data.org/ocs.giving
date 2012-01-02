@@ -1,0 +1,102 @@
+TES_NEW_SUBS = {
+	service_id = REFILL
+
+	priority = 10
+	category = 5
+	promoGrantRule = '
+		refill_bonus	
+	'
+
+	counterPrice = {
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = BaseR 
+			counterChange = rule.bonus_promo
+		}
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = DataR 
+			counterChange = rule.bonus_promo_data
+		}
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = VideoR 
+			counterChange = rule.bonus_promo_video
+		}
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = SmsR 
+			counterChange = rule.bonus_promo_sms
+		}
+	}
+}
+
+DC_PROMOTION = {
+	service_id = VOICE
+
+	priority = 11
+	category = 5
+	setup = '
+		dc_last_upper = 0
+	'
+	targetSubsRule = '
+		in_service == "MSP" && dc_type == "true" && now() > untilTheDay(dc_enddate)
+	'
+	promoGrantRule = '
+		/dc_bonus/sg && MSP_DCChar >= rule.MSP_DCCharLower {
+			refund = (java.lang.Math.min( MSP_DCChar, rule.MSP_DCCharUpper) - dc_last_upper ) * rule.dc_rate /100
+            uaLog.info("refund(%s) dc_last_upper(%s) MSP_DCChar(%s) rule.MSP_DCCharLower(%s) rule.MSP_DCCharUpper(%s) percent(%s)", refund, dc_last_upper , MSP_DCChar, rule.MSP_DCCharLower, rule.MSP_DCCharUpper, rule.dc_rate);
+            if(refund!=0)
+            {
+                dc_last_upper = rule.MSP_DCCharUpper;
+            }		
+		}
+	'
+	counterTariff = {
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = MSP_DCRemains
+			ccPerSession = refund
+		}
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = MSP_DCChar
+			counterExpiryDate = now()
+		}
+	}
+
+}
+
+VOICE_USAGE_PROMOTION = {
+	service_id = VOICE
+
+	priority = 11
+	category = 5
+	targetSubsRule = '
+		in_service == "TES"
+	'
+	promoGrantRule = '
+		usage_bonus	
+	'
+	counterTariff = {
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = VoiceR
+			ccPerSession = rule.bonus
+		}
+		{
+			counterType = 1
+			promotionCounterType = 2
+			counterID = VOICE_T1
+			setCounterTo = 0
+		}
+	}
+
+}

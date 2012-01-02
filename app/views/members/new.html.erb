@@ -1,0 +1,35 @@
+<h1>New member</h1>
+
+<% form_for(@member) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :userId %><br />
+    <%= f.text_field :userId %>
+  </p>
+  <p>
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </p>
+  <p>
+    <%= f.label :user_class %><br />
+    <%= f.text_field :user_class %>
+  </p>
+  <p>
+    <%= f.label :user_role %><br />
+    <%= f.text_field :user_role %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', members_path %>

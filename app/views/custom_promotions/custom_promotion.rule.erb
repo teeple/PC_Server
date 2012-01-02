@@ -1,0 +1,14 @@
+#############################################
+### RULESET_CUSTOM_PROMOTION
+[RULESET_CUSTOM_PROMOTION]
+service_id, string(32)
+product_code, string(32)
+package_code, string(32)
+package_type, string(32)
+promotion_service_id, string(20), result, mandatory
+priority, int, result, mandatory
+promotion_category, string(30), result
+promotion_parameter, string(255), result, mandatory
+
+[CUSTOM_PROMOTION]
+<%=@custom_prmotions_output%> 

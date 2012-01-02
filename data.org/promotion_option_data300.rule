@@ -1,0 +1,8 @@
+[RULESET_PROMOTION_OPTION_DATA300]
+product_name, string(20), rule :(value in ruleset product_list or value is null)
+is_homezone, string(20) 
+amount_give, string(20), result
+
+[PROMOTION_OPTION_DATA300]
+
+rule_2: product_name = skytel_pps1.0,is_homezone=TRUE,amount_give=30

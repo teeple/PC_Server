@@ -1,0 +1,2 @@
+module PromotionFactorsHelper
+end

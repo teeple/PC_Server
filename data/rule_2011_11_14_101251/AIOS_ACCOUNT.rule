@@ -1,0 +1,14 @@
+[RULESET_AIOS_CHARGING_ACCOUNT]
+call_type , string(32)
+service, string(32)
+service_id, string(32)
+priority , int , result
+counter_name , string(32), result
+counter_type , string(6), result, rule : value = (MONEY, TIME, UNIT, BYTE, MIN)
+
+[AIOS_CHARGING_ACCOUNT]
+FreeVoice   : service = AIOS, service_id = VOICE, priority = 1, counter_name = FreeVoice, counter_type = TIME
+FreeSms     : service = AIOS, service_id = SMS, priority = 2, counter_name = FreeSms, counter_type = UNIT 
+FreePacket  : service = AIOS, service_id = PACKET, priority = 3, counter_name = FreePacket, counter_type = BYTE
+Remains     : service = AIOS, priority = 90, counter_name = Remains, counter_type = MONEY
+LastRemains : service = AIOS, priority = 91, counter_name = LastRemains, counter_type = MONEY
